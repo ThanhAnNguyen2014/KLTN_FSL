@@ -43,15 +43,6 @@ module.exports = {
                 console.log('sevice succesfully saved');
         });
     },
-    /**
-     * This is the test
-     */
-     /**
-     * This is the test
-     */
-     /**
-     * This is the test
-     */
-    
+  
   
 }
