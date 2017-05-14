@@ -1,0 +1,18 @@
+.figType-outofroom {
+    background-color: #ff4d4d;
+    font-size: 10px;
+    line-height: 11px;
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 2px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    text-transform: uppercase;
+    z-index: 3;
+}
+
+.no-touch .favLink a:hover span {
+    font-size: 20px;
+    color: #0040ff;
+}

@@ -1,0 +1,91 @@
+<!-- Slide bg -->
+<div id="hero-container">
+  <ul class="cb-slideshow">
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+  <div class="home-header">
+    <div class="home-logo osLight"><span class="fa fa-home"></span> FSL</div>
+    <a href="javascript:void(0)" class="home-navHandler <visi></visi>ble-xs"><span class="fa fa-bars"></span></a>
+    <div class="home-nav">
+      <ul>
+        <li><a href="#" data-toggle="modal" data-target="#signup">Đăng ký</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#signin">Đăng nhập</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <div class="home-caption">
+    <div class="home-title">Now it's easy to find your dream house</div>
+    <div class="home-subtitle">With FSL - you can find one as fast as possible</div>
+  </div>
+  <div class="search-panel">
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <input type="text" class="form-control" id="city" placeholder="Street" autocomplete="off">
+      </div>
+      <div class="form-group hidden-xs adv">
+        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+          <span class="dropdown-label">Phường</span> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-select">
+          <li class="active"><input type="radio" name="bathno" checked="checked"><a href="#">Phuong Ben Nghe</a></li>
+          <li><input type="radio" name="bathno"><a href="#">Phuong Da Kao</a></li>
+          <li><input type="radio" name="bathno"><a href="#">Phuong Ben Thanh</a></li>
+          <li><input type="radio" name="bathno"><a href="#">Phuong Tan Dinh</a></li>
+          <li><input type="radio" name="bathno"><a href="#">Phuong Cau Kho</a></li>
+        </ul>
+      </div>
+      <div class="form-group hidden-xs adv">
+        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+          <span class="dropdown-label">Quận</span> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-select">
+          <li class="active"><input type="radio" name="bedno" checked="checked"><a href="#">Quan 1</a></li>
+          <li><input type="radio" name="bedno"><a href="#">Quan 2</a></li>
+          <li><input type="radio" name="bedno"><a href="#">Quan 3</a></li>
+          <li><input type="radio" name="bedno"><a href="#">Quan 4</a></li>
+          <li><input type="radio" name="bedno"><a href="#">Quan 5</a></li>
+        </ul>
+      </div>
+      <div class="form-group hidden-xs adv">
+        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+          <span class="dropdown-label">Thành phố</span> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-select">
+          <li class="active"><input type="radio" name="bedno" checked="checked"><a href="#">Ha Noi</a></li>
+          <li><input type="radio" name="bedno"><a href="#">HCM</a></li>
+          <li><input type="radio" name="bedno"><a href="#">Can Tho</a></li>
+          <li><input type="radio" name="bedno"><a href="#">Da Lat</a></li>
+          <li><input type="radio" name="bedno"><a href="#">Quy Nhon</a></li>
+        </ul>
+      </div>
+      <div class="form-group hidden-xs adv">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input class="form-control price" type="text" placeholder="From">
+        </div>
+      </div>
+      <div class="form-group hidden-xs adv">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input class="form-control price" type="text" placeholder="To">
+        </div>
+      </div>
+      <div class="form-group">
+        <!--<a [routerLink]=['/'] class="btn btn-green">Search</a>-->
+         <a [routerLink]="['/details/search-details']" class="btn btn-green">Search</a>
+        <a href="javascript:void(0)" class="btn btn-o btn-white pull-right visible-xs" id="advanced">Advanced Search <span class="fa fa-angle-up"></span></a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="highlight">
+  <div class="h-title osLight">Find your new place with FSL</div>
+  <div class="h-text osLight">Find the place convenient for you</div>
+</div>
