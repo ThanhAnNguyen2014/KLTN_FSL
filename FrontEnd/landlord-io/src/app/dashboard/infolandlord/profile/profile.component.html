@@ -1,0 +1,135 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">perm_identity</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Landlord Profile -
+                            <small class="category">Complete your profile</small>
+                        </h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">First name</label>
+                                        <input type="text" class="form-control" name="firstname">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Last name</label>
+                                        <input type="text" class="form-control" name="lastname">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Email address</label>
+                                        <input type="email" class="form-control" name="email">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Phone</label>
+                                        <input type="text" class="form-control" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Identity card</label>
+                                        <input type="text" class="form-control" name="identitycard">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label" id="gender-label">Gender:</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-col-2">
+                                    <div class="form-group label-floating">
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="optionsRadios" checked="true"> Male                                             
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-col-2">
+                                    <div class="form-group label-floating">
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="optionsRadios" > Female                                            
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Adress:</label>
+                                        <input type="text" class="form-control" name="address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Birth day:</label>
+                                        <input type="text" class="form-control datepicker" name="birthday" value="{{datecurrent | date: 'dd/MM/yyyy'}}" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Id Facebook:</label>
+                                        <input type="text" class="form-control" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Id Google:</label>
+                                        <input type="text" class="form-control" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <legend>Avatar</legend>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-6">
+
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-circle">
+                                            <img src="../../assets/img/placeholder.jpg" alt="...">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                        <div>
+                                            <span class="btn btn-round btn-rose btn-file">
+                                            <span class="fileinput-new">Add Photo</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" name="..." />
+                                            </span>
+                                            <br />
+                                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-rose pull-right">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
