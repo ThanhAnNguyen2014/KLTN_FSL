@@ -1,0 +1,36 @@
+{
+  "name": "fsl.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ThanhAn & TrongNghia",
+  "license": "ISC",
+  "dependencies": {
+    "MD5": "^1.3.0",
+    "async": "^2.1.5",
+    "bcryptjs": "*",
+    "body-parser": "^1.16.1",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.3",
+    "errorhandler": "^1.5.0",
+    "express": "*",
+    "express-flash-2": "^1.0.1",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "fs": "0.0.1-security",
+    "method-override": "^2.3.7",
+    "moment": "^2.17.1",
+    "mongoose": "^4.8.5",
+    "morgan": "^1.8.1",
+    "multer": "^0.1.8",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "request": "^2.81.0"
+  }
+}
