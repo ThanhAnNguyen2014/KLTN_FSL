@@ -10,24 +10,24 @@
                         <h4 class="card-title">Landlord Profile -
                             <small class="category">Complete your profile</small>
                         </h4>
-                        <form>
+                        <form class="form" #f="ngForm" (ngSubmit)="SaveForm()" *ngIf="info">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">First name</label>
-                                        <input type="text" class="form-control" name="firstname">
+                                        <input type="text" class="form-control" name="firstname" [(ngModel)]="info.firstname">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Last name</label>
-                                        <input type="text" class="form-control" name="lastname">
+                                        <input type="text" class="form-control" name="lastname" [(ngModel)]="info.lastname">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Email address</label>
-                                        <input type="email" class="form-control" name="email">
+                                        <input type="email" class="form-control" name="email" [(ngModel)]="info.email">
                                     </div>
                                 </div>
                             </div>
@@ -37,13 +37,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Phone</label>
-                                        <input type="text" class="form-control" name="phone">
+                                        <input type="text" class="form-control" name="phone" [(ngModel)]="info.phone">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Identity card</label>
-                                        <input type="text" class="form-control" name="identitycard">
+                                        <input type="text" class="form-control" name="identitycard" [(ngModel)]="info.identitycard">
                                     </div>
                                 </div>
                                 <div class="col-md-1">
@@ -74,7 +74,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Adress:</label>
-                                        <input type="text" class="form-control" name="address">
+                                        <input type="text" class="form-control" name="address" [(ngModel)]="info.address">
                                     </div>
                                 </div>
                             </div>

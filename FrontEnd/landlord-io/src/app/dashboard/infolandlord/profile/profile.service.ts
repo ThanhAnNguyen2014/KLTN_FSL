@@ -13,7 +13,7 @@ export class ProfileService {
    }
    /**
     * 
-    * get info landlord
+    * get info landlord depend on id_user
     */
     GetSingle(id: object): Observable<any> {
     return this._http.get(this.apiUrl +id).map((response) => response.json())

@@ -17,19 +17,11 @@ import { RoomsComponent } from './managerooms/rooms/rooms.component';
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: HomeComponent },
-  { path: 'infolandlord/profile', component: ProfileComponent },
+  { path: 'infolandlord/profile/:id', component: ProfileComponent },
   { path: 'infolandlord/changepass', component: ChangepassComponent },
   { path: 'manageposts/newpost', component: NewpostComponent },
   //{ path: 'manageposts/detailhouse', component: DetailhouseComponent },
   {path:'manageposts/detailhouse/:id', component:DetailhouseComponent},
-  // {
-  //   path: 'manageposts/detailhouse/:id', component: DetailhouseComponent,
-  //   children: [
-  //     { path: '', pathMatch: 'full' },
-  //     // { path: 'overview', component: DetailhouseComponent },
-  //     // { path: 'projects', component: DetailhouseComponent }
-  //   ]
-  // },
   { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
   { path: 'managerooms/rooms', component: RoomsComponent },
 ]
