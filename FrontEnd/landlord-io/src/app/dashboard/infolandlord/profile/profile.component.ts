@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   datecurrent: Date;
 
   constructor(
-    private profileservice: ProfileService
+    //private profileservice: ProfileService
   ) { }
 
 
