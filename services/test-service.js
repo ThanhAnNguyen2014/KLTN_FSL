@@ -41,8 +41,6 @@ module.exports = {
                 console.log('sevice succesfully saved');
         });
     },
-    /**
-     * fuck git
-     */
+ 
 
 }
