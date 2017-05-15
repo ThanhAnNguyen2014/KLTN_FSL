@@ -15,61 +15,79 @@
                                     <div class="col-md-9">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control" name="title" placeholder="Nhà trọ giá rẻ, mặt tiền, mới đẹp" [(ngModel)]="house.title">
+                                            <input type="text" class="form-control" required name="title" placeholder="Nhà trọ giá rẻ, mặt tiền, mới đẹp" [(ngModel)]="house.title">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Area range:</label>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control text-right" name="range" placeholder="300 m2" [(ngModel)]="house.range">
+                                            <input type="number" class="form-control text-right" required name="range" placeholder="300 m2" [(ngModel)]="house.range">
                                         </div>
                                     </div>
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-2 label-on-right">Price:</label>
-                                    <div class="col-md-3">
+                                    <div class="col-md-1 text-left">
+                                        <label class="label-on-left">m2</label>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <label class="col-md-1 label-on-right">Price:</label>
+                                    <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control text-right" name="price" placeholder="2,550,000 đ" [(ngModel)]="house.price">
+                                            <input type="number" class="form-control text-right" required name="price" placeholder="2,550,000 đ" [(ngModel)]="house.price">
                                         </div>
+                                    </div>
+                                    <div class="col-md-1 text-left">
+                                        <label class="label-on-right">đ</label>
                                     </div>
                                 </div>
                                 <div class="row"><label class="col-md-2 label-on-right">Price services: </label></div>
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Electricity price:</label>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control text-right" name="electricity_price" placeholder="6.000 đ/kgWh">
+                                            <input type="number" class="form-control text-right" required name="electricity_price" placeholder="6.000">
                                         </div>
+                                    </div>
+                                    <div class="col-md-1 text-left">
+                                        <label class="label-on-left">đ/kWh</label>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <label class="col-md-2 label-on-right">Water price:</label>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control text-right" name="water_price" placeholder="8.000 đ/m3">
+                                            <input type="number" class="form-control text-right" required name="water_price" placeholder="8.000">
                                         </div>
+                                    </div>
+                                    <div class="col-md-1 text-left">
+                                        <label class="label-on-left">đ/m3</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <!--<label class="col-md-2 label-on-left"></label>-->
                                     <label class="col-md-2 label-on-right">Internet price:</label>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control text-right" name="internet_price" placeholder="50.000 đ/thang">
+                                            <input type="number" class="form-control text-right" required name="internet_price" placeholder="50.000">
                                         </div>
+                                    </div>
+                                    <div class="col-md-1 text-left">
+                                        <label class="label-on-left">đ/thang</label>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <label class="col-md-2 label-on-right">Garbage price:</label>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control text-right" name="garbage_price" placeholder="10.000 đ/thang">
+                                            <input type="number" class="form-control text-right" required name="garbage_price" placeholder="10.000">
                                         </div>
+                                    </div>
+                                    <div class="col-md-1 text-left">
+                                        <label class="label-on-left">đ/thang</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -124,7 +142,7 @@
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Address:</label>
                                     <div class="form-group label-floating col-md-8">
-                                        <input type="text" class="form-control" name="address" [(ngModel)]="house.address" placeholder="1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, HCM">
+                                        <input type="text" class="form-control" required name="address" [(ngModel)]="house.address" placeholder="1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, HCM">
                                     </div>
                                     <div class="form-group col-md-1 label-floating">
                                         <a href="javascript:void(0)" class="btn btn-just-icon btn-behance">
@@ -136,12 +154,12 @@
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Longitude:</label>
                                     <div class="form-group label-floating col-md-3 ">
-                                        <input type="text" class="form-control" name="longitude" [(ngModel)]="house.longitude">
+                                        <input type="text" class="form-control" required name="longitude" [(ngModel)]="house.longitude">
                                     </div>
                                     <div class="col-md-1"></div>
                                     <label class="col-md-2 label-on-right">Latitude:</label>
                                     <div class="form-group label-floating col-md-3 ">
-                                        <input type="text" class="form-control" name="latitude" [(ngModel)]="house.latitude">
+                                        <input type="text" class="form-control" required name="latitude" [(ngModel)]="house.latitude">
                                     </div>
                                 </div>
                                 <div id="regularMap" class="map"></div>
@@ -149,7 +167,7 @@
                                     <div class="col-md-12 col-xs-offset-0">
                                         <div class="form-group form-button">
                                             <button type="cancel" class="btn btn-fill btn-rose">Cancel</button>
-                                            <button type="submit" class="btn btn-fill btn-behance">Update</button>
+                                            <button type="submit" [disabled]="!f.form.valid" class="btn btn-fill btn-behance">Update</button>
                                         </div>
                                     </div>
                                 </div>

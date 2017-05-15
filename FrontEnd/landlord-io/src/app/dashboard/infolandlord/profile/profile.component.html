@@ -15,19 +15,27 @@
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">First name</label>
-                                        <input type="text" class="form-control" name="firstname" [(ngModel)]="info.firstname">
+                                        <input type="text" class="form-control" required name="firstname" [(ngModel)]="info.firstname">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Last name</label>
-                                        <input type="text" class="form-control" name="lastname" [(ngModel)]="info.lastname">
+                                        <input type="text" class="form-control" required name="lastname" [(ngModel)]="info.lastname">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Email address</label>
-                                        <input type="email" class="form-control" name="email" [(ngModel)]="info.email">
+                                        <input type="email" class="form-control" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required #email="ngModel" name="email" [(ngModel)]="info.email">
+                                        <div class="md-errors-spacer" [hidden]="email.valid || email.untouched">
+                                            <div *ngIf="email.errors && email.errors.required">
+
+                                            </div>
+                                            <div *ngIf="email.errors && email.errors.pattern">
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -37,13 +45,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Phone</label>
-                                        <input type="text" class="form-control" name="phone" [(ngModel)]="info.phone">
+                                        <input type="text" class="form-control" required name="phone" [(ngModel)]="info.phone">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Identity card</label>
-                                        <input type="text" class="form-control" name="identitycard" [(ngModel)]="info.identitycard">
+                                        <input type="text" class="form-control" required name="identitycard" [(ngModel)]="info.identitycard">
                                     </div>
                                 </div>
                                 <div class="col-md-1">
@@ -55,7 +63,7 @@
                                     <div class="form-group label-floating">
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="optionsRadios" checked="true"> Male                                             
+                                            <input type="radio" name="optionsRadios" [checked]="info.gender ? true : false"> Male                                             
                                         </label>
                                         </div>
                                     </div>
@@ -64,7 +72,7 @@
                                     <div class="form-group label-floating">
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="optionsRadios" > Female                                            
+                                            <input type="radio" name="optionsRadios" [checked]="info.gender ? false:true"> Female                                            
                                         </label>
                                         </div>
                                     </div>
@@ -74,7 +82,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Adress:</label>
-                                        <input type="text" class="form-control" name="address" [(ngModel)]="info.address">
+                                        <input type="text" class="form-control" required name="address" [(ngModel)]="info.address">
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +132,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-rose pull-right">Update Profile</button>
+                            <button type="submit" [disabled]="!f.form.valid" class="btn btn-rose pull-right">Update Profile</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
