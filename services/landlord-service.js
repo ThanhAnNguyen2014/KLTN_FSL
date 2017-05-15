@@ -58,6 +58,8 @@ module.exports = {
      * Find All Landlord
      */
     findAll: function (callback) {
+
+
         Models.Landlord.find(function (err, docs) {
             if (err) return callback(err);
             return callback(null, docs);
