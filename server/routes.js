@@ -8,7 +8,9 @@ var express = require('express'),
     customerController = require('../controllers/customerController'),
     testdatabaseController = require('../controllers/testdatabaseController'),
 
-    api_userController= require('../controllers/api_userController');
+    api_userController = require('../controllers/api_userController'),
+
+    api_landlordController = require('../controllers/api_landlordController');
 
 // module
 module.exports = function (app) {
@@ -19,27 +21,21 @@ module.exports = function (app) {
 
 
 
-
-
-
-
-
-
-
-
     //section Lanlord
     router.get('/customer', customerController.index);
-
-
-
+    router.post('/api/v1/landlord/create', api_landlordController.create);
+    router.get('/api/v1/landlord/:id', api_landlordController.findLandlordById);
+    router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
+    router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
+    router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
 
     // section admin
     router.get('/admin/login', adminController.get_login);
-    router.post('/admin/login', passport.authenticate('local', 
-    {
-        successRedirect: '/admin', failureRedirect: '/admin/login',
-        failureFlash: true
-    }), adminController.post_login);
+    router.post('/admin/login', passport.authenticate('local',
+        {
+            successRedirect: '/admin', failureRedirect: '/admin/login',
+            failureFlash: true
+        }), adminController.post_login);
     router.get('/admin/logout', adminController.get_logout);
     router.get('/admin', ensureAuthenticated, adminController.index);
     router.get('/admin/user_infor', ensureAuthenticated, adminController.userpage);
@@ -47,8 +43,6 @@ module.exports = function (app) {
     router.get('/admin/accept_post', ensureAuthenticated, adminController.accept_post);
     router.get('/admin/not_accept_post', ensureAuthenticated, adminController.not_accept_post);
     router.post('/admin/check_lock_user/:id', ensureAuthenticated, adminController.check_lock_user);
-
-
 
 
 
@@ -84,7 +78,7 @@ module.exports = function (app) {
 
     }
 
-    
+
     app.use(router);
 };
 

@@ -10,6 +10,7 @@ var app = express();
 app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname + '/views');
 //configure connect to mongo database
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/FSL_IO');
 mongoose.connection.on('open', function () {
     console.log('Mongoose connected!');

@@ -13,10 +13,10 @@ var LandlordSchema = new Schema({
     birthday: { type: Date }, // brithday of user
     identitycard: { type: String },
     image: { type: String },//image of user
-    id_facebook: { type: String }, // id account facebook of user if user login with facebook
-    id_google: { type: String },
-    create_date: { type: Date, 'default': Date.now() }, // create day current of user
-    status: { type: Boolean, 'default': true }, // check status of user
+    id_facebook: { type: String , default: null}, // id account facebook of user if user login with facebook
+    id_google: { type: String , default: null},
+    create_date: { type: Date, default: Date.now() }, // create day current of user
+    status: { type: Boolean, default: true }, // check status of user
     //role: { type: String } // role of user (user or landlord)
 });
 var Landlord = module.exports = mongoose.model('Landlord', LandlordSchema);
