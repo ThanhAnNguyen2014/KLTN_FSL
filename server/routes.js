@@ -15,7 +15,6 @@ var express = require('express'),
 // module
 module.exports = function (app) {
     // section User
-
     router.get('/api/v1/gethouse', api_userController.get_house_home); // get info house of user home page
 
 
@@ -46,6 +45,9 @@ module.exports = function (app) {
 
 
 
+
+    // page home
+    router.get('/', homeController.index);
 
     // section test 
     router.get('/test', testdatabaseController.index);
