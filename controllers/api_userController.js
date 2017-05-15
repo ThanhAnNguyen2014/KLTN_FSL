@@ -1,5 +1,5 @@
-let Models = require('../models');
-let homeUserSerice = require('../services/home-user-service');
+var Models = require('../models');
+var homeUserSerice = require('../services/home-user-service');
 
 module.exports = {
     // api: get all house to user page

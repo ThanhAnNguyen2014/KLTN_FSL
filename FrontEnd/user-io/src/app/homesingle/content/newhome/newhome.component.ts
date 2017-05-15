@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NewhomeService } from "./newhome.service";
 import { NewHouse } from "./newhouse";
 import { Subscription } from "rxjs/Rx";
+import { NgClass } from '@angular/common';
 
 declare var $: any;
 
@@ -31,17 +32,20 @@ export class NewhomeComponent implements OnInit, OnDestroy {
     );
 
   }
- 
-  range(value) {
+
+  ratings(value) {
     //var temp = parseInt(value);
     //console.log(temp);
+
     var a = [];
+    if (value == 0) {
+      return a;
+    };
     for (var i = 0; i < parseInt(value); ++i) {
       a.push(i + 1)
     }
     return a;
   }
-
 
   ngOnInit() {
     //$('[data-toggle="tooltip"]').tooltip();
