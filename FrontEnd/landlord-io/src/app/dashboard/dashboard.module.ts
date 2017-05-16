@@ -12,6 +12,7 @@ import { DetailhouseComponent } from './manageposts/detailhouse/detailhouse.comp
 import { CreateroomtypeComponent } from './managerooms/createroomtype/createroomtype.component';
 import { RoomsComponent } from './managerooms/rooms/rooms.component';
 import { ListhouseComponent } from './manageposts/listhouse/listhouse.component';
+import { EdithouseComponent } from './manageposts/edithouse/edithouse.component';
 
 
 
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'manageposts/listhouse', component:  ListhouseComponent},
   //{ path: 'manageposts/detailhouse', component: DetailhouseComponent },
   {path:'manageposts/detailhouse/:id', component:DetailhouseComponent},
+  { path: 'manageposts/edithouse/:id', component:  EdithouseComponent},
   { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
   { path: 'managerooms/rooms', component: RoomsComponent },
 ]
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     DetailhouseComponent,
     CreateroomtypeComponent,
     RoomsComponent,
-    ListhouseComponent
+    ListhouseComponent,
+    EdithouseComponent
   ],
   exports: [DashboardComponent]
 })

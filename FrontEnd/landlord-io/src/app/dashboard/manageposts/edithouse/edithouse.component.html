@@ -7,7 +7,7 @@
                         <i class="material-icons">description</i>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Landlord House Information</h3>
+                        <h3 class="card-title">Landlord House Information - Edit</h3>
                         <div class="col-md-12">
                             <form class="form-horizontal" #f="ngForm" (ngSubmit)="SaveForm()" *ngIf="house">
                                 <div class="row">
@@ -24,7 +24,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="range" placeholder="300 m2" [(ngModel)]="house.range">
+                                            <input type="number" class="form-control text-right" required name="range" placeholder="300" [(ngModel)]="house.range">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -35,7 +35,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="price" placeholder="2,550,000 đ" [(ngModel)]="house.price">
+                                            <input type="number" class="form-control text-right" required name="price" placeholder="2,550,000" [(ngModel)]="house.price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -48,7 +48,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="electricity_price" placeholder="6.000">
+                                            <input type="number" class="form-control text-right" required name="electricity_price" placeholder="6.000" [(ngModel)]="house.price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -166,7 +166,8 @@
                                 <div class="row">
                                     <div class="col-md-12 col-xs-offset-0">
                                         <div class="form-group form-button">
-                                            <button type="cancel" class="btn btn-fill btn-behance" [routerLink]="['/manageposts/listhouse']">Back</button>
+                                            <button type="cancel" class="btn btn-fill btn-rose" [routerLink]="['/manageposts/listhouse']">Cancel</button>
+                                            <button type="submit" [disabled]="!f.form.valid" class="btn btn-fill btn-behance">Update</button>
                                         </div>
                                     </div>
                                 </div>
