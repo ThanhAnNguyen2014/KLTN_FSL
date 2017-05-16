@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname + '/views');
 //configure connect to mongo database
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/FSL_IO');
+mongoose.connect('mongodb://thanhannguyen:Thanhan200114050@ds143211.mlab.com:43211/fsl_io');
 mongoose.connection.on('open', function () {
     console.log('Mongoose connected!');
 });

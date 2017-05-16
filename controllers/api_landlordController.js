@@ -39,25 +39,34 @@ module.exports = {
         landlordServices.update(req.params.id, req.body, function (err) {
             if (err) return res.status(200).json({ message: err });
 
-           else {
+            else {
                 console.log('Update landlord success!');
                 return res.status(200).json({ message: 'Success!' });
             }
         });
         return res.status(500);
     },
-    deleteLandlord: function(req, res, callback){
-        landlordServices.remove(req.params.id,function(err){
-            if(err) return res.status(200).json({ message: err });
-            return res.status(200).json({message: 'Success!'});
+    deleteLandlord: function (req, res, callback) {
+        landlordServices.remove(req.params.id, function (err) {
+            if (err) return res.status(200).json({ message: err });
+            return res.status(200).json({ message: 'Success!' });
         });
         return res.status(500);
     },
-    getAllLandlord: function(req, res, callback){
-        landlordServices.findAll(function(err, docs){
-            if(err) return res.status(200).json({message: err});
-            return res.status(200).json(docs);
+    getAllLandlord: function (req, res, callback) {
+        var viewModel = {
+            code: Number,
+            results: []
+        };
+        landlordServices.findAll(function (err, docs) {
+            if (err) return res.status(200).json({ message: err });
+            else {
+                viewModel.results = docs;
+                viewModel.code = 200;
+                return res.status(200).json(viewModel);
+            }
+
         });
-        
+
     }
 }

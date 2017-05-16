@@ -2,7 +2,7 @@ var Models = require('../models');
 var request = require('request');
 var fs = require('fs');
 module.exports = {
-    index: function (req, res, next) {
+    testdata: function (req, res, next) {
 
         // request('http://localhost:51668/api/Products/getcity', function (err, response, body) {
         //     //var data1 = fs.readFileSync("models/data.json");
@@ -50,6 +50,10 @@ module.exports = {
         })
         res.status(404);
 
+    },
+    index:function(req, res){
+        res.render('users/index', {layout:'userlayout.handlebars'});
+          console.log('Home index create success!');
     },
 }
 
