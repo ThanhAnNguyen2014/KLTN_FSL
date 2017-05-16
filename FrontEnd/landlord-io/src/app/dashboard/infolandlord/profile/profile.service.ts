@@ -6,7 +6,7 @@ import { Http } from "@angular/http";
 @Injectable()
 export class ProfileService {
 
-  private apiUrl="http://5914085a08cca6001102777a.mockapi.io/USER/";
+  private apiUrl="https://hcmutefslio.herokuapp.com/api/v1/landlord/";
 
   constructor(private _http:Http) {
 

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import initDatetimepickers = require('../../../../assets/js/init/initDatetimepickers.js');
 import { ProfileService } from './profile.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
 import { $ } from "protractor/built";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,8 @@ import { $ } from "protractor/built";
   providers: [ProfileService]
 })
 export class ProfileComponent implements OnInit {
+    
+
 
   private _id: object;
   private subscription: Subscription;
@@ -42,6 +45,12 @@ export class ProfileComponent implements OnInit {
       this.info = data;
       console.log(data);
     });
+
+    
   }
+  SaveForm(form:NgForm){
+    console.log(form.value);
+  }
+
 
 }

@@ -10,7 +10,7 @@
                         <h4 class="card-title">Landlord Profile -
                             <small class="category">Complete your profile</small>
                         </h4>
-                        <form class="form" #f="ngForm" (ngSubmit)="SaveForm()" *ngIf="info">
+                        <form class="form" #f="ngForm" (ngSubmit)="SaveForm(f)" *ngIf="info">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
@@ -90,7 +90,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Birth day:</label>
-                                        <input type="text" class="form-control datepicker" name="birthday" value="{{datecurrent | date: 'dd/MM/yyyy'}}" />
+                                        <input type="text" class="form-control datepicker" name="birthday" [ngModel]="info.birthday | date: 'dd/MM/yyyy'" (ngModelChange)="info.birthday=$event" />
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -117,14 +117,14 @@
 
                                     <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail img-circle">
-                                            <img src="../../assets/img/placeholder.jpg" alt="...">
+                                            <img src="{{info.image}}" alt="...">
                                         </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                                         <div>
                                             <span class="btn btn-round btn-rose btn-file">
                                             <span class="fileinput-new">Add Photo</span>
                                             <span class="fileinput-exists">Change</span>
-                                            <input type="file" name="..." />
+                                            <input type="file" name="image" value="" [(ngModel)]=" info.image " />
                                             </span>
                                             <br />
                                             <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>

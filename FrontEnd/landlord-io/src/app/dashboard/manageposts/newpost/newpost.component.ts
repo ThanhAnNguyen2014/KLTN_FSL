@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import initMaps = require('../../../../assets/js/init/initMaps.js');
 import { NewpostService } from './newpost.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import initNotifyAddSuccess = require('../../../../assets/js/init/notify-add-success.js');
 declare var $: any;
 
 @Component({
@@ -27,13 +28,15 @@ export class NewpostComponent implements OnInit {
 
    SaveForm() {
         this.newpostService.Add(this.house).subscribe(response => {
+
             if (response) {
+                initNotifyAddSuccess(); 
                 //alert('add success');
                 console.log(response);
-                this.router.navigate(['manageposts/detailhouse']);
-                
+                this.router.navigate(['/manageposts/listhouse']);   
             }
         })
+        
     }
 
 }

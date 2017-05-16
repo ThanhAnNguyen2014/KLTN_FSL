@@ -6,5 +6,6 @@ export const ROUTES: RouteInfo[] = [
     { path: './infolandlord/profile/1', title: 'Landlord Profile', menuType: MenuType.LEFT, icon: 'material-icons' },
     { path: './infolandlord/changepass', title: 'Change Password', menuType: MenuType.LEFT, icon: 'material-icons' },
     { path: './managerooms/createroomtype', title: 'Create Room Type', menuType: MenuType.LEFT, icon: 'material-icons' },
-    { path: './managerooms/rooms', title: 'Rooms', menuType: MenuType.LEFT, icon: 'material-icons' }
+    { path: './managerooms/rooms', title: 'Rooms', menuType: MenuType.LEFT, icon: 'material-icons' },
+    { path: './manageposts/listhouse', title: 'List House', menuType: MenuType.LEFT, icon: 'material-icons' }
 ];

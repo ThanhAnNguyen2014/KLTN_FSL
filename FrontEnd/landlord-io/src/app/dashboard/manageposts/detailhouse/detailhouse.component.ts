@@ -39,5 +39,11 @@ export class DetailhouseComponent implements OnInit {
       this.house = data;
     });
   }
+  gotodashboard(){
+    this.router.navigate(['/dashboard']);
+  }
+  SaveForm(){
+    
+  }
 
 }
