@@ -68,5 +68,22 @@ module.exports = {
 
         });
 
+    },
+    /**
+     * Get all Devices
+     */
+    getAllDevices:function(req, res){
+        var viewModel = {
+            code: Number,
+            results: []
+        };
+        landlordServices.getDevices(function(err, devices){
+            if(err) return res.status(500).json({ message: err });
+            else {
+                viewModel.results = devices;
+                viewModel.code = 200;
+                return res.status(200).json(viewModel);
+            }
+        });
     }
 }

@@ -27,6 +27,7 @@ module.exports = function (app) {
     router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
+    router.get('/api/v1/devices', api_landlordController.getAllDevices);
 
     // section admin
     router.get('/admin/login', adminController.get_login);

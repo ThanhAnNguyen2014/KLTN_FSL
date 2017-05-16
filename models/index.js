@@ -15,5 +15,6 @@ module.exports = {
     'Room_Price': require('./roomprice'),
     'Room_Type' : require('./roomtype'),
     'Rating': require('./rating'),
-    'AvgRating': require('./avgrating')
+    'AvgRating': require('./avgrating'),
+    'Devices': require('./device')
 };
