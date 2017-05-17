@@ -13,12 +13,12 @@ declare var $: any;
 })
 export class NewpostComponent implements OnInit {
 
-  public _id: object;
-  public house: any;
+  private _id: object;
+  private house: any;
 
   constructor(
     private router: Router, private activatedRoute: ActivatedRoute,
-    public newpostService: NewpostService
+    private newpostService: NewpostService
   ) { }
 
   ngOnInit() {
