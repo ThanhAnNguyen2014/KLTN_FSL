@@ -1,13 +1,13 @@
 if ('undefined' !== typeof module) {
     inNotify = true;
-    module.exports = function() {
+    module.exports = function(msg, color) {
         $.notify({
             icon: "notifications",
-            message: "Add success"
+            message: msg
 
         }, {
-            type: 'success',
-            timer: 1000,
+            type: color,
+            timer: 500,
             placement: {
                 from: 'top',
                 align: 'center'

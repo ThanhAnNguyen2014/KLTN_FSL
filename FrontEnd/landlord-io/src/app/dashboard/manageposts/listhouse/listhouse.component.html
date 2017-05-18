@@ -22,8 +22,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let house of houses">
-                                        <td class="text-center">1</td>
+                                    <tr *ngFor="let house of houses, let i=index">
+                                        <td class="text-center">{{i+1}}</td>
                                         <td>{{house.title}}</td>
                                         <td class="text-center">{{house.status}}</td>
                                         <td class="text-center">{{house.price | number}}</td>

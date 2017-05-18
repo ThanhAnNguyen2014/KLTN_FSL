@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import initMaps = require('../../../../assets/js/init/initMaps.js');
 import { Router, ActivatedRoute } from '@angular/router';
-import initNotifyAddSuccess = require('../../../../assets/js/init/notify-add-success.js');
+import initNotifySuccess = require('../../../../assets/js/init/notify-success.js');
 import { CreateroomtypeService } from './createroomtype.service';
 declare var $: any;
 
@@ -13,9 +13,11 @@ declare var $: any;
 })
 export class CreateroomtypeComponent implements OnInit {
 
-    private _id: object;
+    //private _id: object;
     private room: any;
     private rooms: any[];
+    showEdit: boolean = false;
+
     constructor(
         private createroomtypeservice: CreateroomtypeService,
         private router: Router,
@@ -24,6 +26,39 @@ export class CreateroomtypeComponent implements OnInit {
 
     ngOnInit() {
         this.room = {};
+        this.LoadData();
+    }
+
+    SaveAdd() {
+        this.room.no_room = 0;
+        this.createroomtypeservice.Add(this.room).subscribe(res => {
+            console.log(this.room);
+            if (res) {
+                initNotifySuccess('Add success','success');
+                //alert('add success');
+                console.log(res);
+                //this.router.navigate(['/managerooms/createroomtype']);
+                this.LoadData();
+                this.room = {};
+
+            }
+        })
+
+    }
+    Delete(id: object) {
+        let confirmResult = confirm("Are you sure to delete Room type?");
+        if (confirmResult) {
+            this.createroomtypeservice.Delete(id).subscribe(response => {
+                if (response) {
+                    alert('Delete ok');
+                    this.LoadData();
+
+                }
+            })
+        }
+    }
+
+    LoadData() {
         this.createroomtypeservice.GetList().subscribe((response: any) => {
 
             this.rooms = response;
@@ -34,16 +69,22 @@ export class CreateroomtypeComponent implements OnInit {
         });
     }
 
-    Save() {
-        this.createroomtypeservice.Add(this.room).subscribe(res => {
-            if (res) {
-                initNotifyAddSuccess(); 
-                //alert('add success');
-                console.log(res);
-                this.router.navigate(['/managerooms/createroomtype']);   
+    SaveUpdate(id: object) {
+        this.createroomtypeservice.Update(id, this.room).subscribe(response => {
+            if (response) {
+                alert('Update success!');
             }
         })
+        this.showEdit = false;
+        this.LoadData();
+    }
 
+    EditFunction(id: object) {
+        //this.flagEdit=1;
+        this.showEdit = true;
+        this.createroomtypeservice.GetSingle(id).subscribe((response) => {
+            this.room = response;
+        })
     }
 
 }
