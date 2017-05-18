@@ -34,14 +34,15 @@ export class CreateroomtypeComponent implements OnInit {
         this.createroomtypeservice.Add(this.room).subscribe(res => {
             console.log(this.room);
             if (res) {
-                initNotifySuccess('Add success','success');
+                initNotifySuccess('Add success', 'success');
                 //alert('add success');
                 console.log(res);
                 //this.router.navigate(['/managerooms/createroomtype']);
                 this.LoadData();
-                this.room = {};
+                //this.room = {};
 
             }
+            this.room = {};
         })
 
     }
@@ -72,15 +73,16 @@ export class CreateroomtypeComponent implements OnInit {
     SaveUpdate(id: object) {
         this.createroomtypeservice.Update(id, this.room).subscribe(response => {
             if (response) {
-                alert('Update success!');
+                initNotifySuccess('Update success!', 'success');
+                this.LoadData(); 
             }
         })
         this.showEdit = false;
-        this.LoadData();
+        this.room = {}; 
+          
     }
 
     EditFunction(id: object) {
-        //this.flagEdit=1;
         this.showEdit = true;
         this.createroomtypeservice.GetSingle(id).subscribe((response) => {
             this.room = response;
