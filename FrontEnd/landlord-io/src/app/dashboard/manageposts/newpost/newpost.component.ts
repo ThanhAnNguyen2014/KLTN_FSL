@@ -40,7 +40,7 @@ export class NewpostComponent implements OnInit {
   private _id: object;
   //private house: any;
   house: House = null;
-
+  public statuses = [{name: "Mới" }, {name: "Cũ" }];
 
   constructor(
     private router: Router, private activatedRoute: ActivatedRoute,
@@ -63,7 +63,7 @@ export class NewpostComponent implements OnInit {
     this.newpostService.Add(this.house).subscribe(response => {
 
       if (response) {
-        initNotifySuccess('Add success','success');
+        initNotifySuccess('Add success', 'success');
         //alert('add success');
         console.log(response);
         this.router.navigate(['/manageposts/listhouse']);

@@ -41,6 +41,7 @@ export class EdithouseComponent implements OnInit {
   private subscription: Subscription;
   //private house: any;
   house: House = null;
+  public statuses = [{name: "Mới" }, {name: "Cũ" }];
 
   constructor(
     private router: Router,
