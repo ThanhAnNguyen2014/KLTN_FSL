@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import initMaps = require('../../../../assets/js/init/initMaps.js');
-import { NewpostService } from './newpost.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from "rxjs/Subscription";
+import { Router, ActivatedRoute } from "@angular/router";
+import { EdithouseService } from './edithouse.service';
 import initNotifySuccess = require('../../../../assets/js/init/notify-success.js');
 import { NgForm } from "@angular/forms";
-declare var $: any;
 
 /**
  * Models
@@ -30,46 +30,48 @@ export class Service_Price {
 }
 
 @Component({
-  selector: 'app-newpost',
-  templateUrl: './newpost.component.html',
-  styleUrls: ['./newpost.component.css'],
-  providers: [NewpostService]
+  selector: 'app-edithouse',
+  templateUrl: './edithouse.component.html',
+  styleUrls: ['./edithouse.component.css'],
+  providers: [EdithouseService]
 })
-export class NewpostComponent implements OnInit {
+export class EdithouseComponent implements OnInit {
 
   private _id: object;
+  private subscription: Subscription;
   //private house: any;
   house: House = null;
   public statuses = [{name: "Mới" }, {name: "Cũ" }];
 
   constructor(
-    private router: Router, private activatedRoute: ActivatedRoute,
-    private newpostService: NewpostService
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private edithouseservice: EdithouseService
   ) { }
 
   ngOnInit() {
-    //initMaps();
-    this.house = new House();
-    this.house.service_price = new Service_Price();
-  }
 
+    this.subscription = this.activatedRoute.params.subscribe(params => {
+      this._id = params['id'];
+
+      console.log(this._id);
+    });
+
+    this.edithouseservice.GetSingle(this._id).subscribe((data) => {
+      this.house = data;
+    });
+  }
   SaveForm(f: NgForm) {
-    console.log(f.value);
     this.house.service_price.electricity_price = f.value.electricity_price;
     this.house.service_price.water_price = f.value.water_price;
     this.house.service_price.internet_price = f.value.internet_price;
     this.house.service_price.garbage_price = f.value.garbage_price;
-    console.log(this.house);
-    this.newpostService.Add(this.house).subscribe(response => {
-
+    this.edithouseservice.Update(this._id, this.house).subscribe(response => {
       if (response) {
-        initNotifySuccess('Add success', 'success');
-        //alert('add success');
-        console.log(response);
-        this.router.navigate(['/manageposts/listhouse']);
+        initNotifySuccess('Update success', 'success');
+        this.router.navigate(['manageposts/listhouse']);
       }
     })
-
   }
 
 }

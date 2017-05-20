@@ -1,0 +1,49 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">list</i>
+                    </div>
+                    <h3 class="card-title">List House</h3>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th>Title</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center">Range</th>
+                                        <th class="text-center">Address</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let house of houses, let i=index">
+                                        <td class="text-center">{{i+1}}</td>
+                                        <td>{{house.title}}</td>
+                                        <td class="text-center">{{house.status}}</td>
+                                        <td class="text-center">{{house.price | number}}</td>
+                                        <td class="text-center">{{house.range | number}}</td>
+                                        <td>{{house.address}}</td>
+                                        <td class="td-actions text-center">
+                                            <button type="button" rel="tooltip" [routerLink]="['/manageposts/edithouse/'+house.id]" class="btn btn-success">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button type="button" rel="tooltip" [routerLink]="['/manageposts/detailhouse/'+house.id]" class="btn btn-danger">
+                                                <i class="material-icons">assignment</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -39,5 +39,7 @@ export class DetailhouseComponent implements OnInit {
       this.house = data;
     });
   }
-
+  // gotolisthouse(){
+  //   this.router.navigate(['/manageposts/listhouse']);
+  // }
 }

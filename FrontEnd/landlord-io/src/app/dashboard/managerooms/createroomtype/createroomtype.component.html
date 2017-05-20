@@ -1,9 +1,9 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" *ngIf="!showEdit">
             <div class="col-md-12">
                 <div class="card">
-                    <form method="post" action="/" class="form-horizontal">
+                    <form class="form-horizontal" #formaddroomtype="ngForm" (ngSubmit)="SaveAdd()">
                         <div class="card-header card-header-text" data-background-color="rose">
                             <h4 class="card-title">Add new type of rooms</h4>
                         </div>
@@ -13,7 +13,7 @@
                                 <div class="col-sm-8">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" value placeholder="Loại 1" name="title">
+                                        <input type="text" class="form-control" required name="title" [(ngModel)]="room.title">
                                     </div>
                                 </div>
                             </div>
@@ -22,7 +22,7 @@
                                 <div class="col-sm-8">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <textarea class="form-control" rows="5" value name="description" placeholder="Nhà trọ mới xây, sạch đẹp, có trang bị nhiều dụng cụ: quạt, đèn, bếp. Gần chợ, gần trạm xe buýt, gần nhiều trường đại học. Thuận tiện cho sinh viên"></textarea>
+                                        <textarea class="form-control" rows="5" value name="description" [(ngModel)]="room.description" placeholder="Nhà trọ mới xây, sạch đẹp, có trang bị nhiều dụng cụ: quạt, đèn, bếp. Gần chợ, gần trạm xe buýt, gần nhiều trường đại học. Thuận tiện cho sinh viên"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" placeholder="4" name="no_people">
+                                        <input type="number" class="form-control" placeholder="4" required name="no_people" [(ngModel)]="room.no_people">
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +109,126 @@
                             <div class="row">
                                 <div class="col-md-2 col-xs-offset-4 col-md-offset-5">
                                     <div class="form-group form-button">
-                                        <button type="cancel" class="btn btn-fill btn-success"><i class="material-icons">add_circle</i> Add</button>
+                                        <button type="submit" [disabled]="!formaddroomtype.form.valid" class="btn btn-fill btn-success"><i class="material-icons">add_circle</i> Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="showEdit">
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal" #formupdateroomtype="ngForm" (ngSubmit)="SaveUpdate(room.id) " *ngIf="room">
+                        <div class="card-header card-header-text" data-background-color="rose">
+                            <h4 class="card-title">Update type of rooms</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="row">
+                                <label class="col-sm-2 label-on-left">Title</label>
+                                <div class="col-sm-8">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="text" class="form-control" required name="title" [(ngModel)]="room.title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 label-on-left">description</label>
+                                <div class="col-sm-8">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <textarea class="form-control" rows="5" name="description" [(ngModel)]="room.description" placeholder="Nhà trọ mới xây, sạch đẹp, có trang bị nhiều dụng cụ: quạt, đèn, bếp. Gần chợ, gần trạm xe buýt, gần nhiều trường đại học. Thuận tiện cho sinh viên"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 label-on-left">Number of people</label>
+                                <div class="col-sm-4">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="number" class="form-control" placeholder="4" required name="no_people" [(ngModel)]="room.no_people">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 label-on-left">Device</label>
+                                <div class="col-sm-2 checkbox-radios">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Đèn
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Quạt trần
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Quạt đứng
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 checkbox-radios">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Bếp gas
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Vòi sen
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Sách
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 checkbox-radios">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Tủ quần áo
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Máy lạnh
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Đồng hồ
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 checkbox-radios">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Tivi
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Siêu xe
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes"> Trai đẹp
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 col-xs-offset-4 col-md-offset-5">
+                                    <div class="form-group form-button">
+                                        <button type="submit" [hidden]="true" [disabled]="!formupdateroomtype.form.valid" class="btn btn-fill btn-success">Update</button>
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +252,6 @@
                                     <tr>
                                         <th class="text-center">#</th>
                                         <th>Title</th>
-                                        <th>Description</th>
                                         <th class="text-center">No_people</th>
                                         <th class="text-center">No_room</th>
                                         <th class="text-center">Device</th>
@@ -141,34 +259,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Loại 1</td>
-                                        <td>Phòng mới xây</td>
-                                        <td class="text-center">4</td>
-                                        <td class="text-center">10</td>
+                                    <tr *ngFor="let aroom of rooms; let i=index">
+                                        <td class="text-center">{{i+1}}</td>
+                                        <td>{{aroom.title}}</td>
+                                        <td class="text-center">{{aroom.no_people}}</td>
+                                        <td class="text-center">{{aroom.no_room}}</td>
                                         <td>Đèn; quạt trần; bếp gas; vòi sen</td>
                                         <td class="td-actions text-center">
-                                            <button type="button" rel="tooltip" class="btn btn-success">
+                                            <button type="button" rel="tooltip" class="btn btn-success" (click)="EditFunction(aroom.id)">
                                                 <i class="material-icons">edit</i>
                                             </button>
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">2</td>
-                                        <td>Loại 2</td>
-                                        <td>Phòng cũ</td>
-                                        <td class="text-center">8</td>
-                                        <td class="text-center">0</td>
-                                        <td>Đèn; quạt trần; bếp gas</td>
-                                        <td class="td-actions text-center">
-                                            <button type="button" rel="tooltip" class="btn btn-success">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
+                                            <button type="button" rel="tooltip" class="btn btn-danger" (click)="Delete(aroom.id)">
                                                 <i class="material-icons">close</i>
                                             </button>
                                         </td>

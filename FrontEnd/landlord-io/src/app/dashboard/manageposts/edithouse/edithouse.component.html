@@ -7,9 +7,9 @@
                         <i class="material-icons">description</i>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Landlord House Information</h3>
+                        <h3 class="card-title">Landlord House Information - Edit</h3>
                         <div class="col-md-12">
-                            <form class="form-horizontal" #f="ngForm" (ngSubmit)="SaveForm()" *ngIf="house">
+                            <form class="form-horizontal" #f="ngForm" (ngSubmit)="SaveForm(f)" *ngIf="house">
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Title house:</label>
                                     <div class="col-md-9">
@@ -24,7 +24,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="range" placeholder="300 m2" [(ngModel)]="house.range">
+                                            <input type="number" class="form-control text-right" required name="range" placeholder="300" [(ngModel)]="house.range">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -35,29 +35,33 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="price" placeholder="2,550,000 đ" [(ngModel)]="house.price">
+                                            <input type="number" class="form-control text-right" required name="price" placeholder="2,550,000" [(ngModel)]="house.price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
                                         <label class="label-on-right">đ</label>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Status:</label>
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control" required name="status" [(ngModel)]="house.status">
+                                            <select class="form-control text-center" required name="status" [(ngModel)]="house.status">
+                                                    <option *ngFor="let st of statuses"  [value]="st.name" >{{st.name}}</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row"><label class="col-md-2 label-on-right">Price services: </label></div>
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Electricity price:</label>
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="electricity_price" placeholder="6.000">
+                                            <input type="number" class="form-control text-right" required name="electricity_price" placeholder="6.000" [(ngModel)]="house.service_price.electricity_price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -68,7 +72,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="water_price" placeholder="8.000">
+                                            <input type="number" class="form-control text-right" required name="water_price" placeholder="8.000" [(ngModel)]="house.service_price.water_price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -81,7 +85,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="internet_price" placeholder="50.000">
+                                            <input type="number" class="form-control text-right" required name="internet_price" placeholder="50.000" [(ngModel)]="house.service_price.internet_price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -92,7 +96,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="garbage_price" placeholder="10.000">
+                                            <input type="number" class="form-control text-right" required name="garbage_price" placeholder="10.000" [(ngModel)]="house.service_price.garbage_price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -175,7 +179,8 @@
                                 <div class="row">
                                     <div class="col-md-12 col-xs-offset-0">
                                         <div class="form-group form-button">
-                                            <button type="cancel" class="btn btn-fill btn-behance" [routerLink]="['/manageposts/listhouse']">Back</button>
+                                            <button type="cancel" class="btn btn-fill btn-rose" [routerLink]="['/manageposts/listhouse']">Cancel</button>
+                                            <button type="submit" [disabled]="!f.form.valid" class="btn btn-fill btn-behance">Update</button>
                                         </div>
                                     </div>
                                 </div>

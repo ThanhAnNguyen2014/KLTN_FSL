@@ -9,23 +9,30 @@
                                 <small class="category">Info</small>
                             </h4>
                         </div>
-                        <form #f="ngForm" (ngSubmit)="SaveForm()">
+                        <form #f="ngForm" (ngSubmit)="SaveForm(f)">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="form-group label-floating col-md-12">
                                             <label class="control-label">Title house</label>
-                                            <input type="text" class="form-control" name="title" [(ngModel)]="house.title">
+                                            <input type="text" class="form-control" #title="ngModel" required name="title" [(ngModel)]="house.title">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="form-group label-floating col-md-6 col-xs-6">
+                                        <div class="form-group label-floating col-md-4 col-xs-6">
                                             <label class="control-label">Area range</label>
-                                            <input type="text" class="form-control" name="range" [(ngModel)]="house.range">
+                                            <input type="number" class="form-control" #range=ngModel required name="range" [(ngModel)]="house.range">
                                         </div>
-                                        <div class="form-group label-floating col-md-6 col-xs-6">
+                                        <div class="form-group label-floating col-md-4 col-xs-6">
                                             <label class="control-label">Price</label>
-                                            <input type="text" class="form-control" name="price" [(ngModel)]="house.price">
+                                            <input type="number" class="form-control" required name="price" [(ngModel)]="house.price">
+                                        </div>
+                                        <div class="form-group label-floating col-md-4 col-xs-6">
+                                            <label class="control-label">Status</label>
+                                            <select class="form-control" required name="status" [(ngModel)]="house.status">
+                                                    <option *ngFor="let status of statuses" [value]="status.name">{{status.name}}</option>
+                                            </select>
+                                            <!--<input type="number" class="form-control" required name="price" [(ngModel)]="house.price">-->
                                         </div>
                                     </div>
                                     <div class="row">
@@ -44,7 +51,7 @@
                                         </div>
                                         <div class="form-group label-floating col-md-3 col-md-offset-4 col-xs-8 col-xs-offset-2">
                                             <label class="control-label">Electricity price</label>
-                                            <input type="text" class="form-control" name="electricity_price">
+                                            <input type="text" class="form-control" required name="electricity_price" [(ngModel)]="house.service_price.electricity_price">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -52,7 +59,7 @@
                                         </div>
                                         <div class="form-group label-floating col-md-3 col-md-offset-4 col-xs-8 col-xs-offset-2">
                                             <label class="control-label">Water price</label>
-                                            <input type="text" class="form-control" name="water_price">
+                                            <input type="text" class="form-control" required name="water_price" [(ngModel)]="house.service_price.water_price">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -60,7 +67,7 @@
                                         </div>
                                         <div class="form-group label-floating col-md-3 col-md-offset-4 col-xs-8 col-xs-offset-2">
                                             <label class="control-label">Internet price</label>
-                                            <input type="text" class="form-control" name="internet_price">
+                                            <input type="text" class="form-control" required name="internet_price" [(ngModel)]="house.service_price.internet_price">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -68,7 +75,7 @@
                                         </div>
                                         <div class="form-group label-floating col-md-3 col-md-offset-4 col-xs-8 col-xs-offset-2">
                                             <label class="control-label">Garbage price</label>
-                                            <input type="text" class="form-control" name="garbage_price">
+                                            <input type="text" class="form-control" required name="garbage_price" [(ngModel)]="house.service_price.garbage_price">
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +102,7 @@
                                     <div class="row">
                                         <div class="form-group label-floating col-md-10 col-xs-10">
                                             <label class="control-label">Address</label>
-                                            <input type="text" class="form-control" name="address" [(ngModel)]="house.address">
+                                            <input type="text" class="form-control" required name="address" [(ngModel)]="house.address">
                                         </div>
                                         <div class="form-group col-md-1 col-xs-1">
                                             <a href="javascript:void(0)" class="btn btn-just-icon btn-behance">
@@ -107,18 +114,18 @@
                                     <div class="row">
                                         <div class="form-group label-floating col-md-4 col-xs-6">
                                             <label class="control-label">Longitude</label>
-                                            <input type="text" class="form-control" name="longitude" [(ngModel)]="house.longitude">
+                                            <input type="number" class="form-control" required name="longitude" [(ngModel)]="house.longitude">
                                         </div>
                                         <div class="form-group label-floating col-md-4 col-xs-6">
                                             <label class="control-label">Latitude</label>
-                                            <input type="text" class="form-control" name="latitude" [(ngModel)]="house.latitude">
+                                            <input type="number" class="form-control" required name="latitude" [(ngModel)]="house.latitude">
                                         </div>
                                     </div>
                                     <div id="regularMap" class="map"></div>
                                 </div>
                             </div>
                             <div class="row" style="text-align: center">
-                                <button type="submit" class="btn btn-fill btn-rose">Submit</button>
+                                <button type="submit" [disabled]="!f.form.valid" class="btn btn-fill btn-rose">Submit</button>
                             </div>
                         </form>
                     </div>

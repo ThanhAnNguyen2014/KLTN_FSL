@@ -11,25 +11,21 @@ import { ChangepassComponent } from './infolandlord/changepass/changepass.compon
 import { DetailhouseComponent } from './manageposts/detailhouse/detailhouse.component';
 import { CreateroomtypeComponent } from './managerooms/createroomtype/createroomtype.component';
 import { RoomsComponent } from './managerooms/rooms/rooms.component';
+import { ListhouseComponent } from './manageposts/listhouse/listhouse.component';
+import { EdithouseComponent } from './manageposts/edithouse/edithouse.component';
 
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: HomeComponent },
-  { path: 'infolandlord/profile', component: ProfileComponent },
+  { path: 'infolandlord/profile/:id', component: ProfileComponent },
   { path: 'infolandlord/changepass', component: ChangepassComponent },
   { path: 'manageposts/newpost', component: NewpostComponent },
+  { path: 'manageposts/listhouse', component:  ListhouseComponent},
   //{ path: 'manageposts/detailhouse', component: DetailhouseComponent },
   {path:'manageposts/detailhouse/:id', component:DetailhouseComponent},
-  // {
-  //   path: 'manageposts/detailhouse/:id', component: DetailhouseComponent,
-  //   children: [
-  //     { path: '', pathMatch: 'full' },
-  //     // { path: 'overview', component: DetailhouseComponent },
-  //     // { path: 'projects', component: DetailhouseComponent }
-  //   ]
-  // },
+  { path: 'manageposts/edithouse/:id', component:  EdithouseComponent},
   { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
   { path: 'managerooms/rooms', component: RoomsComponent },
 ]
@@ -48,7 +44,9 @@ const appRoutes: Routes = [
     ChangepassComponent,
     DetailhouseComponent,
     CreateroomtypeComponent,
-    RoomsComponent
+    RoomsComponent,
+    ListhouseComponent,
+    EdithouseComponent
   ],
   exports: [DashboardComponent]
 })
