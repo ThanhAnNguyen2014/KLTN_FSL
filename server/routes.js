@@ -9,8 +9,8 @@ var express = require('express'),
     testdatabaseController = require('../controllers/testdatabaseController'),
 
     api_userController = require('../controllers/api_userController'),
-
-    api_landlordController = require('../controllers/api_landlordController');
+    api_landlordController = require('../controllers/api_landlordController'),
+    api_houseController=require('../controllers/api_houseController');
 
 // module
 module.exports = function (app) {
@@ -28,6 +28,13 @@ module.exports = function (app) {
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
     router.get('/api/v1/devices', api_landlordController.getAllDevices);
+    /** Section House */
+    router.post('/api/v1/house', api_houseController.create);
+    router.get('/api/v1/house/:id', api_houseController.getHouseById);
+    router.delete('/api/v1/house/:id', api_houseController.deleteHouseById);
+    router.put('/api/v1/house/:id', api_houseController.updateHouseById);
+    router.get('/api/v1/houses/all', api_houseController.getAllHouse);
+
 
     // section admin
     router.get('/admin/login', adminController.get_login);
