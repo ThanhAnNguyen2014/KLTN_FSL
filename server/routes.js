@@ -51,9 +51,6 @@ module.exports = function (app) {
     router.get('/admin/not_accept_post', ensureAuthenticated, adminController.not_accept_post);
     router.post('/admin/check_lock_user/:id', ensureAuthenticated, adminController.check_lock_user);
 
-
-
-
     // page home
     router.get('/', homeController.index);
 
