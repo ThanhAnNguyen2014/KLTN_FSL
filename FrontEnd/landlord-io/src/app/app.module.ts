@@ -19,7 +19,6 @@ import { ChangepassComponent } from './dashboard/infolandlord/changepass/changep
 @NgModule({
   declarations: [
     AppComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -28,9 +27,11 @@ import { ChangepassComponent } from './dashboard/infolandlord/changepass/changep
     DashboardModule,
     NavbarModule,
     FooterModule,
-    SidebarModule
+    SidebarModule,
+
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
