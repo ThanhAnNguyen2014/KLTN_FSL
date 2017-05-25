@@ -64,5 +64,16 @@ module.exports = {
             if (err) return callback(err);
             return callback(null, docs);
         });
-    }
+    }, 
+    /**
+     * Get All Devices 
+     */
+    getDevices: function(callback){
+        Models.Devices.find({}, function(err, devices){
+            if(err) return callback(err);
+            return callback(null, devices);
+        });
+    },
+
+    
 }

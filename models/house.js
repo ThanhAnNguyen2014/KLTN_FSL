@@ -6,8 +6,8 @@ var HouseSchema = new Schema({
     id_landord: { type: ObjectId },
     status: { type: String },
     check_status: { type: Boolean }, // Admin check new post
-    longtutide: { type: String },
-    latutide: { type: String },
+    longitude: { type: String },
+    latitude: { type: String },
     id_ward: { type: ObjectId },
     price: { type: Number },
     image: { type: String },

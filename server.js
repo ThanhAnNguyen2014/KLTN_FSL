@@ -9,9 +9,12 @@ var app = express();
 
 app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname + '/views');
+
 //configure connect to mongo database
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://thanhannguyen:Thanhan200114050@ds143211.mlab.com:43211/fsl_io');
+mongoose.connect('mongodb://thanhannguyen:Thanhan200114050@ds143211.mlab.com:43211/fsl_io', {
+    server: { auto_reconnect:true }
+});
 mongoose.connection.on('open', function () {
     console.log('Mongoose connected!');
 });
