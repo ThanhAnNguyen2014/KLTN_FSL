@@ -69,6 +69,17 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <label class="col-sm-4 label-on-left">House</label>
+                                                        <div class="col-sm-8">
+                                                            <div class="col-lg-10 col-md-8 col-sm-6">
+                                                                <select data-style="btn btn-primary btn-round" required name="room_type" data-size="5" [(ngModel)]="newroom.room_type">
+                                                                    <option class="text-right" disabled selected="true" value="undefined">Choose House</option>
+                                                                    <option class="text-right" *ngFor="let type of roomtypes" value="{{type.id}}" >{{type.title}}</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="row">

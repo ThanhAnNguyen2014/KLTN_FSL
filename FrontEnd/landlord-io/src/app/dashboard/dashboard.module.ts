@@ -13,6 +13,8 @@ import { CreateroomtypeComponent } from './managerooms/createroomtype/createroom
 import { RoomsComponent } from './managerooms/rooms/rooms.component';
 import { ListhouseComponent } from './manageposts/listhouse/listhouse.component';
 import { EdithouseComponent } from './manageposts/edithouse/edithouse.component';
+import { DetailroomComponent } from './managerooms/detailroom/detailroom.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -28,6 +30,8 @@ const appRoutes: Routes = [
   { path: 'manageposts/edithouse/:id', component:  EdithouseComponent},
   { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
   { path: 'managerooms/rooms', component: RoomsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'managerooms/rooms/detail', component: DetailroomComponent },
 ]
 @NgModule({
   imports: [
@@ -46,7 +50,9 @@ const appRoutes: Routes = [
     CreateroomtypeComponent,
     RoomsComponent,
     ListhouseComponent,
-    EdithouseComponent
+    EdithouseComponent,
+    DetailroomComponent,
+    LoginComponent
   ],
   exports: [DashboardComponent]
 })

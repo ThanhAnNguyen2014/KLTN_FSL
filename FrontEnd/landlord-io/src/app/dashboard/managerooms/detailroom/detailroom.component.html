@@ -1,0 +1,181 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <form>
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <div class="card-content form-horizontal">
+                            <h4 class="card-title">Renter's Information</h4>
+                            <div class="row">
+                                <label class="col-md-3 label-on-left">Renter's name</label>
+                                <div class="col-md-9">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="text" [disabled]="!flagRenter" name="name" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-3 label-on-left">Gender</label>
+                                <!--<div class="col-md-9">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="text" [disabled]="!flagRenter" name="gender" class="form-control">
+                                    </div>
+                                </div>-->
+
+                                <div class="col-md-3">
+                                    <div class="form-group label-floating">
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="optionsRadios" [disabled]="!flagRenter" [checked]="true"> Male                                             
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group label-floating">
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="optionsRadios" [disabled]="!flagRenter" [checked]="false"> Female                                            
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <label class="col-md-3 label-on-left">Identity Card</label>
+                                <div class="col-md-9">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="text" [disabled]="!flagRenter" name="identitycard" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-3 label-on-left">Day's rental</label>
+                                <div class="col-md-9">
+                                    <!--<div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="text" [disabled]="!flagRenter" name="rent_day" class="form-control">
+                                    </div>-->
+                                    <div class="form-group label-floating is-empty">
+                                        <input type="text" class="form-control datepicker" value="?string='Today'" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-button">
+                                        <button type="submit" class="btn btn-fill btn-blue" (click)="flagRenter=true"><i class="material-icons">mode_edit</i>Edit</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-button">
+                                        <button type="submit" class="btn btn-fill btn-behance"><i class="material-icons">done</i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-button">
+                                        <button type="submit" class="btn btn-fill btn-rose" (click)="flagRenter=false"><i class="material-icons">clear</i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+                            <i class="material-icons">home</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Room's Information</h4>
+                            <form class="form-horizontal">
+                                <div class="row">
+                                    <label class="col-md-3 label-on-left">Room code</label>
+                                    <div class="col-md-9">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="text" [disabled]="!flagRoom" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2 label-on-left">Number of people</label>
+                                    <div class="col-md-4">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="number" [disabled]="!flagRoom" class="form-control">
+                                        </div>
+                                    </div>
+
+
+                                    <label class="col-md-2 label-on-left">Price of room</label>
+                                    <div class="col-md-4">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="number" [disabled]="!flagRoom" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2 label-on-left">Room type</label>
+                                    <!--<div class="col-md-4">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="text" [disabled]="!flagRoom" class="form-control">
+                                        </div>
+                                    </div>-->
+                                    <div class="col-md-4">
+                                        <select class="select" [disabled]="!flagRoom" data-style="select-with-transition" data-size="3">
+                                            <option disabled selected> Choose room type</option>
+                                            <option value="1">Loai 1</option>
+                                            <option value="2">Loai 2</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-md-2 label-on-left">House</label>
+                                    <!--<div class="col-md-4">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="text" [disabled]="!flagRoom" class="form-control">
+                                        </div>
+                                    </div>-->
+                                    <div class="col-md-4">
+                                        <select class="select" [disabled]="!flagRoom" data-style="select-with-transition" data-size="3">
+                                            <option disabled selected> Choose House</option>
+                                            <option value="1">Nha 1</option>
+                                            <option value="2">Nha 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group form-button">
+                                            <button type="submit" class="btn btn-fill btn-blue" (click)="flagRoom=true"><i class="material-icons">mode_edit</i>Edit</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group form-button">
+                                            <button type="submit" class="btn btn-fill btn-behance"><i class="material-icons">done</i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-button">
+                                            <button type="submit" class="btn btn-fill btn-rose" (click)="flagRoom=false"><i class="material-icons">clear</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
