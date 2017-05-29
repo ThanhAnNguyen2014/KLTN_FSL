@@ -88,7 +88,7 @@ module.exports = {
 };
 
 
-
+/**Config passport local of Admin */
 passport.use(new LocalStrategy(
     function (username, password, done) {
 

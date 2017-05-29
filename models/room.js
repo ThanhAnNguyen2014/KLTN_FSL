@@ -3,18 +3,19 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var RoomSchema = new Schema({
-    id_house: { type: ObjectId },
-    id_roomtype: { type: ObjectId },
+    id_house: { type: ObjectId, ref: 'House' },
+    id_roomtype: { type: ObjectId, ref:'Room_Type' },
     title: { type: String },
-    image: { type: String },
+    images: { type: String },
     // Chu  y xem lai cho nay khong on
-    // room_price: [
-    //     {
-    //         create_date: { type: Date, 'default': Date.now },
-    //         room_price_detail: { type: Number }
-    //     }
-    // ]
-    id_roomprice: { type: ObjectId }
+    room_price:
+    {
+        create_date: { type: Date, 'default': Date.now },
+        price: { type: Number, default: 0 }
+    },
+    status:{type: Boolean, default: false}
+
+    //id_roomprice: { type: ObjectId }
 
 });
 

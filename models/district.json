@@ -1,0 +1,4881 @@
+[
+    {
+        "id_province": "01",
+        "id": "001",
+        "name": "Ba Đình",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "21 02 08N, 105 49 38E"
+    },
+    {
+        "id_province": "01",
+        "id": "002",
+        "name": "Hoàn Kiếm",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "21 01 53N, 105 51 09E"
+    },
+    {
+        "id_province": "01",
+        "id": "003",
+        "name": "Tây Hồ",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "21 04 10N, 105 49 07E"
+    },
+    {
+        "id_province": "01",
+        "id": "004",
+        "name": "Long Biên",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "21 02 21N, 105 53 07E"
+    },
+    {
+        "id_province": "01",
+        "id": "005",
+        "name": "Cầu Giấy",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "21 01 52N, 105 47 20E"
+    },
+    {
+        "id_province": "01",
+        "id": "006",
+        "name": "Đống Đa",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "21 00 56N, 105 49 06E"
+    },
+    {
+        "id_province": "01",
+        "id": "007",
+        "name": "Hai Bà Trưng",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "21 00 27N, 105 51 35E"
+    },
+    {
+        "id_province": "01",
+        "id": "008",
+        "name": "Hoàng Mai",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 58 33N, 105 51 22E"
+    },
+    {
+        "id_province": "01",
+        "id": "009",
+        "name": "Thanh Xuân",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 59 44N, 105 48 56E"
+    },
+    {
+        "id_province": "01",
+        "id": "268",
+        "name": "Hà Đông",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 57 25N, 105 45 21E"
+    },
+    {
+        "id_province": "01",
+        "id": "269",
+        "name": "Sơn Tây",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 05 51N, 105 28 27E"
+    },
+    {
+        "id_province": "01",
+        "id": "016",
+        "name": "Sóc Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 16 55N, 105 49 46E"
+    },
+    {
+        "id_province": "01",
+        "id": "017",
+        "name": "Đông Anh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 08 16N, 105 49 38E"
+    },
+    {
+        "id_province": "01",
+        "id": "018",
+        "name": "Gia Lâm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 01 28N, 105 56 54E"
+    },
+    {
+        "id_province": "01",
+        "id": "019",
+        "name": "Từ Liêm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 02 39N, 105 45 32E"
+    },
+    {
+        "id_province": "01",
+        "id": "020",
+        "name": "Thanh Trì",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 56 32N, 105 50 55E"
+    },
+    {
+        "id_province": "01",
+        "id": "250",
+        "name": "Mê Linh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 10 53N, 105 42 05E"
+    },
+    {
+        "id_province": "01",
+        "id": "271",
+        "name": "Ba Vì",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 09 40N, 105 22 43E"
+    },
+    {
+        "id_province": "01",
+        "id": "272",
+        "name": "Phúc Thọ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 06 32N, 105 34 52E"
+    },
+    {
+        "id_province": "01",
+        "id": "273",
+        "name": "Đan Phượng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 07 13N, 105 40 49E"
+    },
+    {
+        "id_province": "01",
+        "id": "274",
+        "name": "Hoài Đức",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 01 25N, 105 42 03E"
+    },
+    {
+        "id_province": "01",
+        "id": "275",
+        "name": "Quốc Oai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 58 45N, 105 36 43E"
+    },
+    {
+        "id_province": "01",
+        "id": "276",
+        "name": "Thạch Thất",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 02 17N, 105 33 05E"
+    },
+    {
+        "id_province": "01",
+        "id": "277",
+        "name": "Chương Mỹ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 52 46N, 105 39 01E"
+    },
+    {
+        "id_province": "01",
+        "id": "278",
+        "name": "Thanh Oai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 51 44N, 105 46 18E"
+    },
+    {
+        "id_province": "01",
+        "id": "279",
+        "name": "Thường Tín",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 49 59N, 105 22 19E"
+    },
+    {
+        "id_province": "01",
+        "id": "280",
+        "name": "Phú Xuyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 43 37N, 105 53 43E"
+    },
+    {
+        "id_province": "01",
+        "id": "281",
+        "name": "Ứng Hòa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 42 41N, 105 47 58E"
+    },
+    {
+        "id_province": "01",
+        "id": "282",
+        "name": "Mỹ Đức",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 41 53N, 105 43 31E"
+    },
+    {
+        "id_province": "02",
+        "id": "024",
+        "name": "Hà Giang",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "22 46 23N, 105 02 39E"
+    },
+    {
+        "id_province": "02",
+        "id": "026",
+        "name": "Đồng Văn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "23 14 34N, 105 15 48E"
+    },
+    {
+        "id_province": "02",
+        "id": "027",
+        "name": "Mèo Vạc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "23 09 10N, 105 26 38E"
+    },
+    {
+        "id_province": "02",
+        "id": "028",
+        "name": "Yên Minh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "23 04 20N, 105 10 13E"
+    },
+    {
+        "id_province": "02",
+        "id": "029",
+        "name": "Quản Bạ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "23 04 03N, 104 58 05E"
+    },
+    {
+        "id_province": "02",
+        "id": "030",
+        "name": "Vị Xuyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 45 50N, 104 56 26E"
+    },
+    {
+        "id_province": "02",
+        "id": "031",
+        "name": "Bắc Mê",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 45 48N, 105 16 26E"
+    },
+    {
+        "id_province": "02",
+        "id": "032",
+        "name": "Hoàng Su Phì",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 41 37N, 104 40 06E"
+    },
+    {
+        "id_province": "02",
+        "id": "033",
+        "name": "Xín Mần",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 38 05N, 104 28 35E"
+    },
+    {
+        "id_province": "02",
+        "id": "034",
+        "name": "Bắc Quang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 23 42N, 104 55 06E"
+    },
+    {
+        "id_province": "02",
+        "id": "035",
+        "name": "Quang Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 23 07N, 104 37 11E"
+    },
+    {
+        "id_province": "04",
+        "id": "040",
+        "name": "Cao Bằng",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "22 39 20N, 106 15 20E"
+    },
+    {
+        "id_province": "04",
+        "id": "042",
+        "name": "Bảo Lâm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 52 37N, 105 27 28E"
+    },
+    {
+        "id_province": "04",
+        "id": "043",
+        "name": "Bảo Lạc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 52 31N, 105 42 41E"
+    },
+    {
+        "id_province": "04",
+        "id": "044",
+        "name": "Thông Nông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 49 09N, 105 57 05E"
+    },
+    {
+        "id_province": "04",
+        "id": "045",
+        "name": "Hà Quảng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 53 42N, 106 06 32E"
+    },
+    {
+        "id_province": "04",
+        "id": "046",
+        "name": "Trà Lĩnh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 48 14N, 106 19 47E"
+    },
+    {
+        "id_province": "04",
+        "id": "047",
+        "name": "Trùng Khánh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 49 31N, 106 33 58E"
+    },
+    {
+        "id_province": "04",
+        "id": "048",
+        "name": "Hạ Lang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 42 37N, 106 41 42E"
+    },
+    {
+        "id_province": "04",
+        "id": "049",
+        "name": "Quảng Uyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 40 15N, 106 27 42E"
+    },
+    {
+        "id_province": "04",
+        "id": "050",
+        "name": "Phục Hoà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 33 52N, 106 30 02E"
+    },
+    {
+        "id_province": "04",
+        "id": "051",
+        "name": "Hoà An",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 41 20N, 106 02 05E"
+    },
+    {
+        "id_province": "04",
+        "id": "052",
+        "name": "Nguyên Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 38 52N, 105 57 02E"
+    },
+    {
+        "id_province": "04",
+        "id": "053",
+        "name": "Thạch An",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 28 51N, 106 19 51E"
+    },
+    {
+        "id_province": "06",
+        "id": "058",
+        "name": "Bắc Kạn",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "22 08 00N, 105 51 10E"
+    },
+    {
+        "id_province": "06",
+        "id": "060",
+        "name": "Pác Nặm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 35 46N, 105 40 25E"
+    },
+    {
+        "id_province": "06",
+        "id": "061",
+        "name": "Ba Bể",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 23 54N, 105 43 30E"
+    },
+    {
+        "id_province": "06",
+        "id": "062",
+        "name": "Ngân Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 25 50N, 106 01 00E"
+    },
+    {
+        "id_province": "06",
+        "id": "063",
+        "name": "Bạch Thông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 12 04N, 105 51 01E"
+    },
+    {
+        "id_province": "06",
+        "id": "064",
+        "name": "Chợ Đồn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 11 18N, 105 34 43E"
+    },
+    {
+        "id_province": "06",
+        "id": "065",
+        "name": "Chợ Mới",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 57 56N, 105 51 29E"
+    },
+    {
+        "id_province": "06",
+        "id": "066",
+        "name": "Na Rì",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 09 48N, 106 05 09E"
+    },
+    {
+        "id_province": "08",
+        "id": "070",
+        "name": "Tuyên Quang",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 49 40N, 105 13 12E"
+    },
+    {
+        "id_province": "08",
+        "id": "072",
+        "name": "Nà Hang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 28 34N, 105 21 03E"
+    },
+    {
+        "id_province": "08",
+        "id": "073",
+        "name": "Chiêm Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 12 49N, 105 14 32E"
+    },
+    {
+        "id_province": "08",
+        "id": "074",
+        "name": "Hàm Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 05 46N, 105 00 13E"
+    },
+    {
+        "id_province": "08",
+        "id": "075",
+        "name": "Yên Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 51 53N, 105 18 14E"
+    },
+    {
+        "id_province": "08",
+        "id": "076",
+        "name": "Sơn Dương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 40 22N, 105 22 57E"
+    },
+    {
+        "id_province": "10",
+        "id": "080",
+        "name": "Lào Cai",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "22 25 07N, 103 58 43E"
+    },
+    {
+        "id_province": "10",
+        "id": "082",
+        "name": "Bát Xát",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 35 50N, 103 44 49E"
+    },
+    {
+        "id_province": "10",
+        "id": "083",
+        "name": "Mường Khương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 41 05N, 104 08 26E"
+    },
+    {
+        "id_province": "10",
+        "id": "084",
+        "name": "Si Ma Cai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 39 46N, 104 16 05E"
+    },
+    {
+        "id_province": "10",
+        "id": "085",
+        "name": "Bắc Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 30 08N, 104 18 54E"
+    },
+    {
+        "id_province": "10",
+        "id": "086",
+        "name": "Bảo Thắng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 22 47N, 104 10 00E"
+    },
+    {
+        "id_province": "10",
+        "id": "087",
+        "name": "Bảo Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 17 38N, 104 25 02E"
+    },
+    {
+        "id_province": "10",
+        "id": "088",
+        "name": "Sa Pa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 18 54N, 103 54 18E"
+    },
+    {
+        "id_province": "10",
+        "id": "089",
+        "name": "Văn Bàn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 03 48N, 104 10 59E"
+    },
+    {
+        "id_province": "11",
+        "id": "094",
+        "name": "Điện Biên Phủ",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 24 52N, 103 02 31E"
+    },
+    {
+        "id_province": "11",
+        "id": "095",
+        "name": "Mường Lay",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "22 01 47N, 103 07 10E"
+    },
+    {
+        "id_province": "11",
+        "id": "096",
+        "name": "Mường Nhé",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 06 11N, 102 30 54E"
+    },
+    {
+        "id_province": "11",
+        "id": "097",
+        "name": "Mường Chà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 50 31N, 103 03 15E"
+    },
+    {
+        "id_province": "11",
+        "id": "098",
+        "name": "Tủa Chùa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 58 19N, 103 23 01E"
+    },
+    {
+        "id_province": "11",
+        "id": "099",
+        "name": "Tuần Giáo",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 38 03N, 103 21 06E"
+    },
+    {
+        "id_province": "11",
+        "id": "100",
+        "name": "Điện Biên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 15 19N, 103 03 19E"
+    },
+    {
+        "id_province": "11",
+        "id": "101",
+        "name": "Điện Biên Đông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 14 07N, 103 15 19E"
+    },
+    {
+        "id_province": "11",
+        "id": "102",
+        "name": "Mường Ảng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "12",
+        "id": "104",
+        "name": "Lai Châu",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "22 23 15N, 103 24 22E"
+    },
+    {
+        "id_province": "12",
+        "id": "106",
+        "name": "Tam Đường",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 20 16N, 103 32 53E"
+    },
+    {
+        "id_province": "12",
+        "id": "107",
+        "name": "Mường Tè",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 24 16N, 102 43 11E"
+    },
+    {
+        "id_province": "12",
+        "id": "108",
+        "name": "Sìn Hồ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 17 21N, 103 18 12E"
+    },
+    {
+        "id_province": "12",
+        "id": "109",
+        "name": "Phong Thổ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 38 24N, 103 22 38E"
+    },
+    {
+        "id_province": "12",
+        "id": "110",
+        "name": "Than Uyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 59 35N, 103 45 30E"
+    },
+    {
+        "id_province": "12",
+        "id": "111",
+        "name": "Tân Uyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "14",
+        "id": "116",
+        "name": "Sơn La",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 20 39N, 103 54 52E"
+    },
+    {
+        "id_province": "14",
+        "id": "118",
+        "name": "Quỳnh Nhai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 46 34N, 103 39 02E"
+    },
+    {
+        "id_province": "14",
+        "id": "119",
+        "name": "Thuận Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 24 54N, 103 39 46E"
+    },
+    {
+        "id_province": "14",
+        "id": "120",
+        "name": "Mường La",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 31 38N, 104 02 48E"
+    },
+    {
+        "id_province": "14",
+        "id": "121",
+        "name": "Bắc Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 13 23N, 104 22 09E"
+    },
+    {
+        "id_province": "14",
+        "id": "122",
+        "name": "Phù Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 13 33N, 104 41 51E"
+    },
+    {
+        "id_province": "14",
+        "id": "123",
+        "name": "Mộc Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 49 21N, 104 43 10E"
+    },
+    {
+        "id_province": "14",
+        "id": "124",
+        "name": "Yên Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 59 33N, 104 19 51E"
+    },
+    {
+        "id_province": "14",
+        "id": "125",
+        "name": "Mai Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 10 08N, 103 59 36E"
+    },
+    {
+        "id_province": "14",
+        "id": "126",
+        "name": "Sông Mã",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 06 04N, 103 43 56E"
+    },
+    {
+        "id_province": "14",
+        "id": "127",
+        "name": "Sốp Cộp",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 52 46N, 103 30 38E"
+    },
+    {
+        "id_province": "15",
+        "id": "132",
+        "name": "Yên Bái",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 44 28N, 104 53 42E"
+    },
+    {
+        "id_province": "15",
+        "id": "133",
+        "name": "Nghĩa Lộ",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 35 58N, 104 29 22E"
+    },
+    {
+        "id_province": "15",
+        "id": "135",
+        "name": "Lục Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 06 44N, 104 43 12E"
+    },
+    {
+        "id_province": "15",
+        "id": "136",
+        "name": "Văn Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 55 55N, 104 33 51E"
+    },
+    {
+        "id_province": "15",
+        "id": "137",
+        "name": "Mù Cang Chải",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 48 22N, 104 09 01E"
+    },
+    {
+        "id_province": "15",
+        "id": "138",
+        "name": "Trấn Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 42 20N, 104 48 56E"
+    },
+    {
+        "id_province": "15",
+        "id": "139",
+        "name": "Trạm Tấu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 30 40N, 104 28 03E"
+    },
+    {
+        "id_province": "15",
+        "id": "140",
+        "name": "Văn Chấn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 34 15N, 104 35 19E"
+    },
+    {
+        "id_province": "15",
+        "id": "141",
+        "name": "Yên Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 52 24N, 104 55 16E"
+    },
+    {
+        "id_province": "17",
+        "id": "148",
+        "name": "Hòa Bình",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 50 36N, 105 19 20E"
+    },
+    {
+        "id_province": "17",
+        "id": "150",
+        "name": "Đà Bắc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 55 58N, 105 04 52E"
+    },
+    {
+        "id_province": "17",
+        "id": "151",
+        "name": "Kỳ Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 54 06N, 105 23 18E"
+    },
+    {
+        "id_province": "17",
+        "id": "152",
+        "name": "Lương Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 53 16N, 105 30 55E"
+    },
+    {
+        "id_province": "17",
+        "id": "153",
+        "name": "Kim Bôi",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 40 34N, 105 32 15E"
+    },
+    {
+        "id_province": "17",
+        "id": "154",
+        "name": "Cao Phong",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 41 23N, 105 17 48E"
+    },
+    {
+        "id_province": "17",
+        "id": "155",
+        "name": "Tân Lạc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 36 44N, 105 15 03E"
+    },
+    {
+        "id_province": "17",
+        "id": "156",
+        "name": "Mai Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 40 56N, 104 59 46E"
+    },
+    {
+        "id_province": "17",
+        "id": "157",
+        "name": "Lạc Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 29 59N, 105 24 57E"
+    },
+    {
+        "id_province": "17",
+        "id": "158",
+        "name": "Yên Thủy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 25 42N, 105 37 59E"
+    },
+    {
+        "id_province": "17",
+        "id": "159",
+        "name": "Lạc Thủy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 29 12N, 105 44 06E"
+    },
+    {
+        "id_province": "19",
+        "id": "164",
+        "name": "Thái Nguyên",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 33 20N, 105 48 26E"
+    },
+    {
+        "id_province": "19",
+        "id": "165",
+        "name": "Sông Công",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 29 14N, 105 48 47E"
+    },
+    {
+        "id_province": "19",
+        "id": "167",
+        "name": "Định Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 53 50N, 105 38 01E"
+    },
+    {
+        "id_province": "19",
+        "id": "168",
+        "name": "Phú Lương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 45 57N, 105 43 22E"
+    },
+    {
+        "id_province": "19",
+        "id": "169",
+        "name": "Đồng Hỷ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 41 10N, 105 55 43E"
+    },
+    {
+        "id_province": "19",
+        "id": "170",
+        "name": "Võ Nhai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 47 14N, 106 02 29E"
+    },
+    {
+        "id_province": "19",
+        "id": "171",
+        "name": "Đại Từ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 36 17N, 105 37 28E"
+    },
+    {
+        "id_province": "19",
+        "id": "172",
+        "name": "Phổ Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 27 08N, 105 45 19E"
+    },
+    {
+        "id_province": "19",
+        "id": "173",
+        "name": "Phú Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 29 36N, 105 57 42E"
+    },
+    {
+        "id_province": "20",
+        "id": "178",
+        "name": "Lạng Sơn",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 51 19N, 106 44 50E"
+    },
+    {
+        "id_province": "20",
+        "id": "180",
+        "name": "Tràng Định",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 18 09N, 106 26 32E"
+    },
+    {
+        "id_province": "20",
+        "id": "181",
+        "name": "Bình Gia",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 03 56N, 106 19 01E"
+    },
+    {
+        "id_province": "20",
+        "id": "182",
+        "name": "Văn Lãng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "22 01 59N, 106 34 17E"
+    },
+    {
+        "id_province": "20",
+        "id": "183",
+        "name": "Cao Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 53 05N, 106 50 34E"
+    },
+    {
+        "id_province": "20",
+        "id": "184",
+        "name": "Văn Quan",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 51 04N, 106 33 04E"
+    },
+    {
+        "id_province": "20",
+        "id": "185",
+        "name": "Bắc Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 48 57N, 106 15 28E"
+    },
+    {
+        "id_province": "20",
+        "id": "186",
+        "name": "Hữu Lũng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 34 33N, 106 20 33E"
+    },
+    {
+        "id_province": "20",
+        "id": "187",
+        "name": "Chi Lăng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 40 05N, 106 37 24E"
+    },
+    {
+        "id_province": "20",
+        "id": "188",
+        "name": "Lộc Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 40 41N, 106 58 12E"
+    },
+    {
+        "id_province": "20",
+        "id": "189",
+        "name": "Đình Lập",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 32 07N, 107 07 25E"
+    },
+    {
+        "id_province": "22",
+        "id": "193",
+        "name": "Hạ Long",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 52 24N, 107 05 23E"
+    },
+    {
+        "id_province": "22",
+        "id": "194",
+        "name": "Móng Cái",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 26 31N, 107 55 09E"
+    },
+    {
+        "id_province": "22",
+        "id": "195",
+        "name": "Cẩm Phả",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 03 42N, 107 17 22E"
+    },
+    {
+        "id_province": "22",
+        "id": "196",
+        "name": "Uông Bí",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 04 33N, 106 45 07E"
+    },
+    {
+        "id_province": "22",
+        "id": "198",
+        "name": "Bình Liêu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 33 07N, 107 26 24E"
+    },
+    {
+        "id_province": "22",
+        "id": "199",
+        "name": "Tiên Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 22 24N, 107 22 50E"
+    },
+    {
+        "id_province": "22",
+        "id": "200",
+        "name": "Đầm Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 21 23N, 107 34 32E"
+    },
+    {
+        "id_province": "22",
+        "id": "201",
+        "name": "Hải Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 25 50N, 107 41 26E"
+    },
+    {
+        "id_province": "22",
+        "id": "202",
+        "name": "Ba Chẽ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 15 40N, 107 09 52E"
+    },
+    {
+        "id_province": "22",
+        "id": "203",
+        "name": "Vân Đồn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 56 17N, 107 28 02E"
+    },
+    {
+        "id_province": "22",
+        "id": "204",
+        "name": "Hoành Bồ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 06 30N, 107 02 43E"
+    },
+    {
+        "id_province": "22",
+        "id": "205",
+        "name": "Đông Triều",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 07 10N, 106 34 36E"
+    },
+    {
+        "id_province": "22",
+        "id": "206",
+        "name": "Yên Hưng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 55 40N, 106 51 05E"
+    },
+    {
+        "id_province": "22",
+        "id": "207",
+        "name": "Cô Tô",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 05 01N, 107 49 10E"
+    },
+    {
+        "id_province": "24",
+        "id": "213",
+        "name": "Bắc Giang",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 17 36N, 106 11 18E"
+    },
+    {
+        "id_province": "24",
+        "id": "215",
+        "name": "Yên Thế",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 31 29N, 106 09 27E"
+    },
+    {
+        "id_province": "24",
+        "id": "216",
+        "name": "Tân Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 23 23N, 106 05 55E"
+    },
+    {
+        "id_province": "24",
+        "id": "217",
+        "name": "Lạng Giang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 21 58N, 106 15 21E"
+    },
+    {
+        "id_province": "24",
+        "id": "218",
+        "name": "Lục Nam",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 18 16N, 106 29 24E"
+    },
+    {
+        "id_province": "24",
+        "id": "219",
+        "name": "Lục Ngạn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 26 15N, 106 39 09E"
+    },
+    {
+        "id_province": "24",
+        "id": "220",
+        "name": "Sơn Động",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 19 42N, 106 51 09E"
+    },
+    {
+        "id_province": "24",
+        "id": "221",
+        "name": "Yên Dũng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 12 22N, 106 14 12E"
+    },
+    {
+        "id_province": "24",
+        "id": "222",
+        "name": "Việt Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 16 16N, 106 04 59E"
+    },
+    {
+        "id_province": "24",
+        "id": "223",
+        "name": "Hiệp Hòa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 15 51N, 105 57 30E"
+    },
+    {
+        "id_province": "25",
+        "id": "227",
+        "name": "Việt Trì",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 19 01N, 105 23 35E"
+    },
+    {
+        "id_province": "25",
+        "id": "228",
+        "name": "Phú Thọ",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 24 54N, 105 13 46E"
+    },
+    {
+        "id_province": "25",
+        "id": "230",
+        "name": "Đoan Hùng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 36 56N, 105 08 42E"
+    },
+    {
+        "id_province": "25",
+        "id": "231",
+        "name": "Hạ Hoà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 35 13N, 105 00 22E"
+    },
+    {
+        "id_province": "25",
+        "id": "232",
+        "name": "Thanh Ba",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 27 04N, 105 09 10E"
+    },
+    {
+        "id_province": "25",
+        "id": "233",
+        "name": "Phù Ninh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 26 59N, 105 18 13E"
+    },
+    {
+        "id_province": "25",
+        "id": "234",
+        "name": "Yên Lập",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 22 21N, 105 01 25E"
+    },
+    {
+        "id_province": "25",
+        "id": "235",
+        "name": "Cẩm Khê",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 23 04N, 105 05 25E"
+    },
+    {
+        "id_province": "25",
+        "id": "236",
+        "name": "Tam Nông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 18 24N, 105 14 59E"
+    },
+    {
+        "id_province": "25",
+        "id": "237",
+        "name": "Lâm Thao",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 19 37N, 105 18 09E"
+    },
+    {
+        "id_province": "25",
+        "id": "238",
+        "name": "Thanh Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 08 32N, 105 04 40E"
+    },
+    {
+        "id_province": "25",
+        "id": "239",
+        "name": "Thanh Thuỷ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 07 26N, 105 17 18E"
+    },
+    {
+        "id_province": "25",
+        "id": "240",
+        "name": "Tân Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "26",
+        "id": "243",
+        "name": "Vĩnh Yên",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 18 26N, 105 35 33E"
+    },
+    {
+        "id_province": "26",
+        "id": "244",
+        "name": "Phúc Yên",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 18 55N, 105 43 54E"
+    },
+    {
+        "id_province": "26",
+        "id": "246",
+        "name": "Lập Thạch",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 24 45N, 105 25 39E"
+    },
+    {
+        "id_province": "26",
+        "id": "247",
+        "name": "Tam Dương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 21 40N, 105 33 36E"
+    },
+    {
+        "id_province": "26",
+        "id": "248",
+        "name": "Tam Đảo",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 27 34N, 105 35 09E"
+    },
+    {
+        "id_province": "26",
+        "id": "249",
+        "name": "Bình Xuyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 19 48N, 105 39 43E"
+    },
+    {
+        "id_province": "26",
+        "id": "251",
+        "name": "Yên Lạc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 13 17N, 105 34 44E"
+    },
+    {
+        "id_province": "26",
+        "id": "252",
+        "name": "Vĩnh Tường",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 14 58N, 105 29 37E"
+    },
+    {
+        "id_province": "26",
+        "id": "253",
+        "name": "Sông Lô",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "27",
+        "id": "256",
+        "name": "Bắc Ninh",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "21 10 48N, 106 03 58E"
+    },
+    {
+        "id_province": "27",
+        "id": "261",
+        "name": "Từ Sơn",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "21 07 12N, 105 57 26E"
+    },
+    {
+        "id_province": "27",
+        "id": "258",
+        "name": "Yên Phong",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 12 40N, 105 59 36E"
+    },
+    {
+        "id_province": "27",
+        "id": "259",
+        "name": "Quế Võ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 08 44N, 106 11 06E"
+    },
+    {
+        "id_province": "27",
+        "id": "260",
+        "name": "Tiên Du",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 07 37N, 106 02 19E"
+    },
+    {
+        "id_province": "27",
+        "id": "262",
+        "name": "Thuận Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 02 24N, 106 04 10E"
+    },
+    {
+        "id_province": "27",
+        "id": "263",
+        "name": "Gia Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 03 55N, 106 12 53E"
+    },
+    {
+        "id_province": "27",
+        "id": "264",
+        "name": "Lương Tài",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 01 33N, 106 13 28E"
+    },
+    {
+        "id_province": "30",
+        "id": "288",
+        "name": "Hải Dương",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 56 14N, 106 18 21E"
+    },
+    {
+        "id_province": "30",
+        "id": "290",
+        "name": "Chí Linh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 07 47N, 106 23 46E"
+    },
+    {
+        "id_province": "30",
+        "id": "291",
+        "name": "Nam Sách",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 00 15N, 106 20 26E"
+    },
+    {
+        "id_province": "30",
+        "id": "292",
+        "name": "Kinh Môn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 00 04N, 106 30 23E"
+    },
+    {
+        "id_province": "30",
+        "id": "293",
+        "name": "Kim Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 55 40N, 106 30 33E"
+    },
+    {
+        "id_province": "30",
+        "id": "294",
+        "name": "Thanh Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 53 19N, 106 25 43E"
+    },
+    {
+        "id_province": "30",
+        "id": "295",
+        "name": "Cẩm Giàng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 57 05N, 106 12 29E"
+    },
+    {
+        "id_province": "30",
+        "id": "296",
+        "name": "Bình Giang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 52 36N, 106 11 24E"
+    },
+    {
+        "id_province": "30",
+        "id": "297",
+        "name": "Gia Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 51 01N, 106 17 34E"
+    },
+    {
+        "id_province": "30",
+        "id": "298",
+        "name": "Tứ Kỳ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 49 05N, 106 24 05E"
+    },
+    {
+        "id_province": "30",
+        "id": "299",
+        "name": "Ninh Giang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 45 13N, 106 20 09E"
+    },
+    {
+        "id_province": "30",
+        "id": "300",
+        "name": "Thanh Miện",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 46 02N, 106 12 26E"
+    },
+    {
+        "id_province": "31",
+        "id": "303",
+        "name": "Hồng Bàng",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 52 37N, 106 38 32E"
+    },
+    {
+        "id_province": "31",
+        "id": "304",
+        "name": "Ngô Quyền",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 51 13N, 106 41 57E"
+    },
+    {
+        "id_province": "31",
+        "id": "305",
+        "name": "Lê Chân",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 50 12N, 106 40 30E"
+    },
+    {
+        "id_province": "31",
+        "id": "306",
+        "name": "Hải An",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 49 38N, 106 45 57E"
+    },
+    {
+        "id_province": "31",
+        "id": "307",
+        "name": "Kiến An",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 48 26N, 106 38 03E"
+    },
+    {
+        "id_province": "31",
+        "id": "308",
+        "name": "Đồ Sơn",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "20 42 41N, 106 44 54E"
+    },
+    {
+        "id_province": "31",
+        "id": "309",
+        "name": "Kinh Dương",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "31",
+        "id": "311",
+        "name": "Thuỷ Nguyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 56 36N, 106 39 38E"
+    },
+    {
+        "id_province": "31",
+        "id": "312",
+        "name": "An Dương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 53 06N, 106 35 36E"
+    },
+    {
+        "id_province": "31",
+        "id": "313",
+        "name": "An Lão",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 47 54N, 106 33 19E"
+    },
+    {
+        "id_province": "31",
+        "id": "314",
+        "name": "Kiến Thụy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 45 13N, 106 41 47E"
+    },
+    {
+        "id_province": "31",
+        "id": "315",
+        "name": "Tiên Lãng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 42 23N, 106 36 03E"
+    },
+    {
+        "id_province": "31",
+        "id": "316",
+        "name": "Vĩnh Bảo",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 40 56N, 106 29 57E"
+    },
+    {
+        "id_province": "31",
+        "id": "317",
+        "name": "Cát Hải",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 47 09N, 106 58 07E"
+    },
+    {
+        "id_province": "31",
+        "id": "318",
+        "name": "Bạch Long Vĩ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 08 41N, 107 42 51E"
+    },
+    {
+        "id_province": "33",
+        "id": "323",
+        "name": "Hưng Yên",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 39 38N, 106 03 08E"
+    },
+    {
+        "id_province": "33",
+        "id": "325",
+        "name": "Văn Lâm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 58 31N, 106 02 51E"
+    },
+    {
+        "id_province": "33",
+        "id": "326",
+        "name": "Văn Giang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 55 51N, 105 57 14E"
+    },
+    {
+        "id_province": "33",
+        "id": "327",
+        "name": "Yên Mỹ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 53 45N, 106 01 21E"
+    },
+    {
+        "id_province": "33",
+        "id": "328",
+        "name": "Mỹ Hào",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 55 35N, 106 05 34E"
+    },
+    {
+        "id_province": "33",
+        "id": "329",
+        "name": "Ân Thi",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 48 49N, 106 05 30E"
+    },
+    {
+        "id_province": "33",
+        "id": "330",
+        "name": "Khoái Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 49 53N, 105 58 28E"
+    },
+    {
+        "id_province": "33",
+        "id": "331",
+        "name": "Kim Động",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 44 47N, 106 01 47E"
+    },
+    {
+        "id_province": "33",
+        "id": "332",
+        "name": "Tiên Lữ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 40 05N, 106 07 59E"
+    },
+    {
+        "id_province": "33",
+        "id": "333",
+        "name": "Phù Cừ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 42 51N, 106 11 30E"
+    },
+    {
+        "id_province": "34",
+        "id": "336",
+        "name": "Thái Bình",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 26 45N, 106 19 56E"
+    },
+    {
+        "id_province": "34",
+        "id": "338",
+        "name": "Quỳnh Phụ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 38 57N, 106 21 16E"
+    },
+    {
+        "id_province": "34",
+        "id": "339",
+        "name": "Hưng Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 35 38N, 106 12 42E"
+    },
+    {
+        "id_province": "34",
+        "id": "340",
+        "name": "Đông Hưng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 32 50N, 106 20 15E"
+    },
+    {
+        "id_province": "34",
+        "id": "341",
+        "name": "Thái Thụy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 32 33N, 106 32 32E"
+    },
+    {
+        "id_province": "34",
+        "id": "342",
+        "name": "Tiền Hải",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 21 05N, 106 32 45E"
+    },
+    {
+        "id_province": "34",
+        "id": "343",
+        "name": "Kiến Xương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 23 52N, 106 25 22E"
+    },
+    {
+        "id_province": "34",
+        "id": "344",
+        "name": "Vũ Thư",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 25 29N, 106 16 43E"
+    },
+    {
+        "id_province": "35",
+        "id": "347",
+        "name": "Phủ Lý",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 32 19N, 105 54 55E"
+    },
+    {
+        "id_province": "35",
+        "id": "349",
+        "name": "Duy Tiên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 37 33N, 105 58 01E"
+    },
+    {
+        "id_province": "35",
+        "id": "350",
+        "name": "Kim Bảng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 34 19N, 105 50 41E"
+    },
+    {
+        "id_province": "35",
+        "id": "351",
+        "name": "Thanh Liêm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 27 31N, 105 55 09E"
+    },
+    {
+        "id_province": "35",
+        "id": "352",
+        "name": "Bình Lục",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 29 23N, 106 02 52E"
+    },
+    {
+        "id_province": "35",
+        "id": "353",
+        "name": "Lý Nhân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 32 55N, 106 04 48E"
+    },
+    {
+        "id_province": "36",
+        "id": "356",
+        "name": "Nam Định",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 25 07N, 106 09 54E"
+    },
+    {
+        "id_province": "36",
+        "id": "358",
+        "name": "Mỹ Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 27 21N, 106 07 56E"
+    },
+    {
+        "id_province": "36",
+        "id": "359",
+        "name": "Vụ Bản",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 22 57N, 106 05 35E"
+    },
+    {
+        "id_province": "36",
+        "id": "360",
+        "name": "Ý Yên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 19 48N, 106 01 55E"
+    },
+    {
+        "id_province": "36",
+        "id": "361",
+        "name": "Nghĩa Hưng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 05 37N, 106 08 59E"
+    },
+    {
+        "id_province": "36",
+        "id": "362",
+        "name": "Nam Trực",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 20 08N, 106 12 54E"
+    },
+    {
+        "id_province": "36",
+        "id": "363",
+        "name": "Trực Ninh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 14 42N, 106 12 45E"
+    },
+    {
+        "id_province": "36",
+        "id": "364",
+        "name": "Xuân Trường",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 17 53N, 106 21 43E"
+    },
+    {
+        "id_province": "36",
+        "id": "365",
+        "name": "Giao Thủy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 14 45N, 106 28 39E"
+    },
+    {
+        "id_province": "36",
+        "id": "366",
+        "name": "Hải Hậu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 06 26N, 106 16 29E"
+    },
+    {
+        "id_province": "37",
+        "id": "369",
+        "name": "Ninh Bình",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "20 14 45N, 105 58 24E"
+    },
+    {
+        "id_province": "37",
+        "id": "370",
+        "name": "Tam Điệp",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "20 09 42N, 103 52 43E"
+    },
+    {
+        "id_province": "37",
+        "id": "372",
+        "name": "Nho Quan",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 18 46N, 105 42 48E"
+    },
+    {
+        "id_province": "37",
+        "id": "373",
+        "name": "Gia Viễn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 19 50N, 105 52 20E"
+    },
+    {
+        "id_province": "37",
+        "id": "374",
+        "name": "Hoa Lư",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 15 04N, 105 55 52E"
+    },
+    {
+        "id_province": "37",
+        "id": "375",
+        "name": "Yên Khánh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 11 26N, 106 04 33E"
+    },
+    {
+        "id_province": "37",
+        "id": "376",
+        "name": "Kim Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 02 07N, 106 05 27E"
+    },
+    {
+        "id_province": "37",
+        "id": "377",
+        "name": "Yên Mô",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 07 45N, 105 59 45E"
+    },
+    {
+        "id_province": "38",
+        "id": "380",
+        "name": "Thanh Hóa",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "19 48 26N, 105 47 37E"
+    },
+    {
+        "id_province": "38",
+        "id": "381",
+        "name": "Bỉm Sơn",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "20 05 21N, 105 51 48E"
+    },
+    {
+        "id_province": "38",
+        "id": "382",
+        "name": "Sầm Sơn",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "19 45 11N, 105 54 03E"
+    },
+    {
+        "id_province": "38",
+        "id": "384",
+        "name": "Mường Lát",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 30 42N, 104 37 27E"
+    },
+    {
+        "id_province": "38",
+        "id": "385",
+        "name": "Quan Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 29 15N, 104 56 35E"
+    },
+    {
+        "id_province": "38",
+        "id": "386",
+        "name": "Bá Thước",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 22 48N, 105 14 50E"
+    },
+    {
+        "id_province": "38",
+        "id": "387",
+        "name": "Quan Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 15 17N, 104 51 58E"
+    },
+    {
+        "id_province": "38",
+        "id": "388",
+        "name": "Lang Chánh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 08 58N, 105 07 40E"
+    },
+    {
+        "id_province": "38",
+        "id": "389",
+        "name": "Ngọc Lặc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 04 08N, 105 22 39E"
+    },
+    {
+        "id_province": "38",
+        "id": "390",
+        "name": "Cẩm Thủy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 12 20N, 105 27 22E"
+    },
+    {
+        "id_province": "38",
+        "id": "391",
+        "name": "Thạch Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "21 12 41N, 105 36 38E"
+    },
+    {
+        "id_province": "38",
+        "id": "392",
+        "name": "Hà Trung",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 03 20N, 105 51 20E"
+    },
+    {
+        "id_province": "38",
+        "id": "393",
+        "name": "Vĩnh Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 02 29N, 105 39 28E"
+    },
+    {
+        "id_province": "38",
+        "id": "394",
+        "name": "Yên Định",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 00 31N, 105 37 44E"
+    },
+    {
+        "id_province": "38",
+        "id": "395",
+        "name": "Thọ Xuân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 55 39N, 105 29 14E"
+    },
+    {
+        "id_province": "38",
+        "id": "396",
+        "name": "Thường Xuân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 54 55N, 105 10 46E"
+    },
+    {
+        "id_province": "38",
+        "id": "397",
+        "name": "Triệu Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 48 11N, 105 34 03E"
+    },
+    {
+        "id_province": "38",
+        "id": "398",
+        "name": "Thiệu Hoá",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 53 56N, 105 40 57E"
+    },
+    {
+        "id_province": "38",
+        "id": "399",
+        "name": "Hoằng Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 51 59N, 105 51 34E"
+    },
+    {
+        "id_province": "38",
+        "id": "400",
+        "name": "Hậu Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 56 02N, 105 53 19E"
+    },
+    {
+        "id_province": "38",
+        "id": "401",
+        "name": "Nga Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 00 16N, 105 59 26E"
+    },
+    {
+        "id_province": "38",
+        "id": "402",
+        "name": "Như Xuân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 5 55N, 105 20 22E"
+    },
+    {
+        "id_province": "38",
+        "id": "403",
+        "name": "Như Thanh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 35 19N, 105 33 09E"
+    },
+    {
+        "id_province": "38",
+        "id": "404",
+        "name": "Nông Cống",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 36 58N, 105 40 54E"
+    },
+    {
+        "id_province": "38",
+        "id": "405",
+        "name": "Đông Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 47 44N, 105 42 19E"
+    },
+    {
+        "id_province": "38",
+        "id": "406",
+        "name": "Quảng Xương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 40 53N, 105 48 01E"
+    },
+    {
+        "id_province": "38",
+        "id": "407",
+        "name": "Tĩnh Gia",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 27 13N, 105 43 38E"
+    },
+    {
+        "id_province": "40",
+        "id": "412",
+        "name": "Vinh",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "18 41 06N, 105 42 05E"
+    },
+    {
+        "id_province": "40",
+        "id": "413",
+        "name": "Cửa Lò",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "18 47 26N, 105 43 31E"
+    },
+    {
+        "id_province": "40",
+        "id": "414",
+        "name": "Thái Hoà",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "40",
+        "id": "415",
+        "name": "Quế Phong",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 42 25N, 104 54 21E"
+    },
+    {
+        "id_province": "40",
+        "id": "416",
+        "name": "Quỳ Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 32 16N, 105 03 18E"
+    },
+    {
+        "id_province": "40",
+        "id": "417",
+        "name": "Kỳ Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 24 36N, 104 09 45E"
+    },
+    {
+        "id_province": "40",
+        "id": "418",
+        "name": "Tương Dương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 19 15N, 104 35 41E"
+    },
+    {
+        "id_province": "40",
+        "id": "419",
+        "name": "Nghĩa Đàn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 21 19N, 105 26 33E"
+    },
+    {
+        "id_province": "40",
+        "id": "420",
+        "name": "Quỳ Hợp",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 19 24N, 105 09 12E"
+    },
+    {
+        "id_province": "40",
+        "id": "421",
+        "name": "Quỳnh Lưu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 14 01N, 105 37 00E"
+    },
+    {
+        "id_province": "40",
+        "id": "422",
+        "name": "Con Cuông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 03 50N, 107 47 15E"
+    },
+    {
+        "id_province": "40",
+        "id": "423",
+        "name": "Tân Kỳ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 06 11N, 105 14 14E"
+    },
+    {
+        "id_province": "40",
+        "id": "424",
+        "name": "Anh Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 58 04N, 105 04 30E"
+    },
+    {
+        "id_province": "40",
+        "id": "425",
+        "name": "Diễn Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 01 20N, 105 34 13E"
+    },
+    {
+        "id_province": "40",
+        "id": "426",
+        "name": "Yên Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 01 25N, 105 26 17E"
+    },
+    {
+        "id_province": "40",
+        "id": "427",
+        "name": "Đô Lương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 55 00N, 105 21 03E"
+    },
+    {
+        "id_province": "40",
+        "id": "428",
+        "name": "Thanh Chương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 44 11N, 105 12 59E"
+    },
+    {
+        "id_province": "40",
+        "id": "429",
+        "name": "Nghi Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 47 41N, 105 31 30E"
+    },
+    {
+        "id_province": "40",
+        "id": "430",
+        "name": "Nam Đàn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 40 28N, 105 30 32E"
+    },
+    {
+        "id_province": "40",
+        "id": "431",
+        "name": "Hưng Nguyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 41 13N, 105 37 41E"
+    },
+    {
+        "id_province": "42",
+        "id": "436",
+        "name": "Hà Tĩnh",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "18 21 20N, 105 54 00E"
+    },
+    {
+        "id_province": "42",
+        "id": "437",
+        "name": "Hồng Lĩnh",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "18 32 05N, 105 42 40E"
+    },
+    {
+        "id_province": "42",
+        "id": "439",
+        "name": "Hương Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 26 47N, 105 19 36E"
+    },
+    {
+        "id_province": "42",
+        "id": "440",
+        "name": "Đức Thọ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 29 23N, 105 36 39E"
+    },
+    {
+        "id_province": "42",
+        "id": "441",
+        "name": "Vũ Quang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 19 30N, 105 26 38E"
+    },
+    {
+        "id_province": "42",
+        "id": "442",
+        "name": "Nghi Xuân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 38 46N, 105 46 17E"
+    },
+    {
+        "id_province": "42",
+        "id": "443",
+        "name": "Can Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 26 39N, 105 46 13E"
+    },
+    {
+        "id_province": "42",
+        "id": "444",
+        "name": "Hương Khê",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 11 36N, 105 41 24E"
+    },
+    {
+        "id_province": "42",
+        "id": "445",
+        "name": "Thạch Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 19 29N, 105 52 43E"
+    },
+    {
+        "id_province": "42",
+        "id": "446",
+        "name": "Cẩm Xuyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 11 32N, 106 00 04E"
+    },
+    {
+        "id_province": "42",
+        "id": "447",
+        "name": "Kỳ Anh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "18 05 15N, 106 15 49E"
+    },
+    {
+        "id_province": "42",
+        "id": "448",
+        "name": "Lộc Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "44",
+        "id": "450",
+        "name": "Đồng Hới",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "17 26 53N, 106 35 15E"
+    },
+    {
+        "id_province": "44",
+        "id": "452",
+        "name": "Minh Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "17 44 03N, 105 51 45E"
+    },
+    {
+        "id_province": "44",
+        "id": "453",
+        "name": "Tuyên Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "17 54 04N, 105 58 17E"
+    },
+    {
+        "id_province": "44",
+        "id": "454",
+        "name": "Quảng Trạch",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "17 50 04N, 106 22 24E"
+    },
+    {
+        "id_province": "44",
+        "id": "455",
+        "name": "Bố Trạch",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "17 29 13N, 106 06 54E"
+    },
+    {
+        "id_province": "44",
+        "id": "456",
+        "name": "Quảng Ninh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "17 15 15N, 106 32 31E"
+    },
+    {
+        "id_province": "44",
+        "id": "457",
+        "name": "Lệ Thủy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "17 07 35N, 106 41 47E"
+    },
+    {
+        "id_province": "45",
+        "id": "461",
+        "name": "Đông Hà",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "16 48 12N, 107 05 12E"
+    },
+    {
+        "id_province": "45",
+        "id": "462",
+        "name": "Quảng Trị",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "16 44 37N, 107 11 20E"
+    },
+    {
+        "id_province": "45",
+        "id": "464",
+        "name": "Vĩnh Linh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "17 01 35N, 106 53 49E"
+    },
+    {
+        "id_province": "45",
+        "id": "465",
+        "name": "Hướng Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 42 19N, 106 40 14E"
+    },
+    {
+        "id_province": "45",
+        "id": "466",
+        "name": "Gio Linh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 54 49N, 106 56 16E"
+    },
+    {
+        "id_province": "45",
+        "id": "467",
+        "name": "Đa Krông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 33 58N, 106 55 49E"
+    },
+    {
+        "id_province": "45",
+        "id": "468",
+        "name": "Cam Lộ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 47 09N, 106 57 52E"
+    },
+    {
+        "id_province": "45",
+        "id": "469",
+        "name": "Triệu Phong",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 46 32N, 107 09 12E"
+    },
+    {
+        "id_province": "45",
+        "id": "470",
+        "name": "Hải Lăng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 41 07N, 107 13 34E"
+    },
+    {
+        "id_province": "45",
+        "id": "471",
+        "name": "Cồn Cỏ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "19 09 39N, 107 19 58E"
+    },
+    {
+        "id_province": "46",
+        "id": "474",
+        "name": "Huế",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "16 27 16N, 107 34 29E"
+    },
+    {
+        "id_province": "46",
+        "id": "476",
+        "name": "Phong Điền",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 32 42N, 106 16 37E"
+    },
+    {
+        "id_province": "46",
+        "id": "477",
+        "name": "Quảng Điền",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 35 21N, 107 29 31E"
+    },
+    {
+        "id_province": "46",
+        "id": "478",
+        "name": "Phú Vang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 27 20N, 107 42 28E"
+    },
+    {
+        "id_province": "46",
+        "id": "479",
+        "name": "Hương Thủy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 19 27N, 107 37 26E"
+    },
+    {
+        "id_province": "46",
+        "id": "480",
+        "name": "Hương Trà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 25 49N, 107 28 37E"
+    },
+    {
+        "id_province": "46",
+        "id": "481",
+        "name": "A Lưới",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 13 59N, 107 16 12E"
+    },
+    {
+        "id_province": "46",
+        "id": "482",
+        "name": "Phú Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 17 16N, 107 55 25E"
+    },
+    {
+        "id_province": "46",
+        "id": "483",
+        "name": "Nam Đông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 07 11N, 107 41 25E"
+    },
+    {
+        "id_province": "48",
+        "id": "490",
+        "name": "Liên Chiểu",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "16 07 26N, 108 07 04E"
+    },
+    {
+        "id_province": "48",
+        "id": "491",
+        "name": "Thanh Khê",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "16 03 28N, 108 11 00E"
+    },
+    {
+        "id_province": "48",
+        "id": "492",
+        "name": "Hải Châu",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "16 03 38N, 108 11 46E"
+    },
+    {
+        "id_province": "48",
+        "id": "493",
+        "name": "Sơn Trà",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "16 06 13N, 108 16 26E"
+    },
+    {
+        "id_province": "48",
+        "id": "494",
+        "name": "Ngũ Hành Sơn",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "16 00 30N, 108 15 09E"
+    },
+    {
+        "id_province": "48",
+        "id": "495",
+        "name": "Cẩm Lệ",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "48",
+        "id": "497",
+        "name": "Hoà Vang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 03 59N, 108 01 57E"
+    },
+    {
+        "id_province": "48",
+        "id": "498",
+        "name": "Hoàng Sa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "16 21 36N, 111 57 01E"
+    },
+    {
+        "id_province": "49",
+        "id": "502",
+        "name": "Tam Kỳ",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "15 34 37N, 108 29 52E"
+    },
+    {
+        "id_province": "49",
+        "id": "503",
+        "name": "Hội An",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "15 53 20N, 108 20 42E"
+    },
+    {
+        "id_province": "49",
+        "id": "504",
+        "name": "Tây Giang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 53 46N, 107 25 52E"
+    },
+    {
+        "id_province": "49",
+        "id": "505",
+        "name": "Đông Giang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 54 44N, 107 47 06E"
+    },
+    {
+        "id_province": "49",
+        "id": "506",
+        "name": "Đại Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 50 10N, 107 58 27E"
+    },
+    {
+        "id_province": "49",
+        "id": "507",
+        "name": "Điện Bàn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 54 15N, 108 13 38E"
+    },
+    {
+        "id_province": "49",
+        "id": "508",
+        "name": "Duy Xuyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 47 58N, 108 13 27E"
+    },
+    {
+        "id_province": "49",
+        "id": "509",
+        "name": "Quế Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 41 03N, 108 05 34E"
+    },
+    {
+        "id_province": "49",
+        "id": "510",
+        "name": "Nam Giang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 36 37N, 107 33 52E"
+    },
+    {
+        "id_province": "49",
+        "id": "511",
+        "name": "Phước Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 23 17N, 107 50 22E"
+    },
+    {
+        "id_province": "49",
+        "id": "512",
+        "name": "Hiệp Đức",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 31 09N, 108 05 56E"
+    },
+    {
+        "id_province": "49",
+        "id": "513",
+        "name": "Thăng Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 42 29N, 108 22 04E"
+    },
+    {
+        "id_province": "49",
+        "id": "514",
+        "name": "Tiên Phước",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 29 30N, 108 15 28E"
+    },
+    {
+        "id_province": "49",
+        "id": "515",
+        "name": "Bắc Trà My",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 08 00N, 108 05 32E"
+    },
+    {
+        "id_province": "49",
+        "id": "516",
+        "name": "Nam Trà My",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 16 40N, 108 12 15E"
+    },
+    {
+        "id_province": "49",
+        "id": "517",
+        "name": "Núi Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 26 53N, 108 34 49E"
+    },
+    {
+        "id_province": "49",
+        "id": "518",
+        "name": "Phú Ninh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 30 43N, 108 24 43E"
+    },
+    {
+        "id_province": "49",
+        "id": "519",
+        "name": "Nông Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "51",
+        "id": "522",
+        "name": "Quảng Ngãi",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "15 07 17N, 108 48 24E"
+    },
+    {
+        "id_province": "51",
+        "id": "524",
+        "name": "Bình Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 18 45N, 108 45 35E"
+    },
+    {
+        "id_province": "51",
+        "id": "525",
+        "name": "Trà Bồng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 13 30N, 108 29 57E"
+    },
+    {
+        "id_province": "51",
+        "id": "526",
+        "name": "Tây Trà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 11 13N, 108 22 23E"
+    },
+    {
+        "id_province": "51",
+        "id": "527",
+        "name": "Sơn Tịnh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 11 49N, 108 45 03E"
+    },
+    {
+        "id_province": "51",
+        "id": "528",
+        "name": "Tư Nghĩa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 05 25N, 108 45 23E"
+    },
+    {
+        "id_province": "51",
+        "id": "529",
+        "name": "Sơn Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 58 35N, 108 29 09E"
+    },
+    {
+        "id_province": "51",
+        "id": "530",
+        "name": "Sơn Tây",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 58 11N, 108 21 22E"
+    },
+    {
+        "id_province": "51",
+        "id": "531",
+        "name": "Minh Long",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 56 49N, 108 40 19E"
+    },
+    {
+        "id_province": "51",
+        "id": "532",
+        "name": "Nghĩa Hành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 58 06N, 108 46 05E"
+    },
+    {
+        "id_province": "51",
+        "id": "533",
+        "name": "Mộ Đức",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 59 13N, 108 52 21E"
+    },
+    {
+        "id_province": "51",
+        "id": "534",
+        "name": "Đức Phổ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 44 59N, 108 56 58E"
+    },
+    {
+        "id_province": "51",
+        "id": "535",
+        "name": "Ba Tơ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 42 52N, 108 43 44E"
+    },
+    {
+        "id_province": "51",
+        "id": "536",
+        "name": "Lý Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 22 50N, 109 06 56E"
+    },
+    {
+        "id_province": "52",
+        "id": "540",
+        "name": "Qui Nhơn",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "13 47 15N, 109 12 48E"
+    },
+    {
+        "id_province": "52",
+        "id": "542",
+        "name": "An Lão",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 32 10N, 108 47 52E"
+    },
+    {
+        "id_province": "52",
+        "id": "543",
+        "name": "Hoài Nhơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 30 56N, 109 01 56E"
+    },
+    {
+        "id_province": "52",
+        "id": "544",
+        "name": "Hoài Ân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 20 51N, 108 54 04E"
+    },
+    {
+        "id_province": "52",
+        "id": "545",
+        "name": "Phù Mỹ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 14 41N, 109 05 43E"
+    },
+    {
+        "id_province": "52",
+        "id": "546",
+        "name": "Vĩnh Thạnh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 14 26N, 108 44 08E"
+    },
+    {
+        "id_province": "52",
+        "id": "547",
+        "name": "Tây Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 56 47N, 108 53 06E"
+    },
+    {
+        "id_province": "52",
+        "id": "548",
+        "name": "Phù Cát",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 03 48N, 109 03 57E"
+    },
+    {
+        "id_province": "52",
+        "id": "549",
+        "name": "An Nhơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 51 28N, 109 04 02E"
+    },
+    {
+        "id_province": "52",
+        "id": "550",
+        "name": "Tuy Phước",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 46 30N, 109 05 38E"
+    },
+    {
+        "id_province": "52",
+        "id": "551",
+        "name": "Vân Canh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 40 35N, 108 57 52E"
+    },
+    {
+        "id_province": "54",
+        "id": "555",
+        "name": "Tuy Hòa",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "13 05 42N, 109 15 50E"
+    },
+    {
+        "id_province": "54",
+        "id": "557",
+        "name": "Sông Cầu",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "13 31 40N, 109 12 39E"
+    },
+    {
+        "id_province": "54",
+        "id": "558",
+        "name": "Đồng Xuân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 24 59N, 108 56 46E"
+    },
+    {
+        "id_province": "54",
+        "id": "559",
+        "name": "Tuy An",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 15 19N, 109 12 21E"
+    },
+    {
+        "id_province": "54",
+        "id": "560",
+        "name": "Sơn Hòa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 12 16N, 108 57 17E"
+    },
+    {
+        "id_province": "54",
+        "id": "561",
+        "name": "Sông Hinh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 54 19N, 108 53 38E"
+    },
+    {
+        "id_province": "54",
+        "id": "562",
+        "name": "Tây Hoà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "54",
+        "id": "563",
+        "name": "Phú Hoà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 04 07N, 109 11 24E"
+    },
+    {
+        "id_province": "54",
+        "id": "564",
+        "name": "Đông Hoà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "56",
+        "id": "568",
+        "name": "Nha Trang",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "12 15 40N, 109 10 40E"
+    },
+    {
+        "id_province": "56",
+        "id": "569",
+        "name": "Cam Ranh",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "11 59 05N, 108 08 17E"
+    },
+    {
+        "id_province": "56",
+        "id": "570",
+        "name": "Cam Lâm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "56",
+        "id": "571",
+        "name": "Vạn Ninh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 43 10N, 109 11 18E"
+    },
+    {
+        "id_province": "56",
+        "id": "572",
+        "name": "Ninh Hòa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 32 54N, 109 06 11E"
+    },
+    {
+        "id_province": "56",
+        "id": "573",
+        "name": "Khánh Vĩnh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 17 50N, 108 51 56E"
+    },
+    {
+        "id_province": "56",
+        "id": "574",
+        "name": "Diên Khánh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 13 19N, 109 02 16E"
+    },
+    {
+        "id_province": "56",
+        "id": "575",
+        "name": "Khánh Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 02 17N, 108 53 47E"
+    },
+    {
+        "id_province": "56",
+        "id": "576",
+        "name": "Trường Sa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 07 27N, 114 15 00E"
+    },
+    {
+        "id_province": "58",
+        "id": "582",
+        "name": "Phan Rang-Tháp Chàm",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "11 36 11N, 108 58 34E"
+    },
+    {
+        "id_province": "58",
+        "id": "584",
+        "name": "Bác Ái",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 54 45N, 108 51 29E"
+    },
+    {
+        "id_province": "58",
+        "id": "585",
+        "name": "Ninh Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 42 36N, 108 44 55E"
+    },
+    {
+        "id_province": "58",
+        "id": "586",
+        "name": "Ninh Hải",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 42 46N, 109 05 41E"
+    },
+    {
+        "id_province": "58",
+        "id": "587",
+        "name": "Ninh Phước",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 28 56N, 108 50 34E"
+    },
+    {
+        "id_province": "58",
+        "id": "588",
+        "name": "Thuận Bắc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "58",
+        "id": "589",
+        "name": "Thuận Nam",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "60",
+        "id": "593",
+        "name": "Phan Thiết",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 54 16N, 108 03 44E"
+    },
+    {
+        "id_province": "60",
+        "id": "594",
+        "name": "La Gi",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "60",
+        "id": "595",
+        "name": "Tuy Phong",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 20 26N, 108 41 15E"
+    },
+    {
+        "id_province": "60",
+        "id": "596",
+        "name": "Bắc Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 15 52N, 108 21 33E"
+    },
+    {
+        "id_province": "60",
+        "id": "597",
+        "name": "Hàm Thuận Bắc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 09 18N, 108 03 07E"
+    },
+    {
+        "id_province": "60",
+        "id": "598",
+        "name": "Hàm Thuận Nam",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 56 20N, 107 54 38E"
+    },
+    {
+        "id_province": "60",
+        "id": "599",
+        "name": "Tánh Linh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 08 26N, 107 41 22E"
+    },
+    {
+        "id_province": "60",
+        "id": "600",
+        "name": "Đức Linh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 11 43N, 107 31 34E"
+    },
+    {
+        "id_province": "60",
+        "id": "601",
+        "name": "Hàm Tân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 44 41N, 107 41 33E"
+    },
+    {
+        "id_province": "60",
+        "id": "602",
+        "name": "Phú Quí",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 33 13N, 108 57 46E"
+    },
+    {
+        "id_province": "62",
+        "id": "608",
+        "name": "Kon Tum",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "14 20 32N, 107 58 04E"
+    },
+    {
+        "id_province": "62",
+        "id": "610",
+        "name": "Đắk Glei",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "15 08 13N, 107 44 03E"
+    },
+    {
+        "id_province": "62",
+        "id": "611",
+        "name": "Ngọc Hồi",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 44 23N, 107 38 49E"
+    },
+    {
+        "id_province": "62",
+        "id": "612",
+        "name": "Đắk Tô",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 46 49N, 107 55 36E"
+    },
+    {
+        "id_province": "62",
+        "id": "613",
+        "name": "Kon Plông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 48 13N, 108 20 05E"
+    },
+    {
+        "id_province": "62",
+        "id": "614",
+        "name": "Kon Rẫy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 32 56N, 108 13 09E"
+    },
+    {
+        "id_province": "62",
+        "id": "615",
+        "name": "Đắk Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 36 50N, 107 59 55E"
+    },
+    {
+        "id_province": "62",
+        "id": "616",
+        "name": "Sa Thầy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 16 02N, 107 36 30E"
+    },
+    {
+        "id_province": "62",
+        "id": "617",
+        "name": "Tu Mơ Rông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "64",
+        "id": "622",
+        "name": "Pleiku",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "13 57 42N, 107 58 03E"
+    },
+    {
+        "id_province": "64",
+        "id": "623",
+        "name": "An Khê",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "14 01 24N, 108 41 29E"
+    },
+    {
+        "id_province": "64",
+        "id": "624",
+        "name": "Ayun Pa",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "64",
+        "id": "625",
+        "name": "Kbang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 18 08N, 108 29 17E"
+    },
+    {
+        "id_province": "64",
+        "id": "626",
+        "name": "Đăk Đoa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 07 02N, 108 09 36E"
+    },
+    {
+        "id_province": "64",
+        "id": "627",
+        "name": "Chư Păh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "14 13 30N, 107 56 33E"
+    },
+    {
+        "id_province": "64",
+        "id": "628",
+        "name": "Ia Grai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 59 25N, 107 43 16E"
+    },
+    {
+        "id_province": "64",
+        "id": "629",
+        "name": "Mang Yang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 57 26N, 108 18 37E"
+    },
+    {
+        "id_province": "64",
+        "id": "630",
+        "name": "Kông Chro",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 45 47N, 108 36 04E"
+    },
+    {
+        "id_province": "64",
+        "id": "631",
+        "name": "Đức Cơ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 46 16N, 107 38 26E"
+    },
+    {
+        "id_province": "64",
+        "id": "632",
+        "name": "Chư Prông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 35 39N, 107 47 36E"
+    },
+    {
+        "id_province": "64",
+        "id": "633",
+        "name": "Chư Sê",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 37 04N, 108 06 56E"
+    },
+    {
+        "id_province": "64",
+        "id": "634",
+        "name": "Đăk Pơ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 55 47N, 108 36 16E"
+    },
+    {
+        "id_province": "64",
+        "id": "635",
+        "name": "Ia Pa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 31 37N, 108 30 34E"
+    },
+    {
+        "id_province": "64",
+        "id": "637",
+        "name": "Krông Pa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 14 13N, 108 39 12E"
+    },
+    {
+        "id_province": "64",
+        "id": "638",
+        "name": "Phú Thiện",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "64",
+        "id": "639",
+        "name": "Chư Pưh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "66",
+        "id": "643",
+        "name": "Buôn Ma Thuột",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "12 39 43N, 108 10 40E"
+    },
+    {
+        "id_province": "66",
+        "id": "644",
+        "name": "Buôn Hồ",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "66",
+        "id": "645",
+        "name": "Ea H'leo",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 13 52N, 108 12 30E"
+    },
+    {
+        "id_province": "66",
+        "id": "646",
+        "name": "Ea Súp",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "13 10 59N, 107 46 49E"
+    },
+    {
+        "id_province": "66",
+        "id": "647",
+        "name": "Buôn Đôn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 52 45N, 107 45 20E"
+    },
+    {
+        "id_province": "66",
+        "id": "648",
+        "name": "Cư M'gar",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 53 47N, 108 04 16E"
+    },
+    {
+        "id_province": "66",
+        "id": "649",
+        "name": "Krông Búk",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 56 27N, 108 13 54E"
+    },
+    {
+        "id_province": "66",
+        "id": "650",
+        "name": "Krông Năng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 59 41N, 108 23 42E"
+    },
+    {
+        "id_province": "66",
+        "id": "651",
+        "name": "Ea Kar",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 48 17N, 108 32 42E"
+    },
+    {
+        "id_province": "66",
+        "id": "652",
+        "name": "M'đrắk",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 42 14N, 108 47 09E"
+    },
+    {
+        "id_province": "66",
+        "id": "653",
+        "name": "Krông Bông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 27 08N, 108 27 01E"
+    },
+    {
+        "id_province": "66",
+        "id": "654",
+        "name": "Krông Pắc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 41 20N, 108 18 42E"
+    },
+    {
+        "id_province": "66",
+        "id": "655",
+        "name": "Krông A Na",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 31 51N, 108 05 03E"
+    },
+    {
+        "id_province": "66",
+        "id": "656",
+        "name": "Lắk",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 19 20N, 108 12 17E"
+    },
+    {
+        "id_province": "66",
+        "id": "657",
+        "name": "Cư Kuin",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "67",
+        "id": "660",
+        "name": "Gia Nghĩa",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "67",
+        "id": "661",
+        "name": "Đắk Glong",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 01 53N, 107 50 37E"
+    },
+    {
+        "id_province": "67",
+        "id": "662",
+        "name": "Cư Jút",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 40 56N, 107 44 44E"
+    },
+    {
+        "id_province": "67",
+        "id": "663",
+        "name": "Đắk Mil",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 31 08N, 107 42 24E"
+    },
+    {
+        "id_province": "67",
+        "id": "664",
+        "name": "Krông Nô",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 22 16N, 107 53 49E"
+    },
+    {
+        "id_province": "67",
+        "id": "665",
+        "name": "Đắk Song",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 14 04N, 107 36 30E"
+    },
+    {
+        "id_province": "67",
+        "id": "666",
+        "name": "Đắk R'lấp",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 02 30N, 107 25 59E"
+    },
+    {
+        "id_province": "67",
+        "id": "667",
+        "name": "Tuy Đức",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "68",
+        "id": "672",
+        "name": "Đà Lạt",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "11 54 33N, 108 27 08E"
+    },
+    {
+        "id_province": "68",
+        "id": "673",
+        "name": "Bảo Lộc",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "11 32 48N, 107 47 37E"
+    },
+    {
+        "id_province": "68",
+        "id": "674",
+        "name": "Đam Rông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 02 35N, 108 10 26E"
+    },
+    {
+        "id_province": "68",
+        "id": "675",
+        "name": "Lạc Dương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "12 08 30N, 108 27 48E"
+    },
+    {
+        "id_province": "68",
+        "id": "676",
+        "name": "Lâm Hà",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 55 26N, 108 11 31E"
+    },
+    {
+        "id_province": "68",
+        "id": "677",
+        "name": "Đơn Dương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 48 26N, 108 32 48E"
+    },
+    {
+        "id_province": "68",
+        "id": "678",
+        "name": "Đức Trọng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 41 50N, 108 18 58E"
+    },
+    {
+        "id_province": "68",
+        "id": "679",
+        "name": "Di Linh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 31 10N, 108 05 23E"
+    },
+    {
+        "id_province": "68",
+        "id": "680",
+        "name": "Bảo Lâm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 38 31N, 107 43 25E"
+    },
+    {
+        "id_province": "68",
+        "id": "681",
+        "name": "Đạ Huoai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 27 11N, 107 38 08E"
+    },
+    {
+        "id_province": "68",
+        "id": "682",
+        "name": "Đạ Tẻh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 33 46N, 107 32 00E"
+    },
+    {
+        "id_province": "68",
+        "id": "683",
+        "name": "Cát Tiên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 39 38N, 107 23 27E"
+    },
+    {
+        "id_province": "70",
+        "id": "689",
+        "name": "Đồng Xoài",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "11 31 01N, 106 50 21E"
+    },
+    {
+        "id_province": "70",
+        "id": "688",
+        "name": "Phước Long",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "70",
+        "id": "690",
+        "name": "Bình Long",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "70",
+        "id": "691",
+        "name": "Bù Gia Mập",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 56 57N, 106 59 21E"
+    },
+    {
+        "id_province": "70",
+        "id": "692",
+        "name": "Lộc Ninh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 49 28N, 106 35 11E"
+    },
+    {
+        "id_province": "70",
+        "id": "693",
+        "name": "Bù Đốp",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 59 08N, 106 49 54E"
+    },
+    {
+        "id_province": "70",
+        "id": "694",
+        "name": "Hớn Quản",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 37 37N, 106 36 02E"
+    },
+    {
+        "id_province": "70",
+        "id": "695",
+        "name": "Đồng Phù",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 28 45N, 106 57 07E"
+    },
+    {
+        "id_province": "70",
+        "id": "696",
+        "name": "Bù Đăng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 46 09N, 107 14 14E"
+    },
+    {
+        "id_province": "70",
+        "id": "697",
+        "name": "Chơn Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 28 45N, 106 39 26E"
+    },
+    {
+        "id_province": "72",
+        "id": "703",
+        "name": "Tây Ninh",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "11 21 59N, 106 07 47E"
+    },
+    {
+        "id_province": "72",
+        "id": "705",
+        "name": "Tân Biên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 35 14N, 105 57 53E"
+    },
+    {
+        "id_province": "72",
+        "id": "706",
+        "name": "Tân Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 34 49N, 106 17 48E"
+    },
+    {
+        "id_province": "72",
+        "id": "707",
+        "name": "Dương Minh Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 22 04N, 106 16 58E"
+    },
+    {
+        "id_province": "72",
+        "id": "708",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 19 02N, 106 00 15E"
+    },
+    {
+        "id_province": "72",
+        "id": "709",
+        "name": "Hòa Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 15 31N, 106 08 44E"
+    },
+    {
+        "id_province": "72",
+        "id": "710",
+        "name": "Gò Dầu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 09 39N, 106 14 42E"
+    },
+    {
+        "id_province": "72",
+        "id": "711",
+        "name": "Bến Cầu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 07 50N, 106 08 25E"
+    },
+    {
+        "id_province": "72",
+        "id": "712",
+        "name": "Trảng Bàng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 06 18N, 106 23 12E"
+    },
+    {
+        "id_province": "74",
+        "id": "718",
+        "name": "Thủ Dầu Một",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "11 00 01N, 106 38 56E"
+    },
+    {
+        "id_province": "74",
+        "id": "720",
+        "name": "Dầu Tiếng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 19 07N, 106 26 59E"
+    },
+    {
+        "id_province": "74",
+        "id": "721",
+        "name": "Bến Cát",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 12 42N, 106 36 28E"
+    },
+    {
+        "id_province": "74",
+        "id": "722",
+        "name": "Phú Giáo",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 20 21N, 106 47 48E"
+    },
+    {
+        "id_province": "74",
+        "id": "723",
+        "name": "Tân Uyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 06 31N, 106 49 02E"
+    },
+    {
+        "id_province": "74",
+        "id": "724",
+        "name": "Dĩ An",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 55 03N, 106 47 09E"
+    },
+    {
+        "id_province": "74",
+        "id": "725",
+        "name": "Thuận An",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 55 58N, 106 41 59E"
+    },
+    {
+        "id_province": "75",
+        "id": "731",
+        "name": "Biên Hòa",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 56 31N, 106 50 50E"
+    },
+    {
+        "id_province": "75",
+        "id": "732",
+        "name": "Long Khánh",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "10 56 24N, 107 14 29E"
+    },
+    {
+        "id_province": "75",
+        "id": "734",
+        "name": "Tân Phú",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 22 51N, 107 21 35E"
+    },
+    {
+        "id_province": "75",
+        "id": "735",
+        "name": "Vĩnh Cửu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 14 31N, 107 00 06E"
+    },
+    {
+        "id_province": "75",
+        "id": "736",
+        "name": "Định Quán",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 12 41N, 107 17 03E"
+    },
+    {
+        "id_province": "75",
+        "id": "737",
+        "name": "Trảng Bom",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 58 39N, 107 00 52E"
+    },
+    {
+        "id_province": "75",
+        "id": "738",
+        "name": "Thống Nhất",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 58 29N, 107 09 26E"
+    },
+    {
+        "id_province": "75",
+        "id": "739",
+        "name": "Cẩm Mỹ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 47 05N, 107 14 36E"
+    },
+    {
+        "id_province": "75",
+        "id": "740",
+        "name": "Long Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 47 38N, 106 59 42E"
+    },
+    {
+        "id_province": "75",
+        "id": "741",
+        "name": "Xuân Lộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 55 39N, 107 24 21E"
+    },
+    {
+        "id_province": "75",
+        "id": "742",
+        "name": "Nhơn Trạch",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 39 18N, 106 53 18E"
+    },
+    {
+        "id_province": "77",
+        "id": "747",
+        "name": "Vũng Tầu",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 24 08N, 107 07 05E"
+    },
+    {
+        "id_province": "77",
+        "id": "748",
+        "name": "Bà Rịa",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "10 30 33N, 107 10 47E"
+    },
+    {
+        "id_province": "77",
+        "id": "750",
+        "name": "Châu Đức",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 39 23N, 107 15 08E"
+    },
+    {
+        "id_province": "77",
+        "id": "751",
+        "name": "Xuyên Mộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 37 46N, 107 29 39E"
+    },
+    {
+        "id_province": "77",
+        "id": "752",
+        "name": "Long Điền",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 26 47N, 107 12 53E"
+    },
+    {
+        "id_province": "77",
+        "id": "753",
+        "name": "Đất Đỏ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 28 40N, 107 18 27E"
+    },
+    {
+        "id_province": "77",
+        "id": "754",
+        "name": "Tân Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 34 50N, 107 05 06E"
+    },
+    {
+        "id_province": "77",
+        "id": "755",
+        "name": "Côn Đảo",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "8 42 25N, 106 36 05E"
+    },
+    {
+        "id_province": "79",
+        "id": "760",
+        "name": "1",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 46 34N, 106 41 45E"
+    },
+    {
+        "id_province": "79",
+        "id": "761",
+        "name": "12",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 51 43N, 106 39 32E"
+    },
+    {
+        "id_province": "79",
+        "id": "762",
+        "name": "Thủ Đức",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 51 20N, 106 45 05E"
+    },
+    {
+        "id_province": "79",
+        "id": "763",
+        "name": "9",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 49 49N, 106 49 03E"
+    },
+    {
+        "id_province": "79",
+        "id": "764",
+        "name": "Gò Vấp",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 50 12N, 106 39 52E"
+    },
+    {
+        "id_province": "79",
+        "id": "765",
+        "name": "Bình Thạnh",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 48 46N, 106 42 57E"
+    },
+    {
+        "id_province": "79",
+        "id": "766",
+        "name": "Tân Bình",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 48 13N, 106 39 03E"
+    },
+    {
+        "id_province": "79",
+        "id": "767",
+        "name": "Tân Phú",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 47 32N, 106 37 31E"
+    },
+    {
+        "id_province": "79",
+        "id": "768",
+        "name": "Phú Nhuận",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 48 06N, 106 40 39E"
+    },
+    {
+        "id_province": "79",
+        "id": "769",
+        "name": "2",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 46 51N, 106 45 25E"
+    },
+    {
+        "id_province": "79",
+        "id": "770",
+        "name": "3",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 46 48N, 106 40 46E"
+    },
+    {
+        "id_province": "79",
+        "id": "771",
+        "name": "10",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 46 25N, 106 40 02E"
+    },
+    {
+        "id_province": "79",
+        "id": "772",
+        "name": "11",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 46 01N, 106 38 44E"
+    },
+    {
+        "id_province": "79",
+        "id": "773",
+        "name": "4",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 45 42N, 106 42 09E"
+    },
+    {
+        "id_province": "79",
+        "id": "774",
+        "name": "5",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 45 24N, 106 40 00E"
+    },
+    {
+        "id_province": "79",
+        "id": "775",
+        "name": "6",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 44 46N, 106 38 10E"
+    },
+    {
+        "id_province": "79",
+        "id": "776",
+        "name": "8",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 43 24N, 106 37 40E"
+    },
+    {
+        "id_province": "79",
+        "id": "777",
+        "name": "Bình Tân",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 46 16N, 106 35 26E"
+    },
+    {
+        "id_province": "79",
+        "id": "778",
+        "name": "7",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 44 19N, 106 43 35E"
+    },
+    {
+        "id_province": "79",
+        "id": "783",
+        "name": "Củ Chi",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "11 02 17N, 106 30 20E"
+    },
+    {
+        "id_province": "79",
+        "id": "784",
+        "name": "Hóc Môn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 52 42N, 106 35 33E"
+    },
+    {
+        "id_province": "79",
+        "id": "785",
+        "name": "Bình Chánh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 45 01N, 106 30 45E"
+    },
+    {
+        "id_province": "79",
+        "id": "786",
+        "name": "Nhà Bè",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 39 06N, 106 43 35E"
+    },
+    {
+        "id_province": "79",
+        "id": "787",
+        "name": "Cần Giờ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 30 43N, 106 52 50E"
+    },
+    {
+        "id_province": "80",
+        "id": "794",
+        "name": "Tân An",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 31 36N, 106 24 06E"
+    },
+    {
+        "id_province": "80",
+        "id": "796",
+        "name": "Tân Hưng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 49 05N, 105 39 26E"
+    },
+    {
+        "id_province": "80",
+        "id": "797",
+        "name": "Vĩnh Hưng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 52 54N, 105 45 58E"
+    },
+    {
+        "id_province": "80",
+        "id": "798",
+        "name": "Mộc Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 47 09N, 105 57 56E"
+    },
+    {
+        "id_province": "80",
+        "id": "799",
+        "name": "Tân Thạnh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 37 44N, 105 57 07E"
+    },
+    {
+        "id_province": "80",
+        "id": "800",
+        "name": "Thạnh Hóa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 41 37N, 106 11 08E"
+    },
+    {
+        "id_province": "80",
+        "id": "801",
+        "name": "Đức Huệ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 51 57N, 106 15 48E"
+    },
+    {
+        "id_province": "80",
+        "id": "802",
+        "name": "Đức Hòa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 53 04N, 106 23 58E"
+    },
+    {
+        "id_province": "80",
+        "id": "803",
+        "name": "Bến Lức",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 41 40N, 106 26 28E"
+    },
+    {
+        "id_province": "80",
+        "id": "804",
+        "name": "Thủ Thừa",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 39 41N, 106 20 12E"
+    },
+    {
+        "id_province": "80",
+        "id": "805",
+        "name": "Tân Trụ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 31 47N, 106 30 06E"
+    },
+    {
+        "id_province": "80",
+        "id": "806",
+        "name": "Cần Đước",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 32 21N, 106 36 33E"
+    },
+    {
+        "id_province": "80",
+        "id": "807",
+        "name": "Cần Giuộc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 34 43N, 106 38 35E"
+    },
+    {
+        "id_province": "80",
+        "id": "808",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 27 52N, 106 30 00E"
+    },
+    {
+        "id_province": "82",
+        "id": "815",
+        "name": "Mỹ Tho",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 22 14N, 106 21 52E"
+    },
+    {
+        "id_province": "82",
+        "id": "816",
+        "name": "Gò Công",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "10 21 55N, 106 40 24E"
+    },
+    {
+        "id_province": "82",
+        "id": "818",
+        "name": "Tân Phước",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 30 36N, 106 13 02E"
+    },
+    {
+        "id_province": "82",
+        "id": "819",
+        "name": "Cái Bè",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 24 21N, 105 56 01E"
+    },
+    {
+        "id_province": "82",
+        "id": "820",
+        "name": "Cai Lậy",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 24 20N, 106 06 05E"
+    },
+    {
+        "id_province": "82",
+        "id": "821",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "20 25 21N, 106 16 57E"
+    },
+    {
+        "id_province": "82",
+        "id": "822",
+        "name": "Chợ Gạo",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 23 45N, 106 26 53E"
+    },
+    {
+        "id_province": "82",
+        "id": "823",
+        "name": "Gò Công Tây",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 19 55N, 106 35 02E"
+    },
+    {
+        "id_province": "82",
+        "id": "824",
+        "name": "Gò Công Đông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 20 42N, 106 42 54E"
+    },
+    {
+        "id_province": "82",
+        "id": "825",
+        "name": "Tân Phú Đông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "83",
+        "id": "829",
+        "name": "Bến Tre",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 14 17N, 106 22 26E"
+    },
+    {
+        "id_province": "83",
+        "id": "831",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 17 24N, 106 17 45E"
+    },
+    {
+        "id_province": "83",
+        "id": "832",
+        "name": "Chợ Lách",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 13 26N, 106 09 08E"
+    },
+    {
+        "id_province": "83",
+        "id": "833",
+        "name": "Mỏ Cày Nam",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 06 56N, 106 19 40E"
+    },
+    {
+        "id_province": "83",
+        "id": "834",
+        "name": "Giồng Trôm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 08 46N, 106 28 12E"
+    },
+    {
+        "id_province": "83",
+        "id": "835",
+        "name": "Bình Đại",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 09 56N, 106 37 46E"
+    },
+    {
+        "id_province": "83",
+        "id": "836",
+        "name": "Ba Tri",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 04 08N, 106 35 10E"
+    },
+    {
+        "id_province": "83",
+        "id": "837",
+        "name": "Thạnh Phú",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 55 53N, 106 32 45E"
+    },
+    {
+        "id_province": "83",
+        "id": "838",
+        "name": "Mỏ Cày Bắc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "84",
+        "id": "842",
+        "name": "Trà Vinh",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "9 57 09N, 106 20 39E"
+    },
+    {
+        "id_province": "84",
+        "id": "844",
+        "name": "Càng Long",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 58 18N, 106 12 52E"
+    },
+    {
+        "id_province": "84",
+        "id": "845",
+        "name": "Cầu Kè",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 51 23N, 106 03 33E"
+    },
+    {
+        "id_province": "84",
+        "id": "846",
+        "name": "Tiểu Cần",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 48 37N, 106 12 06E"
+    },
+    {
+        "id_province": "84",
+        "id": "847",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 52 57N, 106 24 12E"
+    },
+    {
+        "id_province": "84",
+        "id": "848",
+        "name": "Cầu Ngang",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 47 14N, 106 29 19E"
+    },
+    {
+        "id_province": "84",
+        "id": "849",
+        "name": "Trà Cú",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 42 06N, 106 16 24E"
+    },
+    {
+        "id_province": "84",
+        "id": "850",
+        "name": "Duyên Hải",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 39 58N, 106 26 23E"
+    },
+    {
+        "id_province": "86",
+        "id": "855",
+        "name": "Vĩnh Long",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 15 09N, 105 56 08E"
+    },
+    {
+        "id_province": "86",
+        "id": "857",
+        "name": "Long Hồ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 13 58N, 105 55 47E"
+    },
+    {
+        "id_province": "86",
+        "id": "858",
+        "name": "Mang Thít",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 10 58N, 106 05 13E"
+    },
+    {
+        "id_province": "86",
+        "id": "859",
+        "name": "Vũng Liêm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 03 32N, 106 10 35E"
+    },
+    {
+        "id_province": "86",
+        "id": "860",
+        "name": "Tam Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 03 58N, 105 58 03E"
+    },
+    {
+        "id_province": "86",
+        "id": "861",
+        "name": "Bình Minh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 05 45N, 105 47 21E"
+    },
+    {
+        "id_province": "86",
+        "id": "862",
+        "name": "Trà Ôn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 59 20N, 105 57 56E"
+    },
+    {
+        "id_province": "86",
+        "id": "863",
+        "name": "Bình Tân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "87",
+        "id": "866",
+        "name": "Cao Lãnh",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 27 38N, 105 37 21E"
+    },
+    {
+        "id_province": "87",
+        "id": "867",
+        "name": "Sa Đéc",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "10 19 22N, 105 44 31E"
+    },
+    {
+        "id_province": "87",
+        "id": "868",
+        "name": "Hồng Ngự",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "87",
+        "id": "869",
+        "name": "Tân Hồng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 52 48N, 105 29 21E"
+    },
+    {
+        "id_province": "87",
+        "id": "870",
+        "name": "Hồng Ngự",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 48 13N, 105 19 00E"
+    },
+    {
+        "id_province": "87",
+        "id": "871",
+        "name": "Tam Nông",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 44 06N, 105 30 58E"
+    },
+    {
+        "id_province": "87",
+        "id": "872",
+        "name": "Tháp Mười",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 33 36N, 105 47 13E"
+    },
+    {
+        "id_province": "87",
+        "id": "873",
+        "name": "Cao Lãnh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 29 03N, 105 41 40E"
+    },
+    {
+        "id_province": "87",
+        "id": "874",
+        "name": "Thanh Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 36 38N, 105 28 51E"
+    },
+    {
+        "id_province": "87",
+        "id": "875",
+        "name": "Lấp Vò",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 21 27N, 105 36 06E"
+    },
+    {
+        "id_province": "87",
+        "id": "876",
+        "name": "Lai Vung",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 14 43N, 105 38 40E"
+    },
+    {
+        "id_province": "87",
+        "id": "877",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 13 27N, 105 48 38E"
+    },
+    {
+        "id_province": "89",
+        "id": "883",
+        "name": "Long Xuyên",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 22 22N, 105 25 33E"
+    },
+    {
+        "id_province": "89",
+        "id": "884",
+        "name": "Châu Đốc",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "10 41 20N, 105 05 15E"
+    },
+    {
+        "id_province": "89",
+        "id": "886",
+        "name": "An Phú",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 50 12N, 105 05 33E"
+    },
+    {
+        "id_province": "89",
+        "id": "887",
+        "name": "Tân Châu",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "10 49 11N, 105 11 18E"
+    },
+    {
+        "id_province": "89",
+        "id": "888",
+        "name": "Phú Tân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 40 26N, 105 14 40E"
+    },
+    {
+        "id_province": "89",
+        "id": "889",
+        "name": "Châu Phú",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 34 12N, 105 12 13E"
+    },
+    {
+        "id_province": "89",
+        "id": "890",
+        "name": "Tịnh Biên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 33 30N, 105 00 17E"
+    },
+    {
+        "id_province": "89",
+        "id": "891",
+        "name": "Tri Tôn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 24 41N, 104 56 58E"
+    },
+    {
+        "id_province": "89",
+        "id": "892",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 25 39N, 105 15 31E"
+    },
+    {
+        "id_province": "89",
+        "id": "893",
+        "name": "Chợ Mới",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 27 23N, 105 26 57E"
+    },
+    {
+        "id_province": "89",
+        "id": "894",
+        "name": "Thoại Sơn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 16 45N, 105 15 59E"
+    },
+    {
+        "id_province": "91",
+        "id": "899",
+        "name": "Rạch Giá",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "10 01 35N, 105 06 20E"
+    },
+    {
+        "id_province": "91",
+        "id": "900",
+        "name": "Hà Tiên",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "10 22 54N, 104 30 10E"
+    },
+    {
+        "id_province": "91",
+        "id": "902",
+        "name": "Kiên Lương",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 20 21N, 104 39 46E"
+    },
+    {
+        "id_province": "91",
+        "id": "903",
+        "name": "Hòn Đất",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 14 20N, 104 55 57E"
+    },
+    {
+        "id_province": "91",
+        "id": "904",
+        "name": "Tân Hiệp",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 05 18N, 105 14 04E"
+    },
+    {
+        "id_province": "91",
+        "id": "905",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 57 37N, 105 10 16E"
+    },
+    {
+        "id_province": "91",
+        "id": "906",
+        "name": "Giồng Giềng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 56 05N, 105 22 06E"
+    },
+    {
+        "id_province": "91",
+        "id": "907",
+        "name": "Gò Quao",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 43 17N, 105 17 06E"
+    },
+    {
+        "id_province": "91",
+        "id": "908",
+        "name": "An Biên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 48 37N, 105 03 18E"
+    },
+    {
+        "id_province": "91",
+        "id": "909",
+        "name": "An Minh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 40 24N, 104 59 05E"
+    },
+    {
+        "id_province": "91",
+        "id": "910",
+        "name": "Vĩnh Thuận",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 33 25N, 105 11 30E"
+    },
+    {
+        "id_province": "91",
+        "id": "911",
+        "name": "Phú Quốc",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 13 44N, 103 57 25E"
+    },
+    {
+        "id_province": "91",
+        "id": "912",
+        "name": "Kiên Hải",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 48 31N, 104 37 48E"
+    },
+    {
+        "id_province": "91",
+        "id": "913",
+        "name": "U Minh Thượng",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "91",
+        "id": "914",
+        "name": "Giang Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "92",
+        "id": "916",
+        "name": "Ninh Kiều",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 01 58N, 105 45 34E"
+    },
+    {
+        "id_province": "92",
+        "id": "917",
+        "name": "Ô Môn",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 07 28N, 105 37 51E"
+    },
+    {
+        "id_province": "92",
+        "id": "918",
+        "name": "Bình Thuỷ",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 03 42N, 105 43 17E"
+    },
+    {
+        "id_province": "92",
+        "id": "919",
+        "name": "Cái Răng",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "9 59 57N, 105 46 56E"
+    },
+    {
+        "id_province": "92",
+        "id": "923",
+        "name": "Thốt Nốt",
+        "rank": "Quận",
+        "kinh độ, vĩ độ": "10 14 23N, 105 32 02E"
+    },
+    {
+        "id_province": "92",
+        "id": "924",
+        "name": "Vĩnh Thạnh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 11 35N, 105 22 45E"
+    },
+    {
+        "id_province": "92",
+        "id": "925",
+        "name": "Cờ Đỏ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "10 02 48N, 105 29 46E"
+    },
+    {
+        "id_province": "92",
+        "id": "926",
+        "name": "Phong Điền",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 59 57N, 105 39 35E"
+    },
+    {
+        "id_province": "92",
+        "id": "927",
+        "name": "Thới Lai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "93",
+        "id": "930",
+        "name": "Vị Thanh",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "9 45 15N, 105 24 50E"
+    },
+    {
+        "id_province": "93",
+        "id": "931",
+        "name": "Ngã Bảy",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "93",
+        "id": "932",
+        "name": "Châu Thành A",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 55 50N, 105 38 31E"
+    },
+    {
+        "id_province": "93",
+        "id": "933",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 55 22N, 105 48 37E"
+    },
+    {
+        "id_province": "93",
+        "id": "934",
+        "name": "Phụng Hiệp",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 47 20N, 105 43 29E"
+    },
+    {
+        "id_province": "93",
+        "id": "935",
+        "name": "Vị Thuỷ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 48 05N, 105 32 13E"
+    },
+    {
+        "id_province": "93",
+        "id": "936",
+        "name": "Long Mỹ",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 40 47N, 105 30 53E"
+    },
+    {
+        "id_province": "94",
+        "id": "941",
+        "name": "Sóc Trăng",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "9 36 39N, 105 59 00E"
+    },
+    {
+        "id_province": "94",
+        "id": "942",
+        "name": "Châu Thành",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "94",
+        "id": "943",
+        "name": "Kế Sách",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 49 30N, 105 57 25E"
+    },
+    {
+        "id_province": "94",
+        "id": "944",
+        "name": "Mỹ Tú",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 38 21N, 105 49 52E"
+    },
+    {
+        "id_province": "94",
+        "id": "945",
+        "name": "Cù Lao Dung",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 37 36N, 106 12 13E"
+    },
+    {
+        "id_province": "94",
+        "id": "946",
+        "name": "Long Phú",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 34 38N, 106 06 07E"
+    },
+    {
+        "id_province": "94",
+        "id": "947",
+        "name": "Mỹ Xuyên",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 28 16N, 105 55 51E"
+    },
+    {
+        "id_province": "94",
+        "id": "948",
+        "name": "Ngã Năm",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 31 38N, 105 37 22E"
+    },
+    {
+        "id_province": "94",
+        "id": "949",
+        "name": "Thạnh Trị",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 28 05N, 105 43 02E"
+    },
+    {
+        "id_province": "94",
+        "id": "950",
+        "name": "Vĩnh Châu",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 20 50N, 105 59 58E"
+    },
+    {
+        "id_province": "94",
+        "id": "951",
+        "name": "Trần Đề",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "95",
+        "id": "954",
+        "name": "Bạc Liêu",
+        "rank": "Thị Xã",
+        "kinh độ, vĩ độ": "9 16 05N, 105 45 08E"
+    },
+    {
+        "id_province": "95",
+        "id": "956",
+        "name": "Hồng Dân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 30 37N, 105 24 25E"
+    },
+    {
+        "id_province": "95",
+        "id": "957",
+        "name": "Phước Long",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 23 13N, 105 24 41E"
+    },
+    {
+        "id_province": "95",
+        "id": "958",
+        "name": "Vĩnh Lợi",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 16 51N, 105 40 54E"
+    },
+    {
+        "id_province": "95",
+        "id": "959",
+        "name": "Giá Rai",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 15 51N, 105 23 18E"
+    },
+    {
+        "id_province": "95",
+        "id": "960",
+        "name": "Đông Hải",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 08 11N, 105 24 42E"
+    },
+    {
+        "id_province": "95",
+        "id": "961",
+        "name": "Hoà Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": ""
+    },
+    {
+        "id_province": "96",
+        "id": "964",
+        "name": "Cà Mau",
+        "rank": "Thành Phố",
+        "kinh độ, vĩ độ": "9 10 33N, 105 11 11E"
+    },
+    {
+        "id_province": "96",
+        "id": "966",
+        "name": "U Minh",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 22 30N, 104 57 00E"
+    },
+    {
+        "id_province": "96",
+        "id": "967",
+        "name": "Thới Bình",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 22 50N, 105 07 35E"
+    },
+    {
+        "id_province": "96",
+        "id": "968",
+        "name": "Trần Văn Thời",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 07 36N, 104 57 27E"
+    },
+    {
+        "id_province": "96",
+        "id": "969",
+        "name": "Cái Nước",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "9 00 31N, 105 03 23E"
+    },
+    {
+        "id_province": "96",
+        "id": "970",
+        "name": "Đầm Dơi",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "8 57 48N, 105 13 56E"
+    },
+    {
+        "id_province": "96",
+        "id": "971",
+        "name": "Năm Căn",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "8 46 59N, 104 58 20E"
+    },
+    {
+        "id_province": "96",
+        "id": "972",
+        "name": "Phú Tân",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "8 52 47N, 104 53 35E"
+    },
+    {
+        "id_province": "96",
+        "id": "973",
+        "name": "Ngọc Hiển",
+        "rank": "Huyện",
+        "kinh độ, vĩ độ": "8 40 47N, 104 57 58E"
+    }
+]

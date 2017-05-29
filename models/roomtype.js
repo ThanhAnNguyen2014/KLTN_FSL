@@ -5,11 +5,12 @@ var mongoose = require('mongoose'),
 var Room_TypeSchema = new Schema({
     title: { type: String },
     description: { type: String },
-    no_people: { type: String },
-    status: { type: Boolean },
-    devices: [
+    no_people: { type: Number },
+    no_room:{type: Number, default: 0},
+    status: { type: Boolean, default:false },
+    device: [
         {
-            id_device: { type: ObjectId }
+            id_device: { type: ObjectId, ref:'Devices' }
         }
     ]
 })

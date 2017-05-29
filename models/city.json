@@ -1,0 +1,317 @@
+[
+    {
+        "rank": "Thành Phố",
+        "id": "01",
+        "name": "Hà Nội"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "02",
+        "name": "Hà Giang"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "04",
+        "name": "Cao Bằng"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "06",
+        "name": "Bắc Kạn"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "08",
+        "name": "Tuyên Quang"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "10",
+        "name": "Lào Cai"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "11",
+        "name": "Điện Biên"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "12",
+        "name": "Lai Châu"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "14",
+        "name": "Sơn La"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "15",
+        "name": "Yên Bái"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "17",
+        "name": "Hòa Bình"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "19",
+        "name": "Thái Nguyên"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "20",
+        "name": "Lạng Sơn"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "22",
+        "name": "Quảng Ninh"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "24",
+        "name": "Bắc Giang"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "25",
+        "name": "Phú Thọ"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "26",
+        "name": "Vĩnh Phúc"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "27",
+        "name": "Bắc Ninh"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "30",
+        "name": "Hải Dương"
+    },
+    {
+        "rank": "Thành Phố",
+        "id": "31",
+        "name": "Hải Phòng"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "33",
+        "name": "Hưng Yên"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "34",
+        "name": "Thái Bình"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "35",
+        "name": "Hà Nam"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "36",
+        "name": "Nam Định"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "37",
+        "name": "Ninh Bình"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "38",
+        "name": "Thanh Hóa"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "40",
+        "name": "Nghệ An"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "42",
+        "name": "Hà Tĩnh"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "44",
+        "name": "Quảng Bình"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "45",
+        "name": "Quảng Trị"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "46",
+        "name": "Thừa Thiên Huế"
+    },
+    {
+        "rank": "Thành Phố",
+        "id": "48",
+        "name": "Đà Nẵng"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "49",
+        "name": "Quảng Nam"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "51",
+        "name": "Quảng Ngãi"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "52",
+        "name": "Bình Định"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "54",
+        "name": "Phú Yên"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "56",
+        "name": "Khánh Hòa"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "58",
+        "name": "Ninh Thuận"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "60",
+        "name": "Bình Thuận"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "62",
+        "name": "Kon Tum"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "64",
+        "name": "Gia Lai"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "66",
+        "name": "Đắk Lắk"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "67",
+        "name": "Đắk Nông"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "68",
+        "name": "Lâm Đồng"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "70",
+        "name": "Bình Phước"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "72",
+        "name": "Tây Ninh"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "74",
+        "name": "Bình Dương"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "75",
+        "name": "Đồng Nai"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "77",
+        "name": "Bà Rịa - Vũng Tàu"
+    },
+    {
+        "rank": "Thành Phố",
+        "id": "79",
+        "name": "Hồ Chí Minh"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "80",
+        "name": "Long An"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "82",
+        "name": "Tiền Giang"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "83",
+        "name": "Bến Tre"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "84",
+        "name": "Trà Vinh"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "86",
+        "name": "Vĩnh Long"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "87",
+        "name": "Đồng Tháp"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "89",
+        "name": "An Giang"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "91",
+        "name": "Kiên Giang"
+    },
+    {
+        "rank": "Thành Phố",
+        "id": "92",
+        "name": "Cần Thơ"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "93",
+        "name": "Hậu Giang"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "94",
+        "name": "Sóc Trăng"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "95",
+        "name": "Bạc Liêu"
+    },
+    {
+        "rank": "Tỉnh",
+        "id": "96",
+        "name": "Cà Mau"
+    }
+]

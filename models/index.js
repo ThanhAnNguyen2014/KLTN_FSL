@@ -1,9 +1,7 @@
 module.exports = {
-    'banggia': require('./banggia'),
     'User': require('./user'),
     'Landlord': require('./landlord'),
     'Admin': require('./admin'),
-    'Area' : require('./area'),
     'Comment': require('./comment'),
     'Rent_Room_Detail': require('./rentroomdetail'),
     'Landlord_Receipt': require('./landlordreceipt'),
@@ -16,5 +14,8 @@ module.exports = {
     'Room_Type' : require('./roomtype'),
     'Rating': require('./rating'),
     'AvgRating': require('./avgrating'),
-    'Devices': require('./device')
+    'Devices': require('./device'),
+    'Province': require('./province'),
+    'District': require('./district'),
+    'Ward': require('./ward')
 };

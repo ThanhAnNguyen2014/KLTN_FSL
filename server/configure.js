@@ -16,6 +16,7 @@ var path = require('path'),
     LocalStrategy = require('passport-local').Strategy;
 
 
+
 module.exports = function (app) {
     app.engine('handlebars', exphbs.create({
         defaultLayout: 'userlayout',
@@ -30,8 +31,8 @@ module.exports = function (app) {
                 if (!this._sections) this._sections = {};
                 this._sections[name] = options.fn(this);
                 return null;
-            }, 
-            timeago: function(timestamp){
+            },
+            timeago: function (timestamp) {
                 return moment(timestamp).startOf('minute').fromNow();
             }
         }
@@ -56,27 +57,20 @@ module.exports = function (app) {
     //  Connect flash
     app.use(flash());//4
 
-    //app.use(bodyParser());
-    //app.use(bodyParser.urlencoded({ 'extended': true }));
-    // app.use(bodyParser({
-    //     uploadDir: path.join(__dirname, 'public/upload/temp')
-    // }));
-
 
     app.use(multer({ dest: path.join(__dirname, 'public/upload/temp') }));
-    //console.log(path.join(__dirname, 'public/upload/temp'));
-    //app.use(bodyParser.json());
 
     app.use(methodOverride());
-    //app.use(cookieParser('some-secret-value-here'));
 
 
     //Set static Folder
     app.use(['/public/', '/admin/public/', 'test/'], express.static(path.join(__dirname, '../public')));
-    //routes(app); // moving the routes to routes folder.
+
     // Passpor init 
     app.use(passport.initialize());
     app.use(passport.session());
+
+    //require('./passport')(passport);
 
     // Express validator 
     app.use(expressValidator({
