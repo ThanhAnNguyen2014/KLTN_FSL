@@ -18,6 +18,7 @@ module.exports = {
     /**Update room by id */
     update: function (id, room, callback) {
         if (ObjectId.isValid(id)) {
+            console.log(id);
             Models.Room.findByIdAndUpdate(id, room, { new: true }, function (err, doc) {
                 if (err) return callback({ message: err });
                 if (doc) {
@@ -57,7 +58,7 @@ module.exports = {
                     return callback(null, 'No Item in database!');
                 }
             });
-        }        
+        }
         else {
             return callback({
                 code: 401,

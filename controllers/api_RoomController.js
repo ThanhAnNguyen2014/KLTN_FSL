@@ -20,6 +20,7 @@ module.exports = {
     Update: function (req, res) {
         var id = req.params.id;
         var room = req.body;
+        //console.log(req.body);
         roomService.update(id, room, function (err, result) {
             if (err) return res.status(401).json({
                 code: 401,

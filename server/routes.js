@@ -111,8 +111,8 @@ module.exports = function (app) {
 
         if (req.headers && req.headers.authorization) {
             var token = req.headers.authorization;
-            console.log(token);
-            jwt.verify(token, config.secret, function (err, decode) {
+            //console.log(token.split(' ')[1]);
+            jwt.verify(token.split(' ')[1], config.secret, function (err, decode) {
                 if (err) return res.status(500).json({ message: 'Invalid Token! Please login.' });
                 else {
                     req.landlordId = decode;

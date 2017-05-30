@@ -112,7 +112,7 @@ module.exports = {
                     });
                     res.status(200).json({
                         success: true,
-                        token: token,
+                        token: 'JWT ' + token,
                     });
                 }
                 else {
