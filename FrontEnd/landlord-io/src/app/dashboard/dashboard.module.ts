@@ -14,31 +14,49 @@ import { RoomsComponent } from './managerooms/rooms/rooms.component';
 import { ListhouseComponent } from './manageposts/listhouse/listhouse.component';
 import { EdithouseComponent } from './manageposts/edithouse/edithouse.component';
 import { DetailroomComponent } from './managerooms/detailroom/detailroom.component';
-import { LoginComponent } from './login/login.component';
 
+import { NavbarModule } from '../shared/navbar/navbar.module';
+import { FooterModule } from '../shared/footer/footer.module';
+import { SidebarModule } from '../sidebar/sidebar.module';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: HomeComponent },
-  { path: 'infolandlord/profile/:id', component: ProfileComponent },
-  { path: 'infolandlord/changepass', component: ChangepassComponent },
-  { path: 'manageposts/newpost', component: NewpostComponent },
-  { path: 'manageposts/listhouse', component:  ListhouseComponent},
-  //{ path: 'manageposts/detailhouse', component: DetailhouseComponent },
-  {path:'manageposts/detailhouse/:id', component:DetailhouseComponent},
-  { path: 'manageposts/edithouse/:id', component:  EdithouseComponent},
-  { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
-  { path: 'managerooms/rooms', component: RoomsComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'managerooms/rooms/detail', component: DetailroomComponent },
+  {
+    path: '', component: DashboardComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'infolandlord/profile/:id', component: ProfileComponent },
+      { path: 'infolandlord/changepass', component: ChangepassComponent },
+      { path: 'manageposts/newpost', component: NewpostComponent },
+      { path: 'manageposts/listhouse', component: ListhouseComponent },
+      { path: 'manageposts/detailhouse/:id', component: DetailhouseComponent },
+      { path: 'manageposts/edithouse/:id', component: EdithouseComponent },
+      { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
+      { path: 'managerooms/rooms', component: RoomsComponent },
+      { path: 'managerooms/rooms/detail', component: DetailroomComponent },
+    ]
+  },
+  // { path: 'dashboard', component: HomeComponent },
+  // { path: 'infolandlord/profile/:id', component: ProfileComponent },
+  // { path: 'infolandlord/changepass', component: ChangepassComponent },
+  // { path: 'manageposts/newpost', component: NewpostComponent },
+  // { path: 'manageposts/listhouse', component:  ListhouseComponent},
+  // //{ path: 'manageposts/detailhouse', component: DetailhouseComponent },
+  // {path:'manageposts/detailhouse/:id', component:DetailhouseComponent},
+  // { path: 'manageposts/edithouse/:id', component:  EdithouseComponent},
+  // { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
+  // { path: 'managerooms/rooms', component: RoomsComponent },
+  // { path: 'managerooms/rooms/detail', component: DetailroomComponent },
 ]
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
+ //   BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    NavbarModule,
+    FooterModule,
+    SidebarModule,
+    RouterModule.forChild(appRoutes)
   ],
   declarations: [
     DashboardComponent,
@@ -51,9 +69,8 @@ const appRoutes: Routes = [
     RoomsComponent,
     ListhouseComponent,
     EdithouseComponent,
-    DetailroomComponent,
-    LoginComponent
+    DetailroomComponent
   ],
-  exports: [DashboardComponent]
+  // exports: [DashboardComponent]
 })
 export class DashboardModule { }

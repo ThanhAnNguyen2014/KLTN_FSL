@@ -62,9 +62,9 @@
                                                         <label class="col-sm-4 label-on-left">Room's type</label>
                                                         <div class="col-sm-8">
                                                             <div class="col-lg-10 col-md-8 col-sm-6">
-                                                                <select data-style="btn btn-primary btn-round" required name="room_type" data-size="5" [(ngModel)]="newroom.room_type">
-                                                                    <option class="text-right" disabled selected="true" value="undefined">Choose Room</option>
-                                                                    <option class="text-right" *ngFor="let type of roomtypes" value="{{type.id}}" >{{type.title}}</option>
+                                                                <select class="select2-dropdown" data-style="select-with-transition" required name="room_type" data-size="5" [(ngModel)]="newroom.room_type">
+                                                                    <!--<option class="text-right" disabled selected="true" value="undefined">Choose Room</option>-->
+                                                                    <option  class="text-right" *ngFor="let type of roomtypes" value="{{type.id}}" >{{type.title}}</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -73,7 +73,7 @@
                                                         <label class="col-sm-4 label-on-left">House</label>
                                                         <div class="col-sm-8">
                                                             <div class="col-lg-10 col-md-8 col-sm-6">
-                                                                <select data-style="btn btn-primary btn-round" required name="room_type" data-size="5" [(ngModel)]="newroom.room_type">
+                                                                <select class="select" data-style="btn btn-primary btn-round" required name="room_type" data-size="5" [(ngModel)]="newroom.room_type">
                                                                     <option class="text-right" disabled selected="true" value="undefined">Choose House</option>
                                                                     <option class="text-right" *ngFor="let type of roomtypes" value="{{type.id}}" >{{type.title}}</option>
                                                                 </select>
@@ -139,16 +139,6 @@
                                                         <th class="disabled-sorting text-center">Actions</th>
                                                     </tr>
                                                 </thead>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Room</th>
-                                                        <th>Customer</th>
-                                                        <th>Identity Card</th>
-                                                        <th>Date</th>
-                                                        <th class="text-center">Status</th>
-                                                        <th class="text-center">Actions</th>
-                                                    </tr>
-                                                </tfoot>
                                                 <tbody>
                                                     <tr *ngFor="let rm of rooms">
                                                         <td>{{rm.title}}</td>

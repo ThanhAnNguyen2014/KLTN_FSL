@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    initVectorMap(),
+    //initVectorMap(),
     initAniCharts(),
     initTooltips(),
     initNotify()

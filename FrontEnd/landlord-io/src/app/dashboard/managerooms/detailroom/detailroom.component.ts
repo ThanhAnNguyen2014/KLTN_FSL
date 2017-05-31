@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import initDatetimepickers = require('../../../../assets/js/init/initDatetimepickers.js');
 
+declare var $: any;
+
 @Component({
   selector: 'app-detailroom',
   templateUrl: './detailroom.component.html',
@@ -13,9 +15,9 @@ export class DetailroomComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // if ($(".selectpicker").length != 0) {
-    //   $(".selectpicker").selectpicker();
-    // }
+    if ($(".selectpicker").length != 0) {
+      $(".selectpicker").selectpicker();
+    }
     initDatetimepickers();
   }
 

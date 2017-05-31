@@ -23,8 +23,7 @@ export class NewpostService {
   // }
 
   Add(data: any): Observable<any> {
-    return this._http.post(this.apiUrl, data)
-    .map((res) => res.json())
+    return this._http.post(this.apiUrl, data).map((res) => res.json())
   }
 
 }
