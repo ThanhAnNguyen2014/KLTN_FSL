@@ -60,9 +60,7 @@ module.exports = {
             });
         }
     },
-    /**
-     * Find one landlord with Id
-     */
+    /** Find one landlord with Id */
     getLandlordById: function (id, callback) {
         var _id = id;
         console.log(_id);
@@ -84,9 +82,7 @@ module.exports = {
             });
         }
     },
-    /**
-     * Find All Landlord
-     */
+    /** Find All Landlord */
     findAll: function (callback) {
         Models.Landlord.find(function (err, docs) {
             if (err) return callback(err);
@@ -98,9 +94,7 @@ module.exports = {
             }
         });
     },
-    /**
-     * Get All Devices 
-     */
+    /** Get All Devices  */
     getDevices: function (callback) {
         Models.Devices.find({}, function (err, devices) {
             if (err) return callback(err);
@@ -118,6 +112,35 @@ module.exports = {
         var query = (username.indexOf('@') === -1) ? { username: username } : { email: username };
         // var query = { email: email };
         Models.Landlord.findOne(query, callback);
+    },
+    changePassword: function (id, newpassword, callback) {
+        if (ObjectId.isValid(id)) {
+            /**bcrytpt password */
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(newpassword, salt, (err, hash) => {
+                    if (err) throw err;
+                    Models.Landlord.findById(id, function(err, doc){
+                        if (err) return callback(err);
+                        if(doc){
+                            doc.password=hash;
+                            doc.save(function(err){
+                                if(err) throw err;
+                            });
+                            return callback(null, 'Update password success!');
+                        }
+                        else{
+                            return callback(null, 'Not found Object LandlordId');
+                        }
+                    });
+                });
+            });
+        }
+        else {
+            return callback({
+                code: 401,
+                message: 'Invalid ObjectId'
+            });
+        }
     }
 
 }

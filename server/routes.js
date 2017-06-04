@@ -31,6 +31,7 @@ module.exports = function (app) {
     router.put('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', ensureAuthenticatedlandlord, api_landlordController.getAllLandlord);
+    router.post('/api/v1/landlord/changpass',ensureAuthenticatedlandlord, api_landlordController.changPassword);
     // Session Devices
     router.get('/api/v1/devices', ensureAuthenticatedlandlord, api_landlordController.getAllDevices);
 
@@ -108,10 +109,9 @@ module.exports = function (app) {
     }
     /**Authentication Landlord user */
     function ensureAuthenticatedlandlord(req, res, callback) {
-
         if (req.headers && req.headers.authorization) {
             var token = req.headers.authorization;
-            //console.log(token.split(' ')[1]);
+            console.log(token.split(' ')[1]);
             jwt.verify(token.split(' ')[1], config.secret, function (err, decode) {
                 if (err) return res.status(500).json({ message: 'Invalid Token! Please login.' });
                 else {

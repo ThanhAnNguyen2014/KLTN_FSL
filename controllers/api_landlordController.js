@@ -80,16 +80,15 @@ module.exports = {
      * Get all Devices
      */
     getAllDevices: function (req, res) {
-        var viewModel = {
-            code: Number,
-            results: []
-        };
+        console.log(req);
         landlordServices.getDevices(function (err, devices) {
             if (err) return res.status(401).json({ message: err });
             else {
-                viewModel.results = devices;
-                viewModel.code = 200;
-                return res.status(200).json(viewModel);
+
+                return res.status(200).json({
+                    code: 200,
+                    results: devices
+                });
             }
         });
     },
@@ -125,6 +124,47 @@ module.exports = {
             });
         });
     },
+    /**Change Password */
+    changPassword: function (req, res) {
+        var id = req.landlordId.id
+        var oldpass = req.body.oldpass;
+        var newpass = req.body.newpass;
+        if(newpass==''){
+            return res.status(200).json({
+                code:200,
+                message: 'Password not empty'
+            });
+        }
+        landlordServices.getLandlordById(id, function(err, landlord){
+            if(err) return res.status(401).json({message: err});
+            if(landlord){               
+                landlordServices.comparePassword(oldpass, landlord.password, function(err, isMatch){
+                    if(err) throw err;
+                    if(isMatch){
+                        landlordServices.changePassword(id, newpass, function(err, result){
+                            if(err) return res.status(401).json({message: err});
+                            return res.status(200).json({
+                                code: 200,
+                                message: result
+                            });
+                        });
+                    }
+                    else{
+                        return res.status(200).json({
+                            code:200,
+                            message: 'Invalid password you entered!'
+                        });
+                    }
+                });
+            }
+            else{
+                return res.status(200).json({
+                    code: 200,
+                    message: 'Not found ObjectId of Landord'
+                });
+            }
+        });
+    }
 
 }
 var opts = {};
