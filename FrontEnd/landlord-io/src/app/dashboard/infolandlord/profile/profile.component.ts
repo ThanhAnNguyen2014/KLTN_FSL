@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
 
     this.subscription = this.activatedRoute.params.subscribe(params => {
       this._id = params['id'];
-
       console.log(this._id);
     });
 
@@ -45,8 +44,6 @@ export class ProfileComponent implements OnInit {
       this.info = data;
       console.log(data);
     });
-
-    
   }
   SaveForm(form:NgForm){
     console.log(form.value);
