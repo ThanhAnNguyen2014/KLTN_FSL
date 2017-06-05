@@ -16,7 +16,7 @@ mongoose.Promise = global.Promise;
 /*mongoose.connect('mongodb://thanhannguyen:Thanhan200114050@ds143211.mlab.com:43211/fsl_io', {
     server: { reconnectTries:true }
 });*/
-mongoose.connect(config.database_local);
+mongoose.connect(config.database_mLab);
 // On Connection
 mongoose.connection.on('connected', () => {
     console.log('Connected to database ' + config.database_local);
