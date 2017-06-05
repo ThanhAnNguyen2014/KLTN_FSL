@@ -25,44 +25,43 @@
   </div>
   <div class="search-panel">
     <form class="form-inline" role="form">
-      <div class="form-group">
-        <input type="text" class="form-control" id="city" placeholder="Street" autocomplete="off">
+
+      <div class="form-group hidden-xs adv">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" (click)='getProvinces()'
+            *ngIf="flag_pro">-- Chọn Tỉnh/TP -- <span class="caret"></span></button>
+          <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" (click)='getProvinces()'
+            *ngIf="!flag_pro">{{provincename}}<span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" id="menu-provinces">
+            <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province.rank}} {{province.name}}</a></li>
+          </ul>
+        </div>
       </div>
       <div class="form-group hidden-xs adv">
-        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
-          <span class="dropdown-label">Phường</span> <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu dropdown-select">
-          <li class="active"><input type="radio" name="bathno" checked="checked"><a href="#">Phuong Ben Nghe</a></li>
-          <li><input type="radio" name="bathno"><a href="#">Phuong Da Kao</a></li>
-          <li><input type="radio" name="bathno"><a href="#">Phuong Ben Thanh</a></li>
-          <li><input type="radio" name="bathno"><a href="#">Phuong Tan Dinh</a></li>
-          <li><input type="radio" name="bathno"><a href="#">Phuong Cau Kho</a></li>
-        </ul>
+        <div class="dropdown">
+          <button *ngIf="flag_district" class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown"
+            [ngClass]='{disabled: isOnDist}'>-- Chọn Quận --
+          <span class="caret"></span></button>
+          <button *ngIf="!flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" 
+            [ngClass]='{disabled: isOnDist}'>{{districtname}}
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu-provinces">
+            <li *ngFor='let distric of districs' (click)="selectDistrict(distric.id, distric.name, distric.rank)"><a>{{distric.rank}} {{distric.name}}</a></li>
+          </ul>
+        </div>
       </div>
       <div class="form-group hidden-xs adv">
-        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
-          <span class="dropdown-label">Quận</span> <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu dropdown-select">
-          <li class="active"><input type="radio" name="bedno" checked="checked"><a href="#">Quan 1</a></li>
-          <li><input type="radio" name="bedno"><a href="#">Quan 2</a></li>
-          <li><input type="radio" name="bedno"><a href="#">Quan 3</a></li>
-          <li><input type="radio" name="bedno"><a href="#">Quan 4</a></li>
-          <li><input type="radio" name="bedno"><a href="#">Quan 5</a></li>
-        </ul>
-      </div>
-      <div class="form-group hidden-xs adv">
-        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
-          <span class="dropdown-label">Thành phố</span> <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu dropdown-select">
-          <li class="active"><input type="radio" name="bedno" checked="checked"><a href="#">Ha Noi</a></li>
-          <li><input type="radio" name="bedno"><a href="#">HCM</a></li>
-          <li><input type="radio" name="bedno"><a href="#">Can Tho</a></li>
-          <li><input type="radio" name="bedno"><a href="#">Da Lat</a></li>
-          <li><input type="radio" name="bedno"><a href="#">Quy Nhon</a></li>
-        </ul>
+        <div class="dropdown">
+          <button *ngIf="flag_ward" class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown"
+            [ngClass]='{disabled: isOnWar}'>-- Chọn Phường/Xã--
+          <span class="caret"></span></button>
+          <button *ngIf="!flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" 
+            [ngClass]='{disabled: isOnWar}'>{{wardname}}
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu-provinces">
+            <li *ngFor='let ward of wards' (click)="selectWard(ward.id, ward.name, ward.rank)"><a>{{ward.name}}</a></li>          
+          </ul>
+        </div>
       </div>
       <div class="form-group hidden-xs adv">
         <div class="input-group">
@@ -78,7 +77,7 @@
       </div>
       <div class="form-group">
         <!--<a [routerLink]=['/'] class="btn btn-green">Search</a>-->
-         <a [routerLink]="['/details/search-details']" class="btn btn-green">Search</a>
+        <a [routerLink]="['/details/search-details']" class="btn btn-green">Search</a>
         <a href="javascript:void(0)" class="btn btn-o btn-white pull-right visible-xs" id="advanced">Advanced Search <span class="fa fa-angle-up"></span></a>
       </div>
     </form>

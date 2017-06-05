@@ -9,9 +9,7 @@ var JwtStrategy = require('passport-jwt').Strategy,
 
 
 module.exports = {
-    /**
-     * Get Landlord by Id
-     */
+    /** Get Landlord by Id */
     findLandlordById: function (req, res, callback) {
         //console.log('Find one Landlord'+ req.params.id);
         landlordServices.getLandlordById(req.params.id, function (err, doc) {
@@ -25,9 +23,7 @@ module.exports = {
         });
         return res.status(500);
     },
-    /**
-     * create Landlord 
-     */
+    /** create Landlord  */
     create: function (req, res, callback) {
         console.log(req.body);
         landlordServices.create(req.body, function (err) {
@@ -39,9 +35,7 @@ module.exports = {
         });
         return res.status(500);
     },
-    /**
-     * update Landlord
-     */
+    /**update Landlord */
     updateLandlordById: function (req, res, callback) {
         landlordServices.update(req.params.id, req.body, function (err) {
             if (err) return res.status(200).json({ message: err });
@@ -76,9 +70,7 @@ module.exports = {
         });
 
     },
-    /**
-     * Get all Devices
-     */
+    /** Get all Devices*/
     getAllDevices: function (req, res) {
         console.log(req);
         landlordServices.getDevices(function (err, devices) {

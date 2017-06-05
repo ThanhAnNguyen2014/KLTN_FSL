@@ -1,8 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import {routing} from './details.routes';
+import { ModuleWithProviders }  from '@angular/core';
 
 import { DetailsComponent } from './details.component';
 import { SearchdetailsComponent } from './searchdetails/searchdetails.component';
@@ -13,21 +10,19 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 
 
+const routes: Routes = [
+  { path: '', redirectTo: 'details', pathMatch: 'full' },
+  {
+    path: 'details', component: DetailsComponent,
+    children: [
+      { path: 'search-details', component: SearchdetailsComponent },
+      { path: 'detaisl-house', component: DetailhouseComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'edit-profile', component: EditprofileComponent }
 
-@NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    routing
-  ],
-  declarations: [
-    DetailsComponent,
-    SearchdetailsComponent,
-    HeaderComponent,
-    LeftsideComponent,
-    DetailhouseComponent,
-    ProfileComponent,
-    EditprofileComponent
-  ]
-})
-export class DetailsModule { }
+    ]
+  },
+
+]
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

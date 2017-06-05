@@ -12,7 +12,10 @@ export class DetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    $.getScript('../../../assets/js/app.js');
+    // $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyBesDGtkcvFGS4KVDJpAl7bDBeSWroWh3I&v=3');
+     $.getScript('../../../assets/js/infobox.js');
+     $.getScript('../../../assets/js/app.js');
+    
   }
 
 }

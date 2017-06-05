@@ -23,9 +23,9 @@ export class NewhomeComponent implements OnInit, OnDestroy {
     const listhomehouse$ = newhomeService.getSixHouses();
 
     this.sub = listhomehouse$.subscribe(
-      listhomehouses => {
-        this.listhomehouses = listhomehouses,
-          console.log(listhomehouses);
+      data => {
+        this.listhomehouses = data,
+          console.log(data);
       },
       (error) => { console.log('Error server! ... ' + error) },
       () => console.log('completed!')

@@ -11,6 +11,7 @@ import { NewhomeComponent } from './content/newhome/newhome.component';
 import { ContentComponent } from './content/content.component';
 import { RatlandlordComponent } from './content/ratlandlord/ratlandlord.component';
 
+import {routing} from './homsingle.routes';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    routing
   ],
   declarations: [
     HomesingleComponent,
