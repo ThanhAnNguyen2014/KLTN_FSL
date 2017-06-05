@@ -26,21 +26,21 @@ module.exports = function (app) {
     //session Lanlord
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
-    router.post('/api/v1/landlord/create', ensureAuthenticatedlandlord, api_landlordController.create);
-    router.get('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.findLandlordById);
-    router.put('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.updateLandlordById);
-    router.delete('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.deleteLandlord);
-    router.get('/api/v1/landlord', ensureAuthenticatedlandlord, api_landlordController.getAllLandlord);
-    router.post('/api/v1/landlord/changpass',ensureAuthenticatedlandlord, api_landlordController.changPassword);
+    router.post('/api/v1/landlord/create', api_landlordController.create);
+    router.get('/api/v1/landlord/:id', api_landlordController.findLandlordById);
+    router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
+    router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
+    router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
+    router.post('/api/v1/landlord/changpass', api_landlordController.changPassword);
     // Session Devices
-    router.get('/api/v1/devices', ensureAuthenticatedlandlord, api_landlordController.getAllDevices);
+    router.get('/api/v1/devices', api_landlordController.getAllDevices);
 
     /** Session House */
-    router.post('/api/v1/house', ensureAuthenticatedlandlord, api_houseController.create);
-    router.get('/api/v1/house/:id', ensureAuthenticatedlandlord, api_houseController.getHouseById);
-    router.delete('/api/v1/house/:id', ensureAuthenticatedlandlord, api_houseController.deleteHouseById);
-    router.put('/api/v1/house/:id', ensureAuthenticatedlandlord, api_houseController.updateHouseById);
-    router.get('/api/v1/houses/all', ensureAuthenticatedlandlord, api_houseController.getAllHouse);
+    router.post('/api/v1/house', api_houseController.create);
+    router.get('/api/v1/house/:id', api_houseController.getHouseById);
+    router.delete('/api/v1/house/:id', api_houseController.deleteHouseById);
+    router.put('/api/v1/house/:id', api_houseController.updateHouseById);
+    router.get('/api/v1/houses/all', api_houseController.getAllHouse);
 
 
     /**Session Area */

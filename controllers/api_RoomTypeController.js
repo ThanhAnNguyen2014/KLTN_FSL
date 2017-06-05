@@ -13,7 +13,7 @@ module.exports = {
                 console.log('Save RoomType complete!');
                 return res.status(200).json({
                     code: 200,
-                    results: result
+                    result: result
                 });
             }
         });
@@ -29,7 +29,7 @@ module.exports = {
                 console.log('Get RoomType complete!');
                 return res.status(200).json({
                     code: 200,
-                    results: result
+                    result: result
                 });
             }
         });
@@ -41,7 +41,7 @@ module.exports = {
             if (err) return res.status(401).json({ message: err });
             return res.status(200).json({
                 code: 200,
-                results: result
+                result: result
             });
         });
     },
@@ -52,7 +52,7 @@ module.exports = {
             if (err) return res.status(401).json({ message: err });
             return res.status(200).json({
                 code: 200,
-                results: result
+                result: result
             });
         });
     },
