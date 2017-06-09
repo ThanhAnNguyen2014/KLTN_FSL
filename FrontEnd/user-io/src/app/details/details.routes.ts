@@ -16,7 +16,7 @@ const routes: Routes = [
     path: 'details', component: DetailsComponent,
     children: [
       { path: 'search-details', component: SearchdetailsComponent },
-      { path: 'detaisl-house/:id', component: DetailhouseComponent },
+      { path: 'detail-house/:id', component: DetailhouseComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'edit-profile', component: EditprofileComponent }
 

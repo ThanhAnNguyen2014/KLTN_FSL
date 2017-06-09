@@ -8,7 +8,7 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class NewhomeService {
 
-  private apiUrl="http://localhost:3300/";
+  private apiUrl="https://hcmutefslio.herokuapp.com/";
 
   constructor(private http: Http) { }
 

@@ -5,7 +5,7 @@ module.exports = {
     /**  Find some house for the home user */
     findSixHouse: function (callback) {
 
-        Models.House.find({}, 'title status price rate image', { limit: 6, sort: { create_date: -1 } },
+        Models.House.find({}, 'title status price rate image address create_date ', { limit: 6, sort: { create_date: -1 } },
             function (err, houses) {
                 if (err) throw callback(err);
                 if (houses.length) {

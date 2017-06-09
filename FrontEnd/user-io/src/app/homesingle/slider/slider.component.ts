@@ -30,6 +30,7 @@ export class SliderComponent implements OnInit {
     this.isOnWar = true;
     this.flag_district = true;
     this.flag_ward = true;
+    this.getProvinces();
 
   }
   getProvinces() {

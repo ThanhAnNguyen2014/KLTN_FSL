@@ -1,105 +1,104 @@
 <!-- Content -->
-
 <div id="wrapper">
   <div id="mapView" class="mob-min">
     <div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Loading map...</div>
   </div>
   <div id="content" class="mob-max">
-    <div class="singleTop">
-      <div id="carouselFull" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselFull" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselFull" data-slide-to="1"></li>
-          <li data-target="#carouselFull" data-slide-to="2"></li>
-          <li data-target="#carouselFull" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="./assets/images/prop/4-1-2.png" alt="First slide">
-            <div class="container">
-              <div class="carousel-caption">
-
+    <div *ngIf='house'>
+      <div class="singleTop">
+        <div id="carouselFull" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselFull" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselFull" data-slide-to="1"></li>
+            <li data-target="#carouselFull" data-slide-to="2"></li>
+            <li data-target="#carouselFull" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="{{house.image}}" alt="First slide">
+              <div class="container">
+                <div class="carousel-caption">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="./assets/images/prop/4-2-2.png" alt="Second slide">
+              <div class="container">
+                <div class="carousel-caption">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="./assets/images/prop/4-3-2.png" alt="Third slide">
+              <div class="container">
+                <div class="carousel-caption">
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="./assets/images/prop/4-4-2.png" alt="Fourth slide">
+              <div class="container">
+                <div class="carousel-caption">
+                </div>
               </div>
             </div>
           </div>
-          <div class="item">
-            <img src="./assets/images/prop/4-2-2.png" alt="Second slide">
-            <div class="container">
-              <div class="carousel-caption">
-
+          <a class="left carousel-control" href="#carouselFull" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
+          <a class="right carousel-control" href="#carouselFull" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></a>
+        </div>
+        <div class="summary">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+              <div class="summaryItem">
+                <h1 class="pageTitle"><strong>{{house.title}}</strong></h1>
+                <div class="address"><span class="icon-pointer"></span> {{house.address}}</div>
+                <ul class="rating">
+                  <li>                    
+                      <star-rating-comp [rating]="house.rate" 
+                      [direction]="rtl" 
+                      [readOnly]="true" 
+                      [starType]="'icon'" 
+                      ></star-rating-comp>                                         
+                  </li>
+                  <li>({{house.rate}})</li>          
+                </ul>
+                <div class="favLink"><a ><span class="icon-eye c-blue"></span></a>54 lược xem</div>
+                <ul class="stats">
+                  <li>3 <span class="icon-bubble"></span></li>
+                </ul>
+                <div class="clearfix"></div>
+                <ul class="features">
+                  <li><span class="icon-tag"></span>
+                    <div>{{house.price | number}} đ</div>
+                  </li>
+                  <li><span class="icon-grid"></span>
+                    <div>Số Phòng</div>
+                  </li>
+                  <li><span class="icon-frame"></span>
+                    <div>{{house.range | number}} m2</div>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
               </div>
             </div>
-          </div>
-          <div class="item">
-            <img src="./assets/images/prop/4-3-2.png" alt="Third slide">
-            <div class="container">
-              <div class="carousel-caption">
-
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="./assets/images/prop/4-4-2.png" alt="Fourth slide">
-            <div class="container">
-              <div class="carousel-caption">
-
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="agentAvatar summaryItem">
+                <div class="clearfix"></div>
+                <img class="avatar agentAvatarImg" src="./assets/images/avatar-2.png" alt="avatar">
+                <div class="agentName">Ngọc Hạnh</div>
+                <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn icon-home"> Chọn Phòng</a>
+                <a data-toggle="modal" href="#contactLandlord" class="btn btn-lg btn-round btn-blue contactBtn icon-call-out"> Hiện Số ĐT</a>
               </div>
             </div>
           </div>
         </div>
-        <a class="left carousel-control" href="#carouselFull" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
-        <a class="right carousel-control" href="#carouselFull" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></a>
       </div>
-      <div class="summary">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-            <div class="summaryItem">
-              <h1 class="pageTitle">Phòng sạch đẹp, thoáng mát, an ninh</h1>
-              <div class="address"><span class="icon-pointer"></span> 1/4 Võ Văn Ngân, Linh Chiểu, Thủ Đức, TP HCM</div>
-              <ul class="rating">
-                <li><a href="#"><span class="fa fa-star"></span></a></li>
-                <li><a href="#"><span class="fa fa-star"></span></a></li>
-                <li><a href="#"><span class="fa fa-star"></span></a></li>
-                <li><a href="#"><span class="fa fa-star"></span></a></li>
-                <li><a href="#"><span class="fa fa-star-o"></span></a></li>
-                <li>(4.2)</li>
-              </ul>
-              <div class="favLink"><a href="#"><span class="icon-check c-blue"></span></a>54</div>
-              <ul class="stats">
-                <li><span class="icon-bubble"></span> 3</li>
-              </ul>
-              <div class="clearfix"></div>
-              <ul class="features">
-                <li><span class="icon-tag"></span>
-                  <div>3,000,000 đ</div>
-                </li>
-                <li><span class="icon-users"></span>
-                  <div>4 Người</div>
-                </li>
-                <li><span class="icon-frame"></span>
-                  <div>250 m2</div>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <div class="agentAvatar summaryItem">
-              <div class="clearfix"></div>
-              <img class="avatar agentAvatarImg" src="./assets/images/avatar-2.png" alt="avatar">
-              <div class="agentName">Ngọc Hạnh</div>
-              <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn icon-call-out"></a>
-              <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-blue contactBtn icon-bubbles"></a>
-            </div>
-          </div>
-        </div>
+      <div class="clearfix"></div>
+      <div class="description">
+        <h3>Mô tả</h3>
+        <p [innerHtml]="house.description">           
+        </p>
       </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="description">
-      <h3>Mô tả</h3>
-      <p>Phòng mới, rộng rãi, thoáng mát. Gần trạm xe buýt, gàn chợ. Cho sinh viên thuê với giá cả hợp lý, ưu tiên sinh viên
-        nữ</p>
     </div>
     <div class="similar">
       <h3>Kết quả khác</h3>
@@ -635,7 +634,7 @@
       </div>
       <div class="comment">
         <div class="commentAvatar">
-          <img class="avatar" src="./assets/images/avatar-1.png" alt="avatar">
+          <img class="avatar" src="./assets/images/avatar-1.jpg" alt="avatar">
           <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
         </div>
         <div class="commentContent">
@@ -655,27 +654,28 @@
       </div>
     </div>
   </div>
-  <div class="commentsFormWrapper">
-    <div class="cfAvatar">
-      <img class="avatar" src="./assets/images/avatar-1.png" alt="avatar">
-    </div>
-    <form class="commentsForm">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Góp ý của bạn...">
-        <span class="input-group-btn"><a class="btn btn-green">Bình luận</a></span>
-      </div>
-    </form>
-    <div class="clearfix"></div>
+</div>
+<div class="commentsFormWrapper">
+  <div class="cfAvatar">
+    <img class="avatar" src="./assets/images/avatar-1.jpg" alt="avatar">
   </div>
+  <form class="commentsForm">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Góp ý của bạn...">
+      <span class="input-group-btn"><a class="btn btn-green">Bình luận</a></span>
+    </div>
+  </form>
   <div class="clearfix"></div>
 </div>
+<div class="clearfix"></div>
+
 
 <div class="modal fade" id="contactAgent" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="contactLabel">Contact Agent</h4>
+        <h4 class="modal-title" id="contactLabel">Vui lòng chọn phòng thích hợp với bạn!</h4>
       </div>
       <div class="modal-body">
         <form class="contactForm">
@@ -701,3 +701,21 @@
       </div>
     </div>
   </div>
+</div>
+
+<!--model Phone of Landlord-->
+<div class="modal fade" id="contactLandlord" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="contactLabel">Chủ trọ: Nguyễn Thanh An</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-red">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
