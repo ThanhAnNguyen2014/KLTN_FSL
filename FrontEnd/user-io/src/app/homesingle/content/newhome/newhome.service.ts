@@ -14,9 +14,9 @@ export class NewhomeService {
 
   /**Get six the houses when user load page home user */
   getSixHouses(): Observable<NewHouse[]> {
-    let newhomeapi = this.apiUrl + "api/v1/gethouse";
+    let newhomeapi = this.apiUrl + "api/v1/home/houses";
     console.log('This is service load...');
-    return this.http.get(newhomeapi).map(res => res.json());
+    return this.http.get(newhomeapi).map(res => res.json().results);
   }
 
   private handleError(error: any): Promise<any> {

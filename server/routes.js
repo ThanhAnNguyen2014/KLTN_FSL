@@ -20,10 +20,8 @@ var config = require('../server/config');
 
 // module
 module.exports = function (app) {
-    // session User
-    router.get('/api/v1/gethouse', api_userController.get_house_home); // get info house of user home page
 
-    //session Lanlord
+    //section Lanlord
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
     router.post('/api/v1/landlord/create', api_landlordController.create);
@@ -32,10 +30,10 @@ module.exports = function (app) {
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
     router.post('/api/v1/landlord/changpass', api_landlordController.changPassword);
-    // Session Devices
+    // section Devices
     router.get('/api/v1/devices', api_landlordController.getAllDevices);
 
-    /** Session House */
+    /** section House */
     router.post('/api/v1/house', api_houseController.create);
     router.get('/api/v1/house/:id', api_houseController.getHouseById);
     router.delete('/api/v1/house/:id', api_houseController.deleteHouseById);
@@ -43,30 +41,33 @@ module.exports = function (app) {
     router.get('/api/v1/houses/all', api_houseController.getAllHouse);
 
 
-    /**Session Area */
+    /**section Area */
     router.get('/api/v1/area/provinces', api_houseController.getAllProvinces);
     router.get('/api/v1/area/districts/:id', api_houseController.getAllDictrict);
     router.get('/api/v1/area/wards/:id', api_houseController.getAllWard);
 
 
-    /**Session RoomeType */
+    /**section RoomeType */
     router.post('/api/v1/roomtype', api_roomTypeController.Create);
     router.get('/api/v1/roomtype/:id', api_roomTypeController.GetRoomTypeById);
     router.put('/api/v1/roomtype/:id', api_roomTypeController.UpdateRoomTypeById);
     router.delete('/api/v1/roomtype/:id', api_roomTypeController.DeleteRoomTypeById);
     router.get('/api/v1/roomtypes', api_roomTypeController.GetAll);
     router.post('/api/v1/roomtype/:id', api_roomTypeController.UpdateNumberRoomType);
-    /**Session Room */
+    /**section Room */
     router.post('/api/v1/room', api_roomController.Create);
     router.put('/api/v1/room/:id', api_roomController.Update);
     router.get('/api/v1/room/:id', api_roomController.GetRoomById);
     router.delete('/api/v1/room/:id', api_roomController.RemoveRoomById);
     router.get('/api/v1/rooms', api_roomController.GetAllRoom);
     router.get('/api/v1/rooms/:id', api_roomController.GetRoomByIdHouse);
+    /**section HomePage*/
+    router.get('/api/v1/home/houses', api_userController.getHousesOnHomePage); 
+    router.get('/api/v1/home/house/:id', api_userController.getHouseById);
 
 
 
-    // session admin
+    // section admin
     router.get('/admin/login', adminController.get_login);
     router.post('/admin/login', passport.authenticate('local',
         {

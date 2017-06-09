@@ -24,6 +24,7 @@ module.exports = {
         var _id = id;
         if (ObjectId.isValid(_id)) {
             Models.Landlord.findByIdAndUpdate(_id, doc, { new: true }, function (err, doc) {
+                if(err) return callback(err);
                 if (doc) {
                     return callback(null, doc);
                 }
