@@ -2,6 +2,7 @@ var express = require('express'),
     configure = require('./server/configure'),
     config = require('./server/config'),
     router = express.Router(),
+    cors=require('cors'),
     mongoose = require('mongoose'); // module communication to database
 
 var routes = require('./server/routes');
@@ -33,13 +34,13 @@ mongoose.connection.on('error', (err) => {
 
 
 app = configure(app);
-
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS');
-    next();
-});
+app.use(cors());
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS');
+//     next();
+// });
 
 routes(app);
 

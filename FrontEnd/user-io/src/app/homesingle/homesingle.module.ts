@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    NguiTooltipModule,
+    //NguiTooltipModule,
     routing
   ],
   declarations: [
