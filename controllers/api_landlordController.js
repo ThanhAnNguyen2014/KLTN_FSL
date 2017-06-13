@@ -97,7 +97,7 @@ module.exports = {
             landlordServices.comparePassword(password, user.password, (err, isMatch) => {
                 if (err) throw err;
                 if (isMatch) {
-                    var token = jwt.sign({ id: user.id }, config.secret, {
+                    var token = jwt.sign({ id: user.id }, config.secret_landlord, {
                         expiresIn: '1h', // one house
                         algorithm: 'HS256'
                     });
@@ -161,7 +161,7 @@ module.exports = {
 }
 var opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
-opts.secretOrKey = config.secret; // wanring
+opts.secretOrKey = config.secret_landlord; // wanring
 passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
     console.log(jwt_payload);
     landlordService.getLandlordById(jwt_payload.id, (err, user) => {

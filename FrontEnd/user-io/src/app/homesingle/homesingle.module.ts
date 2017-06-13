@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NguiTooltipModule } from '@ngui/tooltip';
+import { StarRatingModule } from 'angular-star-rating';
+
 
 import { HomesingleComponent } from './homesingle.component';
 import { SliderComponent } from './slider/slider.component';
@@ -25,6 +27,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
+    StarRatingModule,
     //NguiTooltipModule,
     routing
   ],

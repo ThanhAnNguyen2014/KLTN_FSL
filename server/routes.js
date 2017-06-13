@@ -4,10 +4,11 @@ var express = require('express'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     Models = require('../models'),
-    homeController = require('../controllers/homeController'),
+
     adminController = require('../controllers/adminController'),
     customerController = require('../controllers/customerController'),
 
+    api_homeuserController = require('../controllers/api_home_user_Controller'),
     api_userController = require('../controllers/api_userController'),
     api_landlordController = require('../controllers/api_landlordController'),
     api_roomTypeController = require('../controllers/api_RoomTypeController'),
@@ -25,11 +26,11 @@ module.exports = function (app) {
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
     router.post('/api/v1/landlord/create', api_landlordController.create);
-    router.get('/api/v1/landlord/:id', api_landlordController.findLandlordById);
+    router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.findLandlordById);
     router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
-    router.post('/api/v1/landlord/changpass', api_landlordController.changPassword);
+    router.post('/api/v1/landlord/changepass', api_landlordController.changPassword);
     // section Devices
     router.get('/api/v1/devices', api_landlordController.getAllDevices);
 
@@ -62,8 +63,18 @@ module.exports = function (app) {
     router.get('/api/v1/rooms', api_roomController.GetAllRoom);
     router.get('/api/v1/rooms/:id', api_roomController.GetRoomByIdHouse);
     /**section HomePage*/
-    router.get('/api/v1/home/houses', api_userController.getHousesOnHomePage); 
-    router.get('/api/v1/home/house/:id', api_userController.getHouseById);
+    router.get('/api/v1/home/houses', api_homeuserController.getHousesOnHomePage);
+    router.get('/api/v1/home/house/:id', api_homeuserController.getHouseById);
+
+    /**Section User */
+    router.post('/api/v1/user/login', api_userController.logIn);
+    router.post('/api/v1/user/create', api_userController.create);
+    router.get('/api/v1/user/:id', ensureAuthenticatedUser, api_userController.findUserById);
+    router.get('/api/v1/users', api_userController.getAllUser);
+    router.post('/api/v1/user/changepass', ensureAuthenticatedUser, api_userController.changPassword);
+    router.delete('/api/v1/user/:id', api_userController.deleteUser);
+    router.put('/api/v1/user/:id', api_userController.updateUserById);
+
 
 
 
@@ -81,9 +92,6 @@ module.exports = function (app) {
     router.get('/admin/accept_post', ensureAuthenticated, adminController.accept_post);
     router.get('/admin/not_accept_post', ensureAuthenticated, adminController.not_accept_post);
     router.post('/admin/check_lock_user/:id', ensureAuthenticated, adminController.check_lock_user);
-
-    // page home
-    router.get('/', homeController.index);
 
 
 
@@ -108,12 +116,12 @@ module.exports = function (app) {
         }
 
     }
-    /**Authentication Landlord user */
-    function ensureAuthenticatedlandlord(req, res, callback) {
+    /**Authentication Landlord  */
+    function ensureAuthenticatedLandlord(req, res, callback) {
         if (req.headers && req.headers.authorization) {
             var token = req.headers.authorization;
             console.log(token.split(' ')[1]);
-            jwt.verify(token.split(' ')[1], config.secret, function (err, decode) {
+            jwt.verify(token.split(' ')[1], config.secret_landlord, function (err, decode) {
                 if (err) return res.status(500).json({ message: 'Invalid Token! Please login.' });
                 else {
                     req.landlordId = decode;
@@ -130,6 +138,41 @@ module.exports = function (app) {
         }
     }
 
+    /**Authentication User  */
+    function ensureAuthenticatedUser(req, res, callback) {
+        // (req.headers && req.headers.authorization && req.headers.authorizition.split(' ')[0] === 'JWT'
+
+        if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+            var token = req.headers.authorization;
+            console.log(token.split(' ')[1]);
+            jwt.verify(token.split(' ')[1], config.secret_user, function (err, decode) {
+                if (err) {
+                    req.userId = undefined;
+                    return res.status(500).json({
+                        code: res.statusCode,
+                        results: {
+                            message: 'Invalid Token! Please login.'
+                        }
+                    });
+                }
+                else {
+                    req.userId = decode;
+                    passport.authenticate('jwt', { session: false });
+                    console.log('Id landlord: ' + req.userId.id);
+                    callback();
+                }
+            });
+        }
+        else {
+            req.userId = undefined;
+            return res.status(401).json({
+                code: res.statusCode,
+                results: {
+                    message: 'Unauthorized User!'
+                }
+            });
+        }
+    }
     app.use(router);
 };
 

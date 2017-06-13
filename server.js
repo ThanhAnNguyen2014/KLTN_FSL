@@ -14,9 +14,7 @@ app.set('views', __dirname + '/views');
 
 //configure connect to mongo database
 mongoose.Promise = global.Promise;
-/*mongoose.connect('mongodb://thanhannguyen:Thanhan200114050@ds143211.mlab.com:43211/fsl_io', {
-    server: { reconnectTries:true }
-});*/
+
 mongoose.connect(config.database_mLab);
 // On Connection
 mongoose.connection.on('connected', () => {
@@ -35,12 +33,6 @@ mongoose.connection.on('error', (err) => {
 
 app = configure(app);
 app.use(cors());
-// app.use(function (req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS');
-//     next();
-// });
 
 routes(app);
 
