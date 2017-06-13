@@ -7,15 +7,16 @@
                         <i class="material-icons">description</i>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Landlord House Information - Edit</h3>
+                        <h3 class="card-title">Landlord House Info - Edit</h3>
                         <div class="col-md-12">
-                            <form class="form-horizontal" #f="ngForm" (ngSubmit)="SaveForm(f)" *ngIf="house">
+
+                            <form class="form-horizontal" #f="ngForm" (ngSubmit)="SaveForm(f)">
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Title house:</label>
                                     <div class="col-md-9">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control" required name="title" placeholder="Nhà trọ giá rẻ, mặt tiền, mới đẹp" [(ngModel)]="house.title">
+                                            <input type="text" class="form-control" required name="title" [(ngModel)]="house.title">
                                         </div>
                                     </div>
                                 </div>
@@ -24,7 +25,7 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="range" placeholder="300" [(ngModel)]="house.range">
+                                            <input type="number" class="form-control text-right" required name="range" [(ngModel)]="house.range">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
@@ -35,16 +36,15 @@
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="price" placeholder="2,550,000" [(ngModel)]="house.price">
+                                            <input type="number" class="form-control text-right" required name="price" [(ngModel)]="house.price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
-                                        <label class="label-on-right">đ</label>
+                                        <label class="label-on-right">VND</label>
                                     </div>
                                 </div>
-
                                 <div class="row">
-                                    <label class="col-md-2 label-on-right">Status:</label>
+                                    <label class="col-md-2 label-on-right">Status house:</label>
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
@@ -54,29 +54,28 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row"><label class="col-md-2 label-on-right">Price services: </label></div>
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Electricity price:</label>
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="electricity_price" placeholder="6.000" [(ngModel)]="house.service_price.electricity_price">
+                                            <input type="number" class="form-control text-right" required name="electricity_price" [(ngModel)]="house.service_price.electricity_price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
-                                        <label class="label-on-left">đ/kWh</label>
+                                        <label class="label-on-left">VND/KWh</label>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <label class="col-md-2 label-on-right">Water price:</label>
                                     <div class="col-md-2">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="number" class="form-control text-right" required name="water_price" placeholder="8.000" [(ngModel)]="house.service_price.water_price">
+                                            <input type="number" class="form-control text-right" required name="water_price" [(ngModel)]="house.service_price.water_price">
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
-                                        <label class="label-on-left">đ/m3</label>
+                                        <label class="label-on-left">VND/m3</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -89,7 +88,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
-                                        <label class="label-on-left">đ/thang</label>
+                                        <label class="label-on-left">VND/month</label>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <label class="col-md-2 label-on-right">Garbage price:</label>
@@ -100,38 +99,18 @@
                                         </div>
                                     </div>
                                     <div class="col-md-1 text-left">
-                                        <label class="label-on-left">đ/thang</label>
+                                        <label class="label-on-left">VND/month</label>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-md-2 label-on-right">Detail description:</label>
-                                    <div class="col-md-9">
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
-                                            <textarea class="form-control" rows="5" name="description" [(ngModel)]="house.description" placeholder="Nhà trọ mới xây, sạch đẹp, có trang bị nhiều dụng cụ: quạt, đèn, bếp. Gần chợ, gần trạm xe buýt, gần nhiều trường đại học. Thuận tiện cho sinh viên"></textarea>
-                                        </div>
-                                    </div>
+                                    <label class="col-md-5 label-on-right">Detail description:</label>
                                 </div>
                                 <div class="row">
-                                    <label class="col-md-2 label-on-right">Device:</label>
-                                    <div class="col-md-8">
-                                        <div class="col-md-12 label-on-right">
-                                            <div>
-                                                <label>Quạt hơi nước</label>
-                                            </div>
-                                            <div>
-                                                <label>Máy điều hòa</label>
-                                            </div>
-                                            <div>
-                                                <label>Tivi led Samsung 32 in</label>
-                                            </div>
-                                            <div>
-                                                <label>Nồi cơm điện SHAP</label>
-                                            </div>
-                                        </div>
+                                    <div class="form-group label-floating col-md-12">
+                                        <ckeditor rows="5" name="description" [(ngModel)]="house.description">
+                                        </ckeditor>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Image:</label>
                                 </div>
@@ -139,14 +118,14 @@
                                     <div class="col-md-2"></div>
                                     <div class="fileinput fileinput-new text-center col-md-8 col-xs-offset-0" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail">
-                                            <img src="../../assets/img/image_placeholder.jpg" alt="...">
+                                            <img src="{{house?.image}}" alt="...">
                                         </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                         <div>
                                             <span class="btn btn-rose btn-round btn-file ">
                                             <span class="fileinput-new">Select image</span>
                                             <span class="fileinput-exists">Change</span>
-                                            <input type="file" name="..." />
+                                            <input type="file" name="image" (change)="fileChangeEvent($event)" />
                                             </span>
                                             <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                         </div>
@@ -155,38 +134,41 @@
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Address:</label>
                                     <div class="form-group label-floating col-md-8">
-                                        <input type="text" class="form-control" required name="address" [(ngModel)]="house.address" placeholder="1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, HCM">
+                                        <input id="address" type="text" class="form-control" required name="address" [(ngModel)]="house.address">
                                     </div>
                                     <div class="form-group col-md-1 label-floating">
                                         <a href="javascript:void(0)" class="btn btn-just-icon btn-behance">
                                             <i class="material-icons">find_replace</i>
-                                            <!--<div class="ripple-container"></div>-->
                                         </a>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-md-2 label-on-right">Longitude:</label>
                                     <div class="form-group label-floating col-md-3 ">
-                                        <input type="text" class="form-control" required name="longitude" [(ngModel)]="house.longitude">
+                                        <input id="lng" type="text" class="form-control" required name="longitude" [(ngModel)]="house.longitude">
                                     </div>
                                     <div class="col-md-1"></div>
                                     <label class="col-md-2 label-on-right">Latitude:</label>
                                     <div class="form-group label-floating col-md-3 ">
-                                        <input type="text" class="form-control" required name="latitude" [(ngModel)]="house.latitude">
+                                        <input id="lat" type="text" class="form-control" required name="latitude" [(ngModel)]="house.latitude">
                                     </div>
                                 </div>
-                                <div id="regularMap" class="map"></div>
+                                <div class="row">
+                                    <div id="mymap" class="map"></div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12 col-xs-offset-0">
                                         <div class="form-group form-button">
-                                            <button type="cancel" class="btn btn-fill btn-rose" [routerLink]="['/manageposts/listhouse']">Cancel</button>
+                                            <button type="cancel" class="btn btn-fill btn-rose" [routerLink]="['/dashboard/manageposts/listhouse']">Cancel</button>
                                             <button type="submit" [disabled]="!f.form.valid" class="btn btn-fill btn-behance">Update</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                            <!--<div class="row">
+                                <div id="mymap" class="map"></div>
+                            </div>-->
                         </div>
-
                     </div>
                 </div>
             </div>

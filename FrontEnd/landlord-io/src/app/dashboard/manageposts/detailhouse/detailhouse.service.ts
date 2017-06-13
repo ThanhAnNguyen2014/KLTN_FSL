@@ -7,8 +7,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DetailhouseService {
 
-  private apiUrl = "http://5914085a08cca6001102777a.mockapi.io/House/";
-
+  //private apiUrl = "http://5914085a08cca6001102777a.mockapi.io/House/";
+  private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/house/";
 
   constructor(private _http: Http) {
 
@@ -17,7 +17,7 @@ export class DetailhouseService {
   //   return this._http.get(this.apiUrl).map((response) => response.json())
   // }
   GetSingle(id: object): Observable<any> {
-    return this._http.get(this.apiUrl +id).map((response) => response.json())
+    return this._http.get(this.apiUrl +id).map((response) => response.json().results)
   }
 
 }

@@ -6,11 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-// import { DashboardModule } from './dashboard/dashboard.module';
-// import { NavbarModule } from './shared/navbar/navbar.module';
-// import { FooterModule } from './shared/footer/footer.module';
-// import { SidebarModule } from './sidebar/sidebar.module';
-
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ChangepassComponent } from './dashboard/infolandlord/changepass/changepass.component';
 import { LoginComponent } from './login/login.component';
@@ -26,26 +21,25 @@ import { CreateroomtypeComponent } from "app/dashboard/managerooms/createroomtyp
 import { RoomsComponent } from "app/dashboard/managerooms/rooms/rooms.component";
 import { DetailroomComponent } from "app/dashboard/managerooms/detailroom/detailroom.component";
 
+/**Import component and module of firebase */
+import * as firebase from 'firebase';
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBdgpxShqNc5-cwvu9MPYk0b4ejHpSNnKY",
+  authDomain: "fsl-io.firebaseapp.com",
+  databaseURL: "https://fsl-io.firebaseio.com",
+  projectId: "fsl-io",
+  storageBucket: "fsl-io.appspot.com",
+  messagingSenderId: "108922144834"
+};
+
 const appRoutes: Routes = [
   {
     path: 'dashboard',
     loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
   },
   { path: '', component: LoginComponent },
-  // {
-  //   path: 'dashboard', component: DashboardModule,
-  //   children: [
-  //     { path: 'infolandlord/profile/:id', component: ProfileComponent },
-  //     { path: 'infolandlord/changepass', component: ChangepassComponent },
-  //     { path: 'manageposts/newpost', component: NewpostComponent },
-  //     { path: 'manageposts/listhouse', component: ListhouseComponent },
-  //     { path: 'manageposts/detailhouse/:id', component: DetailhouseComponent },
-  //     { path: 'manageposts/edithouse/:id', component: EdithouseComponent },
-  //     { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
-  //     { path: 'managerooms/rooms', component: RoomsComponent },
-  //     { path: 'managerooms/rooms/detail', component: DetailroomComponent },
-  //   ]
-  // },
 ]
 
 @NgModule({
@@ -55,11 +49,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     HttpModule,
-    // NavbarModule,
-    // FooterModule,
-    // SidebarModule,
     RouterModule.forRoot(appRoutes)
   ],
 
@@ -67,3 +59,5 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

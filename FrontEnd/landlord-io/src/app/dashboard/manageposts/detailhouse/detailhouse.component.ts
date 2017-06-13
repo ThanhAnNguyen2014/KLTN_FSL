@@ -3,6 +3,7 @@ import initMaps = require('../../../../assets/js/init/initMaps.js');
 import { DetailhouseService } from './detailhouse.service';
 import { Subscription } from "rxjs/Subscription";
 import { Router, ActivatedRoute } from "@angular/router";
+declare var google;
 
 @Component({
   selector: 'app-detailhouse',
@@ -21,25 +22,69 @@ export class DetailhouseComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //initMaps();
+    // this.initMap();
+    this.Loaddata();
+  }
+  // Loaddata(): Promise<any> {
+  //   this.subscription = this.activatedRoute.params.subscribe(params => {
+  //     this._id = params['id'];
+  //   });
 
-    // this.detailhouseservice.GetSingle(this._id).subscribe(res => {
-    //   if (res) {
-    //     console.log(res);
-    //   }
-    // });
+  //   return new Promise((resolve, reject) => {
+  //     this.detailhouseservice.GetSingle(this._id).subscribe((data) => {
+  //       this.house = data;
+  //       this.LatLng = { lat: +this.house.latitude, lng: +this.house.longitude }
+  //       resolve(this.LatLng);
+  //     });
+  //   });
+  // }
 
+  Loaddata() {
     this.subscription = this.activatedRoute.params.subscribe(params => {
       this._id = params['id'];
-
-       console.log(this._id);
     });
 
     this.detailhouseservice.GetSingle(this._id).subscribe((data) => {
       this.house = data;
+      this.initMap(+this.house.latitude, +this.house.longitude);
     });
   }
-  // gotolisthouse(){
-  //   this.router.navigate(['/manageposts/listhouse']);
+  // initMap() {
+  //   this.Loaddata().then((LatLng) => {
+  //     let map = new google.maps.Map(document.getElementById('mymap'), {
+  //       zoom: 17,
+  //       center: LatLng
+  //     });
+  //     var marker = new google.maps.Marker({
+  //       position: LatLng,
+  //       map: map,
+  //     });
+
+  //   });
+
+  //   /*
+  //   var myLatLng = { lat: 10.850542, lng: 106.772242 };
+  //   var map = new google.maps.Map(document.getElementById('mymap'), {
+  //     zoom: 17,
+  //     center: myLatLng
+  //   });
+
+  //   // Place a draggable marker on the map
+  //   var marker = new google.maps.Marker({
+  //     position: myLatLng,
+  //     map: map,
+  //   });
+  //   */
   // }
+  initMap(lat: number, lng: number) {
+    let LatLng = { lat, lng };
+    let map = new google.maps.Map(document.getElementById('mymap'), {
+      zoom: 17,
+      center: LatLng
+    });
+    var marker = new google.maps.Marker({
+      position: LatLng,
+      map: map,
+    });
+  }
 }
