@@ -4,13 +4,11 @@ var roomTypeService = require('../services/room-type-service');
 module.exports = {
     /**Create Room Type */
     Create: function (req, res) {
-        console.log(req.body);
         roomTypeService.create(req.body, function (err, result) {
             if (err) {
                 return res.status(401).json({ message: err });
             }
             else {
-                console.log('Save RoomType complete!');
                 return res.status(200).json({
                     code: 200,
                     result: result
@@ -26,7 +24,6 @@ module.exports = {
                 return res.status(401).json({ message: err });
             }
             else {
-                console.log('Get RoomType complete!');
                 return res.status(200).json({
                     code: 200,
                     result: result
