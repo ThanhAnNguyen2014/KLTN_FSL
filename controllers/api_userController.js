@@ -41,15 +41,15 @@ module.exports = {
     },
     /** create User  */
     create: function (req, res, callback) {
-        userServices.create(req.body, function (err,doc) {
+        userServices.create(req.body, function (err, doc) {
             if (err) return res.status(500).json({
                 code: res.statusCode,
                 results: {
-                    message: 'err: '+ err,
+                    message: 'err: ' + err,
                     doc: null
                 }
             });
-            if(doc){
+            if (doc) {
                 console.log('Create User success!');
                 return res.status(200).json({
                     code: res.statusCode,
@@ -57,10 +57,10 @@ module.exports = {
                         message: null,
                         doc: doc
                     }
-                 });
+                });
             }
         });
-        
+
     },
     /**update User */
     updateUserById: function (req, res, callback) {
@@ -86,7 +86,7 @@ module.exports = {
                     code: res.statusCode,
                     results: {
                         message: 'User Not Found',
-                        doc: null                        
+                        doc: null
                     }
                 });
             }
@@ -97,7 +97,7 @@ module.exports = {
             if (err) return res.status(500).json({
                 code: res.statusCode,
                 results: {
-                    message: 'err: '+ err,
+                    message: 'err: ' + err,
                     doc: null
                 }
             });
@@ -127,7 +127,7 @@ module.exports = {
             if (err) return res.status(500).json({
                 code: res.statusCode,
                 results: {
-                    message: 'err: '+ err,
+                    message: 'err: ' + err,
                     doc: null
                 }
             });
@@ -155,25 +155,16 @@ module.exports = {
     logIn: function (req, res) {
         var username = req.body.username;
         var password = req.body.password;
-        userServices.getUserByUsername(username, function (err, user) {
-            if (err) res.status(500).json({
+        if (username === '' || password === ' ') {
+            return res.status(500).json({
                 code: res.statusCode,
                 results: {
-                    message: 'err: ' + err,
-                    doc: null
+                    message: 'err: Username or Password not empty!'
                 }
             });
-            if (!user) {
-                return res.status(404).json({
-                    code: res.statusCode,
-                    results: {
-                        success: false,
-                        message: 'User not found!',
-                        doc: null
-                    }
-                });
-            }
-            userServices.comparePassword(password, user.password, (err, isMatch) => {
+        }
+        else {
+            userServices.getUserByUsername(username, function (err, user) {
                 if (err) res.status(500).json({
                     code: res.statusCode,
                     results: {
@@ -181,36 +172,56 @@ module.exports = {
                         doc: null
                     }
                 });
-                if (isMatch) {
-                    var token = jwt.sign({ id: user.id }, config.secret_user, {
-                        expiresIn: '1h', // one house
-                        algorithm: 'HS256'
-                    });
-                    res.status(200).json({
+                if (!user) {
+                    return res.status(404).json({
                         code: res.statusCode,
                         results: {
-                            message: null,
-                            doc:{
-                                success: true,
-                                token: 'JWT ' + token,
-                            }
+                            success: false,
+                            message: 'User not found!',
+                            doc: null
                         }
                     });
                 }
-                else {
-                    console.log(user.password);
-                    return res.status(200).json({
+                userServices.comparePassword(password, user.password, (err, isMatch) => {
+                    if (err) res.status(500).json({
                         code: res.statusCode,
                         results: {
-                            message: 'Authentication failed. Passwords did not match!',
-                            doc: {
-                                success: false
-                            }
+                            message: 'err: ' + err,
+                            doc: null
                         }
                     });
-                }
+                    if (isMatch) {
+                        var token = jwt.sign({ id: user.id }, config.secret_user, {
+                            expiresIn: '1h', // one house
+                            algorithm: 'HS256'
+                        });
+                        res.status(200).json({
+                            code: res.statusCode,
+                            results: {
+                                message: null,
+                                doc: {
+                                    success: true,
+                                    token: 'JWT ' + token,
+                                }
+                            }
+                        });
+                    }
+                    else {
+                        console.log(user.password);
+                        return res.status(200).json({
+                            code: res.statusCode,
+                            results: {
+                                message: 'Authentication failed. Passwords did not match!',
+                                doc: {
+                                    success: false
+                                }
+                            }
+                        });
+                    }
+                });
             });
-        });
+        }
+
     },
     /**Change Password */
     changPassword: function (req, res) {
@@ -255,7 +266,7 @@ module.exports = {
                             return res.status(200).json({
                                 code: res.statusCode,
                                 results: {
-                                    message: null, 
+                                    message: null,
                                     doc: result
                                 }
                             });
