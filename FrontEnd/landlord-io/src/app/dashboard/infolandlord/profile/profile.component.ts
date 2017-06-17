@@ -3,7 +3,7 @@ import initDatetimepickers = require('../../../../assets/js/init/initDatetimepic
 import { ProfileService } from './profile.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
-import { $ } from "protractor/built";
+// import { $ } from "protractor/built";
 import { NgForm } from "@angular/forms";
 
 @Component({

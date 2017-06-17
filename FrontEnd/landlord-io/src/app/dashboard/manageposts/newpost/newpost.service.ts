@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class NewpostService {
 
-  private apiUrl = "http://5914085a08cca6001102777a.mockapi.io/House";
+  //private apiUrl = "http://5914085a08cca6001102777a.mockapi.io/House";
+  private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/house/";
 
   constructor(private _http: Http) {
 

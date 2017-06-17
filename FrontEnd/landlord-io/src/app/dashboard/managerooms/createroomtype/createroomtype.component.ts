@@ -22,6 +22,7 @@ export class CreateroomtypeComponent implements OnInit {
     showEdit: boolean = false;
     private devices: any[];
     private temp_arr: any = [];
+    private arr_device_roomtype: any[];
 
     constructor(
         private createroomtypeservice: CreateroomtypeService,
@@ -39,8 +40,10 @@ export class CreateroomtypeComponent implements OnInit {
     SaveAdd(f:NgForm) {
         
         var item=[];
+        console.log('Before saving new item');
+        console.log(this.temp_arr);
         this.temp_arr.forEach(id => {
-            item.push({'id_device': id});
+            item.push({'id_device': id.id});
         });
         
         var viewModel={
@@ -64,11 +67,9 @@ export class CreateroomtypeComponent implements OnInit {
 
             }
             this.roomtype = {};
-        });
-        this.temp_arr = [];
+            this.temp_arr = [];
+        }) 
         this.LoadDevice();
-        
-
     }
 
     Delete(id: object) {
@@ -86,16 +87,22 @@ export class CreateroomtypeComponent implements OnInit {
 
     LoadData() {
         this.createroomtypeservice.GetList().subscribe((response: any) => {
-
             this.roomtypes = response;
             console.log(response);
-
         }, error => {
             console.log(error);
         });
     }
 
     SaveUpdate(id: object) {
+        var item=[];
+        console.log(this.temp_arr);
+        this.temp_arr.forEach(id => {
+            item.push({'id_device': id.id});
+        });
+        console.log('item ne');
+        console.log(item);
+        this.roomtype.device = item;
         this.createroomtypeservice.Update(id, this.roomtype).subscribe(response => {
             if (response) {
                 initNotifySuccess('Update success!', 'success');
@@ -103,8 +110,14 @@ export class CreateroomtypeComponent implements OnInit {
             }
         })
         this.showEdit = false;
+        this.temp_arr=[];
         this.roomtype = {};
 
+    }
+
+    Cancel_update() {
+        this.showEdit = false;
+        this.roomtype = {};
     }
 
     EditFunction(id: object) {
@@ -112,50 +125,54 @@ export class CreateroomtypeComponent implements OnInit {
         this.createroomtypeservice.GetSingle(id).subscribe((response) => {
             console.log(Response);
             this.roomtype = response;
-        })   
+            /*
+            this.roomtype.device.map((device)=>{
+                this.temp_arr.push({'id': device.id_device});
+            });
+            */
+            
+            this.roomtype.device.forEach(device => {
+                this.temp_arr.push({'id': device.id_device});
+            });
+            console.log('Array before modification');
+            console.log(this.temp_arr);
+  
+        })
     }
 
     LoadDevice() {
         this.createroomtypeservice.GetListDevice().subscribe((response: any) => {
-
             this.devices = response;
             //console.log(response);
-
         }, error => {
-            //console.log(error);
+            console.log(error);
         });
     }
 
-    // get selectedOptions() {
-    //     return this.roomtype.filter(opt => opt.checked = 'True').map(opt => opt.value)
-    // }
-
     pushdevice(id: object) {
-        var index = this.temp_arr.indexOf( id );
-        //console.log(index);
+        let index = -1;
+        for(let i = 0; i < this.temp_arr.length; i++){
+            if(this.temp_arr[i].id == id){
+                index = i;
+            }
+        }
         if (index != -1) {
-            //console.log(this.temp_arr.indexOf(id));
             this.temp_arr.splice(index,1);
         }
         else {
-            this.temp_arr.push(id);
+            this.temp_arr.push({'id': id});
         }
-        //console.log(this.temp_arr);
     }
 
-    // trackDevice(index, itemDevice){
-    //     console.log(itemDevice);
-    //     // var abc=this.devices.filter(dvc => (dvc.id == itemDevice.id_device) ).map(dvc => dvc.name)
-    //     // console.log(abc);
-    //     console.log(this.devices);
-    //     var abc = this.devices.indexOf( itemDevice.id_device) ;
-    //     console.log(abc);
-    //     // if (abc != -1) {
-    //     //     //console.log(this.temp_arr.indexOf(id));
-    //     //     JSON.stringify(this.devices.filter(dvc => dvc.id === itemDevice.id ).map(dvc => dvc.name))
-            
-    //     // }
-    // }//bo
-
-
+    itemExistInDeviceList(device: any): Boolean {
+        if(this.roomtype.device){
+            for(let item of this.roomtype.device){
+                if(device._id === item.id_device){
+                    return true;
+                }
+            }
+            return false;      
+        }
+        return false;
+        }
 }

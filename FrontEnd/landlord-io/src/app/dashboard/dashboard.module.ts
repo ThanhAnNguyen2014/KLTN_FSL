@@ -18,6 +18,7 @@ import { DetailroomComponent } from './managerooms/detailroom/detailroom.compone
 import { NavbarModule } from '../shared/navbar/navbar.module';
 import { FooterModule } from '../shared/footer/footer.module';
 import { SidebarModule } from '../sidebar/sidebar.module';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 
 const appRoutes: Routes = [
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
     NavbarModule,
     FooterModule,
     SidebarModule,
+    CKEditorModule,
     RouterModule.forChild(appRoutes)
   ],
   declarations: [
@@ -69,7 +71,7 @@ const appRoutes: Routes = [
     RoomsComponent,
     ListhouseComponent,
     EdithouseComponent,
-    DetailroomComponent
+    DetailroomComponent,
   ],
   // exports: [DashboardComponent]
 })

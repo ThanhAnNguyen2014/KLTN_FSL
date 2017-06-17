@@ -5,7 +5,7 @@
                 <div class="card">
                     <form class="form-horizontal" #formaddroomtype="ngForm" (ngSubmit)="SaveAdd(formaddroomtype)">
                         <div class="card-header card-header-text" data-background-color="rose">
-                            <h4 class="card-title">Add new type of rooms</h4>
+                            <h4 class="card-title">Add New Room Type</h4>
                         </div>
                         <div class="card-content">
                             <div class="row">
@@ -42,7 +42,7 @@
                                     <div class="col-sm-4 checkbox-radios" *ngFor="let item of devices">
                                         <div class="checkbox">
                                             <label>
-                                            <input type="checkbox" name="optionsCheckboxes"  value="{{item.id}}" [checked]="item.checked" (click)="pushdevice(item.id)">
+                                            <input type="checkbox" name="optionsCheckboxes"  value="{{item._id}}" [checked]="item.checked" (click)="pushdevice(item._id)">
                                              {{item.name}}
                                         </label>
                                         </div>
@@ -67,7 +67,7 @@
         <div class="row" *ngIf="showEdit">
             <div class="col-md-12">
                 <div class="card">
-                    <form class="form-horizontal" #formupdateroomtype="ngForm" (ngSubmit)="SaveUpdate(roomtype.id) ">
+                    <form class="form-horizontal" #formupdateroomtype="ngForm" (ngSubmit)="SaveUpdate(roomtype._id) ">
                         <div class="card-header card-header-text" data-background-color="rose">
                             <h4 class="card-title">Update type of rooms</h4>
                         </div>
@@ -103,11 +103,12 @@
                                 <label class="col-sm-2 label-on-left">Device</label>
                                 <div class="col-sm-8">
                                     <div class="col-sm-4 checkbox-radios" *ngFor="let item of devices">
-                                        <div class="checkbox" *ngFor="let abc of roomtype.device">
+                                        <div class="checkbox">
                                             <label>
-                                            <input type="checkbox" value="{{item.id}}"  [checked]="abc.id_device===item.id ? true : false" (click)="pushdevice(item.id)">
-                                             {{item.name}}
-                                        </label>
+                                                <input id="device" type="checkbox" value="{{item._id}}"  [checked]="itemExistInDeviceList(item)"  (click)="pushdevice(item._id)">
+                                                {{item.name}}
+                                                <span></span>
+                                                </label>
                                         </div>
                                     </div>
 
@@ -115,8 +116,9 @@
                                 <label class="col-sm-2"></label>
                             </div>
                             <div class="row">
-                                <div class="col-md-2 col-xs-offset-4 col-md-offset-5">
+                                <div class="col-md-4 col-xs-offset-4 col-md-offset-5">
                                     <div class="form-group form-button">
+                                        <button type="cancel" class="btn btn-fill btn-behance" (click)="Cancel_update()">Cancel</button>
                                         <button type="submit" [hidden]="true" [disabled]="!formupdateroomtype.form.valid" class="btn btn-fill btn-success">Update</button>
                                     </div>
                                 </div>
@@ -156,16 +158,16 @@
                                         <td>
                                             <span *ngFor="let itemDevice of aroom.device">
                                                 <span *ngFor="let abc of devices">
-                                                    <span *ngIf="abc.id===itemDevice.id_device">{{abc.name}};</span>
+                                                    <span *ngIf="abc._id===itemDevice.id_device">{{abc.name}};</span>
                                             </span>
                                             </span>
                                         </td>
                                         <td class="td-actions text-center">
-                                            <button type="button" rel="tooltip" class="btn btn-success" (click)="EditFunction(aroom.id)">
+                                            <button type="button" rel="tooltip" class="btn btn-success" (click)="EditFunction(aroom._id)">
                                                 <i class="material-icons">edit</i>
                                             </button>
-                                            <button type="button" rel="tooltip" class="btn btn-danger" (click)="Delete(aroom.id)">
-                                                <i class="material-icons">close</i>
+                                            <button type="button" rel="tooltip" class="btn btn-danger" (click)="Delete(aroom._id)">
+                                                <i class="material-icons">delete</i>
                                             </button>
                                         </td>
                                     </tr>

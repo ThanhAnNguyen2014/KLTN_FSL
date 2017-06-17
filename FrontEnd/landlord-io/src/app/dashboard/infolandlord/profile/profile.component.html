@@ -10,8 +10,135 @@
                         <h4 class="card-title">Landlord Profile -
                             <small class="category">Complete your profile</small>
                         </h4>
-                        <form class="form" #f="ngForm" (ngSubmit)="SaveForm(f)" *ngIf="info">
+                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="SaveForm(f)" *ngIf="info">
+
                             <div class="row">
+                                <div class="col-md-4">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-circle">
+                                            <img src="https://firebasestorage.googleapis.com/v0/b/fsl-io.appspot.com/o/fsl-io%2F8pr9iw.jpg?alt=media&token=33feef57-ca52-45e3-84c3-e39c7f10514b" alt="...">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                        <div style="margin-left: 25%">
+                                            <span class="btn btn-round btn-rose btn-file">
+                                            <span class="fileinput-new">Add Photo</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" name="image" />
+                                            </span>
+                                            <br />
+                                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">First name</label>
+                                                <input type="text" class="form-control" required name="firstname" [(ngModel)]="info.firstname">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Last name</label>
+                                                <input type="text" class="form-control" required name="lastname" [(ngModel)]="info.lastname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Email address</label>
+                                                <input type="email" class="form-control" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required #email="ngModel" name="email" [(ngModel)]="info.email">
+                                                <div class="md-errors-spacer" [hidden]="email.valid || email.untouched">
+                                                    <div *ngIf="email.errors && email.errors.required">
+
+                                                    </div>
+                                                    <div *ngIf="email.errors && email.errors.pattern">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Phone</label>
+                                                <input type="text" class="form-control" required name="phone" [(ngModel)]="info.phone">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Identity card</label>
+                                                <input type="text" class="form-control" required name="identitycard" [(ngModel)]="info.identitycard">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Birth day:</label>
+                                                <input type="text" class="form-control datepicker" name="birthday" [ngModel]="info.birthday | date: 'dd/MM/yyyy'" (ngModelChange)="info.birthday=$event" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label" id="gender-label">Gender:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-2 checkbox-radios">
+                                            <div class="form-group label-floating">
+                                                <div class="radio">
+                                                    <label><input type="radio" name="optionsRadios" checked="info.gender ? true : false"/> Male</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-2 checkbox-radios">
+                                            <div class="form-group label-floating">
+                                                <div class="radio">
+                                                    <label><input type="radio" name="optionsRadios" checked="info.gender ? false:true"/> Female</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Adress:</label>
+                                                <input type="text" class="form-control" required name="address" [(ngModel)]="info.address">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Id Facebook:</label>
+                                                <input type="text" class="form-control" readonly />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Id Google:</label>
+                                                <input type="text" class="form-control" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-10 col-xs-offset-1">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-8 col-sm-8 form-group form-button">
+                                                <button type="cancel" class="btn btn-fill btn-behance" [routerLink]="['/dashboard/home']">Cancel</button>
+                                                <button type="submit" [disabled]="!f.form.valid" class="btn btn-fill btn-success">Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!--<div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <label class="control-label">First name</label>
@@ -39,8 +166,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
@@ -59,21 +184,27 @@
                                         <label class="control-label" id="gender-label">Gender:</label>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="col-sm-5 checkbox-radios">
                                   
                                          <div class="radio">
+=======
+                                <div class="col-md-1 col-sm-col-2">
+                                    <div class="form-group label-floating">
+                                        <div>
+>>>>>>> 3242fd8db0f0e2749b7631837d3a73ba6993277f
                                             <label>
                                             <input type="radio" name="optionsRadios" checked="true"> Male                                             
                                         </label>
                                         </div>
                                    
                                 </div>
-                                <div class="col-md-1 col-sm-col-2">
+                                <div class="col-md-2 col-sm-col-2 checkbox-radios">
                                     <div class="form-group label-floating">
-                                        <div class="radio">
+                                        <div>
                                             <label>
-                                            <input type="radio" name="optionsRadios" [checked]="info.gender ? false:true"> Female                                            
-                                        </label>
+                                                <input type="radio" name="optionsRadios" [checked]="info.gender ? false:true"> Female                                            
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +239,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <legend>Avatar</legend>
+                                    <label class="control-label">Avatar:</label>
+                                   
                                 </div>
                             </div>
                             <div class="row">
@@ -117,14 +249,14 @@
 
                                     <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail img-circle">
-                                            <img src="{{info.image}}" alt="...">
+                                            <img src="https://firebasestorage.googleapis.com/v0/b/fsl-io.appspot.com/o/fsl-io%2F2762is.jpg?alt=media&token=5c20f0d2-5629-4eb0-998e-2ff5f94ae45d" alt="...">
                                         </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                                         <div>
                                             <span class="btn btn-round btn-rose btn-file">
                                             <span class="fileinput-new">Add Photo</span>
                                             <span class="fileinput-exists">Change</span>
-                                            <input type="file" name="image" value="" [(ngModel)]=" info.image " />
+                                            <input type="file" name="image" />
                                             </span>
                                             <br />
                                             <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -132,8 +264,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" [disabled]="!f.form.valid" class="btn btn-rose pull-right">Update Profile</button>
-                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-5"></div>
+                                <div class="col-md-7 col-xs-offset-1">
+                                    <div class="form-group form-button">
+                                        <button type="cancel" class="btn btn-fill btn-behance" [routerLink]="['/dashboard/home']">Cancel</button>
+                                        <button type="submit" [disabled]="!f.form.valid" class="btn btn-fill btn-success">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
                         </form>
                     </div>
                 </div>
