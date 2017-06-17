@@ -39,10 +39,10 @@ module.exports = {
             }
         });
     },
-    /** create User  */
+    /** register Account User  */
     register: function (req, res, callback) {
         var user = req.body;
-        userServices.create(user, function (err, doc) {
+        userServices.create(user, function (err, user) {
             if (err) return res.status(500).json({
                 code: res.statusCode,
                 results: {
@@ -50,7 +50,6 @@ module.exports = {
                     doc: null
                 }
             });
-
             // create token
             var token = 'JWT ' + jwt.sign({ id: user._id }, config.secret_user, {
                 expiresIn: '24h', // one day
@@ -431,7 +430,6 @@ var opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
 opts.secretOrKey = config.secret_user; // wanring
 passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-    console.log(jwt_payload);
     userServices.getUserById(jwt_payload.id, (err, user) => {
         if (err) {
             return done(err, false);
