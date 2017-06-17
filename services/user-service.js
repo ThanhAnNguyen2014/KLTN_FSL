@@ -47,7 +47,6 @@ module.exports = {
             Models.User.findByIdAndRemove(_id, function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
-                    console.log(doc);
                     return callback(null, 'Delete user success!');
                 }
                 else {
@@ -62,7 +61,6 @@ module.exports = {
     /** Find one User with Id */
     getUserById: function (id, callback) {
         var _id = id;
-        console.log(_id);
         if (ObjectId.isValid(_id)) {
             Models.User.findById(_id, 'firstname lastname email address phone gender birthday identitycard image', function (err, doc) {
                 if (err) return callback(err);
