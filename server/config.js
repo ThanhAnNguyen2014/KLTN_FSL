@@ -6,5 +6,6 @@ module.exports = {
       database_local: 'mongodb://localhost:27017/FSL_IO',
       email: 'fslio.startup@gmail.com',
       password: 'fslio@abc123',
+      urlVerifyAccount: '127.0.0.1/api/verify/verify-account/?token='
 
 }
