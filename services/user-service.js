@@ -24,7 +24,13 @@ module.exports = {
             Models.User.findByIdAndUpdate(_id, doc, { new: true }, function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
-                    return callback(null, doc);
+                    var user = {
+                        firstname: doc.firstname,
+                        lastname: doc.lastname,
+                        username: doc.username,
+                        email: doc.email
+                    }
+                    return callback(null, user);
                 }
                 else {
                     return callback(null, null);
@@ -58,7 +64,7 @@ module.exports = {
         var _id = id;
         console.log(_id);
         if (ObjectId.isValid(_id)) {
-            Models.User.findById(_id, function (err, doc) {
+            Models.User.findById(_id, 'firstname lastname email address phone gender birthday identitycard image', function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
                     return callback(null, doc);
@@ -75,7 +81,7 @@ module.exports = {
     findAll: function (callback) {
         Models.User.find(function (err, docs) {
             if (err) return callback(err);
-            if (docs.length) {
+            if (docs.length>0) {
                 return callback(null, docs);
             }
             else {
@@ -87,6 +93,29 @@ module.exports = {
         bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
             if (err) throw err;
             callback(null, isMatch);
+        });
+    },
+    validate: function (username, email, password, passwordconfirm, callback) {
+        Models.User.findOne({ username: username }, (err, doc) => {
+            if (err) return callback(err);
+            if (doc) {
+                return callback(null, 'Username already exists, username: ' + username);
+            }
+            else {
+                Models.User.findOne({ email: email }, (err, doc) => {
+                    if (err) return callback(err);
+                    if (doc) {
+                        return callback(null, 'Email already exists, email: ' + email);
+                    }
+                    else {
+                        if (password != passwordconfirm) {
+                            return callback('Password not match');
+                        } else {
+                            return callback(null, null);
+                        }
+                    }
+                });
+            }
         });
     },
     getUserByUsername: function (username, callback) {
@@ -118,7 +147,7 @@ module.exports = {
             });
         }
         else {
-           return callback('Invalid ObjectId');
+            return callback('Invalid ObjectId');
         }
     }
 }
