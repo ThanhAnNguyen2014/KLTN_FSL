@@ -71,13 +71,14 @@ module.exports = function (app) {
 
     /**Section User */
     router.post('/api/v1/user/login', api_userController.logIn);
-    router.post('/api/v1/user/create', api_userController.create);
+    router.post('/api/v1/user/register', api_userController.register);
     router.get('/api/v1/user/:id', ensureAuthenticatedUser, api_userController.findUserById);
     router.get('/api/v1/users', api_userController.getAllUser);
     router.post('/api/v1/user/changepass', ensureAuthenticatedUser, api_userController.changPassword);
     router.delete('/api/v1/user/:id', api_userController.deleteUser);
     router.put('/api/v1/user/:id', api_userController.updateUserById);
-
+    router.post('/api/v1/user/check/validate', api_userController.validates);
+    router.get('/api/v1/user/verify/verify-account/', api_userController.verifyEmail);
 
 
 
