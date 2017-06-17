@@ -107,7 +107,10 @@ module.exports = {
                 // note
                 return res.status(200).json({
                     code: res.statusCode,
-                    results: doc
+                    results: {
+                        message: null,
+                        doc: doc
+                    }
                 });
             }
             else {
@@ -149,12 +152,21 @@ module.exports = {
                     doc: null
                 }
             });
-            else {
+            if (docs) {
                 return res.status(200).json({
                     code: res.statusCode,
                     results: {
                         message: null,
                         doc: docs
+                    }
+                });
+            }
+            else {
+                return res.status(404).json({
+                    code: res.statusCode,
+                    results: {
+                        message: 'List Landlord not found',
+                        doc: null
                     }
                 });
             }
@@ -235,7 +247,7 @@ module.exports = {
                 };
                 if (isMatch) {
                     // check landlord active
-                    if (landlord.active) {                        
+                    if (landlord.active) {
                         var token = jwt.sign({ id: landlord.id }, config.secret_landlord, {
                             expiresIn: '24h', // one house
                             algorithm: 'HS256'
@@ -261,8 +273,13 @@ module.exports = {
                 }
                 else {
                     return res.status(200).json({
-                        success: false,
-                        message: 'Authentication failed. Passwords did not match!'
+                        code: res.statusCode,
+                        results: {
+                            message: 'Authentication failed. Passwords did not match!',
+                            doc: {
+                                success: false
+                            }
+                        }
                     });
                 }
             });
@@ -292,7 +309,13 @@ module.exports = {
             });
             if (landlord) {
                 landlordServices.comparePassword(oldpass, landlord.password, function (err, isMatch) {
-                    if (err) throw err;
+                    if (err) res.status(500).json({
+                        code: res.statusCode,
+                        results: {
+                            message: err,
+                            doc: null
+                        }
+                    });
                     if (isMatch) {
                         landlordServices.changePassword(id, newpass, function (err, result) {
                             if (err) return res.status(500).json({
