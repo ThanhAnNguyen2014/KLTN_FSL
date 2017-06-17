@@ -175,7 +175,7 @@ module.exports = function (app) {
                 else {
                     req.userId = decode;
                     passport.authenticate('jwt', { session: false });
-                    console.log('Id landlord: ' + req.userId.id);
+                    console.log('Id userId: ' + req.userId.id);
                     callback();
                 }
             });
