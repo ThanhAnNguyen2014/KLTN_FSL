@@ -20,5 +20,5 @@ var LandlordSchema = new Schema({
     active: {type: Boolean, default: false},
     tokenjwt:{type: String, default: null},
     //role: { type: String } // role of user (user or landlord)
-});
+}); 
 var Landlord = module.exports = mongoose.model('Landlord', LandlordSchema);
