@@ -25,12 +25,15 @@ module.exports = function (app) {
     //section Lanlord
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
-    router.post('/api/v1/landlord/create', api_landlordController.create);
+    router.post('/api/v1/landlord/register', api_landlordController.register);
     router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.findLandlordById);
     router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
     router.post('/api/v1/landlord/changepass', api_landlordController.changPassword);
+    router.post('/api/v1/landlord/check/validate', api_landlordController.validates);
+    router.get('/api/v1/landlord/verify/verify-account/', api_landlordController.verifyEmail);
+
     // section Devices
     router.get('/api/v1/devices', api_landlordController.getAllDevices);
 
@@ -92,6 +95,7 @@ module.exports = function (app) {
     router.get('/admin/accept_post', ensureAuthenticated, adminController.accept_post);
     router.get('/admin/not_accept_post', ensureAuthenticated, adminController.not_accept_post);
     router.post('/admin/check_lock_user/:id', ensureAuthenticated, adminController.check_lock_user);
+    // router.post('/admin/remove/:id', adminController.deleteUser);
 
 
 
@@ -118,11 +122,19 @@ module.exports = function (app) {
     }
     /**Authentication Landlord  */
     function ensureAuthenticatedLandlord(req, res, callback) {
-        if (req.headers && req.headers.authorization) {
+        if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
             var token = req.headers.authorization;
-            console.log(token.split(' ')[1]);
             jwt.verify(token.split(' ')[1], config.secret_landlord, function (err, decode) {
-                if (err) return res.status(500).json({ message: 'Invalid Token! Please login.' });
+                if (err) {
+                    req.landlordId = undefined;
+                    return res.status(500).json({
+                        code: res.statusCode,
+                        results: {
+                            message: 'Invalid Token! Please login.',
+                            doc: null
+                        }
+                    });
+                }
                 else {
                     req.landlordId = decode;
                     passport.authenticate('jwt', { session: false });
@@ -132,8 +144,13 @@ module.exports = function (app) {
             });
         }
         else {
+            req.landlordId = undefined;
             return res.status(401).json({
-                message: 'Unauthorized User!'
+                code: res.statusCode,
+                results: {
+                    message: 'Unauthorized User!',
+                    doc: null
+                }
             });
         }
     }
@@ -141,17 +158,16 @@ module.exports = function (app) {
     /**Authentication User  */
     function ensureAuthenticatedUser(req, res, callback) {
         // (req.headers && req.headers.authorization && req.headers.authorizition.split(' ')[0] === 'JWT'
-
         if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
             var token = req.headers.authorization;
-            console.log(token.split(' ')[1]);
             jwt.verify(token.split(' ')[1], config.secret_user, function (err, decode) {
                 if (err) {
                     req.userId = undefined;
                     return res.status(500).json({
                         code: res.statusCode,
                         results: {
-                            message: 'Invalid Token! Please login.'
+                            message: 'Invalid Token! Please login.',
+                            doc: null
                         }
                     });
                 }
@@ -168,7 +184,8 @@ module.exports = function (app) {
             return res.status(401).json({
                 code: res.statusCode,
                 results: {
-                    message: 'Unauthorized User!'
+                    message: 'Unauthorized User!',
+                    doc: null
                 }
             });
         }
