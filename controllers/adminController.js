@@ -84,6 +84,18 @@ module.exports = {
     not_accept_post: function (req, res, callback) {
         res.render('admins/not_accept_post', { layout: 'adminlayout.handlebars' });
     },
+    deleteUser: function (req, res, callback) {
+        var _id = req.params.id;
+        if (ObjectId.isValid(_id)) {
+
+            Models.User.findOneAndRemove(_id, function (err) {
+                if (err) { throw err; }
+                return res.json(true)
+            });
+        } else {
+            return res.json(false);
+        }
+    }
 
 };
 
