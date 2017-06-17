@@ -24,13 +24,13 @@ module.exports = {
             Models.Landlord.findByIdAndUpdate(_id, doc, { new: true }, function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
-                    var user = {
+                    var landlord = {
                         firstname: doc.firstname,
                         lastname: doc.lastname,
                         username: doc.username,
                         email: doc.email
                     }
-                    return callback(null, user);
+                    return callback(null, landlord);
                 }
                 else {
                     return callback(null, null);//Not find Landlord Object
@@ -62,7 +62,7 @@ module.exports = {
     getLandlordById: function (id, callback) {
         var _id = id;
         if (ObjectId.isValid(_id)) {
-            Models.Landlord.findById(_id, function (err, doc) {
+            Models.Landlord.findById(_id,'firstname lastname email address phone gender birthday identitycard image',function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
                     return callback(null, doc); // return not err and result doccument
@@ -91,10 +91,10 @@ module.exports = {
     getDevices: function (callback) {
         Models.Devices.find({}, function (err, docs) {
             if (err) return callback(err);
-            if(docs.length>0){
+            if (docs.length > 0) {
                 return callback(null, docs);
             }
-            else{
+            else {
                 return callback(null, null);
             }
         });
@@ -112,7 +112,7 @@ module.exports = {
                 return callback(null, 'Username already exists, username: ' + username);
             }
             else {
-                Models.User.findOne({ email: email }, (err, doc) => {
+                Models.Landlord.findOne({ email: email }, (err, doc) => {
                     if (err) return callback(err);
                     if (doc) {
                         return callback(null, 'Email already exists, email: ' + email);
@@ -159,6 +159,5 @@ module.exports = {
         else {
             return callback('Invalid ObjectId');
         }
-    }
-
+    },
 }
