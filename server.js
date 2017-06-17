@@ -18,7 +18,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.database_mLab);
 // On Connection
 mongoose.connection.on('connected', () => {
-    console.log('Connected to database ' + config.database_local);
+    console.log('Connected to database ' + config.database_mLab);
 });
 mongoose.connection.on('open', function () {
     console.log('Mongoose connected!');
