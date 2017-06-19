@@ -204,11 +204,11 @@ module.exports = {
                     }
                 });
                 if (!user) {
-                    return res.status(404).json({
+                    return res.status(401).json({
                         code: res.statusCode,
                         results: {
                             success: false,
-                            message: 'Username or email not registered',
+                            message: 'Username or password is incorrect',
                             doc: null
                         }
                     });
