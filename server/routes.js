@@ -26,7 +26,7 @@ module.exports = function (app) {
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
     router.post('/api/v1/landlord/register', api_landlordController.register);
-    router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.findLandlordById);
+    router.get('/api/v1/landlord/:id', api_landlordController.findLandlordById);
     router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
