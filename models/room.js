@@ -12,7 +12,7 @@ var RoomSchema = new Schema({
         create_date: { type: Date, 'default': Date.now },
         price: { type: Number, default: 0 }
     },
-    images: { type: String },
+    image: { type: String },
     status:{type: Boolean, default: false}
 
     //id_roomprice: { type: ObjectId }
