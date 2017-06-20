@@ -26,23 +26,23 @@ module.exports = function (app) {
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
     router.post('/api/v1/landlord/register', api_landlordController.register);
-    router.get('/api/v1/landlord/:id', api_landlordController.findLandlordById);
-    router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
-    router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
+    router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.findLandlordById);
+    router.put('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.updateLandlordById);
+    router.delete('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
-    router.post('/api/v1/landlord/changepass', api_landlordController.changPassword);
+    router.post('/api/v1/landlord/changepass', ensureAuthenticatedLandlord, api_landlordController.changPassword);
     router.post('/api/v1/landlord/check/validate', api_landlordController.validates);
     router.get('/api/v1/landlord/verify/verify-account/', api_landlordController.verifyEmail);
 
     // section Devices
-    router.get('/api/v1/devices', api_landlordController.getAllDevices);
+    router.get('/api/v1/devices', ensureAuthenticatedLandlord, api_landlordController.getAllDevices);
 
     /** section House */
-    router.post('/api/v1/house', api_houseController.create);
-    router.get('/api/v1/house/:id', api_houseController.getHouseById);
-    router.delete('/api/v1/house/:id', api_houseController.deleteHouseById);
-    router.put('/api/v1/house/:id', api_houseController.updateHouseById);
-    router.get('/api/v1/houses/all', api_houseController.getAllHouse);
+    router.post('/api/v1/house', ensureAuthenticatedLandlord, api_houseController.create);
+    router.get('/api/v1/house/:id', ensureAuthenticatedLandlord, api_houseController.getHouseById);
+    router.delete('/api/v1/house/:id', ensureAuthenticatedLandlord, api_houseController.deleteHouseById);
+    router.put('/api/v1/house/:id', ensureAuthenticatedLandlord, api_houseController.updateHouseById);
+    router.get('/api/v1/houses/all', ensureAuthenticatedLandlord, api_houseController.getAllHouse);
 
 
     /**section Area */
@@ -52,19 +52,19 @@ module.exports = function (app) {
 
 
     /**section RoomeType */
-    router.post('/api/v1/roomtype', api_roomTypeController.Create);
-    router.get('/api/v1/roomtype/:id', api_roomTypeController.GetRoomTypeById);
-    router.put('/api/v1/roomtype/:id', api_roomTypeController.UpdateRoomTypeById);
-    router.delete('/api/v1/roomtype/:id', api_roomTypeController.DeleteRoomTypeById);
-    router.get('/api/v1/roomtypes', api_roomTypeController.GetAll);
-    router.post('/api/v1/roomtype/:id', api_roomTypeController.UpdateNumberRoomType);
+    router.post('/api/v1/roomtype', ensureAuthenticatedLandlord, api_roomTypeController.Create);
+    router.get('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.GetRoomTypeById);
+    router.put('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.UpdateRoomTypeById);
+    router.delete('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.DeleteRoomTypeById);
+    router.get('/api/v1/roomtypes', ensureAuthenticatedLandlord, api_roomTypeController.GetAll);
+    router.post('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.UpdateNumberRoomType);
     /**section Room */
-    router.post('/api/v1/room', api_roomController.Create);
-    router.put('/api/v1/room/:id', api_roomController.Update);
-    router.get('/api/v1/room/:id', api_roomController.GetRoomById);
-    router.delete('/api/v1/room/:id', api_roomController.RemoveRoomById);
-    router.get('/api/v1/rooms', api_roomController.GetAllRoom);
-    router.get('/api/v1/rooms/:id', api_roomController.GetRoomByIdHouse);
+    router.post('/api/v1/room', ensureAuthenticatedLandlord, api_roomController.Create);
+    router.put('/api/v1/room/:id', ensureAuthenticatedLandlord, api_roomController.Update);
+    router.get('/api/v1/room/:id', ensureAuthenticatedLandlord, api_roomController.GetRoomById);
+    router.delete('/api/v1/room/:id', ensureAuthenticatedLandlord, api_roomController.RemoveRoomById);
+    router.get('/api/v1/rooms', ensureAuthenticatedLandlord, api_roomController.GetAllRoom);
+    router.get('/api/v1/rooms/:id', ensureAuthenticatedLandlord, api_roomController.GetRoomByIdHouse);
     /**section HomePage*/
     router.get('/api/v1/home/houses', api_homeuserController.getHousesOnHomePage);
     router.get('/api/v1/home/house/:id', api_homeuserController.getHouseById);
