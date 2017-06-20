@@ -164,7 +164,7 @@ module.exports = function (app) {
             jwt.verify(token.split(' ')[1], config.secret_user, function (err, decode) {
                 if (err) {
                     req.userId = undefined;
-                    return res.status(500).json({
+                    return res.status(498).json({
                         code: res.statusCode,
                         results: {
                             message: 'Invalid Token! Please login.',
