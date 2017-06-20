@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     path: 'dashboard',
     loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
   },
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent , pathMatch:'full'},
 ]
 
 @NgModule({

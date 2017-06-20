@@ -19,7 +19,10 @@ import { NavbarModule } from '../shared/navbar/navbar.module';
 import { FooterModule } from '../shared/footer/footer.module';
 import { SidebarModule } from '../sidebar/sidebar.module';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { TableformComponent } from './tableform/tableform.component';
 
+
+import { DataTablesModule } from 'angular-datatables';
 
 const appRoutes: Routes = [
   {
@@ -34,7 +37,8 @@ const appRoutes: Routes = [
       { path: 'manageposts/edithouse/:id', component: EdithouseComponent },
       { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
       { path: 'managerooms/rooms', component: RoomsComponent },
-      { path: 'managerooms/rooms/detail', component: DetailroomComponent },
+      { path: 'managerooms/roomdetail/:id', component: DetailroomComponent },
+      { path: 'tableform', component: TableformComponent },
     ]
   },
   // { path: 'dashboard', component: HomeComponent },
@@ -52,12 +56,13 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
- //   BrowserModule,
+    //   BrowserModule,
     FormsModule,
     NavbarModule,
     FooterModule,
     SidebarModule,
     CKEditorModule,
+    // DataTablesModule,
     RouterModule.forChild(appRoutes)
   ],
   declarations: [
@@ -72,6 +77,7 @@ const appRoutes: Routes = [
     ListhouseComponent,
     EdithouseComponent,
     DetailroomComponent,
+    TableformComponent,
   ],
   // exports: [DashboardComponent]
 })

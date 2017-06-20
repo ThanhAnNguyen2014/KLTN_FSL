@@ -36,6 +36,6 @@ export class CreateroomtypeService {
   }
 
   GetListDevice(): Observable<any[]> {
-    return this._http.get(this.apiUrlDevice).map((response) => response.json().results)
+    return this._http.get(this.apiUrlDevice).map((response) => response.json().results.doc)
   }
 }

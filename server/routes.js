@@ -19,7 +19,7 @@ var config = require('../server/config');
 
 
 // module
-module.exports = function (app) {
+module.exports = function(app) {
     // session User
     router.get('/api/v1/gethouse', api_userController.get_house_home); // get info house of user home page
 
@@ -31,7 +31,7 @@ module.exports = function (app) {
     router.put('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', ensureAuthenticatedlandlord, api_landlordController.getAllLandlord);
-    router.post('/api/v1/landlord/changpass',ensureAuthenticatedlandlord, api_landlordController.changPassword);
+    router.post('/api/v1/landlord/changpass', ensureAuthenticatedlandlord, api_landlordController.changPassword);
     // Session Devices
     router.get('/api/v1/devices', ensureAuthenticatedlandlord, api_landlordController.getAllDevices);
 
@@ -68,11 +68,11 @@ module.exports = function (app) {
 
     // session admin
     router.get('/admin/login', adminController.get_login);
-    router.post('/admin/login', passport.authenticate('local',
-        {
-            successRedirect: '/admin', failureRedirect: '/admin/login',
-            failureFlash: true
-        }), adminController.post_login);
+    router.post('/admin/login', passport.authenticate('local', {
+        successRedirect: '/admin',
+        failureRedirect: '/admin/login',
+        failureFlash: true
+    }), adminController.post_login);
     router.get('/admin/logout', adminController.get_logout);
     router.get('/admin', ensureAuthenticated, adminController.index);
     router.get('/admin/user_infor', ensureAuthenticated, adminController.userpage);
@@ -112,7 +112,7 @@ module.exports = function (app) {
         if (req.headers && req.headers.authorization) {
             var token = req.headers.authorization;
             console.log(token.split(' ')[1]);
-            jwt.verify(token.split(' ')[1], config.secret, function (err, decode) {
+            jwt.verify(token.split(' ')[1], config.secret, function(err, decode) {
                 if (err) return res.status(500).json({ message: 'Invalid Token! Please login.' });
                 else {
                     req.landlordId = decode;
@@ -121,8 +121,7 @@ module.exports = function (app) {
                     callback();
                 }
             });
-        }
-        else {
+        } else {
             return res.status(401).json({
                 message: 'Unauthorized User!'
             });
@@ -131,4 +130,3 @@ module.exports = function (app) {
 
     app.use(router);
 };
-

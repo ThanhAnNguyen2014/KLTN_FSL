@@ -16,14 +16,14 @@
                                 <div class="col-md-4">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail img-circle">
-                                            <img src="https://firebasestorage.googleapis.com/v0/b/fsl-io.appspot.com/o/fsl-io%2F8pr9iw.jpg?alt=media&token=33feef57-ca52-45e3-84c3-e39c7f10514b" alt="...">
+                                            <img src="{{info?.image}}" alt="...">
                                         </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                                         <div style="margin-left: 25%">
                                             <span class="btn btn-round btn-rose btn-file">
                                             <span class="fileinput-new">Add Photo</span>
                                             <span class="fileinput-exists">Change</span>
-                                            <input type="file" name="image" />
+                                            <input type="file" name="image" (change)="fileChangeEvent($event)" />
                                             </span>
                                             <br />
                                             <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -63,7 +63,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Phone</label>
-                                                <input type="text" class="form-control" required name="phone" [(ngModel)]="info.phone">
+                                                <input type="text" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" maxlength="11" name="phone" [(ngModel)]="info.phone">
                                             </div>
                                         </div>
                                     </div>
@@ -71,13 +71,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Identity card</label>
-                                                <input type="text" class="form-control" required name="identitycard" [(ngModel)]="info.identitycard">
+                                                <input type="text" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" name="identitycard" [(ngModel)]="info.identitycard">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Birth day:</label>
-                                                <input type="text" class="form-control datepicker" name="birthday" [ngModel]="info.birthday | date: 'dd/MM/yyyy'" (ngModelChange)="info.birthday=$event" />
+                                                <input type="text" class="form-control datepicker" name="birthday" [ngModel]="info?.birthday | date: 'dd/MM/yyyy'" (ngModelChange)="info.birthday=$event" />
                                             </div>
                                         </div>
                                     </div>
@@ -90,14 +90,14 @@
                                         <div class="col-md-3 col-sm-2 checkbox-radios">
                                             <div class="form-group label-floating">
                                                 <div class="radio">
-                                                    <label><input type="radio" name="optionsRadios" checked="info.gender ? true : false"/> Male</label>
+                                                    <label><input type="radio" name="gender" [checked]="info.gender? true: false" id="gender"/> Male</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-2 checkbox-radios">
                                             <div class="form-group label-floating">
                                                 <div class="radio">
-                                                    <label><input type="radio" name="optionsRadios" checked="info.gender ? false:true"/> Female</label>
+                                                    <label><input type="radio" name="gender" [checked]="info.gender? false: true"/> Female</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,13 +114,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Id Facebook:</label>
-                                                <input type="text" class="form-control" readonly />
+                                                <input type="text" class="form-control" name="id_facebook" [(ngModel)]="info.id_facebook" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Id Google:</label>
-                                                <input type="text" class="form-control" readonly />
+                                                <input type="text" class="form-control" name="id_google" [(ngModel)]="info.id_google" />
                                             </div>
                                         </div>
                                     </div>

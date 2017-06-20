@@ -34,26 +34,26 @@ export class CreateroomtypeComponent implements OnInit {
         this.roomtype = {};
         this.LoadData();
         this.LoadDevice();
-        console.log(this.showEdit);        
+        console.log(this.showEdit);
     }
 
-    SaveAdd(f:NgForm) {
-        
-        var item=[];
+    SaveAdd(f: NgForm) {
+
+        var item = [];
         console.log('Before saving new item');
         console.log(this.temp_arr);
         this.temp_arr.forEach(id => {
-            item.push({'id_device': id.id});
+            item.push({ 'id_device': id.id });
         });
-        
-        var viewModel={
+
+        var viewModel = {
             title: f.value.title,
             description: f.value.description,
             no_people: f.value.no_people,
             no_room: 0,
             status: false,
-            device:item
-            
+            device: item
+
         };
         this.createroomtypeservice.Add(viewModel).subscribe(res => {
             console.log(this.roomtype);
@@ -68,20 +68,28 @@ export class CreateroomtypeComponent implements OnInit {
             }
             this.roomtype = {};
             this.temp_arr = [];
-        }) 
+        })
         this.LoadDevice();
     }
 
     Delete(id: object) {
         let confirmResult = confirm("Are you sure to delete Room type?");
         if (confirmResult) {
-            this.createroomtypeservice.Delete(id).subscribe(response => {
-                if (response) {
-                    alert('Delete ok');
-                    this.LoadData();
-
+            this.createroomtypeservice.GetSingle(id).subscribe((response) => {
+                if (response.no_room == 0) {
+                    this.createroomtypeservice.Delete(id).subscribe(response => {
+                        if (response) {
+                            alert('Delete ok');
+                            this.LoadData();
+                        }
+                    }, error => {
+                        console.log(error);
+                    })
                 }
+                else
+                    alert('This room type has value!');
             })
+
         }
     }
 
@@ -95,10 +103,10 @@ export class CreateroomtypeComponent implements OnInit {
     }
 
     SaveUpdate(id: object) {
-        var item=[];
+        var item = [];
         console.log(this.temp_arr);
         this.temp_arr.forEach(id => {
-            item.push({'id_device': id.id});
+            item.push({ 'id_device': id.id });
         });
         console.log('item ne');
         console.log(item);
@@ -110,7 +118,7 @@ export class CreateroomtypeComponent implements OnInit {
             }
         })
         this.showEdit = false;
-        this.temp_arr=[];
+        this.temp_arr = [];
         this.roomtype = {};
 
     }
@@ -130,13 +138,13 @@ export class CreateroomtypeComponent implements OnInit {
                 this.temp_arr.push({'id': device.id_device});
             });
             */
-            
+
             this.roomtype.device.forEach(device => {
-                this.temp_arr.push({'id': device.id_device});
+                this.temp_arr.push({ 'id': device.id_device });
             });
             console.log('Array before modification');
             console.log(this.temp_arr);
-  
+
         })
     }
 
@@ -151,28 +159,28 @@ export class CreateroomtypeComponent implements OnInit {
 
     pushdevice(id: object) {
         let index = -1;
-        for(let i = 0; i < this.temp_arr.length; i++){
-            if(this.temp_arr[i].id == id){
+        for (let i = 0; i < this.temp_arr.length; i++) {
+            if (this.temp_arr[i].id == id) {
                 index = i;
             }
         }
         if (index != -1) {
-            this.temp_arr.splice(index,1);
+            this.temp_arr.splice(index, 1);
         }
         else {
-            this.temp_arr.push({'id': id});
+            this.temp_arr.push({ 'id': id });
         }
     }
 
     itemExistInDeviceList(device: any): Boolean {
-        if(this.roomtype.device){
-            for(let item of this.roomtype.device){
-                if(device._id === item.id_device){
+        if (this.roomtype.device) {
+            for (let item of this.roomtype.device) {
+                if (device._id === item.id_device) {
                     return true;
                 }
             }
-            return false;      
+            return false;
         }
         return false;
-        }
+    }
 }

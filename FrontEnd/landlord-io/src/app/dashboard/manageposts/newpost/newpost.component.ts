@@ -49,11 +49,11 @@ export class NewpostComponent implements OnInit, AfterViewInit {
 
   public lng: number;
   public lat: number;
-  public ad: string;
+  public ad: string; // chứa giá trị address
 
   url: any;
   image: any;
-  folder = 'fsl-io';
+  folder = 'images-house';
   files: File;
   filesToUpload: Array<File>;
 
@@ -71,9 +71,11 @@ export class NewpostComponent implements OnInit, AfterViewInit {
     this.house = new House();
     this.house.service_price = new Service_Price();
   }
+
   ngAfterViewInit() {
     this.initMap();
   }
+
   SaveForm(f: NgForm) {
     console.log(f.value);
     this.house.service_price.electricity_price = f.value.electricity_price;
