@@ -240,7 +240,7 @@ module.exports = {
                             });
                         }
                         else {
-                            res.status(401).json({
+                            res.status(200).json({
                                 code: res.statusCode,
                                 results: {
                                     message: 'You have not yet activated your account, please email to activate your account',
