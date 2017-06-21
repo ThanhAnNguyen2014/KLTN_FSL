@@ -224,7 +224,7 @@ module.exports = {
                     if (isMatch) {
                         // check landlord active
                         if (user.active) {
-                            var token = jwt.sign({ id: user.id }, config.secret_user, {
+                            var token = jwt.sign({ id: user.id, firstname: user.firstname }, config.secret_user, {
                                 expiresIn: '24h', // one house
                                 algorithm: 'HS256'
                             });
