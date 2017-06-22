@@ -12,7 +12,7 @@ import { LeftsideComponent } from './shared/leftside/leftside.component';
 import { DetailhouseComponent } from './detailhouse/detailhouse.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
-
+//import {AuthGuard} from '../Auth/guards/auth.guard';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     DetailhouseComponent,
     ProfileComponent,
     EditprofileComponent
-  ]
+  ],
+  //providers:[AuthGuard]
 })
 export class DetailsModule { }

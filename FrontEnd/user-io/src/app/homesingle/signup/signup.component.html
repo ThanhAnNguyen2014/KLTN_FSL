@@ -1,0 +1,68 @@
+<div class="modal fade" id="signup" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="signupLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" #f="ngForm" (ngSubmit)="f.form.valid && register()">
+          <div class="form-group">
+            <div class="btn-group-justified">
+              <a href="#" class="btn btn-lg btn-facebook"><span class="fa fa-facebook pull-left"></span>Sign Up with Facebook</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="btn-group-justified">
+              <a href="#" class="btn btn-lg btn-google"><span class="fa fa-google-plus pull-left"></span>Sign Up with Google</a>
+            </div>
+          </div>
+          <div class="signOr">OR</div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && firstname.errors }">
+            <input type="text" placeholder="First Name" name="firstname" class="form-control" [(ngModel)]="user.firstname" #firstname="ngModel"
+              required>
+            <div *ngIf="f.submitted && firstname.errors?.required" class="help-block">Firstname is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && lastname.errors }">
+            <input type="text" placeholder="Last Name" name="lastname" class="form-control" [(ngModel)]="user.lastname" #lastname="ngModel"
+              required>
+            <div *ngIf="f.submitted && lastname.errors?.required" class="help-block">Last Name is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && lastname.errors }">
+            <input type="text" placeholder="User Name" name="username" class="form-control" [(ngModel)]="user.username" #username="ngModel"
+              required>
+            <div *ngIf="f.submitted && username.errors?.required" class="help-block">User Name is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && email.errors }">
+            <input type="email" placeholder="Email Address" name="email" class="form-control" [(ngModel)]="user.email" #email="ngModel"
+              email required>
+            <div *ngIf="f.submitted && email.errors?.required" class="help-block">Email Address is required</div>
+            <p *ngIf="f.submitted && email.errors?.email" class="help-block">Please use a valid email</p>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && identitycard.errors }">
+            <input type="number" placeholder="IdentityCard" name="identitycard" class="form-control" [(ngModel)]="user.identitycard"
+              #identitycard="ngModel" number required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null">
+            <div *ngIf="f.submitted && identitycard.errors?.required" class="help-block">IdentityCard is required</div>
+            <div *ngIf="identitycard.errors?.number" class="help-block">Please use a valid number</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && password.errors }">
+            <input type="password" placeholder="Password" name="password" class="form-control" [(ngModel)]="user.password" #password="ngModel"
+            minlength="8" required>
+            <div *ngIf="f.submitted && password.errors?.required" class="help-block">Password is required</div>
+            <div *ngIf="password.errors?.minlength" class="help-block">Password have to 8 character</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && passwordconfirm.errors }">
+            <input type="password" placeholder="Confirm Password" name="passwordconfirm" class="form-control" [(ngModel)]="user.passwordconfirm"
+              #passwordconfirm="ngModel"  minlength="8" required>
+            <div *ngIf="f.submitted && passwordconfirm.errors?.required" class="help-block">Confirm Password is required</div>
+             <div *ngIf="passwordconfirm.errors?.minlength" class="help-block">Confirm Password have to 8 character</div>
+          </div>
+          <div class="error" *ngIf="error">{{error}}</div>
+          <div class="form-group">
+            <button class="btn-group-justified btn btn-lg btn-green" type="submit">Sign In</button>
+          </div>
+          <p class="help-block">Already a FSL member? <a href="#" class="modal-si text-green">Sign In</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

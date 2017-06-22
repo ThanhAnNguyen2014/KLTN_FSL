@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     "use strict";
 
     // Custom options for map
@@ -273,7 +273,7 @@
     var isDevice = true;
 
     // calculations for elements that changes size on window resize
-    var windowResizeHandler = function() {
+    var windowResizeHandler = function () {
         windowHeight = window.innerHeight;
         windowWidth = $(window).width();
         contentHeight = windowHeight - $('#header').height();
@@ -284,7 +284,7 @@
         $('#wrapper').height(contentHeight);
         $('#mapView').height(contentHeight);
         $('#content').height(contentHeight);
-        setTimeout(function() {
+        setTimeout(function () {
             $('.commentsFormWrapper').width(contentWidth);
         }, 300);
 
@@ -327,7 +327,7 @@
         $('.areaSlider .sliderTooltip').css('left', areaSliderLeft);
     }
 
-    var repositionTooltip = function(e, ui) {
+    var repositionTooltip = function (e, ui) {
         var div = $(ui.handle).data("bs.tooltip").$tip[0];
         var pos = $.extend({}, $(ui.handle).offset(), {
             width: $(ui.handle).get(0).offsetWidth,
@@ -342,11 +342,11 @@
     }
 
     windowResizeHandler();
-    $(window).resize(function() {
+    $(window).resize(function () {
         windowResizeHandler();
     });
 
-    setTimeout(function() {
+    setTimeout(function () {
         $('body').removeClass('notransition');
 
         // map = new google.maps.Map(document.getElementById('mapView'), options);
@@ -391,26 +391,26 @@
     }
 
     // Header search icon transition
-    $('.search input').focus(function() {
+    $('.search input').focus(function () {
         $('.searchIcon').addClass('active');
     });
-    $('.search input').blur(function() {
+    $('.search input').blur(function () {
         $('.searchIcon').removeClass('active');
     });
 
     // Notifications list items pulsate animation
     $('.notifyList a').hover(
-        function() {
+        function () {
             $(this).children('.pulse').addClass('pulsate');
         },
-        function() {
+        function () {
             $(this).children('.pulse').removeClass('pulsate');
         }
     );
 
     // Exapnd left side navigation
     var navExpanded = false;
-    $('.navHandler, .closeLeftSide').click(function() {
+    $('.navHandler, .closeLeftSide').click(function () {
         if (!navExpanded) {
             $('.logo').addClass('expanded');
             $('#leftSide').addClass('expanded');
@@ -438,7 +438,7 @@
     });
 
     // functionality for map manipulation icon on mobile devices
-    $('.mapHandler').click(function() {
+    $('.mapHandler').click(function () {
         if ($('#mapView').hasClass('mob-min') ||
             $('#mapView').hasClass('mob-max') ||
             $('#content').hasClass('mob-min') ||
@@ -450,7 +450,7 @@
             $('#content').toggleClass('max');
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             var priceSliderRangeLeft = parseInt($('.priceSlider .ui-slider-range').css('left'));
             var priceSliderRangeWidth = $('.priceSlider .ui-slider-range').width();
             var priceSliderLeft = priceSliderRangeLeft + (priceSliderRangeWidth / 2) - ($('.priceSlider .sliderTooltip').width() / 2);
@@ -471,21 +471,21 @@
     });
 
     // Expand left side sub navigation menus
-    $(document).on("click", '.hasSubActive', function() {
+    $(document).on("click", '.hasSubActive', function () {
         $(this).toggleClass('active');
         $(this).children('ul').toggleClass('bigList');
         $(this).children('a').children('.arrowRight').toggleClass('fa-angle-down');
     });
 
     if (isDevice) {
-        $('.hasSub').click(function() {
+        $('.hasSub').click(function () {
             $('.leftNav ul li').not(this).removeClass('onTap');
             $(this).toggleClass('onTap');
         });
     }
 
     // functionality for custom dropdown select list
-    $('.dropdown-select li a').click(function() {
+    $('.dropdown-select li a').click(function () {
         if (!($(this).parent().hasClass('disabled'))) {
             $(this).prev().prop("checked", true);
             $(this).parent().siblings().removeClass('active');
@@ -500,7 +500,7 @@
         max: 2000000,
         values: [500000, 1500000],
         step: 10000,
-        slide: function(event, ui) {
+        slide: function (event, ui) {
             $('.priceSlider .sliderTooltip .stLabel').html(
                 '$' + ui.values[0].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") +
                 ' <span class="fa fa-arrows-h"></span> ' +
@@ -528,7 +528,7 @@
         max: 20000,
         values: [5000, 10000],
         step: 10,
-        slide: function(event, ui) {
+        slide: function (event, ui) {
             $('.areaSlider .sliderTooltip .stLabel').html(
                 ui.values[0].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + ' Sq Ft' +
                 ' <span class="fa fa-arrows-h"></span> ' +
@@ -550,38 +550,38 @@
     var areaSliderLeft = areaSliderRangeLeft + (areaSliderRangeWidth / 2) - ($('.areaSlider .sliderTooltip').width() / 2);
     $('.areaSlider .sliderTooltip').css('left', areaSliderLeft);
 
-    $('.volume .btn-round-right').click(function() {
+    $('.volume .btn-round-right').click(function () {
         var currentVal = parseInt($(this).siblings('input').val());
         if (currentVal < 10) {
             $(this).siblings('input').val(currentVal + 1);
         }
     });
-    $('.volume .btn-round-left').click(function() {
+    $('.volume .btn-round-left').click(function () {
         var currentVal = parseInt($(this).siblings('input').val());
         if (currentVal > 1) {
             $(this).siblings('input').val(currentVal - 1);
         }
     });
 
-    $('.handleFilter').click(function() {
+    $('.handleFilter').click(function () {
         $('.filterForm').slideToggle(200);
     });
 
     //Enable swiping
     $(".carousel-inner").swipe({
-        swipeLeft: function(event, direction, distance, duration, fingerCount) {
+        swipeLeft: function (event, direction, distance, duration, fingerCount) {
             $(this).parent().carousel('next');
         },
-        swipeRight: function() {
+        swipeRight: function () {
             $(this).parent().carousel('prev');
         }
     });
 
-    $(".carousel-inner .card").click(function() {
+    $(".carousel-inner .card").click(function () {
         window.open($(this).attr('data-linkto'), '_self');
     });
 
-    $('#content').scroll(function() {
+    $('#content').scroll(function () {
         if ($('.comments').length > 0) {
             var visible = $('.comments').visible(true);
             if (visible) {
@@ -592,7 +592,7 @@
         }
     });
 
-    $('.btn').click(function() {
+    $('.btn').click(function () {
         if ($(this).is('[data-toggle-class]')) {
             $(this).toggleClass('active ' + $(this).attr('data-toggle-class'));
         }
@@ -692,31 +692,31 @@
     //     });
     // }
 
-$('#advanced').click(function() {
+    $('#advanced').click(function () {
         $('.adv').toggleClass('hidden-xs');
     });
 
-    $('.home-navHandler').click(function() {
+    $('.home-navHandler').click(function () {
         $('.home-nav').toggleClass('active');
         $(this).toggleClass('active');
     });
 
     //Enable swiping
-    $(".carousel-inner").swipe( {
-        swipeLeft:function(event, direction, distance, duration, fingerCount) {
-            $(this).parent().carousel('next'); 
+    $(".carousel-inner").swipe({
+        swipeLeft: function (event, direction, distance, duration, fingerCount) {
+            $(this).parent().carousel('next');
         },
-        swipeRight: function() {
+        swipeRight: function () {
             $(this).parent().carousel('prev');
         }
     });
 
-    $('.modal-su').click(function() {
+    $('.modal-su').click(function () {
         $('#signin').modal('hide');
         $('#signup').modal('show');
     });
 
-    $('.modal-si').click(function() {
+    $('.modal-si').click(function () {
         $('#signup').modal('hide');
         $('#signin').modal('show');
     });

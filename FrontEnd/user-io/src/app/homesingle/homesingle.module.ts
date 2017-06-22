@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NguiTooltipModule } from '@ngui/tooltip';
 import { StarRatingModule } from 'angular-star-rating';
+import { FormsModule } from '@angular/forms';
 
 
 import { HomesingleComponent } from './homesingle.component';
@@ -16,6 +17,9 @@ import { RatlandlordComponent } from './content/ratlandlord/ratlandlord.componen
 
 
 import {routing} from './homsingle.routes';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { ActionComponent } from './action/action.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -27,6 +31,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
+    FormsModule,
     StarRatingModule,
     //NguiTooltipModule,
     routing
@@ -38,7 +43,10 @@ const appRoutes: Routes = [
     SuportservicComponent,
     NewhomeComponent,
     ContentComponent,
-    RatlandlordComponent
+    RatlandlordComponent,
+    SigninComponent,
+    SignupComponent,
+    ActionComponent
   ],
   exports:[HomesingleComponent]
 })

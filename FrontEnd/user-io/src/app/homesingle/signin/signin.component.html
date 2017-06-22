@@ -1,0 +1,51 @@
+<div class="modal fade" id="signin" role="dialog" aria-labelledby="signinLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="signinLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" #f="ngForm" (ngSubmit)="f.form.valid && login()">
+          <div class="form-group">
+            <div class="btn-group-justified">
+              <a class="btn btn-lg btn-facebook"><span class="fa fa-facebook pull-left"></span>Sign In with Facebook</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="btn-group-justified">
+              <a class="btn btn-lg btn-google"><span class="fa fa-google-plus pull-left"></span>Sign In with Google</a>
+            </div>
+          </div>
+          <div class="signOr"><strong>OR</strong></div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input type="text" placeholder="Email Address" name="username" class="form-control" [(ngModel)]="user.username" #username="ngModel"
+              required>
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <input type="password" placeholder="Password" name="password" class="form-control" [(ngModel)]="user.password" #password="ngModel"
+              required>
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> Remember me</label></div>
+              </div>
+              <div class="col-xs-6 align-right">
+                <p class="help-block"><a href="#" class="text-green">Forgot password?</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="error" *ngIf="error">{{error}}</div>
+          <div class="form-group">
+            <!--<div class="btn-group-justified">-->
+            <button class="btn-group-justified btn btn-lg btn-green" type="submit">Sign In</button>
+            <!--</div>-->
+          </div>
+          <p class="help-block">Don't have an account? <a href="#" class="modal-su text-green">Sign Up</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

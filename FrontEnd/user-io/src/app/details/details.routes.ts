@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 
 import { DetailsComponent } from './details.component';
 import { SearchdetailsComponent } from './searchdetails/searchdetails.component';
@@ -9,6 +9,8 @@ import { DetailhouseComponent } from './detailhouse/detailhouse.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 
+import { AuthGuard } from '../Auth/guards/auth.guard';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'details', pathMatch: 'full' },
@@ -17,8 +19,8 @@ const routes: Routes = [
     children: [
       { path: 'search-details', component: SearchdetailsComponent },
       { path: 'detail-house/:id', component: DetailhouseComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'edit-profile', component: EditprofileComponent }
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'edit-profile', component: EditprofileComponent, canActivate: [AuthGuard] }
 
     ]
   },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SliderService } from './slider.service';
 import { Subscription } from "rxjs/Rx";
+import { AuthenticationService } from '../../Auth/services/authentication.service';
 
 declare var $;
 @Component({
@@ -22,7 +23,14 @@ export class SliderComponent implements OnInit {
   public isOnDist: boolean;
   public isOnWar: boolean;
 
-  constructor(private sliderService: SliderService) { }
+  constructor(
+    private sliderService: SliderService,
+    private auth: AuthenticationService
+  ) {
+    console.log(auth.loggedIn());
+    auth.loggedIn();
+    
+  }
 
   ngOnInit() {
     this.flag_pro = true;  // set stutus of drop down Province
@@ -41,7 +49,7 @@ export class SliderComponent implements OnInit {
       },
       (err) => { console.log('Error server! ... ' + err) },
       () => {
-        
+
       }
     );
   }
@@ -81,6 +89,5 @@ export class SliderComponent implements OnInit {
     this.wardname = name;
     console.log(this.wardname);
   }
-
-
+ 
 }
