@@ -17,7 +17,7 @@ var path = require('path'),
 
 
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.engine('handlebars', exphbs.create({
         defaultLayout: 'userlayout',
         layoutsDir: app.get('views') + '/layouts',
@@ -27,12 +27,12 @@ module.exports = function (app) {
             //     //console.log(timestamp);
             //     return moment(timestamp).startOf('minute').fromNow();
             // }
-            section: function (name, options) {
+            section: function(name, options) {
                 if (!this._sections) this._sections = {};
                 this._sections[name] = options.fn(this);
                 return null;
             },
-            timeago: function (timestamp) {
+            timeago: function(timestamp) {
                 return moment(timestamp).startOf('minute').fromNow();
             }
         }
@@ -55,7 +55,7 @@ module.exports = function (app) {
         resave: true
     }));
     //  Connect flash
-    app.use(flash());//4
+    app.use(flash()); //4
 
 
     app.use(multer({ dest: path.join(__dirname, 'public/upload/temp') }));
@@ -74,7 +74,7 @@ module.exports = function (app) {
 
     // Express validator 
     app.use(expressValidator({
-        errorFormatter: function (param, msg, value) {
+        errorFormatter: function(param, msg, value) {
             var namespace = param.split('.'),
                 root = namespace.shift(),
                 formParam = root;
@@ -91,7 +91,7 @@ module.exports = function (app) {
         }
     }));
 
-    app.use(function (req, res, callback) {
+    app.use(function(req, res, callback) {
         res.locals.success_msg = req.flash('success_msg');
         res.locals.error_msg = req.flash('error_msg');
         res.locals.error = req.flash('error');

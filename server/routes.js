@@ -20,50 +20,14 @@ var config = require('../server/config');
 
 
 // module
-<<<<<<< HEAD
-<<<<<<< HEAD
 module.exports = function(app) {
-    // session User
-    router.get('/api/v1/gethouse', api_userController.get_house_home); // get info house of user home page
-=======
-module.exports = function (app) {
->>>>>>> 99e2ff816a3613ed7a9c328f28b6fa98e7d86bcc
-=======
-module.exports = function (app) {
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
 
     //section Lanlord
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    router.post('/api/v1/landlord/create', ensureAuthenticatedlandlord, api_landlordController.create);
-    router.get('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.findLandlordById);
-    router.put('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.updateLandlordById);
-    router.delete('/api/v1/landlord/:id', ensureAuthenticatedlandlord, api_landlordController.deleteLandlord);
-    router.get('/api/v1/landlord', ensureAuthenticatedlandlord, api_landlordController.getAllLandlord);
-    router.post('/api/v1/landlord/changpass', ensureAuthenticatedlandlord, api_landlordController.changPassword);
-    // Session Devices
-    router.get('/api/v1/devices', ensureAuthenticatedlandlord, api_landlordController.getAllDevices);
-
-    /** Session House */
-    router.post('/api/v1/house', ensureAuthenticatedlandlord, api_houseController.create);
-    router.get('/api/v1/house/:id', ensureAuthenticatedlandlord, api_houseController.getHouseById);
-    router.delete('/api/v1/house/:id', ensureAuthenticatedlandlord, api_houseController.deleteHouseById);
-    router.put('/api/v1/house/:id', ensureAuthenticatedlandlord, api_houseController.updateHouseById);
-    router.get('/api/v1/houses/all', ensureAuthenticatedlandlord, api_houseController.getAllHouse);
-
-
-    /**Session Area */
-=======
     router.post('/api/v1/landlord/register', api_landlordController.register);
     router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.findLandlordById);
-    router.put('/api/v1/landlord/:id', api_landlordController.updateLandlordById);
-=======
-    router.post('/api/v1/landlord/register', api_landlordController.register);
-    router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord,api_landlordController.findLandlordById);
-    router.put('/api/v1/landlord/:id', ensureAuthenticatedLandlord,api_landlordController.updateLandlordById);
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
+    router.put('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
     router.post('/api/v1/landlord/changepass', api_landlordController.changPassword);
@@ -82,10 +46,6 @@ module.exports = function (app) {
 
 
     /**section Area */
-<<<<<<< HEAD
->>>>>>> 99e2ff816a3613ed7a9c328f28b6fa98e7d86bcc
-=======
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
     router.get('/api/v1/area/provinces', api_houseController.getAllProvinces);
     router.get('/api/v1/area/districts/:id', api_houseController.getAllDictrict);
     router.get('/api/v1/area/wards/:id', api_houseController.getAllWard);
@@ -108,20 +68,6 @@ module.exports = function (app) {
     /**section HomePage*/
     router.get('/api/v1/home/houses', api_homeuserController.getHousesOnHomePage);
     router.get('/api/v1/home/house/:id', api_homeuserController.getHouseById);
-<<<<<<< HEAD
-=======
-
-    /**Section User */
-    router.post('/api/v1/user/login', api_userController.logIn);
-    router.post('/api/v1/user/register', api_userController.register);
-    router.get('/api/v1/user/:id', ensureAuthenticatedUser, api_userController.findUserById);
-    router.get('/api/v1/users', api_userController.getAllUser);
-    router.post('/api/v1/user/changepass', ensureAuthenticatedUser, api_userController.changPassword);
-    router.delete('/api/v1/user/:id', api_userController.deleteUser);
-    router.put('/api/v1/user/:id', api_userController.updateUserById);
-    router.post('/api/v1/user/check/validate', api_userController.validates);
-    router.get('/api/v1/user/verify/verify-account/', api_userController.verifyEmail);
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
 
     /**Section User */
     router.post('/api/v1/user/login', api_userController.logIn);
@@ -135,10 +81,7 @@ module.exports = function (app) {
     router.get('/api/v1/user/verify/verify-account/', api_userController.verifyEmail);
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
     // section admin
     router.get('/admin/login', adminController.get_login);
     router.post('/admin/login', passport.authenticate('local', {
@@ -182,15 +125,7 @@ module.exports = function (app) {
     function ensureAuthenticatedLandlord(req, res, callback) {
         if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
             var token = req.headers.authorization;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            console.log(token.split(' ')[1]);
-            jwt.verify(token.split(' ')[1], config.secret, function(err, decode) {
-                if (err) return res.status(500).json({ message: 'Invalid Token! Please login.' });
-=======
-=======
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
-            jwt.verify(token.split(' ')[1], config.secret_landlord, function (err, decode) {
+            jwt.verify(token.split(' ')[1], config.secret_landlord, function(err, decode) {
                 if (err) {
                     req.landlordId = undefined;
                     return res.status(500).json({
@@ -200,28 +135,15 @@ module.exports = function (app) {
                             doc: null
                         }
                     });
-                }
-<<<<<<< HEAD
->>>>>>> 99e2ff816a3613ed7a9c328f28b6fa98e7d86bcc
-=======
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
-                else {
+                } else {
                     req.landlordId = decode;
                     passport.authenticate('jwt', { session: false });
                     console.log('Id landlord: ' + req.landlordId.id);
                     callback();
                 }
             });
-<<<<<<< HEAD
         } else {
-=======
-        }
-        else {
             req.landlordId = undefined;
-<<<<<<< HEAD
->>>>>>> 99e2ff816a3613ed7a9c328f28b6fa98e7d86bcc
-=======
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
             return res.status(401).json({
                 code: res.statusCode,
                 results: {
@@ -237,30 +159,24 @@ module.exports = function (app) {
         // (req.headers && req.headers.authorization && req.headers.authorizition.split(' ')[0] === 'JWT'
         if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
             var token = req.headers.authorization;
-            jwt.verify(token.split(' ')[1], config.secret_user, function (err, decode) {
+            jwt.verify(token.split(' ')[1], config.secret_user, function(err, decode) {
                 if (err) {
                     req.userId = undefined;
-<<<<<<< HEAD
-                    return res.status(500).json({
-=======
                     return res.status(200).json({
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
                         code: res.statusCode,
                         results: {
                             message: 'Invalid Token! Please login.',
                             doc: null
                         }
                     });
-                }
-                else {
+                } else {
                     req.userId = decode;
                     passport.authenticate('jwt', { session: false });
                     console.log('Id userId: ' + req.userId.id);
                     callback();
                 }
             });
-        }
-        else {
+        } else {
             req.userId = undefined;
             return res.status(401).json({
                 code: res.statusCode,
