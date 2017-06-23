@@ -3,3 +3,9 @@
      overflow: hidden;
     text-overflow: ellipsis;
 }
+#addresshome {
+    white-space: nowrap;
+     overflow: hidden;
+    text-overflow: ellipsis;
+}
+

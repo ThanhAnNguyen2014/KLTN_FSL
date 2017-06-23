@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SliderService } from './slider.service';
 import { Subscription } from "rxjs/Rx";
 
+declare var $;
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -29,6 +30,8 @@ export class SliderComponent implements OnInit {
     this.isOnWar = true;
     this.flag_district = true;
     this.flag_ward = true;
+    this.getProvinces();
+
   }
   getProvinces() {
     this.sliderService.loadProvinces().subscribe(
@@ -38,7 +41,7 @@ export class SliderComponent implements OnInit {
       },
       (err) => { console.log('Error server! ... ' + err) },
       () => {
-        console.log('Load provinces success!');
+        
       }
     );
   }

@@ -42,7 +42,7 @@
     animation: imageAnimation 36s linear infinite 0s; 
 }
 .cb-slideshow li:nth-child(1) span { 
-    background-image: url(../images/bg-1.jpg) 
+    background-image: url(../images/bg-1.jpg);
 }
 .cb-slideshow li:nth-child(2) span { 
     background-image: url(../images/bg-2.jpg);
@@ -84,13 +84,7 @@
     -ms-animation-delay: 30s;
     animation-delay: 30s; 
 }
-.cb-slideshow li:nth-child(2) div { 
-    -webkit-animation-delay: 6s;
-    -moz-animation-delay: 6s;
-    -o-animation-delay: 6s;
-    -ms-animation-delay: 6s;
-    animation-delay: 6s; 
-}
+
 /* Animation for the slideshow images */
 @-webkit-keyframes imageAnimation { 
     0% { opacity: 0;

@@ -6,8 +6,10 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class SliderService {
 
-  private apiUrl = "http://localhost:3300/api/v1/area/";
-  constructor(private http: Http) { }
+  private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/area/";
+  constructor(private http: Http) {
+    
+   }
   loadProvinces() {
     return this.http.get(this.apiUrl + 'provinces').map(res => res.json().results);
   }

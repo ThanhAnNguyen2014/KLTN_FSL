@@ -3,51 +3,34 @@ var ObjectId = require('mongoose').Types.ObjectId;
 var bcrypt = require('bcryptjs');
 
 module.exports = {
-    create: function (newlandlord, callback) {
-        var landlord = new Models.Landlord(newlandlord);
-        /** bcrypt password of landlord */
+    create: function (newuser, callback) {
+        var user = new Models.User(newuser);
+        /** bcrypt password of User */
         bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(landlord.password, salt, (err, hash) => {
+            bcrypt.hash(user.password, salt, (err, hash) => {
                 if (err) callback(err);
-                landlord.password = hash;
-                landlord.save(function (err, doc) {
+                user.password = hash;
+                user.save(function (err, doc) {
                     if (err) return callback(err);
-                    return callback(null, doc);
+                    else
+                        return callback(null, doc);
                 });
             });
         });
-
     },
     update: function (id, doc, callback) {
         var _id = id;
         if (ObjectId.isValid(_id)) {
-            Models.Landlord.findByIdAndUpdate(_id, doc, { new: true }, function (err, doc) {
+            Models.User.findByIdAndUpdate(_id, doc, { new: true }, function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
-                    var landlord = {
+                    var user = {
                         firstname: doc.firstname,
                         lastname: doc.lastname,
                         username: doc.username,
                         email: doc.email
                     }
-                    return callback(null, landlord);
-                }
-                else {
-                    return callback(null, null);//Not find Landlord Object
-                }
-            });
-        }
-        else {
-            return callback('Invalid ObjectId');
-        }
-    },
-    remove: function (id, callback) {
-        var _id = id;
-        if (ObjectId.isValid(_id)) {
-            Models.Landlord.findByIdAndRemove(_id, function (err, doc) {
-                if (err) return callback(err);
-                if (doc) {
-                    return callback(null, 'Delete object success!');
+                    return callback(null, user);
                 }
                 else {
                     return callback(null, null);
@@ -58,40 +41,45 @@ module.exports = {
             return callback('Invalid ObjectId');
         }
     },
-    /** Find one landlord with Id */
-    getLandlordById: function (id, callback) {
+    remove: function (id, callback) {
         var _id = id;
         if (ObjectId.isValid(_id)) {
-            Models.Landlord.findById(_id,'firstname lastname email address phone gender birthday identitycard image',function (err, doc) {
+            Models.User.findByIdAndRemove(_id, function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
-                    return callback(null, doc); // return not err and result doccument
+                    return callback(null, 'Delete user success!');
                 }
                 else {
-                    return callback(null, null); // not Find UserById
+                    return callback(null, null);
+                }
+            });
+        }
+        else {
+            return callback('Invalid ObjectId');
+        }
+    },
+    /** Find one User with Id */
+    getUserById: function (id, callback) {
+        var _id = id;
+        if (ObjectId.isValid(_id)) {
+            Models.User.findById(_id, 'firstname lastname email address phone gender birthday identitycard image', function (err, doc) {
+                if (err) return callback(err);
+                if (doc) {
+                    return callback(null, doc);
+                }
+                else {
+                    return callback(null, null);
                 }
             });
         } else {
             return callback('Invalid ObjectId');
         }
     },
-    /** Find All Landlord */
+    /** Find All User */
     findAll: function (callback) {
-        Models.Landlord.find(function (err, docs) {
+        Models.User.find(function (err, docs) {
             if (err) return callback(err);
-            if (docs.length > 0) {
-                return callback(null, docs);
-            }
-            else {
-                return callback(null, null); // Not found landlord
-            }
-        });
-    },
-    /** Get All Devices  */
-    getDevices: function (callback) {
-        Models.Devices.find({}, function (err, docs) {
-            if (err) return callback(err);
-            if (docs.length > 0) {
+            if (docs.length>0) {
                 return callback(null, docs);
             }
             else {
@@ -101,18 +89,18 @@ module.exports = {
     },
     comparePassword: function (candidatePassword, hash, callback) {
         bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
-            if (err) return callback(err);
+            if (err) throw err;
             callback(null, isMatch);
         });
     },
     validate: function (username, email, password, passwordconfirm, callback) {
-        Models.Landlord.findOne({ username: username }, (err, doc) => {
+        Models.User.findOne({ username: username }, (err, doc) => {
             if (err) return callback(err);
             if (doc) {
                 return callback(null, 'Username already exists, username: ' + username);
             }
             else {
-                Models.Landlord.findOne({ email: email }, (err, doc) => {
+                Models.User.findOne({ email: email }, (err, doc) => {
                     if (err) return callback(err);
                     if (doc) {
                         return callback(null, 'Email already exists, email: ' + email);
@@ -128,11 +116,11 @@ module.exports = {
             }
         });
     },
-    getLandlordByUsername: function (username, callback) {
+    getUserByUsername: function (username, callback) {
         // check Input field is username or email
         var query = (username.indexOf('@') === -1) ? { username: username } : { email: username };
         // var query = { email: email };
-        Models.Landlord.findOne(query, callback);
+        Models.User.findOne(query, callback);
     },
     changePassword: function (id, newpassword, callback) {
         if (ObjectId.isValid(id)) {
@@ -140,7 +128,7 @@ module.exports = {
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newpassword, salt, (err, hash) => {
                     if (err) throw err;
-                    Models.Landlord.findById(id, function (err, doc) {
+                    Models.User.findById(id, function (err, doc) {
                         if (err) return callback(err);
                         if (doc) {
                             doc.password = hash;
@@ -150,7 +138,7 @@ module.exports = {
                             return callback(null, 'Update password success!');
                         }
                         else {
-                            return callback(null, null); // Not found Landlord user
+                            return callback(null, null);
                         }
                     });
                 });
@@ -159,5 +147,5 @@ module.exports = {
         else {
             return callback('Invalid ObjectId');
         }
-    },
+    }
 }

@@ -57,7 +57,6 @@ module.exports = {
             Models.Room_Type.findByIdAndRemove(id, function (err, doc) {
                 if (err) return callback({ message: err });
                 if (doc) {
-                    console.log(doc);
                     return callback(null, 'Delete success!');
                 }
                 else {

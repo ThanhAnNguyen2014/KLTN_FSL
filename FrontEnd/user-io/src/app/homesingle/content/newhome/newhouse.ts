@@ -1,8 +1,9 @@
 export class NewHouse {
-    public title: String;
-    public description: String;
-    public address: String;
-    public price: Number;
-    public status: String;
-    public rate: String;
+    public _id: string;
+    public title: string;
+    public description: string;
+    public address: string;
+    public price: number;
+    public status: string;
+    public rate: number;
 }

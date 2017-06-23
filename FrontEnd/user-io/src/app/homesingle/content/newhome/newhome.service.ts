@@ -8,15 +8,15 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class NewhomeService {
 
-  private apiUrl="http://localhost:3300/";
+  private apiUrl="https://hcmutefslio.herokuapp.com/";
 
   constructor(private http: Http) { }
 
   /**Get six the houses when user load page home user */
   getSixHouses(): Observable<NewHouse[]> {
-    let newhomeapi = this.apiUrl + "api/v1/gethouse";
+    let newhomeapi = this.apiUrl + "api/v1/home/houses";
     console.log('This is service load...');
-    return this.http.get(newhomeapi).map(res => res.json());
+    return this.http.get(newhomeapi).map(res => res.json().results);
   }
 
   private handleError(error: any): Promise<any> {

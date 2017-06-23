@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {routing} from './details.routes';
+//import { StarRatingModule } from 'angular-star-rating';
 
 import { DetailsComponent } from './details.component';
 import { SearchdetailsComponent } from './searchdetails/searchdetails.component';
@@ -18,6 +19,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
   imports: [
     CommonModule,
     BrowserModule,
+    //StarRatingModule,
     routing
   ],
   declarations: [

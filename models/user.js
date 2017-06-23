@@ -19,7 +19,8 @@ var UserSchema = new Schema({
     id_google: { type: String },
     create_date: { type: Date, 'default': Date.now() }, // create day current of user
     status: { type: Boolean, 'default': true }, // check status of user
-    //role: { type: String } // role of user (user or landlord)
+    active: {type: Boolean, default: false},
+    tokenjwt:{type: String, default: null},
 });
 var User = module.exports = mongoose.model('User', UserSchema);
 

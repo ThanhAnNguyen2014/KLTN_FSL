@@ -49,7 +49,7 @@ export class NewhomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     //$('[data-toggle="tooltip"]').tooltip();
-    $.getScript('../../../../assets/js/tooltip.js');
+    //$.getScript('../../../../assets/js/tooltip.js');
   }
   ngOnDestroy(): void {
     this.sub.unsubscribe(); // 
