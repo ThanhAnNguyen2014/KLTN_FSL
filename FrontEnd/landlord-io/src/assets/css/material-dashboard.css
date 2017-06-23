@@ -5691,7 +5691,7 @@ select.selectpicker {
 
 .select-with-transition .caret,
 .select-with-transition .ripple-container {
-    display: none;
+    display: block;
 }
 
 .btn-group.bootstrap-select.show-tick.open .select-with-transition {

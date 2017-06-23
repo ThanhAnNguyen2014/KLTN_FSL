@@ -62,9 +62,9 @@
                                                         <label class="col-sm-4 label-on-left">Room's type</label>
                                                         <div class="col-sm-8">
                                                             <div class="col-lg-10 col-md-8 col-sm-6">
-                                                                <select class="select2-dropdown" data-style="select-with-transition" required name="room_type" data-size="5" [(ngModel)]="newroom.room_type">
-                                                                    <!--<option class="text-right" disabled selected="true" value="undefined">Choose Room</option>-->
-                                                                    <option  class="text-right" *ngFor="let type of roomtypes" value="{{type.id}}" >{{type.title}}</option>
+                                                                <select class="select2-dropdown" data-style="select-with-transition" required name="id_roomtype" data-size="3" [(ngModel)]="newroom.id_roomtype">
+                                                                    <option class="text-right" disabled selected="true" value="undefined">Choose Room Type</option>
+                                                                    <option class="text-right" *ngFor="let roomtype of roomtypes" [ngValue]="roomtype._id" >{{roomtype.title}}</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -73,9 +73,9 @@
                                                         <label class="col-sm-4 label-on-left">House</label>
                                                         <div class="col-sm-8">
                                                             <div class="col-lg-10 col-md-8 col-sm-6">
-                                                                <select class="select" data-style="btn btn-primary btn-round" required name="room_type" data-size="5" [(ngModel)]="newroom.room_type">
+                                                                <select class="select2-dropdown" data-style="select-with-transition" required name="id_house" data-size="3" [(ngModel)]="newroom.id_house">
                                                                     <option class="text-right" disabled selected="true" value="undefined">Choose House</option>
-                                                                    <option class="text-right" *ngFor="let type of roomtypes" value="{{type.id}}" >{{type.title}}</option>
+                                                                    <option class="text-right" *ngFor="let house of houses" [ngValue]="house._id" >{{house.title}}</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -93,9 +93,9 @@
                                                             <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                             <div>
                                                                 <span class="btn btn-rose btn-round btn-file">
-                                                 <span class="fileinput-new">Select image</span>
+                                                                <span class="fileinput-new">Select image</span>
                                                                 <span class="fileinput-exists">Change</span>
-                                                                <input type="file" name="..." />
+                                                                <input type="file" name="image" (change)="fileChangeEvent($event)" />
                                                                 </span>
                                                                 <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                             </div>
@@ -142,15 +142,24 @@
                                                 <tbody>
                                                     <tr *ngFor="let rm of rooms">
                                                         <td>{{rm.title}}</td>
-                                                        <td>Võ Trọng Nhân</td>
-                                                        <td class="text-center">CMND</td>
-                                                        <td class="text-center">Ngay Thue</td>
+                                                        <td>{{rm._id}}</td>
+                                                        <td class="text-center"></td>
+                                                        <td class="text-center"></td>
                                                         <td class="text-center">
-                                                            <a href="#" class="btn btn-simple btn-warning btn-icon"><i class="material-icons">home</i></a>
+                                                            <button type="button" rel="tooltip" class="btn btn-simple btn-warning btn-icon">
+                                                                <i class="material-icons">home</i>
+                                                            </button>
                                                         </td>
                                                         <td class="text-center">
-                                                            <a href="#" class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i></a>
-                                                            <a href="#" class="btn btn-simple btn-info btn-icon"><i class="material-icons">border_color</i></a>
+                                                            <button type="button" rel="tooltip" [routerLink]="['/dashboard/managerooms/roomdetail/' + rm._id]" class="btn btn-simple btn-success btn-icon">
+                                                                <i class="material-icons">dvr</i>
+                                                            </button>
+                                                            <button type="button" rel="tooltip" [routerLink]="['/dashboard/managerooms/roomdetail/' + rm._id]" class="btn btn-simple btn-behance btn-icon">
+                                                                <i class="material-icons">border_color</i>
+                                                            </button>
+                                                            <button type="button" rel="tooltip" class="btn btn-simple btn-danger btn-icon" (click)="Delete(rm._id)">
+                                                                <i class="material-icons">delete_forever</i>
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 </tbody>

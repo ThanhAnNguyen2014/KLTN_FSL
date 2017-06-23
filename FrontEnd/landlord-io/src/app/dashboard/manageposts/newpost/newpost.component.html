@@ -21,11 +21,11 @@
                                     <div class="row">
                                         <div class="form-group label-floating  is-empty col-md-4 col-xs-6 ">
                                             <label class="control-label">Area range (m2)</label>
-                                            <input type="number" class="form-control" #range=ngModel required name="range" [(ngModel)]="house.range">
+                                            <input type="number" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" name="range" [(ngModel)]="house.range">
                                         </div>
                                         <div class="form-group label-floating  is-empty col-md-4 col-xs-6">
                                             <label class="control-label">Price (VND)</label>
-                                            <input type="number" class="form-control" required name="price" [(ngModel)]="house.price">
+                                            <input type="number" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" name="price" [(ngModel)]="house.price">
                                         </div>
                                         <div class="form-group label-floating is-empty col-md-4 col-xs-6">
                                             <label class="control-label">Status house</label>
@@ -37,7 +37,9 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
+                                        </div>
+                                        <div>
                                             <label id="landlord-info" class="control-label">Price services:</label>
                                         </div>
                                     </div>
@@ -46,7 +48,7 @@
                                         </div>
                                         <div class="form-group label-floating  is-empty col-md-4 col-md-offset-3 col-xs-7 col-xs-offset-2">
                                             <label class="control-label">Electricity price</label>
-                                            <input type="text" class="form-control" required name="electricity_price" [(ngModel)]="house.service_price.electricity_price">
+                                            <input type="text" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" name="electricity_price" [(ngModel)]="house.service_price.electricity_price">
                                         </div>
                                         <div class="col-md-1 col-xs-2">
                                             <div class="form-group label-floating is-empty col-md-2 col-md-offset-2 col-xs-6 col-xs-offset-2">
@@ -59,7 +61,7 @@
                                         </div>
                                         <div class="form-group label-floating  is-empty col-md-4 col-md-offset-3 col-xs-7 col-xs-offset-2">
                                             <label class="control-label">Water price</label>
-                                            <input type="text" class="form-control" required name="water_price" [(ngModel)]="house.service_price.water_price">
+                                            <input type="text" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" name="water_price" [(ngModel)]="house.service_price.water_price">
                                         </div>
                                         <div class="col-md-1 col-xs-2">
                                             <div class="form-group label-floating is-empty col-md-2 col-md-offset-2 col-xs-6 col-xs-offset-2">
@@ -72,7 +74,7 @@
                                         </div>
                                         <div class="form-group label-floating  is-empty col-md-4 col-md-offset-3 col-xs-7 col-xs-offset-2">
                                             <label class="control-label">Internet price</label>
-                                            <input type="text" class="form-control" required name="internet_price" [(ngModel)]="house.service_price.internet_price">
+                                            <input type="text" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" name="internet_price" [(ngModel)]="house.service_price.internet_price">
                                         </div>
                                         <div class="col-md-1 col-xs-2">
                                             <div class="form-group label-floating is-empty col-md-2 col-md-offset-2 col-xs-6 col-xs-offset-2">
@@ -85,7 +87,7 @@
                                         </div>
                                         <div class="form-group label-floating  is-empty col-md-4 col-md-offset-3 col-xs-7 col-xs-offset-2">
                                             <label class="control-label">Garbage price</label>
-                                            <input type="text" class="form-control" required name="garbage_price" [(ngModel)]="house.service_price.garbage_price">
+                                            <input type="text" class="form-control" required onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null" name="garbage_price" [(ngModel)]="house.service_price.garbage_price">
                                         </div>
                                         <div class="col-md-1 col-xs-2">
                                             <div class="form-group label-floating is-empty col-md-2 col-md-offset-2 col-xs-6 col-xs-offset-2">

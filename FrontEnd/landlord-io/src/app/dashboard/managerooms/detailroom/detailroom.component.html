@@ -1,13 +1,14 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <form>
-                <div class="col-md-5">
-                    <div class="card">
-                        <div class="card-header card-header-icon" data-background-color="rose">
-                            <i class="material-icons">person</i>
-                        </div>
-                        <div class="card-content form-horizontal">
+            <div class="col-md-5">
+
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="card-content form-horizontal">
+                        <form #formRenter="ngForm" (ngSubmit)="SaveFormRenter(formRenter)">
                             <h4 class="card-title">Renter's Information</h4>
                             <div class="row">
                                 <label class="col-md-3 label-on-left">Renter's name</label>
@@ -20,13 +21,6 @@
                             </div>
                             <div class="row">
                                 <label class="col-md-3 label-on-left">Gender</label>
-                                <!--<div class="col-md-9">
-                                    <div class="form-group label-floating is-empty">
-                                        <label class="control-label"></label>
-                                        <input type="text" [disabled]="!flagRenter" name="gender" class="form-control">
-                                    </div>
-                                </div>-->
-
                                 <div class="col-md-3">
                                     <div class="form-group label-floating">
                                         <div class="radio">
@@ -59,19 +53,15 @@
                             <div class="row">
                                 <label class="col-md-3 label-on-left">Day's rental</label>
                                 <div class="col-md-9">
-                                    <!--<div class="form-group label-floating is-empty">
-                                        <label class="control-label"></label>
-                                        <input type="text" [disabled]="!flagRenter" name="rent_day" class="form-control">
-                                    </div>-->
                                     <div class="form-group label-floating is-empty">
-                                        <input type="text" class="form-control datepicker" value="10/10/2016" />
+                                        <input type="text" class="form-control datepicker" name="birthday" [ngModel]="landlord?.birthday | date: 'dd/MM/yyyy'" (ngModelChange)="landlord.birthday=$event" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-button">
-                                        <button type="submit" class="btn btn-fill btn-blue" (click)="flagRenter=true"><i class="material-icons">mode_edit</i>Edit</button>
+                                        <button type="button" class="btn btn-fill btn-success" (click)="flagRenter=true"><i class="material-icons">mode_edit</i>Edit</button>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -81,101 +71,100 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group form-button">
-                                        <button type="submit" class="btn btn-fill btn-rose" (click)="flagRenter=false"><i class="material-icons">clear</i></button>
+                                        <button type="button" class="btn btn-fill btn-rose" (click)="flagRenter=false"><i class="material-icons">clear</i></button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-                <div class="col-md-7">
-                    <div class="card">
-                        <div class="card-header card-header-icon" data-background-color="rose">
-                            <i class="material-icons">home</i>
-                        </div>
-                        <div class="card-content">
-                            <h4 class="card-title">Room's Information</h4>
-                            <form class="form-horizontal">
-                                <div class="row">
-                                    <label class="col-md-3 label-on-left">Room code</label>
-                                    <div class="col-md-9">
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
-                                            <input type="text" [disabled]="!flagRoom" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2 label-on-left">Number of people</label>
-                                    <div class="col-md-4">
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
-                                            <input type="number" [disabled]="!flagRoom" class="form-control">
-                                        </div>
-                                    </div>
 
+            </div>
+            <div class="col-md-7">
+                <div class="card">
 
-                                    <label class="col-md-2 label-on-left">Price of room</label>
-                                    <div class="col-md-4">
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
-                                            <input type="number" [disabled]="!flagRoom" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2 label-on-left">Room type</label>
-                                    <!--<div class="col-md-4">
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
-                                            <input type="text" [disabled]="!flagRoom" class="form-control">
-                                        </div>
-                                    </div>-->
-                                    <div class="col-md-4">
-                                        <select class="selectpicker" [disabled]="!flagRoom" data-style="select-with-transition" data-size="3">
-                                            <option disabled selected> Choose room type</option>
-                                            <option value="1">Loai 1</option>
-                                            <option value="2">Loai 2</option>
-                                        </select>
-                                    </div>
-
-                                    <label class="col-md-2 label-on-left">House</label>
-                                    <!--<div class="col-md-4">
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
-                                            <input type="text" [disabled]="!flagRoom" class="form-control">
-                                        </div>
-                                    </div>-->
-                                    <div class="col-md-4">
-                                        <select class="select" [disabled]="!flagRoom" data-style="select-with-transition" data-size="3">
-                                            <option disabled selected> Choose House</option>
-                                            <option value="1">Nha 1</option>
-                                            <option value="2">Nha 2</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="form-group form-button">
-                                            <button type="submit" class="btn btn-fill btn-blue" (click)="flagRoom=true"><i class="material-icons">mode_edit</i>Edit</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group form-button">
-                                            <button type="submit" class="btn btn-fill btn-behance"><i class="material-icons">done</i></button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group form-button">
-                                            <button type="submit" class="btn btn-fill btn-rose" (click)="flagRoom=false"><i class="material-icons">clear</i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">home</i>
                     </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Room's Information</h4>
+                        <form class="form-horizontal" #formRoom="ngForm" (ngSubmit)="SaveFormRoom(formRoom)">
+                            <div class="row">
+                                <label class="col-md-3 label-on-left">Room code</label>
+                                <div class="col-md-9">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="text" [disabled]="!flagRoom" class="form-control" required name="title" [(ngModel)]="room?.room.title" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-2 label-on-left">Number of people</label>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="number" [disabled]="!flagRoom" class="form-control" required name="no_people" [(ngModel)]="room?.roomtype.no_people">
+                                    </div>
+                                </div>
+
+
+                                <label class="col-md-2 label-on-left">Price of room</label>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="number" [disabled]="!flagRoom" class="form-control" required name="price" [(ngModel)]="room?.room.room_price.price">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-2 label-on-left">Room type</label>
+                                <div class="col-md-4">
+                                    <div>
+                                        <select [disabled]="!flagRoom" class="select2-dropdown" data-style="select-with-transition" data-size="3" name="id_roomtype" [(ngModel)]="room?.room.id_roomtype">
+                                                <option class="text-right" *ngFor="let roomtype of roomtypes" [ngValue]="roomtype._id" >{{roomtype.title}}</option>
+                                            </select>
+                                    </div>
+                                </div>
+
+                                <label class="col-md-1 label-on-left">House</label>
+                                <div class="col-md-4">
+                                    <select class="select2-dropdown" data-style="select-with-transition" [disabled]="!flagRoom" data-size="3" name="id_house" [(ngModel)]="room?.room.id_house">
+                                            <option class="text-right" *ngFor="let house of houses" [ngValue]="house._id" >{{house.title}}</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 label-on-left">Room type</label>
+                                <div class="col-sm-4">
+                                    <div>
+                                        <select class="select2-dropdown" data-style="select-with-transition" [disabled]="!flagRoom" name="id_roomtype" data-size="3" [(ngModel)]="room?.room.id_roomtype">
+                                            <option class="text-right" *ngFor="let roomtype of roomtypes" [ngValue]="roomtype._id" >{{roomtype.title}}</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="form-group form-button">
+                                        <button type="button" class="btn btn-fill btn-success" (click)="flagRoom=true"><i class="material-icons">mode_edit</i>Edit</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-button">
+                                        <button type="submit" [disabled]="!formRoom.form.valid" class="btn btn-fill btn-behance"><i class="material-icons">done</i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-button">
+                                        <button type="button" class="btn btn-fill btn-rose" (click)="flagRoom=false"><i class="material-icons">clear</i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

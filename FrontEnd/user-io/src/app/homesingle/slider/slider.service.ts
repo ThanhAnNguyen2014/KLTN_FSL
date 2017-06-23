@@ -8,8 +8,13 @@ export class SliderService {
 
   private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/area/";
   constructor(private http: Http) {
+<<<<<<< HEAD
+    
+   }
+=======
 
   }
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
   loadProvinces() {
     return this.http.get(this.apiUrl + 'provinces').map(res => res.json().results);
   }

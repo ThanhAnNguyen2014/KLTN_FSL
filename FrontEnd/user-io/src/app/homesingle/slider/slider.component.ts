@@ -49,7 +49,6 @@ export class SliderComponent implements OnInit {
       },
       (err) => { console.log('Error server! ... ' + err) },
       () => {
-
       }
     );
   }

@@ -692,7 +692,11 @@
     //     });
     // }
 
+<<<<<<< HEAD
+$('#advanced').click(function() {
+=======
     $('#advanced').click(function () {
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
         $('.adv').toggleClass('hidden-xs');
     });
 

@@ -20,14 +20,14 @@ var config = require('../server/config');
 
 
 // module
-module.exports = function (app) {
+module.exports = function(app) {
 
     //section Lanlord
     router.get('/customer', customerController.index);
     router.post('/api/v1/landlord/login', api_landlordController.logIn);
     router.post('/api/v1/landlord/register', api_landlordController.register);
-    router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord,api_landlordController.findLandlordById);
-    router.put('/api/v1/landlord/:id', ensureAuthenticatedLandlord,api_landlordController.updateLandlordById);
+    router.get('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.findLandlordById);
+    router.put('/api/v1/landlord/:id', ensureAuthenticatedLandlord, api_landlordController.updateLandlordById);
     router.delete('/api/v1/landlord/:id', api_landlordController.deleteLandlord);
     router.get('/api/v1/landlord', api_landlordController.getAllLandlord);
     router.post('/api/v1/landlord/changepass', api_landlordController.changPassword);
@@ -84,11 +84,11 @@ module.exports = function (app) {
 
     // section admin
     router.get('/admin/login', adminController.get_login);
-    router.post('/admin/login', passport.authenticate('local',
-        {
-            successRedirect: '/admin', failureRedirect: '/admin/login',
-            failureFlash: true
-        }), adminController.post_login);
+    router.post('/admin/login', passport.authenticate('local', {
+        successRedirect: '/admin',
+        failureRedirect: '/admin/login',
+        failureFlash: true
+    }), adminController.post_login);
     router.get('/admin/logout', adminController.get_logout);
     router.get('/admin', ensureAuthenticated, adminController.index);
     router.get('/admin/user_infor', ensureAuthenticated, adminController.userpage);
@@ -125,7 +125,7 @@ module.exports = function (app) {
     function ensureAuthenticatedLandlord(req, res, callback) {
         if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
             var token = req.headers.authorization;
-            jwt.verify(token.split(' ')[1], config.secret_landlord, function (err, decode) {
+            jwt.verify(token.split(' ')[1], config.secret_landlord, function(err, decode) {
                 if (err) {
                     req.landlordId = undefined;
                     return res.status(500).json({
@@ -135,16 +135,14 @@ module.exports = function (app) {
                             doc: null
                         }
                     });
-                }
-                else {
+                } else {
                     req.landlordId = decode;
                     passport.authenticate('jwt', { session: false });
                     console.log('Id landlord: ' + req.landlordId.id);
                     callback();
                 }
             });
-        }
-        else {
+        } else {
             req.landlordId = undefined;
             return res.status(401).json({
                 code: res.statusCode,
@@ -161,7 +159,7 @@ module.exports = function (app) {
         // (req.headers && req.headers.authorization && req.headers.authorizition.split(' ')[0] === 'JWT'
         if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
             var token = req.headers.authorization;
-            jwt.verify(token.split(' ')[1], config.secret_user, function (err, decode) {
+            jwt.verify(token.split(' ')[1], config.secret_user, function(err, decode) {
                 if (err) {
                     req.userId = undefined;
                     return res.status(200).json({
@@ -171,16 +169,14 @@ module.exports = function (app) {
                             doc: null
                         }
                     });
-                }
-                else {
+                } else {
                     req.userId = decode;
                     passport.authenticate('jwt', { session: false });
                     console.log('Id userId: ' + req.userId.id);
                     callback();
                 }
             });
-        }
-        else {
+        } else {
             req.userId = undefined;
             return res.status(401).json({
                 code: res.statusCode,
@@ -193,4 +189,3 @@ module.exports = function (app) {
     }
     app.use(router);
 };
-

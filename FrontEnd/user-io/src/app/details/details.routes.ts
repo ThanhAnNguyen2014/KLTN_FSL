@@ -19,8 +19,13 @@ const routes: Routes = [
     children: [
       { path: 'search-details', component: SearchdetailsComponent },
       { path: 'detail-house/:id', component: DetailhouseComponent },
+<<<<<<< HEAD
+      { path: 'profile', component: ProfileComponent },
+      { path: 'edit-profile', component: EditprofileComponent }
+=======
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
       { path: 'edit-profile', component: EditprofileComponent, canActivate: [AuthGuard] }
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
 
     ]
   },

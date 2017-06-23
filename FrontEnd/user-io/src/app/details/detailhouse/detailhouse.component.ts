@@ -46,7 +46,6 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       center: this.myLatLng,
       draggable: false
     });
-
     // custom infowindow object
     var infobox = new InfoBox({
       disableAutoPan: false,
@@ -65,6 +64,7 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       pane: "floatPane",
       enableEventPropagation: false
     });
+
 
 
     // Place a draggable marker on the map
