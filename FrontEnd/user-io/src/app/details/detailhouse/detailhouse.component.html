@@ -52,6 +52,15 @@
               <div class="summaryItem">
                 <h1 class="pageTitle"><strong>{{house.title}}</strong></h1>
                 <div class="address"><span class="icon-pointer"></span> {{house.address}}</div>
+                <div class="singlePrice">
+                  <div class="listPrice">
+                    {{house.price |currency:'VND':true}} <span class="label label-yellow">{{house.status}}</span>
+                  </div>
+                  <div class="listCategory">
+                    Ngày đăng: &nbsp; {{house.create_date |date :'short'}}
+                  </div>
+                </div>
+                <div class="clearfix"></div>
                 <ul class="rating">
                   <li>
                     <star-rating-comp [rating]="house.rate" [direction]="rtl" [readOnly]="true" [starType]="'icon'"></star-rating-comp>
@@ -80,10 +89,11 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
               <div class="agentAvatar summaryItem">
                 <div class="clearfix"></div>
-                <img class="avatar agentAvatarImg" src="./assets/images/avatar-2.png" alt="avatar">
+                <img class="avatar agentAvatarImg" src="./assets/images/avatar-6.png" alt="avatar">
                 <div class="agentName">Ngọc Hạnh</div>
-                <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn icon-home"> Chọn Phòng</a>
-                <a data-toggle="modal" href="#contactLandlord" class="btn btn-lg btn-round btn-blue contactBtn icon-call-out"> Hiện Số ĐT</a>
+                <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-red contactBtn icon-home"> Chọn Phòng</a>
+                <a data-toggle="modal" href="#contactLandlord" class="btn btn-lg btn-round btn-yellow contactBtn icon-call-out"> Hiện Số ĐT</a>
+                <a data-toggle="modal" href="#" class="btn btn-lg btn-round btn-success contactBtn icon-map"> Chỉ đường</a>
               </div>
             </div>
           </div>
@@ -96,12 +106,43 @@
         </p>
       </div>
       <div class="clearfix"></div>
+      <div class="amenities">
+        <h3>Giá các dịch vụ nhà trọ:</h3>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 amItem"><span class="fa fa-bolt"></span> {{house.service_price.electricity_price |number}} (đồng/kWh)</div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 amItem"><span class="fa fa-tint"></span> {{house.service_price.water_price |number}} (đồng/m<sup>3</sup>)</div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 amItem"><span class="fa fa-wifi"></span> {{house.service_price.internet_price |number}} (đồng/tháng)</div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 amItem"><span class="fa fa-trash"></span> {{house.service_price.garbage_price |number}} (đồng/tháng)</div>
+        </div>
+      </div>
+      <div class="share">
+        <h3>Chia sẻ cộng đồng xã hội:</h3>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+            <a href="#" class="btn btn-sm  btn-o btn-facebook"><span class="fa fa-facebook"></span> Facebook</a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+            <a href="#" class="btn btn-sm  btn-o btn-twitter"><span class="fa fa-twitter"></span> Twitter</a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+            <a href="#" class="btn btn-sm  btn-o btn-google"><span class="fa fa-google-plus"></span> Google+</a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+            <a href="#" class="btn btn-sm  btn-o btn-linkedin"><span class="fa fa-linkedin"></span>  LinkedIn</a>
+          </div>
+        </div>
+      </div>
       <div class="share">
         <h3>Đánh giá thông tin:</h3>
         <div class="row">
-          <a data-toggle="modal" href="#ratingForm" class="btn btn-lg btn-round btn-yellow contactBtn"><i class="icon-star"></i> Đánh giá của bạn</a>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a data-toggle="modal" href="#ratingForm" class="btn btn-sm btn-o btn-yellow contactBtn"><i class="icon-star"></i> Đánh giá</a>
+          </div>
+          <div class="col-xs-8 col-sm-8 col-md-10 col-lg-10">
+            Nếu thông tin chúng tôi cung cấp là cần thiết đối với bạn. Hãy cho chúng tôi biết sự hài lòng của bạn về đối với thông tin
+            này.
+          </div>
         </div>
-
       </div>
       <div class="similar">
         <h3>Kết quả khác</h3>
@@ -115,7 +156,7 @@
             <div class="item active">
               <div class="row">
                 <div class="col-xs-4">
-                  <div data-linkto="single.html" class="card">
+                  <div [routerLink]="['/']" class="card">
                     <div class="figure">
                       <img src="./assets/images/prop/1-1-2.png" alt="image">
                       <div class="figCaption">
@@ -699,7 +740,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Close</a>
+          <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Đóng</a>
           <a href="#" class="btn btn-round btn-green">Send message</a>
         </div>
       </div>
@@ -741,7 +782,7 @@
 
         </div>
         <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-red">Close</a>
+          <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-red">Đóng</a>
         </div>
       </div>
     </div>
@@ -753,34 +794,37 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title" id="contactLabel">Bạn hãy cho chúng tôi biết sự hài lòng của bạn!</h4>
+          <h4 class="modal-title" id="contactLabel">Sự hài lòng của bạn về thông tin chúng tôi cung cấp!</h4>
         </div>
         <div class="modal-body">
-          <form >
+          <form>
             <div class="row">
-              <fieldset class="rating">
-                <input type="radio" disabled="true" value="5" [checked]="rating===5" />
-                <label title="Rất tốt!">5 stars</label>
-
-                <input type="radio" disabled="true" value="4" [checked]="rating===4" />
-                <label title="Tốt">4 stars</label>
-
-                <input type="radio" disabled="true" value="3" [checked]="rating===3" />
-                <label title="Trung bình">3 stars</label>
-
-                <input type="radio" disabled="true" value="2" [checked]="rating===2" />
-                <label title="Không tốt">2 stars</label>
-
-                <input type="radio" disabled="true" value="1" [checked]="rating===1" />
-                <label title="Rất tệ">1 star</label>
-              </fieldset>
-
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cfItem" style="margin-bottom: 10px">
+                <div class="col-xs-2 col-sm-3 col-md-4 col-lg-4"></div>
+                <div class="row">
+                  <fieldset class="rating">
+                    <input type="radio" disabled="true" value="5" [checked]="rating===5" />
+                    <label title="Rất tốt!">5 stars</label>
+                    <input type="radio" disabled="true" value="4" [checked]="rating===4" />
+                    <label title="Tốt">4 stars</label>
+                    <input type="radio" disabled="true" value="3" [checked]="rating===3" />
+                    <label title="Trung bình">3 stars</label>
+                    <input type="radio" disabled="true" value="2" [checked]="rating===2" />
+                    <label title="Không tốt">2 stars</label>
+                    <input type="radio" disabled="true" value="1" [checked]="rating===1" />
+                    <label title="Rất tệ">1 star</label>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cfItem" style="margin-bottom: 10px">
+                <textarea placeholder="Message" rows="3" class="form-control"></textarea>
+              </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Close</a>
-          <a href="#" class="btn btn-round btn-green">Send message</a>
+          <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Đóng</a>
+          <a href="#" class="btn btn-round btn-green">Gửi</a>
         </div>
       </div>
     </div>

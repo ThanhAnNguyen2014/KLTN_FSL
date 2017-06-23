@@ -46,7 +46,7 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       center: this.myLatLng,
       draggable: false
     });
-    
+
     // custom infowindow object
     var infobox = new InfoBox({
       disableAutoPan: false,
@@ -86,8 +86,7 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
 
 
 
-    var contentString =
-      '<div class="infoW">' +
+    var contentString = '<div class="infoW">' +
       '<div class="propImg">' +
       '<img src="../../../assets/images/prop/1-1.png">' +
       '<div class="propBg">' +
@@ -99,6 +98,13 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       '<div class="propTitle">' + 'Sophisticated Residence' + '</div>' +
       '<div class="propAddress">' + '38-62 Water St, Brooklyn, NY 11201, USA' + '</div>' +
       '</div>' +
+      '<div class="propRating">' +
+      '<span class="fa fa-star"></span>' +
+      '<span class="fa fa-star"></span>' +
+      '<span class="fa fa-star"></span>' +
+      '<span class="fa fa-star"></span>' +
+      '<span class="fa fa-star-o"></span>' +
+      '</div>' +
       '<ul class="propFeat">' +
       '<li><span class="fa fa-moon-o"></span> ' + '2' + '</li>' +
       '<li><span class="icon-drop"></span> ' + '3' + '</li>' +
@@ -109,7 +115,7 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' +
       '<a href="single.html" class="btn btn-sm btn-round btn-green viewInfo">View</a>' +
       '</div>' +
-      '</div>' + '</div>';
+      '</div>';
 
     // var infobox = new google.maps.InfoWindow({
     //   content: contentString

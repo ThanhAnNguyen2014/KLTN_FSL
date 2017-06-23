@@ -307,7 +307,14 @@
     background-color: #d22a2a;
     color: #fff;
 }
-
+.no-touch .btn-o.btn-linkedin:hover,
+.btn-o.btn-linkedin:focus,
+.btn-o.btn-linkedin:active,
+.btn-o.btn-linkedin.active,
+.open > .dropdown-toggle.btn-o.btn-linkedin {
+    background-color: #0177b5;
+    color: #fff;
+}
 .no-touch .btn-o.btn-red:hover,
 .btn-o.btn-red:focus,
 .btn-o.btn-red:active,
@@ -326,6 +333,15 @@
     background-color: transparent;
     color: #43609c;
     border-color: #43609c;
+}
+.btn-linkedin {
+    background-color: #0177b5;
+    color: #fff;
+}
+.btn-o.btn-linkedin {
+    background-color: transparent;
+    color: #0177b5;
+    border-color: #0177b5;
 }
 
 .no-touch .btn-facebook:hover,
@@ -2424,11 +2440,19 @@ div.card ul.cardFeat li span {
 .singleTop .summary {
     padding: 20px 20px 0 20px;
 }
-
+.listCategory {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 3px;
+}
 .summaryItem {
     margin-bottom: 20px;
 }
-
+.listPrice {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 3px;
+}
 h1.pageTitle {
     margin: 0;
     padding: 0 0 5px 0;
@@ -2436,7 +2460,14 @@ h1.pageTitle {
     line-height: 19px;
     font-weight: normal;
 }
-
+.listPrice .label {
+    text-transform: uppercase;
+    font-size: 9px;
+    vertical-align: middle;
+    line-height: 9px;
+    padding-bottom: 1px;
+    padding-top: 3px;
+}
 .singleTop .address {
     font-size: 12px;
     line-height: 14px;
