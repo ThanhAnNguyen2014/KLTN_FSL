@@ -6,7 +6,12 @@ module.exports = {
       database_local: 'mongodb://localhost:27017/FSL_IO',
       email: 'fslio.startup@gmail.com',
       password: 'fslio@abc123',
+<<<<<<< HEAD
       urlVerifyAccount: '127.0.0.1/api/v1/landlord/verify/verify-account/?token=',
       urlVerifyAccount_User: '127.0.0.1/api/v1/user/verify/verify-account/?token='
+=======
+      urlVerifyAccount: 'https://hcmutefslio.herokuapp.com/api/v1/landlord/verify/verify-account/?token=',
+      urlVerifyAccount_User: 'https://hcmutefslio.herokuapp.com/api/v1/user/verify/verify-account/?token='
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
 
 }

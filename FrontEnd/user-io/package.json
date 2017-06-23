@@ -22,7 +22,12 @@
     "@angular/router": "^4.0.0",
     "@ngui/tooltip": "^0.5.1",
     "angular-star-rating": "^2.0.0-rc.5",
+<<<<<<< HEAD
+=======
+    "angular2-jwt": "^0.2.3",
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
     "core-js": "^2.4.1",
+    "ng2-validation": "^4.2.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

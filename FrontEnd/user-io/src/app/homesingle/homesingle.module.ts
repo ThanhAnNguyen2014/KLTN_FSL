@@ -2,8 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+<<<<<<< HEAD
 //import { NguiTooltipModule } from '@ngui/tooltip';
 //import { StarRatingModule } from 'angular-star-rating';
+=======
+import { NguiTooltipModule } from '@ngui/tooltip';
+import { StarRatingModule } from 'angular-star-rating';
+import { FormsModule } from '@angular/forms';
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
 
 
 import { HomesingleComponent } from './homesingle.component';
@@ -16,6 +22,9 @@ import { RatlandlordComponent } from './content/ratlandlord/ratlandlord.componen
 
 
 import {routing} from './homsingle.routes';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { ActionComponent } from './action/action.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -27,7 +36,12 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
+<<<<<<< HEAD
     //StarRatingModule,
+=======
+    FormsModule,
+    StarRatingModule,
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
     //NguiTooltipModule,
     routing
   ],
@@ -38,7 +52,10 @@ const appRoutes: Routes = [
     SuportservicComponent,
     NewhomeComponent,
     ContentComponent,
-    RatlandlordComponent
+    RatlandlordComponent,
+    SigninComponent,
+    SignupComponent,
+    ActionComponent
   ],
   exports:[HomesingleComponent]
 })

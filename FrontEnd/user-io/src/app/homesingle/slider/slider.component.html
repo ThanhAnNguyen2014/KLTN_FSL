@@ -10,14 +10,22 @@
   </ul>
   <div class="home-header">
     <div class="home-logo osLight"><span class="fa fa-home"></span> FSL</div>
-    <a href="javascript:void(0)" class="home-navHandler <visi></visi>ble-xs"><span class="fa fa-bars"></span></a>
-    <div class="home-nav">
+    <a href="javascript:void(0)" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>
+    <div class="home-nav" >
       <ul>
-        <li><a href="#" data-toggle="modal" data-target="#signup">Đăng ký</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#signin">Đăng nhập</a></li>
+        <li *ngIf="!auth.loggedIn()"><a href="#" data-toggle="modal" data-target="#signup">Đăng ký</a></li>
+        <li *ngIf="!auth.loggedIn()"><a href="#" data-toggle="modal" data-target="#signin">Đăng nhập</a></li>
+        <li *ngIf="auth.loggedIn()"><a href="#" data-toggle="modal" data-target="#action">Xin chào {{auth.getName()}}</a></li>
+        <li *ngIf="auth.loggedIn()"><a href="#" (click)="auth.logout()">Đăng xuất</a></li>
         <li></li>
       </ul>
     </div>
+    <!--<div *ngIf="auth.loggedIn()">
+      <ul>
+        <li><a href="#" data-toggle="modal" data-target="#signup" (click)='auth.logout()'>Log Out</a></li>
+        <li></li>
+      </ul>
+    </div>-->
   </div>
   <div class="home-caption">
     <div class="home-title">Now it's easy to find your dream house</div>
@@ -28,10 +36,8 @@
 
       <div class="form-group hidden-xs adv">
         <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" (click)='getProvinces()'
-            *ngIf="flag_pro">-- Chọn Tỉnh/TP -- <span class="caret"></span></button>
-          <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" (click)='getProvinces()'
-            *ngIf="!flag_pro">{{provincename}}<span class="caret"></span></button>
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)='getProvinces()' *ngIf="flag_pro">-- Chọn Tỉnh/TP -- <span class="caret"></span></button>
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)='getProvinces()' *ngIf="!flag_pro">{{provincename}}<span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" id="menu-provinces">
             <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province.rank}} {{province.name}}</a></li>
           </ul>
@@ -39,11 +45,9 @@
       </div>
       <div class="form-group hidden-xs adv">
         <div class="dropdown">
-          <button *ngIf="flag_district" class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown"
-            [ngClass]='{disabled: isOnDist}'>-- Chọn Quận --
+          <button *ngIf="flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnDist}'>-- Chọn Quận --
           <span class="caret"></span></button>
-          <button *ngIf="!flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" 
-            [ngClass]='{disabled: isOnDist}'>{{districtname}}
+          <button *ngIf="!flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnDist}'>{{districtname}}
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu-provinces">
             <li *ngFor='let distric of districs' (click)="selectDistrict(distric.id, distric.name, distric.rank)"><a>{{distric.rank}} {{distric.name}}</a></li>
@@ -52,14 +56,12 @@
       </div>
       <div class="form-group hidden-xs adv">
         <div class="dropdown">
-          <button *ngIf="flag_ward" class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown"
-            [ngClass]='{disabled: isOnWar}'>-- Chọn Phường/Xã--
+          <button *ngIf="flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnWar}'>-- Chọn Phường/Xã--
           <span class="caret"></span></button>
-          <button *ngIf="!flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" 
-            [ngClass]='{disabled: isOnWar}'>{{wardname}}
+          <button *ngIf="!flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnWar}'>{{wardname}}
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu-provinces">
-            <li *ngFor='let ward of wards' (click)="selectWard(ward.id, ward.name, ward.rank)"><a>{{ward.name}}</a></li>          
+            <li *ngFor='let ward of wards' (click)="selectWard(ward.id, ward.name, ward.rank)"><a>{{ward.name}}</a></li>
           </ul>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

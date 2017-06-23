@@ -204,11 +204,19 @@ module.exports = {
                     }
                 });
                 if (!user) {
+<<<<<<< HEAD
                     return res.status(404).json({
                         code: res.statusCode,
                         results: {
                             success: false,
                             message: 'Username or email not registered',
+=======
+                    return res.status(200).json({
+                        code: res.statusCode,
+                        results: {
+                            success: false,
+                            message: 'Username or password is incorrect',
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
                             doc: null
                         }
                     });
@@ -224,7 +232,11 @@ module.exports = {
                     if (isMatch) {
                         // check landlord active
                         if (user.active) {
+<<<<<<< HEAD
                             var token = jwt.sign({ id: user.id }, config.secret_user, {
+=======
+                            var token = jwt.sign({ id: user.id, firstname: user.firstname }, config.secret_user, {
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
                                 expiresIn: '24h', // one house
                                 algorithm: 'HS256'
                             });
@@ -240,7 +252,11 @@ module.exports = {
                             });
                         }
                         else {
+<<<<<<< HEAD
                             res.status(401).json({
+=======
+                            res.status(200).json({
+>>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
                                 code: res.statusCode,
                                 results: {
                                     message: 'You have not yet activated your account, please email to activate your account',

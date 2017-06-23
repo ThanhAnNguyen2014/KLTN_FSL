@@ -2,7 +2,7 @@
 
 <div id="wrapper">
   <div id="content" style="float: left; width: 100%;" class="mob-max">
-    <div class="singleTop whiteBg " style="background-color: #f3f3f3">
+    <div class="singleTop whiteBg " style="background-color: #f3f3f3" *ngIf='user'>
       <div class="row mb20">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb20">
           <div class="row">
@@ -11,7 +11,7 @@
               <div class="profile-card">
                 <div class="pc-avatar"><img src="./assets/images/avatar-1.jpg" alt="avatar"></div>
                 <div class="pc-name">
-                  <h2>John Smith</h2>
+                  <h2>{{user.firstname}} {{user.lastname}}</h2>
                 </div>
               </div>
             </div>
@@ -22,27 +22,28 @@
           <div class="row pb10">
             <div class="col-md-3"></div>
             <div class="col-xs-4 col-md-2"><strong>Email:</strong></div>
-            <div class="col-xs-8 col-md-4 align-right">thanhannguyen@gmail.com</div>
+            <div class="col-xs-8 col-md-4 align-right">{{user.email}}</div>
           </div>
           <div class="row pb10">
             <div class="col-md-3"></div>
             <div class="col-xs-4 col-md-2"><strong>Địa chỉ:</strong></div>
-            <div class="col-xs-8 col-md-4 align-right">1/12 Tân lập 2, Phường Hiệp Phú, Quận 9, TP. Hồ Chí Minh</div>
+            <div class="col-xs-8 col-md-4 align-right">{{user.address}}</div>
           </div>
           <div class="row pb10">
             <div class="col-md-3"></div>
             <div class="col-xs-4 col-md-2"><strong>Điện thoại:</strong></div>
-            <div class="col-xs-8 col-md-4 align-right">0165 776 8971</div>
+            <div class="col-xs-8 col-md-4 align-right">{{user.phone}}</div>
           </div>
           <div class="row pb10">
             <div class="col-md-3"></div>
             <div class="col-xs-4 col-md-2"><strong>Giới tính:</strong></div>
-            <div class="col-xs-8 col-md-4 align-right">Nam</div>
+            <div class="col-xs-8 col-md-4 align-right" *ngIf='user.gender'>Nam</div>
+            <div class="col-xs-8 col-md-4 align-right" *ngIf='!user.gender'>Nữ</div>
           </div>
           <div class="row pb10">
             <div class="col-md-3"></div>
             <div class="col-xs-4 col-md-2"><strong>Số CMND:</strong></div>
-            <div class="col-xs-8 col-md-4 align-right">215321550</div>
+            <div class="col-xs-8 col-md-4 align-right">{{user.identitycard}}</div>
           </div>
 
           <div class="pc-name"><a href="#" class="btn btn-icon btn-facebook"><span class="fa fa-facebook"></span></a>
