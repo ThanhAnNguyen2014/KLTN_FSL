@@ -32,5 +32,23 @@ module.exports = {
         else {
             return callback(null, 'Invalid ObjectId');
         }
+    },
+    /**get info of landlord by id */
+    findLandlordById: function (id, callback) {
+        if (ObjectId.isValid(id)) {
+            Models.Landlord.findById(id, 'firstname lastname email address phone image', (err, doc) => {
+                if (err) { return callback(err) };
+                if (doc) {
+                    return callback(null, doc);
+                }
+                else {
+                    return callback(null, null);
+                }
+            })
+        }
+        else {
+            return callback('Invalid ObjectId');
+        }
+
     }
 }

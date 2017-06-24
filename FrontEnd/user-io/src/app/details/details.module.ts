@@ -12,6 +12,7 @@ import { LeftsideComponent } from './shared/leftside/leftside.component';
 import { DetailhouseComponent } from './detailhouse/detailhouse.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { ContactComponent } from './detailhouse/contact/contact.component';
 //import {AuthGuard} from '../Auth/guards/auth.guard';
 
 
@@ -29,7 +30,8 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     LeftsideComponent,
     DetailhouseComponent,
     ProfileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    ContactComponent
   ],
   //providers:[AuthGuard]
 })

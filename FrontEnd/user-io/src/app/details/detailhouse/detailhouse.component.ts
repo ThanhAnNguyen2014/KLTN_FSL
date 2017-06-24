@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DetailhouseService } from './detailhouse.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { House, ServicePrice } from './detailhouse'
@@ -13,18 +13,25 @@ declare var InfoBox;
   styleUrls: ['./detailhouse.component.css'],
   providers: [DetailhouseService]
 })
-export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class DetailhouseComponent implements OnInit {
 
-  myLatLng: { lat: number; lng: number; };
+  public myLatLng: { lat: number; lng: number; };
   private id: any;
-  house: House;
-  serviceprice: ServicePrice;
+  // public house: House;
+  // public serviceprice: ServicePrice;
+  public house: any;
+  public price_house_m: any;
 
+  constructor(
+    private detailhouseservice: DetailhouseService,
+    private router: Router,
+    private activatedroute: ActivatedRoute,
 
-  constructor(private detailhouseservice: DetailhouseService, private router: Router, private activatedroute: ActivatedRoute) {
-
+  ) {
   }
+
   ngOnInit() {
+
     $.getScript('../../../assets/js/app.js');
     this.activatedroute.params.subscribe(params => {
       this.id = params['id'];
@@ -32,15 +39,10 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
     });
     this.getHouse(this.id);
   }
-  ngAfterViewInit() {
-    //this.initMap();
-  }
-  ngAfterContentInit() {
 
-  }
-  async initMap() {
-    this.myLatLng = { lat: 10.850542, lng: 106.772242 };
-
+  initMap() {
+    this.myLatLng = { lat: parseFloat(this.house.latitude), lng: parseFloat(this.house.longitude) }
+    this.price_house_m = (this.house.price).toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     var map = new google.maps.Map(document.getElementById('mapView'), {
       zoom: 16,
       center: this.myLatLng,
@@ -65,8 +67,6 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       enableEventPropagation: false
     });
 
-
-
     // Place a draggable marker on the map
     var marker = new google.maps.Marker({
       position: this.myLatLng,
@@ -82,21 +82,17 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       animation: google.maps.Animation.DROP,
     });
 
-
-
-
-
     var contentString = '<div class="infoW">' +
       '<div class="propImg">' +
-      '<img src="../../../assets/images/prop/1-1.png">' +
+      '<img src="' + this.house.image + '">' +
       '<div class="propBg">' +
-      '<div class="propPrice">' + '$1,340,000' + '</div>' +
-      '<div class="propType">' + 'For Sale' + '</div>' +
+      '<div class="propPrice">' + this.price_house_m + ' VNĐ' + '</div>' +
+      '<div class="propType">' + this.house.status + '</div>' +
       '</div>' +
       '</div>' +
       '<div class="paWrapper">' +
-      '<div class="propTitle">' + 'Sophisticated Residence' + '</div>' +
-      '<div class="propAddress">' + '38-62 Water St, Brooklyn, NY 11201, USA' + '</div>' +
+      '<div class="propTitle">' + this.house.title + '</div>' +
+      '<div class="propAddress">' + this.house.address + '</div>' +
       '</div>' +
       '<div class="propRating">' +
       '<span class="fa fa-star"></span>' +
@@ -106,7 +102,6 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       '<span class="fa fa-star-o"></span>' +
       '</div>' +
       '<ul class="propFeat">' +
-      '<li><span class="fa fa-moon-o"></span> ' + '2' + '</li>' +
       '<li><span class="icon-drop"></span> ' + '3' + '</li>' +
       '<li><span class="icon-frame"></span> ' + '2640' + '</li>' +
       '</ul>' +
@@ -117,9 +112,6 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
       '</div>' +
       '</div>';
 
-    // var infobox = new google.maps.InfoWindow({
-    //   content: contentString
-    // });
 
     marker.addListener('click', function () {
       infobox.setContent(contentString);
@@ -131,17 +123,15 @@ export class DetailhouseComponent implements OnInit, AfterViewInit, AfterContent
 
   }
   getHouse(id: object) {
-
     this.detailhouseservice.getHouseById(this.id).subscribe((res) => {
-      //console.log(res);
-      this.initMap();
       this.house = res;
+      this.initMap();
       console.log(this.house);
     },
       (err) => {
         console.log('Error: ' + err)
       },
-      () => { }
+      () => { console.log('Load data success!'); }
     );
   }
 
