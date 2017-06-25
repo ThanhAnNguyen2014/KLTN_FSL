@@ -256,8 +256,11 @@ module.exports = {
                             code: res.statusCode,
                             results: {
                                 message: null,
-                                success: true,
-                                token: 'JWT ' + token,
+                                doc: {
+                                    success: true,
+                                    token: 'JWT ' + token,
+                                }
+
                             }
                         });
                     }
