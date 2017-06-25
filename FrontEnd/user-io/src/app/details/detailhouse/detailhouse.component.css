@@ -15,6 +15,7 @@ Pulls the stars container to the left
 
 .rating {
   float: left;
+  padding-left: 25px
 }
 
 
@@ -35,8 +36,8 @@ Default stars styles
 
 .rating:not(:checked)>label {
   float: right;
-  width: 1em;
-  padding: 0.1em;
+  width: 3rem;
+  padding: 0.1rem;
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;

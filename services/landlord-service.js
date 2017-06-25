@@ -28,9 +28,6 @@ module.exports = {
                         firstname: doc.firstname,
                         lastname: doc.lastname,
                         username: doc.username,
-<<<<<<< HEAD
-                        email: doc.email
-=======
                         email: doc.email,
                         gender: doc.gender,
                         phone: doc.phone,
@@ -40,7 +37,6 @@ module.exports = {
                         image: doc.image,
                         id_facebook: doc.id_facebook,
                         id_google: doc.id_google
->>>>>>> a2ba54efc32cfcc6a1396e4ac890c2e0143764c7
                     }
                     return callback(null, landlord);
                 }

@@ -80,6 +80,8 @@ module.exports = function(app) {
     router.post('/api/v1/user/check/validate', api_userController.validates);
     router.get('/api/v1/user/verify/verify-account/', api_userController.verifyEmail);
 
+    router.get('/api/v1/house/detail/contact/:id', api_homeuserController.getContact);
+
 
 
     // section admin
