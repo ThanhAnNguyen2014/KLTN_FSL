@@ -15,34 +15,13 @@
 
     <div class="user">
         <div class="photo">
-            <img src="../assets/img/faces/avatar.jpg" />
+            <img src="{{landlord?.image}}" />
         </div>
         <div class="info">
             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                <span>Thanh An Nguyen<b class="caret"></b></span>
+                <span>{{landlord?.lastname}}{{landlord?.firstname}}</span>
             </a>
-            <div class="collapse" id="collapseExample">
-                <!--<ul class="nav">
-                    <li>
-                        <a href="javascript:void(0)">
-                            <span class="sidebar-mini">MP</span>
-                            <span class="sidebar-normal">My Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <span class="sidebar-mini">EP</span>
-                            <span class="sidebar-normal">Edit Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <span class="sidebar-mini">S</span>
-                            <span class="sidebar-normal">Settings</span>
-                        </a>
-                    </li>
-                </ul>-->
-            </div>
+
         </div>
     </div>
     <div class="nav-container">

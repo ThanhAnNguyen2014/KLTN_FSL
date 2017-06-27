@@ -19,6 +19,9 @@ import { NavbarModule } from '../shared/navbar/navbar.module';
 import { FooterModule } from '../shared/footer/footer.module';
 import { SidebarModule } from '../sidebar/sidebar.module';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { AuthGuard } from '../Auth/guards/auth.guard';
+import { AuthenticationService } from '../Auth/services/authentication.service';
+
 
 
 const appRoutes: Routes = [
@@ -26,8 +29,8 @@ const appRoutes: Routes = [
     path: '', component: DashboardComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'infolandlord/profile/:id', component: ProfileComponent },
-      { path: 'infolandlord/changepass', component: ChangepassComponent },
+      { path: 'infolandlord/profile', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'infolandlord/changepass', component: ChangepassComponent, canActivate: [AuthGuard] },
       { path: 'manageposts/newpost', component: NewpostComponent },
       { path: 'manageposts/listhouse', component: ListhouseComponent },
       { path: 'manageposts/detailhouse/:id', component: DetailhouseComponent },
@@ -74,6 +77,10 @@ const appRoutes: Routes = [
     EdithouseComponent,
     DetailroomComponent,
   ],
+  providers:[
+    AuthGuard,
+    AuthenticationService
+  ]
   // exports: [DashboardComponent]
 })
 export class DashboardModule { }

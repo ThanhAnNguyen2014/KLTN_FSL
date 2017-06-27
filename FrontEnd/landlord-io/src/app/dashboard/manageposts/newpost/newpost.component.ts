@@ -7,6 +7,7 @@ import { NgForm } from "@angular/forms";
 import * as firebase from 'firebase';
 import { FirebaseApp } from 'angularfire2';
 import { Observable } from 'rxjs';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 declare var $: any;
 declare var google;
 
@@ -61,10 +62,10 @@ export class NewpostComponent implements OnInit, AfterViewInit {
   myLatLng: any;
 
   constructor( @Inject(FirebaseApp) firebaseApp: any,
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private newpostService: NewpostService,
-
+    private ng2ImgMaxService: Ng2ImgMaxService
   ) { }
 
   ngOnInit() {
@@ -98,28 +99,49 @@ export class NewpostComponent implements OnInit, AfterViewInit {
 
   }
 
+  // fileChangeEvent(fileInput: any) {
+  //   this.filesToUpload = <Array<File>>fileInput.target.files;
+  //   console.log(this.filesToUpload);
+  //   for (var index = 0; index < this.filesToUpload.length; index++) {
+  //     this.files = fileInput.target.files[index];
+  //     console.log(this.files);
+
+  //     var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
+  //       imgName = '';
+  //     for (var i = 0; i < 6; i += 1) {
+  //       imgName += possible.charAt(Math.floor(Math.random() * possible.length));
+  //     }
+  //     console.log(imgName);
+
+  //     let storageRef = firebase.storage().ref();
+  //     let path = `/${this.folder}/${imgName + ".jpg"}`;
+  //     let iRef = storageRef.child(path);
+  //     iRef.put(this.files).then((snapshot) => {
+  //       this.url = snapshot.downloadURL;
+  //       console.log(this.url);
+  //     });
+  //   }
+
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
     console.log(this.filesToUpload);
-    for (var index = 0; index < this.filesToUpload.length; index++) {
-      this.files = fileInput.target.files[index];
-      console.log(this.files);
-
+    this.ng2ImgMaxService.resize([this.filesToUpload[0]], 800, 450).subscribe((result) => {
       var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
         imgUrl = '';
       for (var i = 0; i < 6; i += 1) {
         imgUrl += possible.charAt(Math.floor(Math.random() * possible.length));
       }
-
+      console.log(imgUrl);
       let storageRef = firebase.storage().ref();
       let path = `/${this.folder}/${imgUrl + ".jpg"}`;
       let iRef = storageRef.child(path);
-      iRef.put(this.files).then((snapshot) => {
+      iRef.put(result).then((snapshot) => {
         this.url = snapshot.downloadURL;
         console.log(this.url);
       });
-    }
+    });
   }
+
 
   initMap() {
     this.myLatLng = { lat: 10.850542, lng: 106.772242 };
@@ -146,7 +168,7 @@ export class NewpostComponent implements OnInit, AfterViewInit {
       that.lng = this.getPosition().lng();
       (<HTMLInputElement>document.getElementById("lng")).value = this.getPosition().lng();
 
-      var temp_latlng={lat: that.lat, lng: that.lng};
+      var temp_latlng = { lat: that.lat, lng: that.lng };
       geocoder.geocode({ 'location': temp_latlng }, function (results, status) {
         if (status === 'OK') {
           if (results[1]) {

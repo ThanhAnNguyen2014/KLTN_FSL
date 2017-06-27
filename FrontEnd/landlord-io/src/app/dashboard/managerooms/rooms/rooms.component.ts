@@ -5,6 +5,7 @@ import initNotifySuccess = require('../../../../assets/js/init/notify-success.js
 import * as firebase from 'firebase';
 import { FirebaseApp } from 'angularfire2';
 import { Observable } from 'rxjs';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 declare var $: any;
 @Component({
@@ -33,7 +34,8 @@ export class RoomsComponent implements OnInit {
     @Inject(FirebaseApp) firebaseApp: any,
     private roomsservice: RoomsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private ng2ImgMaxService: Ng2ImgMaxService
   ) { }
 
   ngOnInit() {
@@ -52,7 +54,7 @@ export class RoomsComponent implements OnInit {
         room_price: {
           price: ''
         },
-        image:''
+        image: ''
       };
       room_temp.title = this.newroom.title + '-' + (i + 1);
       room_temp.id_house = this.newroom.id_house;
@@ -117,21 +119,22 @@ export class RoomsComponent implements OnInit {
 
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
-    for (var index = 0; index < this.filesToUpload.length; index++) {
-      this.files = fileInput.target.files[index];
+    console.log(this.filesToUpload);
+    this.ng2ImgMaxService.resize([this.filesToUpload[0]], 800, 480).subscribe((result) => {
       var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
         imgUrl = '';
       for (var i = 0; i < 6; i += 1) {
         imgUrl += possible.charAt(Math.floor(Math.random() * possible.length));
       }
+      console.log(imgUrl);
       let storageRef = firebase.storage().ref();
       let path = `/${this.folder}/${imgUrl + ".jpg"}`;
       let iRef = storageRef.child(path);
-      iRef.put(this.files).then((snapshot) => {
+      iRef.put(result).then((snapshot) => {
         this.url = snapshot.downloadURL;
-        console.log( this.url );
+        console.log(this.url);
       });
-    }
+    });
   }
 
   Delete(id: object) {
