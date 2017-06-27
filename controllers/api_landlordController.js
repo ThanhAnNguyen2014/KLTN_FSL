@@ -290,6 +290,7 @@ module.exports = {
     },
     /**Change Password */
     changPassword: function (req, res) {
+        console.log(req.landlordId);
         var id = req.landlordId.id
         var oldpass = req.body.oldpass;
         var newpass = req.body.newpass;
@@ -302,7 +303,7 @@ module.exports = {
                 }
             });
         }
-        landlordServices.getLandlordById(id, function (err, landlord) {
+        landlordServices.getLandlordByIdChangepass(id, function (err, landlord) {
             if (err) return res.status(500).json({
                 code: res.statusCode,
                 results: {
@@ -311,6 +312,7 @@ module.exports = {
                 }
             });
             if (landlord) {
+                console.log(landlord);
                 landlordServices.comparePassword(oldpass, landlord.password, function (err, isMatch) {
                     if (err) res.status(500).json({
                         code: res.statusCode,
@@ -338,7 +340,7 @@ module.exports = {
                         });
                     }
                     else {
-                        return res.status(401).json({
+                        return res.status(200).json({
                             code: res.statusCode,
                             results: {
                                 message: 'Invalid password you entered!',
