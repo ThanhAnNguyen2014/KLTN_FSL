@@ -290,7 +290,6 @@ module.exports = {
     },
     /**Change Password */
     changPassword: function (req, res) {
-        console.log(req.landlordId);
         var id = req.landlordId.id
         var oldpass = req.body.oldpass;
         var newpass = req.body.newpass;
@@ -312,7 +311,6 @@ module.exports = {
                 }
             });
             if (landlord) {
-                console.log(landlord);
                 landlordServices.comparePassword(oldpass, landlord.password, function (err, isMatch) {
                     if (err) res.status(500).json({
                         code: res.statusCode,
