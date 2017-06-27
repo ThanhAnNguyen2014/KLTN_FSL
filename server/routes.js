@@ -43,6 +43,7 @@ module.exports = function (app) {
     router.delete('/api/v1/house/:id', ensureAuthenticatedLandlord, api_houseController.deleteHouseById);
     router.put('/api/v1/house/:id', ensureAuthenticatedLandlord, api_houseController.updateHouseById);
     router.get('/api/v1/houses/all', ensureAuthenticatedLandlord, api_houseController.getAllHouse);
+    router.get('/api/v1/houses', ensureAuthenticatedLandlord, api_houseController.getHouseByIdLandlord);
 
 
     /**section Area */

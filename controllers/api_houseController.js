@@ -7,8 +7,7 @@ module.exports = {
      */
 
     create: function (req, res) {
-       
-        req.body.id_landlord = req.landlordId;
+        req.body.id_landlord = req.landlordId.id;
         houseService.CreateHouse(req.body, function (err, doc) {
             if (err) {
                 return res.status(401).json(err);
@@ -101,7 +100,7 @@ module.exports = {
     },
     /**Get All District of Viet Nam by Province */
     getAllDictrict: function (req, res) {
-        var id=req.params.id;
+        var id = req.params.id;
         houseService.findAllDictrictbyProvinceName(id, function (err, districts) {
             if (err) return res.status(401).json({
                 code: 401,
@@ -117,7 +116,7 @@ module.exports = {
     },
     /**Get All Ward of Viet Nam by Dictrict and province */
     getAllWard: function (req, res) {
-        var id=req.params.id;
+        var id = req.params.id;
         houseService.findAllWardbyDictrictName(id, function (err, wards) {
             if (err) return res.status(401).json({
                 code: 401,
@@ -131,5 +130,38 @@ module.exports = {
             }
         });
     },
+    /**get house by id of landlord */
+    getHouseByIdLandlord: function (req, res) {
+        var idlandlord = req.landlordId.id;
+        houseService.findHouseByIdLandlord(idlandlord, (err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    code: res.statusCode,
+                    results: {
+                        message: err,
+                        doc: null
+                    }
+                });
+            }
+            if(results){
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: results
+                    }
+                });
+            }
+            else{
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: 'Not item in database',
+                        doc: null
+                    }
+                });
+            }            
+        });
+    }
 
 }
