@@ -106,7 +106,7 @@ module.exports = {
             if (result) {
                 return res.status(200).json({
                     code: res.statusCode,
-                    result: {
+                    results: {
                         message: null,
                         doc: result
                     }
