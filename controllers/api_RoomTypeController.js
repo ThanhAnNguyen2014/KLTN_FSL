@@ -19,7 +19,7 @@ module.exports = {
             else {
                 return res.status(200).json({
                     code: res.statusCode,
-                    result: {
+                    results: {
                         message: null,
                         doc: result
                     }
@@ -52,7 +52,7 @@ module.exports = {
             else {
                 return res.status(200).json({
                     code: res.statusCode,
-                    result: {
+                    results: {
                         message: 'Not item in database',
                         doc: null
                     }
@@ -168,7 +168,7 @@ module.exports = {
             });
             return res.status(200).json({
                 code: 200,
-                result: {
+                results: {
                     message: null,
                     doc: result
                 }
