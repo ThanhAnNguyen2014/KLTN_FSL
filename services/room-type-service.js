@@ -63,13 +63,13 @@ module.exports = {
             return callback('Invalid ObjectId');
         }
     },
-    /**Find All RoomType */
-    findAll: function (id, callback) {
+    /**Find RoomType id */
+    findRoomtypeById: function (id, callback) {
         if (ObjectId.isValid(id)) {
-            Models.Room_Type.find({ id_landlord: id }, function (err, docs) {
-                if (err) return callback({ message: err });
-                if (docs.length > 0) {
-                    return callback(null, docs);
+            Models.Room_Type.findById(id, function (err, doc) {
+                if (err) return callback(err);
+                if (doc) {
+                    return callback(null, doc);
                 }
                 else {
                     return callback(null, null);
