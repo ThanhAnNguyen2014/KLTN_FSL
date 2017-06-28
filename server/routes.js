@@ -45,7 +45,6 @@ module.exports = function (app) {
     router.get('/api/v1/houses/all', ensureAuthenticatedLandlord, api_houseController.getAllHouse);
     router.get('/api/v1/houses', ensureAuthenticatedLandlord, api_houseController.getHouseByIdLandlord);
 
-
     /**section Area */
     router.get('/api/v1/area/provinces', api_houseController.getAllProvinces);
     router.get('/api/v1/area/districts/:id', api_houseController.getAllDictrict);

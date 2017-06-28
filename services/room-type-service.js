@@ -6,96 +6,95 @@ module.exports = {
     create: function (roomType, callback) {
         var newRoomType = new Models.Room_Type(roomType);
         newRoomType.save(function (err, doc) {
-            if (err) return callback({ message: err });
+            if (err) return callback(err);
             else
                 return callback(null, doc);
         });
     },
     /**Find by Id RoomType */
-    findById: function (id, callback) {
+    findByIdLandlord: function (id, callback) {
         if (ObjectId.isValid(id)) {
-            Models.Room_Type.findById(id, function (err, doc) {
-                if (err) return callback({ message: err });
+            Models.Room_Type.find({ id_landlord: id }, function (err, doc) {
+                if (err) return callback(err);
                 if (doc) {
                     return callback(null, doc);
                 }
                 else {
-                    return callback(null, 'Not find Room Type Object');
+                    return callback(null, null);
                 }
             });
         }
         else {
-            return callback({
-                code: 401,
-                message: 'Invalid ObjectId'
-            });
+            return callback('Invalid ObjectId');
         }
     },
-    /**Update By Id RoomType */
-    updateById: function (id, roomType, callback) {
+    /**Update RoomType by id landlord */
+    update: function (id,roomType, callback) {
+        // id of landlord
         if (ObjectId.isValid(id)) {
-            Models.Room_Type.findByIdAndUpdate(id, roomType, { new: true }, function (err, doc) {
-                if (err) return callback({ message: err });
+            Models.Room_Type.findByIdAndUpdate(id, roomType, { new: true }, (err, doc) => {
+                if (err) return callback(err);
                 if (doc) {
                     return callback(null, doc);
                 }
                 else {
-                    return callback(null, 'Not find Room Type Object');
+                    return callback(null, null);
                 }
-            });
+            })
         }
         else {
-            return callback({
-                code: 401,
-                message: 'Invalid ObjectId'
-            });
+            return callback('Invalid ObjectId');
         }
     },
     /**Delete RoomType */
     deleteById: function (id, callback) {
         if (ObjectId.isValid(id)) {
             Models.Room_Type.findByIdAndRemove(id, function (err, doc) {
-                if (err) return callback({ message: err });
+                if (err) return callback(err);
                 if (doc) {
                     return callback(null, 'Delete success!');
                 }
                 else {
-                    return callback(null, 'Not find Room Type Object');
+                    return callback(null, null);
                 }
             });
         }
         else {
-            return callback({
-                code: 401,
-                message: 'Invalid ObjectId'
-            });
+            return callback('Invalid ObjectId');
         }
     },
     /**Find All RoomType */
-    findAll: function (callback) {
-        Models.Room_Type.find(function (err, docs) {
-            if (err) return callback({ message: err });
-            return callback(null, docs);
-        });
+    findAll: function (id, callback) {
+        if (ObjectId.isValid(id)) {
+            Models.Room_Type.find({ id_landlord: id }, function (err, docs) {
+                if (err) return callback({ message: err });
+                if (docs.length > 0) {
+                    return callback(null, docs);
+                }
+                else {
+                    return callback(null, null);
+                }
+            });
+        }
+        else {
+            return callback('Invalid ObjectId');
+        }
+
     },
     /**Update the number of rooms when users create rooms */
     updataNumberRoom: function (id, number_room, callback) {
         if (ObjectId.isValid(id)) {
             Models.Room_Type.findById(id, function (err, roomType) {
-                if (err) return callback({ message: err });
+                if (err) return callback(err);
                 roomType.no_room = number_room;
                 roomType.save(function (err, doc) {
-                    if (err) return callback({ message: err });
+                    if (err) return callback(err);
                     return callback(null, doc);
                 });
-
             });
         }
         else {
-            return callback({
-                code: 401,
-                message: 'Invalid ObjectId'
-            });
+            return callback('Invalid ObjectId');
         }
 
     }
