@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var Room_TypeSchema = new Schema({
+    id_landlord: {type: ObjectId},
     title: { type: String },
     description: { type: String },
     no_people: { type: Number },

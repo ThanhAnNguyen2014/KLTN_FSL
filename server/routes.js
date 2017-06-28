@@ -54,10 +54,9 @@ module.exports = function (app) {
 
     /**section RoomeType */
     router.post('/api/v1/roomtype', ensureAuthenticatedLandlord, api_roomTypeController.Create);
-    router.get('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.GetRoomTypeById);
+    router.get('/api/v1/roomtypes', ensureAuthenticatedLandlord, api_roomTypeController.GetRoomTypeByIdLandlord);
     router.put('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.UpdateRoomTypeById);
     router.delete('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.DeleteRoomTypeById);
-    router.get('/api/v1/roomtypes', ensureAuthenticatedLandlord, api_roomTypeController.GetAll);
     router.post('/api/v1/roomtype/:id', ensureAuthenticatedLandlord, api_roomTypeController.UpdateNumberRoomType);
     /**section Room */
     router.post('/api/v1/room', ensureAuthenticatedLandlord, api_roomController.Create);
