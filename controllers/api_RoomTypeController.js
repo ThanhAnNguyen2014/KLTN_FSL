@@ -112,10 +112,10 @@ module.exports = {
                     }
                 });
             }
-            else{
+            else {
                 return res.status(200).json({
                     code: res.statusCode,
-                    results:{
+                    results: {
                         message: 'Not item in database!',
                         doc: null
                     }
@@ -123,14 +123,32 @@ module.exports = {
             }
         });
     },
-    /**Get All RoomType */
-    GetAll: function (req, res) {
-        roomTypeService.findAll(function (err, results) {
-            if (err) return res.status(401).json({ message: err });
-            return res.status(200).json({
-                code: 200,
-                results: results
+    /**Get RoomType by Id */
+    GetRoomtypeById: function (req, res) {
+        var id = req.params.id;
+        roomTypeService.findRoomtypeById(id, function (err, result) {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
             });
+            if (result) {
+                return res.status(200).json({
+                    code: 200,
+                    results: result
+                });
+            }
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: 'Not item in database',
+                        doc: null
+                    }
+                });
+            }
         });
     },
     /** Update the Number room */
