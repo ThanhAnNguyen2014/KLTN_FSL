@@ -131,4 +131,22 @@ module.exports = {
             }
         });
     },
+    findHouseByIdLandlord: function (id, callback) {
+        console.log(id);
+        if (ObjectId.isValid(id)) {
+            Models.House.find({id_landord: id}, (err, docs) => {
+                console.log(docs);
+                if (err) { return callback(err); }
+                if (docs.length > 0) {
+                    return callback(null, docs);
+                }
+                else{
+                    return callback(null, null);
+                }
+            });
+        }
+        else {
+            return callback('Invalid ObjectId')
+        }
+    }
 }

@@ -256,8 +256,11 @@ module.exports = {
                             code: res.statusCode,
                             results: {
                                 message: null,
-                                success: true,
-                                token: 'JWT ' + token,
+                                doc: {
+                                    success: true,
+                                    token: 'JWT ' + token,
+                                }
+
                             }
                         });
                     }
@@ -299,7 +302,7 @@ module.exports = {
                 }
             });
         }
-        landlordServices.getLandlordById(id, function (err, landlord) {
+        landlordServices.getLandlordByIdChangepass(id, function (err, landlord) {
             if (err) return res.status(500).json({
                 code: res.statusCode,
                 results: {
@@ -335,7 +338,7 @@ module.exports = {
                         });
                     }
                     else {
-                        return res.status(401).json({
+                        return res.status(200).json({
                             code: res.statusCode,
                             results: {
                                 message: 'Invalid password you entered!',

@@ -83,6 +83,22 @@ module.exports = {
             return callback('Invalid ObjectId');
         }
     },
+    getLandlordByIdChangepass: function (id, callback) {
+        var _id = id;
+        if (ObjectId.isValid(_id)) {
+            Models.Landlord.findById(_id,function (err, doc) {
+                if (err) return callback(err);
+                if (doc) {
+                    return callback(null, doc); // return not err and result doccument
+                }
+                else {
+                    return callback(null, null); // not Find UserById
+                }
+            });
+        } else {
+            return callback('Invalid ObjectId');
+        }
+    },
     /** Find All Landlord */
     findAll: function (callback) {
         Models.Landlord.find(function (err, docs) {
