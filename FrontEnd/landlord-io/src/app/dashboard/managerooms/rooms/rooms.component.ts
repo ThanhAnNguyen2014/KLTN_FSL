@@ -30,19 +30,22 @@ export class RoomsComponent implements OnInit {
   filesToUpload: Array<File>;
   listrooms = [];
 
+  loadhousebyid: object;
+
   constructor(
     @Inject(FirebaseApp) firebaseApp: any,
     private roomsservice: RoomsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private ng2ImgMaxService: Ng2ImgMaxService
-  ) { }
+  ) {
+    this.LoadHouse();
+    this.LoadRoomType();
+  }
 
   ngOnInit() {
     this.newroom = {};
-    this.LoadTable();
-    this.LoadRoomType();
-    this.LoadHouse();
+   
   }
 
   CreateRoom() {
@@ -70,17 +73,28 @@ export class RoomsComponent implements OnInit {
     this.LoadSingleRoomType(this.newroom.id_roomtype);
     this.newroom = {};
     initNotifySuccess('Add success', 'success');
-    this.LoadTable();
+    //this.LoadTable();
   }
 
-  LoadTable() {
-    this.roomsservice.GetListRoom().subscribe((response: any) => {
+  LoadTablebyId() {
+    this.loadhousebyid = this.loadhousebyid;
+    console.log('bbbbbb' + this.loadhousebyid);
+    this.roomsservice.GetListRoom(this.loadhousebyid).subscribe((response: any) => {
       this.rooms = response;
       $.getScript('../../../../assets/js/init/initDataTable.js');
     }, error => {
       console.log(error);
     });
   }
+
+  // LoadTable() {
+  //   this.roomsservice.GetListRoom().subscribe((response: any) => {
+  //     this.rooms = response;
+  //     $.getScript('../../../../assets/js/init/initDataTable.js');
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
 
   LoadRoomType() {
     this.roomsservice.GetListRoomType().subscribe((response: any) => {
@@ -97,6 +111,9 @@ export class RoomsComponent implements OnInit {
   LoadHouse() {
     this.roomsservice.GetListHouse().subscribe((response: any) => {
       this.houses = response;
+      this.loadhousebyid = this.houses[0]._id;
+      console.log('aaaaa' + this.loadhousebyid);
+       this.LoadTablebyId();
       $.getScript('../../../../assets/js/plugins/jquery.select-bootstrap.js');
       setTimeout(() => {
         $('.select2-dropdown').selectpicker('refresh');
@@ -149,7 +166,7 @@ export class RoomsComponent implements OnInit {
           alert('Delete ok');
           this.temp = -1;
           this.LoadSingleRoomType(temp_id);
-          this.LoadTable();
+          //this.LoadTable();
         }
       }, error => {
         console.log(error);

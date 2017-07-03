@@ -28,12 +28,13 @@ export class CreateroomtypeComponent implements OnInit {
         private createroomtypeservice: CreateroomtypeService,
         private router: Router,
         private activatedRoute: ActivatedRoute
-    ) { }
+    ) {
+        this.LoadDevice();
+    }
 
     ngOnInit() {
         this.roomtype = {};
         this.LoadData();
-        this.LoadDevice();
         console.log(this.showEdit);
     }
 

@@ -17,7 +17,10 @@ export class ProfileService {
   headers: any;
   options: any;
 
-  constructor(private _http: Http, private authenticationService: AuthenticationService) {
+  constructor(
+    private _http: Http,
+    private authenticationService: AuthenticationService
+  ) {
     this.jwt = JSON.parse(localStorage.getItem('currentUser'));
     this.decodedJwt = this.jwtHelper.decodeToken(this.jwt.token);
     this.id = this.decodedJwt.id;
