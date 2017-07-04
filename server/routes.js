@@ -68,7 +68,7 @@ module.exports = function (app) {
     /**section HomePage*/
     router.get('/api/v1/home/houses', api_homeuserController.getHousesOnHomePage);
     router.get('/api/v1/home/house/:id', api_homeuserController.getHouseById);
-
+    router.get('/api/v1/detail/house/rooms/:id', api_roomController.GetRoomByIdHouse);
     /**Section User */
     router.post('/api/v1/user/login', api_userController.logIn);
     router.post('/api/v1/user/register', api_userController.register);
