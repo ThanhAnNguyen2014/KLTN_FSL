@@ -3,9 +3,9 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var HouseSchema = new Schema({
-    id_landord: { type: ObjectId },
+    id_landlord: { type: ObjectId },
     status: { type: String },
-    check_status: { type: Boolean }, // Admin check new post
+    check_status: { type: Boolean, default: true }, // Admin check new post
     longitude: { type: String },
     latitude: { type: String },
     id_ward: { type: ObjectId },
