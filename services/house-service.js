@@ -134,7 +134,7 @@ module.exports = {
     findHouseByIdLandlord: function (id, callback) {
         console.log(id);
         if (ObjectId.isValid(id)) {
-            Models.House.find({id_landord: id}, (err, docs) => {
+            Models.House.find({id_landlord: id}, (err, docs) => {
                 console.log(docs);
                 if (err) { return callback(err); }
                 if (docs.length > 0) {
