@@ -8,10 +8,10 @@
       <div class="clearfix"></div>
     </div>
     <ul>
-      <li><a href="explore.html"><span class="navIcon icon-compass"></span><span class="navLabel">Explore</span></a></li>
-      <li><a [routerLink]="['/details/profile']"><span class="navIcon icon-home"></span><span class="navLabel">Profile</span></a></li>
-      <li><a href="signin.html"><span class="navIcon icon-login"></span><span class="navLabel">Sign In</span></a></li>
-      <li><a href="signup.html"><span class="navIcon icon-note"></span><span class="navLabel">Sign Up</span></a></li>
+      <li><a [routerLink]="['/details/search-details']"><span class="navIcon icon-compass"></span><span class="navLabel">Search</span></a></li>
+      <li *ngIf='auth.loggedIn()'><a [routerLink]="['/details/profile']"><span class="navIcon icon-bag"></span><span class="navLabel">Profile</span></a></li>
+      <li *ngIf='!auth.loggedIn()'><a [routerLink]="['/details/profile']"><span class="navIcon icon-bag"></span><span class="navLabel">Log In</span></a></li>
+      <li *ngIf='auth.loggedIn()'><a [routerLink]="['/details/profile']"><span class="navIcon icon-power"></span><span class="navLabel">Log Out</span></a></li>
     </ul>
   </nav>
 </div>
