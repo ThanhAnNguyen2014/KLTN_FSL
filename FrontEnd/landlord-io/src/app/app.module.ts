@@ -25,6 +25,9 @@ import { DetailroomComponent } from "app/dashboard/managerooms/detailroom/detail
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 
+/**Import component and module of ng2-img-max fix size image*/
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyBdgpxShqNc5-cwvu9MPYk0b4ejHpSNnKY",
   authDomain: "fsl-io.firebaseapp.com",
@@ -52,7 +55,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    Ng2ImgMaxModule
   ],
 
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],

@@ -19,6 +19,9 @@ import { NavbarModule } from '../shared/navbar/navbar.module';
 import { FooterModule } from '../shared/footer/footer.module';
 import { SidebarModule } from '../sidebar/sidebar.module';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { AuthGuard } from '../Auth/guards/auth.guard';
+import { AuthenticationService } from '../Auth/services/authentication.service';
+
 
 
 const appRoutes: Routes = [
@@ -26,28 +29,17 @@ const appRoutes: Routes = [
     path: '', component: DashboardComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'infolandlord/profile/:id', component: ProfileComponent },
-      { path: 'infolandlord/changepass', component: ChangepassComponent },
-      { path: 'manageposts/newpost', component: NewpostComponent },
-      { path: 'manageposts/listhouse', component: ListhouseComponent },
-      { path: 'manageposts/detailhouse/:id', component: DetailhouseComponent },
-      { path: 'manageposts/edithouse/:id', component: EdithouseComponent },
-      { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
-      { path: 'managerooms/rooms', component: RoomsComponent },
-      { path: 'managerooms/roomdetail/:id', component: DetailroomComponent },
+      { path: 'infolandlord/profile', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'infolandlord/changepass', component: ChangepassComponent, canActivate: [AuthGuard] },
+      { path: 'manageposts/newpost', component: NewpostComponent, canActivate: [AuthGuard] },
+      { path: 'manageposts/listhouse', component: ListhouseComponent, canActivate: [AuthGuard] },
+      { path: 'manageposts/detailhouse/:id', component: DetailhouseComponent, canActivate: [AuthGuard] },
+      { path: 'manageposts/edithouse/:id', component: EdithouseComponent, canActivate: [AuthGuard] },
+      { path: 'managerooms/createroomtype', component: CreateroomtypeComponent, canActivate: [AuthGuard] },
+      { path: 'managerooms/rooms', component: RoomsComponent, canActivate: [AuthGuard] },
+      { path: 'managerooms/roomdetail/:id', component: DetailroomComponent, canActivate: [AuthGuard] },
     ]
   },
-  // { path: 'dashboard', component: HomeComponent },
-  // { path: 'infolandlord/profile/:id', component: ProfileComponent },
-  // { path: 'infolandlord/changepass', component: ChangepassComponent },
-  // { path: 'manageposts/newpost', component: NewpostComponent },
-  // { path: 'manageposts/listhouse', component:  ListhouseComponent},
-  // //{ path: 'manageposts/detailhouse', component: DetailhouseComponent },
-  // {path:'manageposts/detailhouse/:id', component:DetailhouseComponent},
-  // { path: 'manageposts/edithouse/:id', component:  EdithouseComponent},
-  // { path: 'managerooms/createroomtype', component: CreateroomtypeComponent },
-  // { path: 'managerooms/rooms', component: RoomsComponent },
-  // { path: 'managerooms/rooms/detail', component: DetailroomComponent },
 ]
 @NgModule({
   imports: [
@@ -74,6 +66,10 @@ const appRoutes: Routes = [
     EdithouseComponent,
     DetailroomComponent,
   ],
+  providers:[
+    AuthGuard,
+    AuthenticationService
+  ]
   // exports: [DashboardComponent]
 })
 export class DashboardModule { }

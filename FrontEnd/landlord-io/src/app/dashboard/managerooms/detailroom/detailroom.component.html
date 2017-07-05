@@ -144,6 +144,26 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <label class="col-md-2 label-on-right">Image:</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="fileinput fileinput-new text-center col-md-8 col-xs-offset-0" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="{{room?.room.image}}" alt="...">
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                    <div *ngIf="flagRoom">
+                                        <span class="btn btn-rose btn-round btn-file ">
+                                            <span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" name="image" (change)="fileChangeEvent($event)" />
+                                        </span>
+                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-7">
                                     <div class="form-group form-button">
                                         <button type="button" class="btn btn-fill btn-success" (click)="flagRoom=true"><i class="material-icons">mode_edit</i>Edit</button>

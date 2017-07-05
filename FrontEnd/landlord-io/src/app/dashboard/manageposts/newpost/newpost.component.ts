@@ -7,6 +7,7 @@ import { NgForm } from "@angular/forms";
 import * as firebase from 'firebase';
 import { FirebaseApp } from 'angularfire2';
 import { Observable } from 'rxjs';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 declare var $: any;
 declare var google;
 
@@ -14,7 +15,7 @@ declare var google;
  * Models
  */
 export class House {
-
+  id_landord: object;
   status: string;
   longitude: number;
   latitude: number;
@@ -41,6 +42,7 @@ export class Service_Price {
   providers: [NewpostService]
 })
 export class NewpostComponent implements OnInit, AfterViewInit {
+    urlarray: string;
 
   private _id: object;
   //private house: any;
@@ -51,7 +53,7 @@ export class NewpostComponent implements OnInit, AfterViewInit {
   public lat: number;
   public ad: string; // chứa giá trị address
 
-  url: any;
+  url = '';
   image: any;
   folder = 'images-house';
   files: File;
@@ -61,10 +63,10 @@ export class NewpostComponent implements OnInit, AfterViewInit {
   myLatLng: any;
 
   constructor( @Inject(FirebaseApp) firebaseApp: any,
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private newpostService: NewpostService,
-
+    private ng2ImgMaxService: Ng2ImgMaxService
   ) { }
 
   ngOnInit() {
@@ -77,7 +79,7 @@ export class NewpostComponent implements OnInit, AfterViewInit {
   }
 
   SaveForm(f: NgForm) {
-    console.log(f.value);
+    //console.log(f.value);
     this.house.service_price.electricity_price = f.value.electricity_price;
     this.house.service_price.water_price = f.value.water_price;
     this.house.service_price.internet_price = f.value.internet_price;
@@ -87,43 +89,80 @@ export class NewpostComponent implements OnInit, AfterViewInit {
     this.house.longitude = this.lng;
     this.house.address = this.ad;
     this.house.rate = 5;
-    console.log(this.house);
-    this.newpostService.Add(this.house).subscribe(response => {
+    this.house.id_landord = this.newpostService.id;
+    //console.log(this.house);
+    this.newpostService.Add(this.house).subscribe((response) => {
       if (response) {
         initNotifySuccess('Add success', 'success');
-        console.log(response);
+        //console.log(response);
         this.router.navigate(['/dashboard/manageposts/listhouse']);
       }
     })
 
   }
 
+  // fileChangeEvent2(fileInput: any) {
+  //   this.filesToUpload = <Array<File>>fileInput.target.files;
+  //   console.log(this.filesToUpload);
+  //   for (var index = 0; index < this.filesToUpload.length; index++) {
+  //     this.files = fileInput.target.files[index];
+  //     console.log(this.files);
+
+  //     var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
+  //       imgName = '';
+  //     for (var i = 0; i < 6; i += 1) {
+  //       imgName += possible.charAt(Math.floor(Math.random() * possible.length));
+  //     }
+  //     console.log(imgName);
+
+  //     let storageRef = firebase.storage().ref();
+  //     let path = `/${this.folder}/${imgName + ".jpg"}`;
+  //     let iRef = storageRef.child(path);
+  //     iRef.put(this.files).then((snapshot) => {
+  //       this.url = snapshot.downloadURL;
+  //       console.log(this.url);
+  //     });
+  //   }
+  // }
+
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
     console.log(this.filesToUpload);
+    let temp_path = '';
     for (var index = 0; index < this.filesToUpload.length; index++) {
-      this.files = fileInput.target.files[index];
-      console.log(this.files);
-
-      var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
-        imgUrl = '';
-      for (var i = 0; i < 6; i += 1) {
-        imgUrl += possible.charAt(Math.floor(Math.random() * possible.length));
-      }
-
-      let storageRef = firebase.storage().ref();
-      let path = `/${this.folder}/${imgUrl + ".jpg"}`;
-      let iRef = storageRef.child(path);
-      iRef.put(this.files).then((snapshot) => {
-        this.url = snapshot.downloadURL;
-        console.log(this.url);
+      this.ng2ImgMaxService.resize([this.filesToUpload[index]], 800, 450).subscribe((result) => {
+        var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
+          imgUrl = '';
+        for (var i = 0; i < 6; i += 1) {
+          imgUrl += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        //console.log(imgUrl);
+        let storageRef = firebase.storage().ref();
+        let path = `/${this.folder}/${imgUrl + ".jpg"}`;
+        let iRef = storageRef.child(path);
+        iRef.put(result).then((snapshot) => {
+          temp_path = snapshot.downloadURL;
+          //console.log(temp_path);
+          //this.url = temp_path;
+          //console.log(this.url);
+          this.url = temp_path;
+          
+          console.log(this.url);
+        });
+        setTimeout(()=>{
+          this.url += + ';';
+          console.log(this.url);
+        }, 1000)
       });
     }
+
   }
+
 
   initMap() {
     this.myLatLng = { lat: 10.850542, lng: 106.772242 };
-
+    (<HTMLInputElement>document.getElementById("lat")).value = this.myLatLng.lat;
+    (<HTMLInputElement>document.getElementById("lng")).value = this.myLatLng.lng;
     var map = new google.maps.Map(document.getElementById('mymap'), {
       zoom: 14,
       center: this.myLatLng
@@ -146,7 +185,7 @@ export class NewpostComponent implements OnInit, AfterViewInit {
       that.lng = this.getPosition().lng();
       (<HTMLInputElement>document.getElementById("lng")).value = this.getPosition().lng();
 
-      var temp_latlng={lat: that.lat, lng: that.lng};
+      var temp_latlng = { lat: that.lat, lng: that.lng };
       geocoder.geocode({ 'location': temp_latlng }, function (results, status) {
         if (status === 'OK') {
           if (results[1]) {

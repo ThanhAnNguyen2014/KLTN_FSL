@@ -111,7 +111,7 @@
                                                 <span class="btn btn-rose btn-round btn-file">
                                             <span class="fileinput-new">Select image</span>
                                                 <span class="fileinput-exists">Change</span>
-                                                <input type="file" name="image" (change)="fileChangeEvent($event)" />
+                                                <input type="file" name="image" multiple (change)="fileChangeEvent($event)" />
                                                 </span>
                                                 <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                             </div>
@@ -130,12 +130,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group label-floating  col-md-4 col-xs-6">
-                                            <label class="control-label">Longitude</label>
-                                            <input type="text" class="form-control" disabled name="longitude" id="lng">
-                                        </div>
-                                        <div class="form-group label-floating  col-md-4 col-xs-6">
                                             <label class="control-label">Latitude</label>
                                             <input type="text" class="form-control" disabled name="latitude" id="lat">
+                                        </div>
+                                        <div class="form-group label-floating  col-md-4 col-xs-6">
+                                            <label class="control-label">Longitude</label>
+                                            <input type="text" class="form-control" disabled name="longitude" id="lng">
                                         </div>
                                     </div>
 
