@@ -1,4 +1,5 @@
 export class House {
+    id_landlord: string;
     title: string;
     status: string;
     rate: number;

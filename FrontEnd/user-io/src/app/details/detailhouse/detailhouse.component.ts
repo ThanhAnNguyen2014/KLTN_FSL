@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DetailhouseService } from './detailhouse.service'
 import { Router, ActivatedRoute } from '@angular/router';
-import { House, ServicePrice } from './detailhouse'
+import { House, ServicePrice } from './detailhouse';
+import { ContactService } from './contact/contact.service';
 declare var $: any;
 declare var google;
 declare var InfoBox;
@@ -11,33 +12,43 @@ declare var InfoBox;
   selector: 'app-detailhouse',
   templateUrl: './detailhouse.component.html',
   styleUrls: ['./detailhouse.component.css'],
-  providers: [DetailhouseService]
+  providers: [DetailhouseService, ContactService]
 })
 export class DetailhouseComponent implements OnInit {
-
+  @ViewChild('contactChild') contactLandlord;
   public myLatLng: { lat: number; lng: number; };
+  public originLatLng: { lat: number; lng: number; };
   private id: any;
   // public house: House;
   // public serviceprice: ServicePrice;
   public house: any;
   public price_house_m: any;
-
+  public flagcheck: boolean;
+  public _originPlace = '';
+  public _destinationPlace = '';
+  // public autocomplete: string;
+  public rooms: any;
+  public numberRoom = 0;
+  public infolandlord: any;
   constructor(
     private detailhouseservice: DetailhouseService,
+    private contactsevice: ContactService,
     private router: Router,
     private activatedroute: ActivatedRoute,
 
   ) {
+
   }
 
   ngOnInit() {
-
+    this.flagcheck = true;
     $.getScript('../../../assets/js/app.js');
     this.activatedroute.params.subscribe(params => {
       this.id = params['id'];
-      console.log(this.id);
     });
     this.getHouse(this.id);
+
+    this.getAllRoom(this.id);
   }
 
   initMap() {
@@ -125,6 +136,7 @@ export class DetailhouseComponent implements OnInit {
   getHouse(id: object) {
     this.detailhouseservice.getHouseById(this.id).subscribe((res) => {
       this.house = res;
+      this.getInfoLandlord(this.house.id_landlord);
       this.initMap();
       console.log(this.house);
     },
@@ -134,5 +146,158 @@ export class DetailhouseComponent implements OnInit {
       () => { console.log('Load data success!'); }
     );
   }
+  getContact() {
+    this.contactLandlord.getInfoLandlord();
+  }
+  getInfoLandlord(id: object) {
+    this.contactsevice.getInfo(id).subscribe((res) => {
+      if (res.message) {
+        console.log(res.message);
+      }
+      else {
+        this.infolandlord = res.doc;
+      }
+    })
+  }
 
+  isSelected(value) {
+    this.flagcheck = value;
+    //let flag = (<HTMLInputElement>document.getElementById('location')).value;
+    // let a= (<HTMLInputElement>document.getElementById('autocomplete')).value;
+    console.log(this.flagcheck);
+
+  }
+  autocompleteFunction() {
+    var autocomplete;
+    //var geocoder = new google.maps.Geocoder;
+    autocomplete = new google.maps.places.Autocomplete((<HTMLInputElement>document.getElementById('inputcomplete')), { types: ['geocode'] });
+  }
+  direction() {
+    var that = this;
+    let _orign;
+    var geocoder = new google.maps.Geocoder;
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    let auto = (<HTMLInputElement>document.getElementById('inputcomplete')).value;
+    console.log(auto);
+    $('#directionForm').modal('hide');
+    if (this.flagcheck == true) {
+      var map = new google.maps.Map(document.getElementById('mapView'), {
+        center: this.myLatLng,
+        zoom: 16
+      });
+
+      // set map
+      directionsDisplay.setMap(map);
+      var infoWindow = new google.maps.InfoWindow;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          that.originLatLng = pos;
+          console.log(that.originLatLng);
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Location found.');
+          // get positon of origin
+          geocoder.geocode({ 'location': that.originLatLng }, function (results, status) {
+            if (status === 'OK') {
+              if (results[0]) {
+                that.originLatLng = results[0].formatted_address;
+                console.log(results[0].formatted_address);
+              } else {
+                window.alert('No results found');
+              }
+            }
+          });
+          // get destination
+          geocoder.geocode({ 'location': that.myLatLng }, function (results, status) {
+            if (status === 'OK') {
+              console.log(that.myLatLng);
+              console.log(results);
+              if (results[0]) {
+                that._destinationPlace = results[0].formatted_address;
+                // route 
+                directionsService.route({
+                  origin: that.originLatLng,
+                  destination: that._destinationPlace,
+                  travelMode: 'DRIVING',
+                }, function (response, status) {
+                  if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                    // console.log(directionsService.setDirections(response));
+                  }
+                });
+
+              } else {
+                window.alert('No results found');
+              }
+            }
+          });
+
+
+        }, function () {
+          infoWindow.setPosition(map.getCenter());
+          infoWindow.setContent(true ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+          //infoWindow.open(map);
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        infoWindow.setPosition(map.getCenter());
+        infoWindow.setContent(false ?
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    }
+    if (this.flagcheck == false && auto != null) {
+      var map = new google.maps.Map(document.getElementById('mapView'), {
+        center: this.myLatLng,
+        zoom: 16
+      });
+      directionsDisplay.setMap(map);
+      // get destination
+      geocoder.geocode({ 'location': that.myLatLng }, function (results, status) {
+        if (status === 'OK') {
+          console.log(that.myLatLng);
+          console.log(results);
+          if (results[0]) {
+            that._destinationPlace = results[0].formatted_address;
+            // route 
+            directionsService.route({
+              origin: auto,
+              destination: that._destinationPlace,
+              travelMode: 'DRIVING',
+            }, function (response, status) {
+              if (status === 'OK') {
+                directionsDisplay.setDirections(response);
+                // console.log(directionsService.setDirections(response));
+              }
+            });
+          } else {
+            window.alert('No results found');
+          }
+        }
+      });
+      console.log('------ autocomplete search----');
+    }
+
+
+  }
+  getAllRoom(id: object) {
+
+    this.detailhouseservice.getAllRoomByIdHouse(this.id).subscribe((res) => {
+      this.rooms = res;
+      console.log(this.rooms);
+      if (res === 'No Item in database!') {
+        this.numberRoom = 0;
+      } else {
+        this.numberRoom = this.rooms.length;
+      }
+    })
+  }
 }

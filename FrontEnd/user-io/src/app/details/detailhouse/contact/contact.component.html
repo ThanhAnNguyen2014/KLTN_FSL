@@ -1,36 +1,59 @@
 <div class="modal fade" id="contactLandlord" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <div class="modal-body">
-            <div class="pc-title osLight">Contact info</div>
-            <div class="row pb10">
-              <div class="col-xs-4"><strong>Phone</strong></div>
-              <div class="col-xs-8 align-right">(123) 456 789</div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" *ngIf="!info">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div class="modal-body">
+          <div class="windows8">
+            <div class="wBall" id="wBall_1">
+              <div class="wInnerBall"></div>
             </div>
-            <div class="row pb10">
-              <div class="col-xs-4"><strong>Mobile</strong></div>
-              <div class="col-xs-8 align-right">888 123 456 789</div>
+            <div class="wBall" id="wBall_2">
+              <div class="wInnerBall"></div>
             </div>
-            <div class="row pb10">
-              <div class="col-xs-4"><strong>Email</strong></div>
-              <div class="col-xs-8 align-right"><a href="mailto:#" class="text-green">john.smith@email.com</a></div>
+            <div class="wBall" id="wBall_3">
+              <div class="wInnerBall"></div>
             </div>
-            <div class="row pb10">
-              <div class="col-xs-4"><strong>Skype</strong></div>
-              <div class="col-xs-8 align-right">john.smith</div>
+            <div class="wBall" id="wBall_4">
+              <div class="wInnerBall"></div>
             </div>
-            <div class="pc-social"><a href="#" class="btn btn-icon btn-facebook"><span class="fa fa-facebook"></span></a>
-              <a href="#" class="btn btn-icon btn-twitter"><span class="fa fa-twitter"></span></a>
-              <a href="#" class="btn btn-icon btn-google"><span class="fa fa-google-plus"></span></a>
-              <a href="#" class="btn btn-icon btn-pinterest"><span class="fa fa-pinterest"></span></a>
+            <div class="wBall" id="wBall_5">
+              <div class="wInnerBall"></div>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-red">Đóng</a>
+      </div>
+
+      <div class="modal-header" *ngIf="info">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div class="modal-body">
+          <div class="pc-title osLight">Contact info</div>
+          <div class="row pb10">
+            <div class="col-xs-3"><strong>Name:</strong></div>
+            <div class="col-xs-9 align-right">{{info.firstname}} {{info.lastname}}</div>
+          </div>
+          <div class="row pb10">
+            <div class="col-xs-3"><strong>Phone:</strong></div>
+            <div class="col-xs-9 align-right">{{info.phone}}</div>
+          </div>
+          <div class="row pb10">
+            <div class="col-xs-3"><strong>Email:</strong></div>
+            <div class="col-xs-9 align-right"><a href="mailto:#" class="text-green">{{info.email}}</a></div>
+          </div>
+          <div class="row pb10">
+            <div class="col-xs-3"><strong>Address:</strong></div>
+            <div class="col-xs-9 align-right">{{info.address}}</div>
+          </div>
+          <div class="pc-social"><a href="#" class="btn btn-icon btn-facebook"><span class="fa fa-facebook"></span></a>
+            <a href="#" class="btn btn-icon btn-twitter"><span class="fa fa-twitter"></span></a>
+            <a href="#" class="btn btn-icon btn-google"><span class="fa fa-google-plus"></span></a>
+            <a href="#" class="btn btn-icon btn-pinterest"><span class="fa fa-pinterest"></span></a>
+          </div>
         </div>
+      </div> 
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-red">Đóng</a>
       </div>
     </div>
   </div>
+</div>

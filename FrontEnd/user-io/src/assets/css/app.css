@@ -5201,7 +5201,7 @@ body.black {
 .pac-container {
     background-color: #fff;
     position: absolute !important;
-    z-index: 1000;
+    z-index: 1050;
     border-radius: 2px;
     border-top: 1px solid #dfdfdf;
     border: 1px solid #dfdfdf;

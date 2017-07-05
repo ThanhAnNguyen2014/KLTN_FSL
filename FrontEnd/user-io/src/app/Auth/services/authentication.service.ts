@@ -81,4 +81,11 @@ export class AuthenticationService {
             return decodeJwt.firstname;
         }
     }
+    // getInfo(){
+    //     this.jwt=JSON.parse(localStorage.getItem('currentUser'));
+    //     if(this.jwt){
+    //         var decodeJwt= this.jwtHelper.decodeToken(this.jwt.token);
+
+    //     }
+    // }
 }

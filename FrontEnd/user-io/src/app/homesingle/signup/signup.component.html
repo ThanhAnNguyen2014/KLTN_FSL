@@ -6,17 +6,6 @@
       </div>
       <div class="modal-body">
         <form role="form" #f="ngForm" (ngSubmit)="f.form.valid && register()">
-          <div class="form-group">
-            <div class="btn-group-justified">
-              <a href="#" class="btn btn-lg btn-facebook"><span class="fa fa-facebook pull-left"></span>Sign Up with Facebook</a>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="btn-group-justified">
-              <a href="#" class="btn btn-lg btn-google"><span class="fa fa-google-plus pull-left"></span>Sign Up with Google</a>
-            </div>
-          </div>
-          <div class="signOr">OR</div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && firstname.errors }">
             <input type="text" placeholder="First Name" name="firstname" class="form-control" [(ngModel)]="user.firstname" #firstname="ngModel"
               required>
@@ -58,7 +47,7 @@
           </div>
           <div class="error" *ngIf="error">{{error}}</div>
           <div class="form-group">
-            <button class="btn-group-justified btn btn-lg btn-green" type="submit">Sign In</button>
+            <button class="btn-group-justified btn btn-lg btn-green" type="submit">Sign Up</button>
           </div>
           <p class="help-block">Already a FSL member? <a href="#" class="modal-si text-green">Sign In</a></p>
         </form>

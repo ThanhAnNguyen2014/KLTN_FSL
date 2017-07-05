@@ -12,26 +12,46 @@
     <span class="searchIcon icon-magnifier"></span>
     <input type="text" placeholder="Search for houses, apartments...">
   </div>
-  <div class="headerUserWraper">
+  <div class="headerUserWraper" *ngIf='!auth.loggedIn()'>
     <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span><span class="counter">5</span></a>
     <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
-      <img class="avatar headerAvatar pull-left" src="./assets/images/avatar-1.jpg" alt="avatar">
+      <img class="avatar headerAvatar pull-left" src="./assets/images/avatar-user.png" alt="avatar">
       <div class="userTop pull-left">
-        <span class="headerUserName">Hoàng Kim Ngân</span> <span class="fa fa-angle-down"></span>
+        <span class="headerUserName">User</span> <span class="fa fa-angle-down"></span>
       </div>
       <div class="clearfix"></div>
     </a>
     <div class="dropdown-menu pull-right userMenu" role="menu">
       <div class="mobAvatar">
-        <img class="avatar mobAvatarImg" src="./assets/images/avatar-1.jpg" alt="avatar">
-        <div class="mobAvatarName">Hoàng Kim Ngân</div>
+        <img class="avatar mobAvatarImg" src="./assets/images/avatar-user.png" alt="avatar">
+        <div class="mobAvatarName">User</div>
       </div>
       <ul>
-        <li><a href="#"><span class="icon-settings"></span>Settings</a></li>
+        <li><a href="#"><span class="icon-login"></span>Đăng nhập</a></li>
+        <li><a href="#"><span class="icon-pencil"></span>Đăng ký</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="headerUserWraper" *ngIf='auth.loggedIn()'>
+    <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span><span class="counter">5</span></a>
+    <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
+      <img class="avatar headerAvatar pull-left" src="{{user?.image}}" alt="avatar">
+      <div class="userTop pull-left">
+        <span class="headerUserName">{{user?.firstname}} {{user?.lastname}}</span> <span class="fa fa-angle-down"></span>
+      </div>
+      <div class="clearfix"></div>
+    </a>
+    <div class="dropdown-menu pull-right userMenu" role="menu">
+      <div class="mobAvatar">
+        <img class="avatar mobAvatarImg" src="{{user?.image}}" alt="avatar">
+        <div class="mobAvatarName">{{user?.firstname}} {{user?.lastname}}</div>
+      </div>
+      <ul>
         <li><a [routerLink]="['/details/profile']"><span class="icon-user"></span>Profile</a></li>
         <li><a href="#"><span class="icon-bell"></span>Notifications <span class="badge pull-right bg-red">5</span></a></li>
         <li class="divider"></li>
-        <li><a href="#"><span class="icon-power"></span>Logout</a></li>
+        <li><a href="#" (click)="auth.logout()"><span class="icon-power"></span>Logout</a></li>
       </ul>
     </div>
   </div>
