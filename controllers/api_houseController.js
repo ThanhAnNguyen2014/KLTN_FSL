@@ -143,7 +143,7 @@ module.exports = {
                     }
                 });
             }
-            if(results){
+            if (results) {
                 return res.status(200).json({
                     code: res.statusCode,
                     results: {
@@ -152,7 +152,7 @@ module.exports = {
                     }
                 });
             }
-            else{
+            else {
                 return res.status(200).json({
                     code: res.statusCode,
                     results: {
@@ -160,8 +160,59 @@ module.exports = {
                         doc: null
                     }
                 });
-            }            
+            }
+        });
+    },
+    rating: function (req, res) {
+        if (req.userId.id == undefined) {
+            return res.status(401).json({
+                code: res.statusCode,
+                results: {
+                    message: 'Please, you are not logged in',
+                    doc: null
+                }
+            });
+        }
+        var content = {
+            id_house: req.body.id_house,
+            id_user: req.userId.id,
+            value: req.body.value
+        }
+        houseService.rateHouse(content, (err, result) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: {
+                        status: false,
+                        data: null
+                    }
+                }
+            })
+            if (result) {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: {
+                            status: false,
+                            data: result
+                        }
+                    }
+                });
+            }
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: {
+                            status: true,
+                            data: null
+                        }
+                    }
+                });
+            }
         });
     }
-
 }

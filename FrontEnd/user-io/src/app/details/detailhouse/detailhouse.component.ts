@@ -291,11 +291,12 @@ export class DetailhouseComponent implements OnInit {
   getAllRoom(id: object) {
 
     this.detailhouseservice.getAllRoomByIdHouse(this.id).subscribe((res) => {
-      this.rooms = res;
-      console.log(this.rooms);
+
       if (res === 'No Item in database!') {
         this.numberRoom = 0;
+        this.rooms = null;
       } else {
+        this.rooms = res;
         this.numberRoom = this.rooms.length;
       }
     })

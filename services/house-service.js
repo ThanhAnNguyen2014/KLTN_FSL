@@ -134,13 +134,13 @@ module.exports = {
     findHouseByIdLandlord: function (id, callback) {
         console.log(id);
         if (ObjectId.isValid(id)) {
-            Models.House.find({id_landlord: id}, (err, docs) => {
+            Models.House.find({ id_landlord: id }, (err, docs) => {
                 console.log(docs);
                 if (err) { return callback(err); }
                 if (docs.length > 0) {
                     return callback(null, docs);
                 }
-                else{
+                else {
                     return callback(null, null);
                 }
             });
@@ -148,5 +148,45 @@ module.exports = {
         else {
             return callback('Invalid ObjectId')
         }
+    },
+    rateHouse: function (content, callback) {
+        var newvalue = new Models.Rating(content);
+        // Check user rating house
+        //If not for rating, if the error message
+        var id_user = content.id_user;
+        var id_house = content.id_house;
+        console.log(id_user);
+        Models.Rating.findOne({ id_user: id_user, id_house: id_house }, (err, user) => {
+            if (err) return callback(err);
+            if (user) {
+                return callback(null, 'Users have rated');
+            }
+            else {
+                newvalue.save((err, doc) => {
+                    if (err) { return callback(err); }
+                    Models.Rating.find({ id_house: doc.id_house }, (err, docs) => {
+                        if (err) callback(err);
+                        var quantity = docs.length;
+                        var sum = 0;
+                        docs.forEach(function (item) {
+                            sum = sum + item.value;
+                        });
+                        var rate = sum / quantity;
+                        console.log(rate);
+                        // update rating of model house
+                        Models.House.findById({ _id: doc.id_house }, (err, house) => {
+                            if (err) {
+                                return callback(err);
+                            }
+                            house.rate = rate;
+                            house.save((err) => {
+                                if (err) return callback(err);
+                                return callback(null, null);
+                            });
+                        });
+                    });
+                });
+            }
+        })
     }
 }

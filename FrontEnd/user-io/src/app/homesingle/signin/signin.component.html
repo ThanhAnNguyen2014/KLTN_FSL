@@ -18,7 +18,7 @@
           </div>
           <div class="signOr"><strong>OR</strong></div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <input type="text" placeholder="Email Address" name="username" class="form-control" [(ngModel)]="user.username" #username="ngModel"
+            <input type="text" placeholder="Username" name="username" class="form-control" [(ngModel)]="user.username" #username="ngModel"
               required>
             <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
           </div>

@@ -81,7 +81,7 @@ module.exports = function (app) {
     router.get('/api/v1/user/verify/verify-account/', api_userController.verifyEmail);
 
     router.get('/api/v1/house/detail/contact/:id', api_homeuserController.getContact);
-
+    router.post('/api/v1/house/detail/rating', ensureAuthenticatedUser,api_houseController.rating);
 
 
     // section admin

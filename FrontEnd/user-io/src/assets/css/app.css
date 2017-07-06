@@ -6292,11 +6292,13 @@ blockquote {
         -o-transition: none;
         transition: none;
     }
+
     .no-touch .logo a:hover span.marker,
     .no-touch .logo.expanded a:hover span.marker {
         color: rgba(255, 255, 255, 1);
         top: 10px;
     }
+ 
     .logo a span.logoText,
     .logo.expanded a span.logoText {
         top: 14px;
