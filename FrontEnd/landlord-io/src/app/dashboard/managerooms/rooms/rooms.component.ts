@@ -45,7 +45,6 @@ export class RoomsComponent implements OnInit {
 
   ngOnInit() {
     this.newroom = {};
-   
   }
 
   CreateRoom() {
@@ -73,7 +72,7 @@ export class RoomsComponent implements OnInit {
     this.LoadSingleRoomType(this.newroom.id_roomtype);
     this.newroom = {};
     initNotifySuccess('Add success', 'success');
-    //this.LoadTable();
+    this.LoadTablebyId2();
   }
 
   LoadTablebyId() {
@@ -82,6 +81,16 @@ export class RoomsComponent implements OnInit {
     this.roomsservice.GetListRoom(this.loadhousebyid).subscribe((response: any) => {
       this.rooms = response;
       $.getScript('../../../../assets/js/init/initDataTable.js');
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  LoadTablebyId2() {
+    this.loadhousebyid = this.loadhousebyid;
+    console.log('bbbbbb' + this.loadhousebyid);
+    this.roomsservice.GetListRoom(this.loadhousebyid).subscribe((response: any) => {
+      this.rooms = response;
     }, error => {
       console.log(error);
     });

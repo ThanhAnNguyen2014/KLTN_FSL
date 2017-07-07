@@ -27,6 +27,7 @@ import { AngularFireModule } from 'angularfire2';
 
 /**Import component and module of ng2-img-max fix size image*/
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { SignupComponent } from './signup/signup.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBdgpxShqNc5-cwvu9MPYk0b4ejHpSNnKY",
@@ -43,12 +44,14 @@ const appRoutes: Routes = [
     loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
   },
   { path: '', component: LoginComponent , pathMatch:'full'},
+  { path: 'register', component: SignupComponent},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
