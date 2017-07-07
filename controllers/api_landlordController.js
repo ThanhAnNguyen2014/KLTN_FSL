@@ -430,10 +430,9 @@ module.exports = {
                                     message: 'Your account is now verified. Congratulations!',
                                     doc: result
                                 }
-                            });
-                            
+                            });                         
                         })
-                        res.redirect('http://localhost:4300/');
+                        return res.redirect('http://localhost:4300/');
                     }
                     else {
                         return res.status(404).json({
