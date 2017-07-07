@@ -431,7 +431,9 @@ module.exports = {
                                     doc: result
                                 }
                             });
+                            
                         })
+                        res.redirect('http://google.com.vn');
                     }
                     else {
                         return res.status(404).json({
