@@ -433,7 +433,7 @@ module.exports = {
                             });
                             
                         })
-                        res.redirect('http://google.com.vn');
+                        res.redirect('http://localhost:4300/');
                     }
                     else {
                         return res.status(404).json({
