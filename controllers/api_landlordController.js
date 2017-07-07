@@ -424,15 +424,16 @@ module.exports = {
                                     }
                                 });
                             }
-                            return res.status(200).json({
-                                code: res.statusCode,
-                                results: {
-                                    message: 'Your account is now verified. Congratulations!',
-                                    doc: result
-                                }
-                            });                         
+                            // return res.status(200).json({
+                            //     code: res.statusCode,
+                            //     results: {
+                            //         message: 'Your account is now verified. Congratulations!',
+                            //         doc: result
+                            //     }
+                            // });        
+                            return res.redirect('http://localhost:4300/');                 
                         })
-                        return res.redirect('http://localhost:4300/');
+                        //return res.redirect('http://localhost:4300/');
                     }
                     else {
                         return res.status(404).json({
