@@ -80,15 +80,15 @@ module.exports = {
                 }
                 console.log('Message %s sent: %s', info.messageId, info.response);
             });
-            // return res.status(200).json({
-            //     code: res.statusCode,
-            //     results: {
-            //         message: 'You have successfully registered. You need to verify the email to use the account',
-            //         doc: null,
-            //         url: config.urlVerifyAccount_User + token
-            //     }
-            // });
-            return res.redirect('http://localhost:4200');
+            return res.status(200).json({
+                code: res.statusCode,
+                results: {
+                    message: 'You have successfully registered. You need to verify the email to use the account',
+                    doc: null,
+                    url: config.urlVerifyAccount_User + token
+                }
+            });
+            
         });
     },
     /**update User */
@@ -403,7 +403,7 @@ module.exports = {
                                     }
                                 });
                             }
-                            return res.redirect('http://localhost:4300/');
+                            return res.redirect('http://localhost:4200/');
                         })
                     }
                     else {
