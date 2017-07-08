@@ -157,7 +157,6 @@ module.exports = {
         //If not for rating, if the error message
         var id_user = content.id_user;
         var id_house = content.id_house;
-        console.log(id_user);
         Models.Rating.findOne({ id_user: id_user, id_house: id_house }, (err, user) => {
             if (err) return callback(err);
             if (user) {
@@ -174,6 +173,8 @@ module.exports = {
                             sum = sum + item.value;
                         });
                         var rate = sum / quantity;
+                        console.log(quantity);
+                        console.log(sum);
                         console.log(rate);
                         // update rating of model house
                         Models.House.findById({ _id: doc.id_house }, (err, house) => {
