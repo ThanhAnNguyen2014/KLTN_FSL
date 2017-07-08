@@ -19,12 +19,6 @@ export class ProfileService {
     this.decodedJwt = this.jwtHelper.decodeToken(this.jwt.token);
     this.id = this.decodedJwt.id;
     this.token = this.jwt.token;
-    // console.log(this.decodedJwt);
-    // console.log(
-    //   this.jwtHelper.decodeToken(this.jwt),
-    //   this.jwtHelper.getTokenExpirationDate(this.jwt),
-    //   this.jwtHelper.isTokenExpired(this.jwt) // check token
-    // );
   }
 
   getUsers(): Observable<any> {

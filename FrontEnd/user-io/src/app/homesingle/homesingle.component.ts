@@ -12,6 +12,9 @@ export class HomesingleComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     $.getScript('../../../assets/js/app.js');
+    setTimeout(() => {
+      $('body').addClass('no-hidden');
+    }, 0)
   }
   ngAfterViewInit(){
     

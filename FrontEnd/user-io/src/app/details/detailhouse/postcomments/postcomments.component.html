@@ -1,0 +1,39 @@
+<div class="commentsFormWrapper" *ngIf='auth.loggedIn()'>
+  <div class="cfAvatar">
+    <img class="avatar" src="{{image}}" alt="avatar">
+  </div>
+  <form class="commentsForm" #f="ngForm" (ngSubmit)="OnSubmit(f)">
+    <div class="input-group">
+      <input type="text" class="form-control" name="comment" placeholder="Góp ý của bạn..." [(ngModel)]='comment' required>
+      <span class="input-group-btn"><a class="btn btn-green" type="submit" (click)='OnSubmit(f)'>Bình luận</a></span>
+    </div>
+  </form>
+  <div class="clearfix"></div>
+</div>
+
+<div class="commentsFormWrapper" *ngIf='!auth.loggedIn()'>
+  <div class="commentsForm" style="padding: 20px">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Góp ý của bạn...">
+      <span class="input-group-btn"><a class="btn btn-green" data-toggle="modal" href="#commentModal">Bình luận</a></span>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div *ngIf='!auth.loggedIn()' class="modal fade" id="commentModal" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="contactLabel">Chú ý!</h4>
+      </div>
+      <div class="modal-body">
+        <h4 style="text-align: center">Bạn cần đăng nhập để sử dụng tính năng này</h4>
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Đóng</a>
+      </div>
+    </div>
+  </div>
+</div>

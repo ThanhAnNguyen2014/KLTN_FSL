@@ -1,0 +1,28 @@
+<div class="comments">
+  <div class="comment">
+    <h3><span>{{totalComments}}</span> Bình luận</h3>
+  </div>
+  <div class="comment" *ngFor='let comment of comments' [ngClass]="{reply: isActive(comment)}" scrolling="yes">
+    <div class="commentAvatar">
+      <img class="avatar" src="{{comment.id_user.image}}" alt="avatar">
+      <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
+    </div>
+    <div class="commentContent">
+      <div class="commentName">{{comment.id_user.firstname}} {{comment.id_user.lastname}}</div>
+      <div class="commentBody">
+        {{comment.comment}}
+      </div>
+      <div class="commentActions">
+        <div class="commentTime"><span class="icon-clock"></span> {{comment.timestamp | amTimeAgo}}</div>
+        <ul *ngIf='!isActive(comment)'>
+        </ul>
+        <ul *ngIf='isActive(comment)'>
+          <li><a href="javascript:void(0)" (click)='deleteComment(comment._id)'><span class="fa fa-trash-o"></span></a></li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  
+</div>

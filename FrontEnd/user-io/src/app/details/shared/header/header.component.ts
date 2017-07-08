@@ -14,12 +14,12 @@ export class HeaderComponent implements OnInit {
   constructor(private auth: AuthenticationService, private headersevice: HeaderService) { }
 
   ngOnInit() {
-    var token= localStorage.getItem('currentUser');
-    if(token){
+    var token = localStorage.getItem('currentUser');
+    if (token) {
       this.getInfo();
     }
-    else{
-      this.user=null;
+    else {
+      this.user = null;
     }
   }
   getInfo() {
@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
           console.log(res.message);
         }
         else {
-          console.log(res.doc);
           this.user = res.doc;
         }
       }

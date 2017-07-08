@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DetailhouseService } from './detailhouse.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { House, ServicePrice } from './detailhouse';
 import { ContactService } from './contact/contact.service';
+import { AuthenticationService } from '../../Auth/services/authentication.service';
 declare var $: any;
 declare var google;
 declare var InfoBox;
@@ -15,42 +16,40 @@ declare var InfoBox;
   providers: [DetailhouseService, ContactService]
 })
 export class DetailhouseComponent implements OnInit {
+
   @ViewChild('contactChild') contactLandlord;
+  @ViewChild('comment') comment;
   public myLatLng: { lat: number; lng: number; };
   public originLatLng: { lat: number; lng: number; };
   private id: any;
-  // public house: House;
-  // public serviceprice: ServicePrice;
   public house: any;
+  public imageSlide = [];
   public price_house_m: any;
   public flagcheck: boolean;
   public _originPlace = '';
   public _destinationPlace = '';
-  // public autocomplete: string;
   public rooms: any;
   public numberRoom = 0;
   public infolandlord: any;
+
   constructor(
     private detailhouseservice: DetailhouseService,
     private contactsevice: ContactService,
     private router: Router,
     private activatedroute: ActivatedRoute,
-
-  ) {
-
-  }
+    private auth: AuthenticationService
+  ) { }
 
   ngOnInit() {
-    this.flagcheck = true;
     $.getScript('../../../assets/js/app.js');
+    this.flagcheck = true;
     this.activatedroute.params.subscribe(params => {
       this.id = params['id'];
     });
     this.getHouse(this.id);
-
     this.getAllRoom(this.id);
-  }
 
+  }
   initMap() {
     this.myLatLng = { lat: parseFloat(this.house.latitude), lng: parseFloat(this.house.longitude) }
     this.price_house_m = (this.house.price).toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -68,8 +67,7 @@ export class DetailhouseComponent implements OnInit {
       boxStyle: {
         background: "url('../../../assets/images/infobox-bg.png') no-repeat",
         opacity: 1,
-        width: "202px",
-        height: "245px"
+        width: "202px"
       },
       closeBoxMargin: "28px 26px 0px 0px",
       closeBoxURL: "",
@@ -105,17 +103,6 @@ export class DetailhouseComponent implements OnInit {
       '<div class="propTitle">' + this.house.title + '</div>' +
       '<div class="propAddress">' + this.house.address + '</div>' +
       '</div>' +
-      '<div class="propRating">' +
-      '<span class="fa fa-star"></span>' +
-      '<span class="fa fa-star"></span>' +
-      '<span class="fa fa-star"></span>' +
-      '<span class="fa fa-star"></span>' +
-      '<span class="fa fa-star-o"></span>' +
-      '</div>' +
-      '<ul class="propFeat">' +
-      '<li><span class="icon-drop"></span> ' + '3' + '</li>' +
-      '<li><span class="icon-frame"></span> ' + '2640' + '</li>' +
-      '</ul>' +
       '<div class="clearfix"></div>' +
       '<div class="infoButtons">' +
       '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' +
@@ -138,7 +125,9 @@ export class DetailhouseComponent implements OnInit {
       this.house = res;
       this.getInfoLandlord(this.house.id_landlord);
       this.initMap();
-      console.log(this.house);
+      this.imageSlide = this.house.image.split(';');
+      this.imageSlide.splice(this.imageSlide.length - 1, 1);
+
     },
       (err) => {
         console.log('Error: ' + err)
@@ -159,13 +148,9 @@ export class DetailhouseComponent implements OnInit {
       }
     })
   }
-
   isSelected(value) {
     this.flagcheck = value;
-    //let flag = (<HTMLInputElement>document.getElementById('location')).value;
-    // let a= (<HTMLInputElement>document.getElementById('autocomplete')).value;
     console.log(this.flagcheck);
-
   }
   autocompleteFunction() {
     var autocomplete;
@@ -300,5 +285,8 @@ export class DetailhouseComponent implements OnInit {
         this.numberRoom = this.rooms.length;
       }
     })
+  }
+  isActive(url: string) {
+    return url === this.imageSlide[0];
   }
 }

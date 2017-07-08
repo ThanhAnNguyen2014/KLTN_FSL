@@ -11,16 +11,16 @@ var UserSchema = new Schema({
     password: { type: String }, // passworld of user 
     address: { type: String }, // address of userx
     phone: { type: String }, // phone number of user
-    gender: { type: Boolean }, // gender of user (male of female)
+    gender: { type: Boolean, default: false }, // gender of user (male of female)
     identitycard: { type: String },
-    birthday: { type: Date }, // brithday of user
-    image: { type: String },//image of user
+    birthday: { type: Date, default: Date.now() }, // brithday of user
+    image: { type: String, default: './assets/images/avatar-user.png' },//image of user
     id_facebook: { type: String }, // id account facebook of user if user login with facebook
     id_google: { type: String },
     create_date: { type: Date, 'default': Date.now() }, // create day current of user
     status: { type: Boolean, 'default': true }, // check status of user
-    active: {type: Boolean, default: false},
-    tokenjwt:{type: String, default: null},
+    active: { type: Boolean, default: false },
+    tokenjwt: { type: String, default: null },
 });
 var User = module.exports = mongoose.model('User', UserSchema);
 

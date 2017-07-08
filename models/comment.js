@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var CommentSchema = new Schema({
-    id_user: { type: ObjectId }, // linking to id of User table
+    id_user: { type: ObjectId, ref:'User' }, // linking to id of User table
     id_house: { type: ObjectId }, // linking to id of House table
     comment: { type: String }, // content comment
     timestamp: { type: Date, 'default': Date.now },

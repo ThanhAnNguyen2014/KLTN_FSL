@@ -702,14 +702,14 @@
     });
 
     //Enable swiping
-    $(".carousel-inner").swipe({
-        swipeLeft: function (event, direction, distance, duration, fingerCount) {
-            $(this).parent().carousel('next');
-        },
-        swipeRight: function () {
-            $(this).parent().carousel('prev');
-        }
-    });
+    // $(".carousel-inner").swipe({
+    //     swipeLeft: function (event, direction, distance, duration, fingerCount) {
+    //         $(this).parent().carousel('next');
+    //     },
+    //     swipeRight: function () {
+    //         $(this).parent().carousel('prev');
+    //     }
+    // });
 
     $('.modal-su').click(function () {
         $('#signin').modal('hide');

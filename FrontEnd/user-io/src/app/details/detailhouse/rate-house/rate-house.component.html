@@ -9,19 +9,37 @@
         <form role="form" #f="ngForm" (ngSubmit)="OnSubmit(f)">
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cfItem" style="margin-bottom: 10px">
-
               <div class="row">
                 <star-rating-comp [size]="'large'" [rating]="rate" [staticColor]="'ok'" [starType]="'icon'" [labelVisible]="true" [labelPosition]="'bottom'"
-                  (onRatingChange)="onRatingChange($event)"
-                  [labelText]="labeltext"></star-rating-comp>
+                  (onRatingChange)="onRatingChange($event)" [labelText]="labeltext"></star-rating-comp>
               </div>
             </div>
           </div>
         </form>
+        <div class="row">
+          <h4 style="text-align: center">{{message}}</h4>
+        </div>
       </div>
       <div class="modal-footer">
         <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Đóng</a>
         <button class="btn btn-round btn-green" type="submit" (click)='OnSubmit(f)'>Gửi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ratingFormWanring" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="contactLabel">Chú ý!</h4>
+      </div>
+      <div class="modal-body">
+        <h4 style="text-align: center">Bạn cần đăng nhập để sử dụng tính năng này</h4>
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Đóng</a>
       </div>
     </div>
   </div>

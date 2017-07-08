@@ -1,21 +1,34 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven } from "angular-star-rating/src/star-rating-struct";
+import { RateHouseService } from './rate-house.service';
+
+declare var $: any;
 @Component({
   selector: 'app-rate-house',
   templateUrl: './rate-house.component.html',
   styleUrls: ['./rate-house.component.css'],
+  providers: [RateHouseService]
 })
 export class RateHouseComponent implements OnInit {
-
+  public id;
   private rate: number;
   private labeltext: string;
   onRatingChangeResult: IStarRatingOnRatingChangeEven;
-  constructor() {
+  private message: string;
+  constructor(
+    private rateSevice: RateHouseService,
+    private router: Router,
+    private activatedroute: ActivatedRoute
+  ) {
     this.rate = 4;
   }
 
   ngOnInit() {
+    this.activatedroute.params.subscribe(params => {
+      this.id = params['id'];
+    });
   }
 
   onRatingChange = ($event: IStarRatingOnRatingChangeEven) => {
@@ -37,7 +50,16 @@ export class RateHouseComponent implements OnInit {
     }
   };
   OnSubmit(f: NgForm) {
-    f.value.rating = this.onRatingChangeResult.rating;
-    console.log(f.value);
+    f.value.rate = this.onRatingChangeResult.rating;
+    f.value.id_house = this.id;
+    this.rateSevice.postRating(f.value).subscribe((res) => {
+      if (res.doc.status) {
+        this.message = 'Cảm ơn bạn đã đánh giá thông tin chúng tôi cung cấp'
+      }
+      else {
+        this.message = 'Bạn chỉ được đánh giá một lần!'
+      }
+      //$('#ratingForm').modal('hide');
+    })
   }
 }

@@ -9,15 +9,15 @@ var LandlordSchema = new Schema({
     password: { type: String }, // passworld of user 
     address: { type: String }, // address of userx
     phone: { type: String }, // phone number of user
-    gender: { type: Boolean }, // gender of user (male of female)
-    birthday: { type: Date }, // brithday of user
+    gender: { type: Boolean, default: false }, // gender of user (male of female)
+    birthday: { type: Date, default: Date.now() }, // brithday of user
     identitycard: { type: String },
-    image: { type: String },//image of user
-    id_facebook: { type: String , default: null}, // id account facebook of user if user login with facebook
-    id_google: { type: String , default: null},
+    image: { type: String, default: './assets/images/avatar-user.png' },//image of user
+    id_facebook: { type: String, default: null }, // id account facebook of user if user login with facebook
+    id_google: { type: String, default: null },
     create_date: { type: Date, default: Date.now() }, // create day current of user
     status: { type: Boolean, default: true }, // check status of user
-    active: {type: Boolean, default: false},
-    tokenjwt:{type: String, default: null},
-}); 
+    active: { type: Boolean, default: false },
+    tokenjwt: { type: String, default: null },
+});
 var Landlord = module.exports = mongoose.model('Landlord', LandlordSchema);

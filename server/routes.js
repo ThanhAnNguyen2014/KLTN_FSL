@@ -81,8 +81,10 @@ module.exports = function (app) {
     router.get('/api/v1/user/verify/verify-account/', api_userController.verifyEmail);
 
     router.get('/api/v1/house/detail/contact/:id', api_homeuserController.getContact);
-    router.post('/api/v1/house/detail/rating', ensureAuthenticatedUser,api_houseController.rating);
-
+    router.post('/api/v1/house/detail/rating', ensureAuthenticatedUser, api_houseController.rating);
+    router.post('/api/v1/house/detail/comment', ensureAuthenticatedUser, api_houseController.comment);
+    router.get('/api/v1/house/detail/:id_house/comment', api_houseController.getComment);
+    router.delete('/api/v1/house/detail/comment/:id', ensureAuthenticatedUser, api_houseController.deleteComment);
 
     // section admin
     router.get('/admin/login', adminController.get_login);
@@ -155,7 +157,6 @@ module.exports = function (app) {
             });
         }
     }
-
     /**Authentication User  */
     function ensureAuthenticatedUser(req, res, callback) {
         // (req.headers && req.headers.authorization && req.headers.authorizition.split(' ')[0] === 'JWT'

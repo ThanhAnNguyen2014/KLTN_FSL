@@ -32,6 +32,5 @@ export class HeaderService {
       // get users from api
       return this.http.get(this.url + 'api/v1/user/' + this.id, options).map((res) => res.json().results);
     }
-
   }
 }

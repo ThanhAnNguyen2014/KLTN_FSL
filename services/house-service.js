@@ -47,7 +47,10 @@ module.exports = {
             Models.House.findByIdAndRemove(id, function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
-                    return callback(null, 'Delete success!');
+                    Models.Comment.remove({ id_house: id }, (err) => {
+                        if (err) { return callback(err); }
+                        return callback(null, 'Delete success!');
+                    });
                 }
                 else {
                     return callback(null, 'Not find House Object');
@@ -132,7 +135,6 @@ module.exports = {
         });
     },
     findHouseByIdLandlord: function (id, callback) {
-        console.log(id);
         if (ObjectId.isValid(id)) {
             Models.House.find({ id_landlord: id }, (err, docs) => {
                 console.log(docs);
@@ -188,5 +190,55 @@ module.exports = {
                 });
             }
         })
+    },
+    findAllCommentbById: function (id, callback) {
+        if (ObjectId.isValid(id)) {
+            Models.Comment.find({ id_house: id }, {}, { sort: { 'timestamp': -1 } }, (err, docs) => {
+                if (err) { return callback(err); }
+                return callback(null, docs);
+            }).populate('id_user', 'image firstname lastname username ');
+        }
+        else {
+            return callback('Invalid ObjectId');
+        }
+    },
+    comment: function (content, callback) {
+        var id_house = content.id_house;
+        if (ObjectId.isValid(id_house)) {
+            // find house
+            Models.House.findOne({ _id: id_house }, (err, doc) => {
+                if (!err, doc) {
+                    var newComment = new Models.Comment(content);
+                    newComment.save((err, comment) => {
+                        if (err) { return callback(err); }
+                        return callback(null, null);
+                    });
+                }
+            });
+        } else {
+            return callback('Invalid ObjectId');
+        }
+
+    },
+    removeComment: function (id, callback) {
+        if (ObjectId.isValid(id)) {
+            Models.Comment.findOne({ '_id': id }, (err, doc) => {
+                if (err) { return callback(err); }
+                if (doc) {
+                    doc.remove((err) => {
+                        if (err) { return callback(err); }
+                        return callback(null, 'Deleted comment success!');
+                    });
+                }
+                else {
+                    return callback(null, null)
+                }
+            });
+        }
+        else {
+            return callback('Invalid ObjectId');
+        }
     }
+
+
 }

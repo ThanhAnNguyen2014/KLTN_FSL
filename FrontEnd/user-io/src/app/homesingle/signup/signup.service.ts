@@ -13,6 +13,7 @@ export class SignupService {
       user.firstname == undefined ||
       user.lastname == undefined ||
       user.email == undefined ||
+      user.phone == undefined ||
       user.password == undefined ||
       user.passwordconfirm == undefined) {
       return false;

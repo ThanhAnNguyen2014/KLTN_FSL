@@ -176,7 +176,7 @@ module.exports = {
         var content = {
             id_house: req.body.id_house,
             id_user: req.userId.id,
-            value: req.body.value
+            value: req.body.rate
         }
         houseService.rateHouse(content, (err, result) => {
             if (err) return res.status(500).json({
@@ -214,5 +214,101 @@ module.exports = {
                 });
             }
         });
+    },
+    comment: function (req, res) {
+        // check login 
+        if (req.userId.id == undefined) {
+            return res.status(401).json({
+                code: res.statusCode,
+                results: {
+                    message: 'Please, you are not logged in',
+                    doc: null
+                }
+            });
+        }
+        // find house
+        var objectComment = {
+            id_house: req.body.id_house,
+            id_user: req.userId.id,
+            comment: req.body.comment
+        }
+        houseService.comment(objectComment, (err, result) => {
+            if (err) {
+                return res.status(500).json({
+                    code: res.statusCode,
+                    results: {
+                        message: err,
+                        doc: null
+                    }
+                });
+            }
+            return res.status(200).json({
+                code: res.statusCode,
+                results: {
+                    message: null,
+                    doc: 'Comment complete!'
+                }
+            });
+        });
+
+    },
+    getComment: function (req, res) {
+        var id_house = req.params.id_house;
+        console.log(id_house);
+        houseService.findAllCommentbById(id_house, (err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    code: res.statusCode,
+                    results: {
+                        message: err,
+                        doc: null
+                    }
+                });
+            }
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: results
+                    }
+                });
+            }
+        });
+    },
+    deleteComment: function (req, res) {
+       // var id_house = req.params.id_house;
+        var id_user = req.userId.id;
+        var id = req.params.id;
+        houseService.removeComment(id, (err, result) => {
+            if (err) {
+                return res.status(500).json({
+                    code: res.statusCode,
+                    results: {
+                        message: err,
+                        doc: null
+                    }
+                });
+            }
+            if (result) {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: result
+                    }
+                });
+            }
+            else {
+                return res.status(404).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: 'Not find comment'
+                    }
+                });
+            }
+
+        })
     }
 }

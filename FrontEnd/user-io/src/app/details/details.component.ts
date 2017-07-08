@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-details',
@@ -13,9 +13,11 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     // $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyBesDGtkcvFGS4KVDJpAl7bDBeSWroWh3I&v=3');
-     $.getScript('../../../assets/js/infobox.js');
-     $.getScript('../../../assets/js/app.js');
-    
+    $.getScript('../../../assets/js/infobox.js');
+    $.getScript('../../../assets/js/app.js');
+    setTimeout(() => {
+      $('body').removeClass('no-hidden');
+    }, 0)
   }
 
 }
