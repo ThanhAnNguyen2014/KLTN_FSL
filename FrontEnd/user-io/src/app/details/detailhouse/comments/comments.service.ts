@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class CommentsService {
   public jwt;
   public token;
-  public url = 'http://localhost:3300/api/v1/house/detail/'
+  public url = 'https://hcmutefslio.herokuapp.com/api/v1/house/detail/'
   constructor(private http: Http) {
     this.jwt = JSON.parse(localStorage.getItem('currentUser'));
     if (this.jwt) {

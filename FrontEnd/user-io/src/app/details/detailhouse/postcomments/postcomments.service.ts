@@ -14,7 +14,7 @@ export class PostcommentsService {
   public token;
   public jwtHelper: JwtHelper = new JwtHelper();
   //public url = 'http://hcmutefslio.herokuapp.com/';
-  public url='http://localhost:3300/api/v1/house/detail/comment';
+  public url='https://hcmutefslio.herokuapp.com/api/v1/house/detail/comment';
 
   constructor(private http: Http) {
     this.jwt = JSON.parse(localStorage.getItem('currentUser'));
