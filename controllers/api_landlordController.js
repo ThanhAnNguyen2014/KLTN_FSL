@@ -226,7 +226,7 @@ module.exports = {
                 });
             };
             if (!landlord) {
-                return res.status(404).json({
+                return res.status(200).json({
                     code: res.statusCode,
                     results: {
                         success: false,
