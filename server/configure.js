@@ -14,10 +14,12 @@ var path = require('path'),
     session = require('express-session'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
+var elastic = require('../services/elastic-client');
+var houseservice = require('../services/house-service');
+var Models = require('../models');
 
 
-
-module.exports = function(app) {
+module.exports = function (app) {
     app.engine('handlebars', exphbs.create({
         defaultLayout: 'userlayout',
         layoutsDir: app.get('views') + '/layouts',
@@ -27,12 +29,12 @@ module.exports = function(app) {
             //     //console.log(timestamp);
             //     return moment(timestamp).startOf('minute').fromNow();
             // }
-            section: function(name, options) {
+            section: function (name, options) {
                 if (!this._sections) this._sections = {};
                 this._sections[name] = options.fn(this);
                 return null;
             },
-            timeago: function(timestamp) {
+            timeago: function (timestamp) {
                 return moment(timestamp).startOf('minute').fromNow();
             }
         }
@@ -74,7 +76,7 @@ module.exports = function(app) {
 
     // Express validator 
     app.use(expressValidator({
-        errorFormatter: function(param, msg, value) {
+        errorFormatter: function (param, msg, value) {
             var namespace = param.split('.'),
                 root = namespace.shift(),
                 formParam = root;
@@ -91,7 +93,7 @@ module.exports = function(app) {
         }
     }));
 
-    app.use(function(req, res, callback) {
+    app.use(function (req, res, callback) {
         res.locals.success_msg = req.flash('success_msg');
         res.locals.error_msg = req.flash('error_msg');
         res.locals.error = req.flash('error');
@@ -99,6 +101,30 @@ module.exports = function(app) {
         callback();
     });
 
+    // elastis
+    elastic.indexExists().then((exists) => {
+        if (exists) {
+            return elastic.deleteIndex();
+        }
+    }).then(() => {
+        return elastic.initIndex().then(elastic.initMapping).then(function () {
+            promises = houseservice.findAllHousePromise().then((houses) => {
+                houses.map((house) => {
+                    elastic.addHouse(house).then((result) => {
+                        return result
+                    }).catch(err => {
+                        throw err;
+                    });
+                });
+                return Promise.all(promises);
+            });
+        });
+
+    }).then(() => {
+        console.log('Extract data search successfully');
+    }).catch(err=>{
+        console.log('Unpacked data search failed');
+    });
 
 
 

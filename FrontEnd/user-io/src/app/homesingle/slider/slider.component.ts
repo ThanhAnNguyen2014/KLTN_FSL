@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { SliderService } from './slider.service';
 import { Subscription } from "rxjs/Rx";
 import { AuthenticationService } from '../../Auth/services/authentication.service';
+import { NgForm } from "@angular/forms";
+import { SharedserviceService } from '../../shared-service/sharedservice.service';
+import { Router } from "@angular/router";
+import { Observable } from "rxjs/Observable";
 
 declare var $;
 @Component({
@@ -11,6 +15,8 @@ declare var $;
   providers: [SliderService]
 })
 export class SliderComponent implements OnInit {
+  priceto: string;
+  pricefrom: string;
   public provinces: any;
   public districs: any;
   public flag_pro: boolean;
@@ -22,14 +28,16 @@ export class SliderComponent implements OnInit {
   public wards: any;
   public isOnDist: boolean;
   public isOnWar: boolean;
-
+  public houses: any;
   constructor(
     private sliderService: SliderService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private sharedService: SharedserviceService,
+    private router: Router
   ) {
     console.log(auth.loggedIn());
     auth.loggedIn();
-    
+
   }
 
   ngOnInit() {
@@ -39,6 +47,8 @@ export class SliderComponent implements OnInit {
     this.flag_district = true;
     this.flag_ward = true;
     this.getProvinces();
+    this.pricefrom = "";
+    this.priceto = "";
 
   }
   getProvinces() {
@@ -84,9 +94,41 @@ export class SliderComponent implements OnInit {
   }
   selectWard(id, name, rank) {
     this.flag_ward = false;
-
     this.wardname = name;
-    console.log(this.wardname);
   }
- 
+  search(f: NgForm) {
+    var searchString: string;
+    var provice = (<HTMLButtonElement>(document.getElementById("provincename"))).value;
+    var district = (<HTMLButtonElement>(document.getElementById("district"))).value;
+    var ward = (<HTMLButtonElement>(document.getElementById("ward"))).value;
+    f.value.provice = provice;
+    f.value.district = district;
+    f.value.ward = ward;
+
+    var page = 0;
+    var size = 10;
+    if (provice != "" && district != "" && ward != "") {
+      searchString = ward + ', ' + district + ', ' + provice;
+    }
+    else {
+      if (provice != "" && district != "") {
+        searchString = district + ', ' + provice;
+      }
+      else {
+        if (provice != "") {
+          searchString = provice;
+        }
+        else {
+          searchString = "";
+        }
+      }
+    };
+    console.log(searchString);
+    console.log(page, size);
+    this.sliderService.searchHouse(searchString, page, size).subscribe((res) => {
+      this.houses = res.doc.hits.hits;
+      this.sharedService.setDataSearch(this.houses);
+    });
+    this.router.navigate(['/details/search-details']);
+  }
 }

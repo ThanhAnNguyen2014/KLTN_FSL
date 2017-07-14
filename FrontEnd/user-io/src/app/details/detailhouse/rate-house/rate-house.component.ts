@@ -22,12 +22,13 @@ export class RateHouseComponent implements OnInit {
     private router: Router,
     private activatedroute: ActivatedRoute
   ) {
-    this.rate = 4;
+
   }
 
   ngOnInit() {
     this.activatedroute.params.subscribe(params => {
       this.id = params['id'];
+      this.rate = 4;
     });
   }
 
@@ -52,9 +53,11 @@ export class RateHouseComponent implements OnInit {
   OnSubmit(f: NgForm) {
     f.value.rate = this.onRatingChangeResult.rating;
     f.value.id_house = this.id;
+    console.log(f.value);
     this.rateSevice.postRating(f.value).subscribe((res) => {
       if (res.doc.status) {
         this.message = 'Cảm ơn bạn đã đánh giá thông tin chúng tôi cung cấp'
+        this.rate = 4;
       }
       else {
         this.message = 'Bạn chỉ được đánh giá một lần!'

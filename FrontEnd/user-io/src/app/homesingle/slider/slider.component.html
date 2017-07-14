@@ -11,7 +11,7 @@
   <div class="home-header">
     <div class="home-logo osLight"><img src="../../../assets/images/logo-white.png" alt="" class="logo-header"> FSL</div>
     <a href="javascript:void(0)" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>
-    <div class="home-nav" >
+    <div class="home-nav">
       <ul>
         <li *ngIf="!auth.loggedIn()"><a href="#" data-toggle="modal" data-target="#signup">Đăng ký</a></li>
         <li *ngIf="!auth.loggedIn()"><a href="#" data-toggle="modal" data-target="#signin">Đăng nhập</a></li>
@@ -32,12 +32,14 @@
     <div class="home-subtitle">With FSL - you can find one as fast as possible</div>
   </div>
   <div class="search-panel">
-    <form class="form-inline" role="form">
+    <form class="form-inline" role="form"  #f="ngForm" (ngSubmit)=search(f)>
 
       <div class="form-group hidden-xs adv">
         <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)='getProvinces()' *ngIf="flag_pro">-- Chọn Tỉnh/TP -- <span class="caret"></span></button>
-          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)='getProvinces()' *ngIf="!flag_pro">{{provincename}}<span class="caret"></span></button>
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)='getProvinces()' *ngIf="flag_pro"
+            id='provincename'>-- Chọn Tỉnh/TP -- <span class="caret"></span></button>
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)='getProvinces()' *ngIf="!flag_pro"
+            id='provincename' value="{{provincename}}">{{provincename}}<span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" id="menu-provinces">
             <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province.rank}} {{province.name}}</a></li>
           </ul>
@@ -45,9 +47,10 @@
       </div>
       <div class="form-group hidden-xs adv">
         <div class="dropdown">
-          <button *ngIf="flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnDist}'>-- Chọn Quận --
+          <button *ngIf="flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id='district'
+            [ngClass]='{disabled: isOnDist}'>-- Chọn Quận --
           <span class="caret"></span></button>
-          <button *ngIf="!flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnDist}'>{{districtname}}
+          <button *ngIf="!flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id='district' value="{{districtname}}" [ngClass]='{disabled: isOnDist}'>{{districtname}}
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu-provinces">
             <li *ngFor='let distric of districs' (click)="selectDistrict(distric.id, distric.name, distric.rank)"><a>{{distric.rank}} {{distric.name}}</a></li>
@@ -56,9 +59,9 @@
       </div>
       <div class="form-group hidden-xs adv">
         <div class="dropdown">
-          <button *ngIf="flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnWar}'>-- Chọn Phường/Xã--
+          <button *ngIf="flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id='ward' [ngClass]='{disabled: isOnWar}'>-- Chọn Phường/Xã--
           <span class="caret"></span></button>
-          <button *ngIf="!flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" [ngClass]='{disabled: isOnWar}'>{{wardname}}
+          <button *ngIf="!flag_ward" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id='ward' value="{{wardname}}" [ngClass]='{disabled: isOnWar}'>{{wardname}}
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu-provinces">
             <li *ngFor='let ward of wards' (click)="selectWard(ward.id, ward.name, ward.rank)"><a>{{ward.name}}</a></li>
@@ -67,19 +70,19 @@
       </div>
       <div class="form-group hidden-xs adv">
         <div class="input-group">
-          <div class="input-group-addon">$</div>
-          <input class="form-control price" type="text" placeholder="From">
+          <div class="input-group-addon">Từ</div>
+          <input class="form-control price" type="number" placeholder="Giá" name="pricefrom"  [(ngModel)]="pricefrom" number onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null">
         </div>
       </div>
       <div class="form-group hidden-xs adv">
         <div class="input-group">
-          <div class="input-group-addon">$</div>
-          <input class="form-control price" type="text" placeholder="To">
+          <div class="input-group-addon">Đến</div>
+          <input class="form-control price" type="number" placeholder="Giá" name="priceto"  [(ngModel)]="priceto" number onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null">
         </div>
       </div>
       <div class="form-group">
-        <!--<a [routerLink]=['/'] class="btn btn-green">Search</a>-->
-        <a [routerLink]="['/details/search-details']" class="btn btn-green">Search</a>
+        <button type="submit" class="btn btn-green">Search</button>
+        <!--<a [routerLink]="['/details/search-details']" class="btn btn-green">Search</a>-->
         <a href="javascript:void(0)" class="btn btn-o btn-white pull-right visible-xs" id="advanced">Advanced Search <span class="fa fa-angle-up"></span></a>
       </div>
     </form>

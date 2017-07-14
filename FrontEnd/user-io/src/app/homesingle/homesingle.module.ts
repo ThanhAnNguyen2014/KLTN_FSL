@@ -16,10 +16,12 @@ import { ContentComponent } from './content/content.component';
 import { RatlandlordComponent } from './content/ratlandlord/ratlandlord.component';
 
 
-import {routing} from './homsingle.routes';
+import { routing } from './homsingle.routes';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ActionComponent } from './action/action.component';
+
+import { SharedserviceService } from '../shared-service/sharedservice.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     SignupComponent,
     ActionComponent
   ],
-  exports:[HomesingleComponent]
+  providers: [SharedserviceService],
+  exports: [HomesingleComponent]
 })
 export class HomesingleModule { }

@@ -21,19 +21,19 @@
                 <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                 <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
+                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                 <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
+                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                 <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
+                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                 <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
+                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
                 <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                
+
               </ul>
             </div>
           </div>
@@ -87,122 +87,46 @@
       </form>
     </div>
     <div class="resultsList">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <a [routerLink]="['/details/detaisl-house']" class="card">
+      <!--<div class="row" *ngIf='houses'>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor='let house of houses'>
+          <a [routerLink]="['/details/detail-house/'+ house._id]" class="card">
             <div class="figure">
-              <img src="./assets/images/prop/1-1-2.png" alt="image">
+              <img src="{{house._source.image}}" alt="image">
               <div class="figCaption">
-                <div>$1,550,000 đ</div>
-                <span class="icon-eye"> 200</span>
-                <span class="icon-heart"> 54</span>
-                <span class="icon-bubble"> 13</span>
+                <div>{{house._source.price|currency:'VND':true}}</div>
               </div>
               <div class="figView"><span class="icon-eye"></span></div>
-              <div class="figType">Còn phòng</div>
+              <div class="figType">{{house._source.status}}</div>
             </div>
-            <h2>Phòng sạch đẹp, thoáng mát, an ninh</h2>
-            <div class="cardAddress"><span class="icon-pointer"></span> 1/4 Võ Văn Ngân, Linh Chiểu, Thủ Đức, TP HCM</div>
+            <h2>{{house._source.title}}</h2>
+            <div class="cardAddress"><span class="icon-pointer"></span> {{house._source.address}}</div>
             <div class="cardRating">
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star-o"></span> (146)
+              <star-rating-comp [rating]="house._source.rate" [direction]="rtl" [readOnly]="true" [starType]="'icon'" [size]="'small'"></star-rating-comp>
             </div>
             <ul class="cardFeat">
-              <li><span class="icon-tag"></span> 1,550,000 đ</li>
+              <li><span class="icon-tag"></span> {{house._source.price|currency:'VND':true}}</li>
               <li><span class="icon-users"></span> 4</li>
-              <li><span class="icon-frame"></span> 250 m2</li>
+              <li><span class="icon-frame"></span> {{house._source.range| number}}</li>
             </ul>
             <div class="clearfix"></div>
           </a>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <a href="single.html" class="card">
-            <div class="figure">
-              <img src="./assets/images/prop/2-1-2.png" alt="image">
-              <div class="figCaption">
-                <div>$1,750,000 đ</div>
-                <span class="icon-heart"> 67</span>
-                <span class="icon-bubble"> 9</span>
+      </div>-->
+      <div class="row" *ngIf='houses'>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor='let house of houses'>
+          <a [routerLink]="['/details/detail-house/'+ house._id]" class="propWidget-1">
+            <div class="fig">
+              <img src="{{house._source.image}}" alt="image">
+              <div class="priceCap"><span class="price text-red"><strong>{{house._source.price|currency:'VND':true}}</strong></span></div>
+              <div class="figType">{{house._source.status}}</div>
+              <div class="figCap">
+                <h3>{{house._source.title}}</h3>
+                <div class="address">{{house._source.address}}</div>
+                <div class="feat feat-1"><span class="icon-calendar"></span> {{house._source.create_date|amTimeAgo}}</div>
+                <div class="feat feat-2"><span class="icon-star"></span> {{house._source.rate}}</div>
+                <div class="feat feat-3"><span class="icon-frame"></span> {{house._source.range| number}} m<sup>2</sup> </div>
               </div>
-              <div class="figView"><span class="icon-eye"></span></div>
-              <div class="figType">Còn phòng</div>
             </div>
-            <h2>Phòng có đầy đủ tiện nghi, nữ thuê</h2>
-            <div class="cardAddress"><span class="icon-pointer"></span> 40 Lê Văn Việt, Tăng Nhơn Phú A, Quận 9, TP HCM</div>
-            <div class="cardRating">
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span> (123)
-            </div>
-            <ul class="cardFeat">
-              <li><span class="icon-tag"></span> 1,750,000 đ</li>
-              <li><span class="icon-users"></span> 2</li>
-              <li><span class="icon-frame"></span> 200 m2</li>
-            </ul>
-            <div class="clearfix"></div>
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <a href="single.html" class="card">
-            <div class="figure">
-              <img src="./assets/images/prop/3-1-2.png" alt="image">
-              <div class="figCaption">
-                <div>$1,340,000 đ</div>
-                <span class="icon-heart"> 87</span>
-                <span class="icon-bubble"> 12</span>
-              </div>
-              <div class="figView"><span class="icon-eye"></span></div>
-              <div class="figType">Còn phòng</div>
-            </div>
-            <h2>Phòng hơi cũ, giá rẻ</h2>
-            <div class="cardAddress"><span class="icon-pointer"></span> 12 Lã Xuân Oai, Long Trường, Quận 9, TP HCM</div>
-            <div class="cardRating">
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span> (120)
-            </div>
-            <ul class="cardFeat">
-              <li><span class="icon-tag"></span> 1,340,000 đ</li>
-              <li><span class="icon-users"></span> 3</li>
-              <li><span class="icon-frame"></span> 300 m2</li>
-            </ul>
-            <div class="clearfix"></div>
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <a href="single.html" class="card">
-            <div class="figure">
-              <img src="./assets/images/prop/4-1-2.png" alt="image">
-              <div class="figCaption">
-                <div>$1,930,000 đ</div>
-                <span class="icon-heart"> 99</span>
-                <span class="icon-bubble"> 25</span>
-              </div>
-              <div class="figView"><span class="icon-eye"></span></div>
-              <div class="figType">Còn phòng</div>
-            </div>
-            <h2>Nhà mặt tiền, gần trạm xe buýt</h2>
-            <div class="cardAddress"><span class="icon-pointer"></span> 100 Võ Văn Ngân, Bình Thọ, Quận Thủ Đức, TP HCM</div>
-            <div class="cardRating">
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star-o"></span> (170)
-            </div>
-            <ul class="cardFeat">
-              <li><span class="icon-tag"></span> 1,930,000 đ</li>
-              <li><span class="icon-users"></span> 2</li>
-              <li><span class="icon-frame"></span> 200 m2</li>
-            </ul>
-            <div class="clearfix"></div>
           </a>
         </div>
       </div>

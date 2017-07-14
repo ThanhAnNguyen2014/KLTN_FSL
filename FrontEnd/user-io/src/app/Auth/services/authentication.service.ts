@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, } from '@angular/http';
 import { JwtHelper } from 'angular2-jwt';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
+    public id;
     public jwt;
     public token: string;
     public jwtHelper: JwtHelper = new JwtHelper();
     public url = 'http://hcmutefslio.herokuapp.com/';
-
     constructor(private http: Http) {
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -58,7 +58,7 @@ export class AuthenticationService {
     }
 
     loggedIn() {
-        
+
         let istoken = JSON.parse(localStorage.getItem('currentUser'));
         if (istoken) {
             if (this.jwtHelper.isTokenExpired(istoken.token)) {
@@ -75,17 +75,10 @@ export class AuthenticationService {
         }
     }
     getName() {
-        this.jwt =JSON.parse(localStorage.getItem('currentUser'));
+        this.jwt = JSON.parse(localStorage.getItem('currentUser'));
         if (this.jwt) {
-            var decodeJwt = this.jwtHelper.decodeToken(this.jwt.token);          
+            var decodeJwt = this.jwtHelper.decodeToken(this.jwt.token);
             return decodeJwt.firstname;
         }
     }
-    // getInfo(){
-    //     this.jwt=JSON.parse(localStorage.getItem('currentUser'));
-    //     if(this.jwt){
-    //         var decodeJwt= this.jwtHelper.decodeToken(this.jwt.token);
-
-    //     }
-    // }
 }

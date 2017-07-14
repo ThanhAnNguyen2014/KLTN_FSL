@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthenticationService } from '../../Auth/services/authentication.service';
+declare var $: any;
 @Component({
   selector: 'app-action',
   templateUrl: './action.component.html',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
   }
-
+  closemodal() {
+    $('#action').modal('hide');
+  }
+  signout() {
+    this.auth.logout();
+    $('#action').modal('hide');
+  }
 }

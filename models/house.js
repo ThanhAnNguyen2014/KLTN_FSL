@@ -18,7 +18,7 @@ var HouseSchema = new Schema({
     range: { type: String }, // acreage of room
     create_date: { type: Date, 'default': Date.now },
     service_price: {
-        creat_date: { type: Date, 'default': Date.now },
+        create_date: { type: Date, 'default': Date.now },
         electricity_price: { type: Number },
         water_price: { type: Number },
         internet_price: { type: Number },

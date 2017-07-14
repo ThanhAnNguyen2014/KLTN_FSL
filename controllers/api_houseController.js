@@ -1,6 +1,7 @@
 var Models = require('../models');
 var houseService = require('../services/house-service');
 
+var elastic = require('../services/elastic-client');
 module.exports = {
     /**
      * Create New house
@@ -10,7 +11,7 @@ module.exports = {
         req.body.id_landlord = req.landlordId.id;
         houseService.CreateHouse(req.body, function (err, doc) {
             if (err) {
-                return res.status(401).json(err);
+                return res.status(500).json(err);
             }
             else {
                 console.log('Save House complete!');
@@ -25,7 +26,7 @@ module.exports = {
     getHouseById: function (req, res) {
         var id = req.params.id;
         houseService.findById(id, function (err, house) {
-            if (err) res.status(401).json({
+            if (err) res.status(500).json({
                 code: 401,
                 message: err
             })
@@ -42,8 +43,8 @@ module.exports = {
     deleteHouseById: function (req, res) {
         var id = req.params.id;
         houseService.deleteById(id, function (err, doc) {
-            if (err) return res.status(401).json({
-                code: 401,
+            if (err) return res.status(500).json({
+                code: 500,
                 message: err
             });
             else {
@@ -58,8 +59,8 @@ module.exports = {
     updateHouseById: function (req, res) {
         var id = req.params.id;
         houseService.updateById(id, req.body, function (err, doc) {
-            if (err) return res.status(401).json({
-                code: 401,
+            if (err) return res.status(500).json({
+                code: 500,
                 message: err
             });
             return res.status(200).json({
@@ -71,8 +72,8 @@ module.exports = {
     /** Get All House */
     getAllHouse: function (req, res) {
         houseService.findAllHouse(function (err, docs) {
-            if (err) res.status(401).json({
-                code: 401,
+            if (err) res.status(500).json({
+                code: 500,
                 message: err
             });
             else {
@@ -86,8 +87,8 @@ module.exports = {
     /**Get All Province of Viet Nam */
     getAllProvinces: function (req, res) {
         houseService.findAllProvinces(function (err, provinces) {
-            if (err) return res.status(401).json({
-                code: 401,
+            if (err) return res.status(500).json({
+                code: 500,
                 message: err
             });
             else {
@@ -102,8 +103,8 @@ module.exports = {
     getAllDictrict: function (req, res) {
         var id = req.params.id;
         houseService.findAllDictrictbyProvinceName(id, function (err, districts) {
-            if (err) return res.status(401).json({
-                code: 401,
+            if (err) return res.status(500).json({
+                code: 500,
                 message: err
             });
             else {
@@ -118,8 +119,8 @@ module.exports = {
     getAllWard: function (req, res) {
         var id = req.params.id;
         houseService.findAllWardbyDictrictName(id, function (err, wards) {
-            if (err) return res.status(401).json({
-                code: 401,
+            if (err) return res.status(500).json({
+                code: 500,
                 message: err
             });
             else {
@@ -277,7 +278,7 @@ module.exports = {
         });
     },
     deleteComment: function (req, res) {
-       // var id_house = req.params.id_house;
+        // var id_house = req.params.id_house;
         var id_user = req.userId.id;
         var id = req.params.id;
         houseService.removeComment(id, (err, result) => {
@@ -310,5 +311,46 @@ module.exports = {
             }
 
         })
+    },
+    searchHouse: function (req, res) {
+        console.log(req.query.q, req.query.pricefrom, req.query.priceto,req.query.page, req.query.size);
+        var textSearch = req.query.q;
+        var pricefrom = req.query.pricefrom;
+        var priceto = req.query.priceto;
+        var page = req.query.page;
+        var size = req.query.size;
+        if (pricefrom != "" && priceto != "") {
+            elastic.searchHouseWithPrice(
+                textSearch,
+                pricefrom,
+                priceto,
+                page,
+                size
+            ).then(
+                function (results) {
+                    return res.status(200).json({
+                        code: res.statusCode,
+                        results: {
+                            message: null,
+                            doc: results
+                        }
+                    })
+                });
+        }
+        else {
+            elastic.searchHouseWithoutPrice(
+               textSearch,
+               page,
+               size
+            ).then((results) => {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: results
+                    }
+                });
+            });
+        }
     }
 }

@@ -19,7 +19,8 @@ import { RateHouseComponent } from './detailhouse/rate-house/rate-house.componen
 import { CommentsComponent } from './detailhouse/comments/comments.component';
 import { PostcommentsComponent } from './detailhouse/postcomments/postcomments.component';
 //import {AuthGuard} from '../Auth/guards/auth.guard';
-
+import {SharedserviceService} from '../shared-service/sharedservice.service';
+import {DetailsService} from './details.service';
 
 @NgModule({
   imports: [
@@ -43,6 +44,6 @@ import { PostcommentsComponent } from './detailhouse/postcomments/postcomments.c
     CommentsComponent,
     PostcommentsComponent
   ],
-  //providers:[AuthGuard]
+  providers:[SharedserviceService, DetailsService]
 })
 export class DetailsModule { }

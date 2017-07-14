@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../Auth/services/authentication.service';
 import { HeaderService } from './header.service';
+import { Subscription } from "rxjs/Subscription";
+import { SharedserviceService } from '../../../shared-service/sharedservice.service';
 declare var $;
 @Component({
   selector: 'app-header',
@@ -10,8 +12,10 @@ declare var $;
 })
 export class HeaderComponent implements OnInit {
   user: any;
-
-  constructor(private auth: AuthenticationService, private headersevice: HeaderService) { }
+  subscription: Subscription;
+  constructor(private auth: AuthenticationService, private headersevice: HeaderService, private shareService: SharedserviceService) {
+   
+  }
 
   ngOnInit() {
     var token = localStorage.getItem('currentUser');

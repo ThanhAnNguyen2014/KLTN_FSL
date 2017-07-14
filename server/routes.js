@@ -19,6 +19,7 @@ var config = require('../server/config');
 
 
 
+
 // module
 module.exports = function (app) {
 
@@ -85,7 +86,7 @@ module.exports = function (app) {
     router.post('/api/v1/house/detail/comment', ensureAuthenticatedUser, api_houseController.comment);
     router.get('/api/v1/house/detail/:id_house/comment', api_houseController.getComment);
     router.delete('/api/v1/house/detail/comment/:id', ensureAuthenticatedUser, api_houseController.deleteComment);
-
+    router.get('/search-house/', api_houseController.searchHouse);
     // section admin
     router.get('/admin/login', adminController.get_login);
     router.post('/admin/login', passport.authenticate('local', {
@@ -101,7 +102,6 @@ module.exports = function (app) {
     router.get('/admin/not_accept_post', ensureAuthenticated, adminController.not_accept_post);
     router.post('/admin/check_lock_user/:id', ensureAuthenticated, adminController.check_lock_user);
     // router.post('/admin/remove/:id', adminController.deleteUser);
-
 
 
 

@@ -20,7 +20,7 @@ mongoose.connect(config.database_mLab);
 mongoose.connection.on('connected', () => {
     console.log('Connected to database ' + config.database_mLab);
 });
-mongoose.connection.on('open', function() {
+mongoose.connection.on('open', function () {
     console.log('Mongoose connected!');
 });
 // On Error
@@ -36,7 +36,7 @@ app.use(cors());
 
 routes(app);
 
-var server = app.listen(app.get('port'), function() {
+var server = app.listen(app.get('port'), function () {
     console.log('Server up: http://localhost:' + app.get('port'));
 
 });

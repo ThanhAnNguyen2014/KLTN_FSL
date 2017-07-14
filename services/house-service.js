@@ -1,6 +1,8 @@
 var Models = require('../models'),
     ObjectId = require('mongoose').Types.ObjectId;
+var esClient = require('../services/elastic-client');
 
+var Q = require('q');
 module.exports = {
     /**
      * Create House
@@ -8,12 +10,12 @@ module.exports = {
     CreateHouse: function (house, callback) {
         //console.log(house);
         var newhouse = new Models.House(house);
-
-        console.log(newhouse);
         newhouse.save(function (err, doc) {
             if (err) return callback(err);
-            else
+            else {
+                esClient.addHouse(doc);
                 return callback(null, doc);
+            }
         });
     },
     /**
@@ -47,6 +49,14 @@ module.exports = {
             Models.House.findByIdAndRemove(id, function (err, doc) {
                 if (err) return callback(err);
                 if (doc) {
+                    // initialize elastic
+                    esClient.indexExists().then((exists) => {
+                        if (exists) {
+                            return esClient.deleteIndex();
+                        }
+                    }).then(() => {
+                        return esClient.initIndex().then(esClient.initMapping)
+                    });
                     Models.Comment.remove({ id_house: id }, (err) => {
                         if (err) { return callback(err); }
                         return callback(null, 'Delete success!');
@@ -71,6 +81,7 @@ module.exports = {
             Models.House.findByIdAndUpdate(id, house, { new: true }, function (err, result) {
                 if (err) return callback(err);
                 if (result) {
+                    esClient.addHouse(result);
                     return callback(null, result);
                 }
                 else {
@@ -88,15 +99,18 @@ module.exports = {
     },
     /**Find All House */
     findAllHouse: function (callback) {
-        Models.House.find({}, function (err, docs) {
-            if (err) return callback(err);
-            if (docs) {
-                return callback(null, docs);
-            }
-            else {
-                return callback(null, 'No item in database!');
-            }
+        Models.House.find(function (err, docs) {
+            if (err) { throw err; }
+            return callback(null, docs)
         });
+    },
+    findAllHousePromise: function () {
+        var defer = Q.defer();
+        Models.House.find((err, docs) => {
+            if (err) defer.reject(err);
+            defer.resolve(docs);
+        });
+        return defer.promise;
     },
     /**Get All Province of Viet Nam  */
     findAllProvinces: function (callback) {
@@ -239,6 +253,9 @@ module.exports = {
         else {
             return callback('Invalid ObjectId');
         }
+    },
+    seachHouseBasic: function (stringSearch, callback) {
+
     }
 
 

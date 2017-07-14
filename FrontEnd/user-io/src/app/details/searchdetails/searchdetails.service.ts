@@ -1,25 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http,Headers, RequestOptions } from "@angular/http";
-import 'rxjs/add/operator/map';
-import { Observable } from "rxjs/Observable";
-import { JwtHelper } from 'angular2-jwt';
+import { Http, Headers, RequestOptions } from '@angular/http';
 @Injectable()
-export class SliderService {
-
-  private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/area/";
+export class SearchdetailsService {
   private url = 'http://localhost:3300/search-house/'
-  constructor(private http: Http) {
-
-  }
-  loadProvinces() {
-    return this.http.get(this.apiUrl + 'provinces').map(res => res.json().results);
-  }
-  loadDistricts(id: string) {
-    return this.http.get(this.apiUrl + 'districts/' + id).map(res => res.json().results);
-  }
-  loadWards(id: string) {
-    return this.http.get(this.apiUrl + 'wards/' + id).map(res => res.json().results);
-  }
+  constructor(private http: Http) { }
   searchHouse(searchString, page, size) {
     let headers = new Headers({
       'Accept': 'application/json'

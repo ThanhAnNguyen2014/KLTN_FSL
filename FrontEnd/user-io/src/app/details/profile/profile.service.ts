@@ -31,4 +31,13 @@ export class ProfileService {
     // get users from api
     return this.http.get(this.url + 'api/v1/user/' + this.id, options).map((res) => res.json().results);
   }
+  updateUsers(content): Observable<any> {
+    // add authorization header with jwt token
+    let headers = new Headers({
+      'Authorization': this.token,
+      'Accept': 'application/json'
+    });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(this.url + 'api/v1/user/' + this.id, content, options).map((res) => res.json().results)
+  }
 }

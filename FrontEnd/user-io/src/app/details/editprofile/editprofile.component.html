@@ -1,75 +1,83 @@
- <!-- Content -->
-    <div id="wrapper">
-        <!--<div id="mapView" class="mob-max">
+<!-- Content -->
+<div id="wrapper">
+    <!--<div id="mapView" class="mob-max">
             <div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Loading map...</div>
         </div>-->
-        <div class="col-md-12">
-            <div id="content" class="mob-max" style="width: 100%">
-                <div class="rightContainer">
-                    <h1 class="text-center">Chỉnh sửa thông tin cá nhân</h1>
-                    <div class="col-md-3"></div>
-                    <form role="form" class="col-md-6">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label>First Name:</label>
-                                    <input type="text" class="form-control" placeholder="Enter First Name">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label>Last Name:</label>
-                                    <input type="text" class="form-control" placeholder="Enter Last Name">
-                                </div>
-                            </div>
-                        </div>
+    <div id="content" class="mob-max" style="width: 100%">
+        <div class="rightContainer" *ngIf='user'>
+            <h1 class="text-center">Chỉnh sửa thông tin cá nhân</h1>
+            <div class="col-md-3"></div>
+            <form role="form" class="col-md-6" #f="ngForm" (ngSubmit)="OnUpdate(f)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <label>Email:</label>
-                            <input class="form-control" type="email" id="email" placeholder="Enter Email" required="true">
+                            <label>First Name:</label>
+                            <input type="text" class="form-control" name="firstname" [(ngModel)]='user.firstname' placeholder="Enter First Name">
                         </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <label>Địa chỉ:</label>
-                            <input class="form-control" type="text" id="address" placeholder="Enter a Location" autocomplete="off">
-
+                            <label>Last Name:</label>
+                            <input type="text" class="form-control" name="lastname" [(ngModel)]='user.lastname' placeholder="Enter Last Name">
                         </div>
-                        <div class="form-group">
-                            <label>Điện thoại:</label>
-                            <input class="form-control" type="text" id="phone" name="phone" placeholder="Enter số điện thoại">
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label>Giới tính:</label> &nbsp; &nbsp;
-                                    <input type="radio" name="gender" value="male"> Nam &nbsp;
-                                    <input type="radio" name="gender" value="female"> Nữ
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Số CMND:</label>
-                            <input class="form-control" type="text" id="cmnd" placeholder="Enter số chứng mình nhân dân">
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="form-group">
-                                    <label>Ảnh đại diện:</label>
-                                    <input type="file" class="file" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png"
-                                        data-browse-class="btn btn-o btn-default" data-browse-label="Chọn Hình">
-                                    <!--<p class="help-block">You can select multiple images at once</p>-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb20" style="text-align: center">
-                                <!--<a href="#" class="btn btn-green">Cancel</a>-->
-                                <a [routerLink]="['/details/profile']" class="btn btn-green">Cancel</a>
-                                <a [routerLink]="['/details/profile']" type="submit" class="btn btn-red">Update</a>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input class="form-control" type="email" name="email" [(ngModel)]='user.email' id="email" placeholder="Enter Email" required="true" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ:</label>
+                    <input class="form-control" type="text" name="address" [(ngModel)]='user.address' id="address" placeholder="Enter a Location"
+                        autocomplete="off">
+
+                </div>
+                <div class="form-group">
+                    <label>Điện thoại:</label>
+                    <input class="form-control" type="text" name="phone" [(ngModel)]='user.phone' id="phone" name="phone" placeholder="Enter số điện thoại">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label>Giới tính:</label> &nbsp; &nbsp;
+                            <input type="radio" name="gender" value="male" [checked]="user.gender? true: true" id='gender'>Nam &nbsp;
+                            <input type="radio" name="gender" value="female" [checked]="user.gender? false: true"> Nữ
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Số CMND:</label>
+                    <input class="form-control" name="identitycard" [(ngModel)]='user.identitycard' type="text" id="cmnd" placeholder="Enter số chứng mình nhân dân">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <label>Ảnh đại diện:</label>
+                            <div>
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="{{user.image}}" alt="image">
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                    <div>
+                                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-exists">Change</span><input type="file" name="image" (change)="detectFiles($event)"></span>
+                                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput" (click)='deleteFiles()'>Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb20" style="text-align: center">
+                        <a [routerLink]="['/details/profile']" class="btn btn-green">Cancel</a>
+                        <button type="submit" class="btn btn-red">Update</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <div class="clearfix"></div>
+<div class="clearfix"></div>
