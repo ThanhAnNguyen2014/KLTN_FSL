@@ -22,7 +22,7 @@
                                         <span class="fa fa-angle-down dsArrow"></span>
                                     </a>
               <ul class="dropdown-menu dropdown-select full" role="menu" id="menu-provinces">
-                <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province?.rank}} {{province?.name}}</a></li>
+                <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province?.name}}</a></li>
               </ul>
             </div>
           </div>
@@ -38,7 +38,7 @@
                 <span class="fa fa-angle-down dsArrow"></span>
               </a>
               <ul class="dropdown-menu dropdown-select full" role="menu" id="menu-district">
-                <li *ngFor='let district of districts' (click)="selectDistrict(district.id, district.name, district.rank)"><a>{{district.rank}} {{district.name}}</a></li>
+                <li *ngFor='let district of districts' (click)="selectDistrict(district.id, district.name, district.rank)"><a>{{district.name}}</a></li>
               </ul>
             </div>
           </div>
@@ -83,42 +83,11 @@
       </form>
     </div>
     <div class="resultsList" *ngIf='houses'>
-      <ul class="pagination" *ngIf='houses.length>0'>
-        <li class="disabled"><a href="#"><span class="fa fa-angle-left"></span></a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
-      </ul>
-      <!--<div class="row" *ngIf='houses'>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor='let house of houses'>
-          <a [routerLink]="['/details/detail-house/'+ house._id]" class="card">
-            <div class="figure">
-              <img src="{{house._source.image}}" alt="image">
-              <div class="figCaption">
-                <div>{{house._source.price|currency:'VND':true}}</div>
-              </div>
-              <div class="figView"><span class="icon-eye"></span></div>
-              <div class="figType">{{house._source.status}}</div>
-            </div>
-            <h2>{{house._source.title}}</h2>
-            <div class="cardAddress"><span class="icon-pointer"></span> {{house._source.address}}</div>
-            <div class="cardRating">
-              <star-rating-comp [rating]="house._source.rate" [direction]="rtl" [readOnly]="true" [starType]="'icon'" [size]="'small'"></star-rating-comp>
-            </div>
-            <ul class="cardFeat">
-              <li><span class="icon-tag"></span> {{house._source.price|currency:'VND':true}}</li>
-              <li><span class="icon-users"></span> 4</li>
-              <li><span class="icon-frame"></span> {{house._source.range| number}}</li>
-            </ul>
-            <div class="clearfix"></div>
-          </a>
-        </div>
-      </div>-->
+      <div *ngIf='houses.length>0'>
+        <app-pagination-controls (pageChange)="p = $event"></app-pagination-controls>
+      </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor='let house of houses'>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor='let house of houses | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }'>
           <a [routerLink]="['/details/detail-house/'+ house._id]" class="propWidget-1">
             <div class="fig">
               <img src="{{house._source.image}}" alt="image">
@@ -135,15 +104,9 @@
           </a>
         </div>
       </div>
-      <ul class="pagination" *ngIf='houses.length>0'>
-        <li class="disabled"><a href="#"><span class="fa fa-angle-left"></span></a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
-      </ul>
+      <div *ngIf='houses.length>0'>
+        <app-pagination-controls (pageChange)="p = $event"></app-pagination-controls>
+      </div>
       <div class="noresults" *ngIf='houses.length==0'>Không có kết quả tìm kiếm nào!</div>
     </div>
     <div class="resultsList">

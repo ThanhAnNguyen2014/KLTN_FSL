@@ -26,7 +26,6 @@ import { AngularFireModule } from 'angularfire2';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { SharedserviceService } from './shared-service/sharedservice.service';
 
-
 export const firebaseConfig = {
   apiKey: "AIzaSyBdgpxShqNc5-cwvu9MPYk0b4ejHpSNnKY",
   authDomain: "fsl-io.firebaseapp.com",

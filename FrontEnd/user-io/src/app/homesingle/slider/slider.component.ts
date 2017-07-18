@@ -69,7 +69,7 @@ export class SliderComponent implements OnInit {
         this.isOnDist = false;
         this.flag_district = true;
         this.flag_ward = true;
-        this.provincename = rank + ' ' + name;
+        this.provincename =name;
         this.districs = data;
       },
       err => {
@@ -87,7 +87,7 @@ export class SliderComponent implements OnInit {
         this.isOnDist = false;
         this.isOnWar = false;
         this.flag_ward = true;
-        this.districtname = rank + ' ' + name;
+        this.districtname =name;
         this.wards = data;
       }
     )

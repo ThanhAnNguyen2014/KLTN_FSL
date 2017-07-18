@@ -15,6 +15,8 @@ declare var InfoBox;
   providers: [SearchdetailsService, SliderService]
 })
 export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy {
+  //p: number = 1;
+  public total: number=10;
   public message: boolean;
   public provinces: any;
   public sub: Subscription;
@@ -22,7 +24,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
   public page;
   public size;
   public objectSearch;
-  public houses: any;
+  public houses: any[];
 
   public districts: any;
   public flag_pro: boolean;
@@ -62,7 +64,10 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
           console.log('-- constructor');
           this.searchService.searchAllHouse(0, 10).subscribe(results => this.zone.run(() => {
             this.houses = results.doc.hits.hits;
+            this.total = results.doc.hits.total;
             this.initMap(this.houses)
+            console.log(this.total);
+            console.log(this.houses);
           }));
         }
         else {
@@ -71,34 +76,70 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
             /**if have data ==> search
              * else ==> search data with function get all house in database
              */
+            var textSearch;
             if (this.objectSearch.province != "") {
-              if (this.objectSearch.pricefrom != "") {
-                // search with pricefrom and priceto
-                console.log('--- search with price');
-                this.searchService.searchHouseWithPrice(this.objectSearch.province, this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10)
-                  .subscribe(
-                  results => {
-                    this.houses = results.doc.hits.hits;
-                    console.log(this.houses);
-                    this.initMap(this.houses);
+              if (this.objectSearch.district != "") {
+                if (this.objectSearch.ward != "") {
+                  if (this.objectSearch.priceto != "" && this.objectSearch.pricefrom != "") {
+                    console.log('--- search with TP + QH + PX + price');
+                    textSearch = this.objectSearch.ward + ', ' + this.objectSearch.district + ', ' + this.objectSearch.province;
+                    this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10)
+                      .subscribe(res => {
+                        this.houses = res.doc.hits.hits;
+                        this.initMap(this.houses);
+                      });
                   }
-                  )
+                  else {
+                    console.log('--- search TP + QH + PX');
+                    textSearch = this.objectSearch.ward + ', ' + this.objectSearch.district + ', ' + this.objectSearch.province;
+                    this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+                      this.houses = res.doc.hits.hits;
+                      this.initMap(this.houses);
+                    })
+                  }
+                }
+                else {
+                  if (this.objectSearch.priceto != "" && this.objectSearch.pricefrom != "") {
+                    console.log('-- search TP + QH + price');
+                    textSearch = this.objectSearch.district + ', ' + this.objectSearch.province;
+                    this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10)
+                      .subscribe(res => {
+                        this.houses = res.doc.hits.hits;
+                        this.initMap(this.houses);
+                      });
+                  }
+                  else {
+                    console.log('--search TP + QH');
+                    textSearch = this.objectSearch.district + ', ' + this.objectSearch.province;
+                    this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+                      this.houses = res.doc.hits.hits;
+                      this.initMap(this.houses);
+                    })
+                  }
+                }
               }
               else {
-                // search without pricefrom and priceto
-                console.log('--- search without price');
-                this.searchService.searchHouse(this.objectSearch.province, 0, 10)
-                  .subscribe(
-                  results => {
-                    this.houses = results.doc.hits.hits;
-                    console.log(this.houses);
+                if (this.objectSearch.priceto != "" && this.objectSearch.pricefrom != "") {
+                  console.log('-- search TP + Price');
+                  textSearch = this.objectSearch.province;
+                  this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10)
+                    .subscribe(res => {
+                      this.houses = res.doc.hits.hits;
+                      this.initMap(this.houses);
+                    });
+                }
+                else {
+                  console.log('---search TP');
+                  textSearch = this.objectSearch.province;
+                  this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+                    this.houses = res.doc.hits.hits;
                     this.initMap(this.houses);
                   })
+                }
               }
-              console.log('-- search with data tranfers from singleHome');
             }
             else {
-              if (this.objectSearch.pricefrom == "") {
+              if (this.objectSearch.pricefrom == "" && this.objectSearch.priceto == "") {
                 console.log('-- search default');
                 this.searchService.searchAllHouse(0, 10).subscribe(results => this.zone.run(() => {
                   this.houses = results.doc.hits.hits;
@@ -120,7 +161,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
       err => console.log(err)
       )
   }
-  //get provice 
+  //get province 
   getProvice() {
     this.sliderSevice.loadProvinces()
       .subscribe(provinces => { this.provinces = provinces; })
@@ -132,7 +173,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
         this.isOnDist = false;
         this.flag_district = true;
         this.flag_ward = true;
-        this.provincename = rank + ' ' + name;
+        this.provincename = name;
         this.districts = data;
       },
       err => {
@@ -150,7 +191,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
         this.isOnDist = false;
         this.isOnWar = false;
         this.flag_ward = true;
-        this.districtname = rank + ' ' + name;
+        this.districtname = name;
         this.wards = data;
       }
     )
@@ -161,6 +202,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   submit(f: NgForm) {
+    var textSearch;
     f.value.province = (<HTMLSpanElement>(document.getElementById("province"))).textContent;
     f.value.district = (<HTMLSpanElement>(document.getElementById("district"))).textContent;
     f.value.ward = (<HTMLSpanElement>(document.getElementById("ward"))).textContent;
@@ -169,16 +211,78 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
     f.value.priceto = slider[1];
     console.log(f.value);
     if (f.value.province != "-- Chọn Tỉnh/TP --") {
-      if(f.value.district!="-- Chọn Quận/Huyện --"){
-
+      if (f.value.district != "-- Chọn Quận --") {
+        if (f.value.ward != "-- Chọn Phường/Xã --") {
+          if (f.value.priceto - f.value.pricefrom != 6000000) {
+            console.log('--- search with TP + QH + PX + price');
+            textSearch = f.value.ward + ', ' + f.value.district + ', ' + f.value.province;
+            this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto, 0, 10)
+              .subscribe(res => {
+                this.houses = res.doc.hits.hits;
+                this.initMap(this.houses);
+              });
+          }
+          else {
+            console.log('--- search TP + QH + PX');
+            textSearch = f.value.ward + ', ' + f.value.district + ', ' + f.value.province;
+            this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+              this.houses = res.doc.hits.hits;
+              this.initMap(this.houses);
+            })
+          }
+        }
+        else {
+          if (f.value.priceto - f.value.pricefrom != 6000000) {
+            console.log('-- search TP + QH + price');
+            textSearch = f.value.district + ', ' + f.value.province;
+            this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto, 0, 10)
+              .subscribe(res => {
+                this.houses = res.doc.hits.hits;
+                this.initMap(this.houses);
+              });
+          }
+          else {
+            console.log('--search TP + QH');
+            textSearch = f.value.district + ', ' + f.value.province;
+            this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+              this.houses = res.doc.hits.hits;
+              this.initMap(this.houses);
+            })
+          }
+        }
+      }
+      else {
+        if (f.value.priceto - f.value.pricefrom != 6000000) {
+          console.log('-- search TP + Price');
+          textSearch = f.value.province;
+          this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto, 0, 10)
+            .subscribe(res => {
+              this.houses = res.doc.hits.hits;
+              this.initMap(this.houses);
+            });
+        }
+        else {
+          console.log('---search TP');
+          textSearch = f.value.province;
+          this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+            this.houses = res.doc.hits.hits;
+            this.initMap(this.houses);
+          })
+        }
       }
     }
     else {
-      if(f.value.pricefrom !="" && f.value.priceto!=""){
-       console.log("--- search with price"); 
+      if (f.value.priceto - f.value.pricefrom != 6000000) {
+        this.searchService.searchForHousePice(f.value.pricefrom, f.value.priceto, 0, 10).subscribe(res => {
+          this.houses = res.doc.hits.hits;
+          this.initMap(this.houses);
+        })
       }
-      else{
-        console.log('-- search all');
+      else {
+        this.searchService.searchAllHouse(0, 10).subscribe(res => {
+          this.houses = res.doc.hits.hits;
+          this.initMap(this.houses);
+        })
       }
     }
   }

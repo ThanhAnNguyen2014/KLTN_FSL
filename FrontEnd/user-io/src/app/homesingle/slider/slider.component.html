@@ -41,7 +41,7 @@
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)='getProvinces()' *ngIf="!flag_pro"
             id='provincename' value="{{provincename}}">{{provincename}}<span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" id="menu-provinces">
-            <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province.rank}} {{province.name}}</a></li>
+            <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province.name}}</a></li>
           </ul>
         </div>
       </div>
@@ -53,7 +53,7 @@
           <button *ngIf="!flag_district" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id='district' value="{{districtname}}" [ngClass]='{disabled: isOnDist}'>{{districtname}}
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu-provinces">
-            <li *ngFor='let distric of districs' (click)="selectDistrict(distric.id, distric.name, distric.rank)"><a>{{distric.rank}} {{distric.name}}</a></li>
+            <li *ngFor='let distric of districs' (click)="selectDistrict(distric.id, distric.name, distric.rank)"><a>{{distric.name}}</a></li>
           </ul>
         </div>
       </div>

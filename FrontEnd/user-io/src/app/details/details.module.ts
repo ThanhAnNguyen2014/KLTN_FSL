@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import {routing} from './details.routes';
 import { StarRatingModule } from 'angular-star-rating';
 import {MomentModule} from 'angular2-moment/moment.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { DetailsComponent } from './details.component';
 import { SearchdetailsComponent } from './searchdetails/searchdetails.component';
@@ -21,6 +22,7 @@ import { PostcommentsComponent } from './detailhouse/postcomments/postcomments.c
 //import {AuthGuard} from '../Auth/guards/auth.guard';
 import {SharedserviceService} from '../shared-service/sharedservice.service';
 import {DetailsService} from './details.service';
+import { PaginationControlsComponent } from './searchdetails/pagination-controls/pagination-controls.component';
 
 @NgModule({
   imports: [
@@ -29,6 +31,7 @@ import {DetailsService} from './details.service';
     FormsModule,
     StarRatingModule,
     MomentModule,
+    NgxPaginationModule,
     routing
   ],
   declarations: [
@@ -42,7 +45,8 @@ import {DetailsService} from './details.service';
     ContactComponent,
     RateHouseComponent,
     CommentsComponent,
-    PostcommentsComponent
+    PostcommentsComponent,
+    PaginationControlsComponent
   ],
   providers:[DetailsService]
 })

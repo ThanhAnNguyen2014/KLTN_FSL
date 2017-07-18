@@ -19,3 +19,6 @@
 .search{
     margin: 0 45% 8px;
 }
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #0eaaa6;
+  }

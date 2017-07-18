@@ -1,0 +1,16 @@
+<pagination-template #p="paginationApi" [id]="id" [maxSize]="maxSize" (pageChange)="pageChange.emit($event)">
+  <ul class="pagination" *ngIf="!(autoHide && p.pages.length <= 1)">
+    <li class="disabled" [class.disabled]="p.isFirstPage()" *ngIf="directionLinks">
+      <a *ngIf="1 < p.getCurrent()" (click)="p.previous()"><span class="fa fa-angle-left"></span> {{ previousLabel }}</a>
+      <a *ngIf="p.isFirstPage()"><span class="fa fa-angle-left"></span> {{ previousLabel }}</a>
+    </li>
+    <li [class.active]="p.getCurrent() === page.value" *ngFor="let page of p.pages">
+      <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">{{ page.label }}</a>
+      <a *ngIf="p.getCurrent() === page.value">{{ page.label }}</a>
+    </li>
+    <li [class.disabled]="p.isLastPage()" *ngIf="directionLinks">
+      <a *ngIf="!p.isLastPage()" (click)="p.next()">{{nextLabel}} <span class="fa fa-angle-right"></span></a>
+      <a *ngIf="p.isLastPage()" class="disabled">{{nextLabel}} <span class="fa fa-angle-right"></span></a>
+    </li>
+  </ul>
+</pagination-template>

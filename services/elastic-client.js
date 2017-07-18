@@ -91,13 +91,13 @@ function searchHouseWithPrice(text, pricefrom, priceto, page, size) {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
-        from: page,
-        size: size,
+        // from: page,
+        // size: size,
         body: {
             query: {
                 bool: {
                     must: {
-                        match: {
+                        match_phrase: {
                             address: text
                         }
                     },
@@ -128,14 +128,12 @@ function searchHouseWithoutPrice(text, page, size) {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
-        from: page,
-        size: size,
+        // from: page,
+        // size: size,
         body: {
             query: {
-                multi_match: {
-                    query: text,
-                    fields: ["address"],
-                    fuzziness: "AUTO"
+                match_phrase: {
+                    address: text,
                 }
             },
             sort: {
@@ -153,8 +151,8 @@ function searchAllHouse(page, size) {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
-        from: page,
-        size: size,
+        from: 0,
+        size: 10000,
         body: {
             query: {
                 match_all: {}
@@ -174,8 +172,8 @@ function searchForHousePrice(pricefrom, priceto, page, size) {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
-        from: page,
-        size: size,
+        // from: page,
+        // size: size,
         body: {
             query: {
                 bool: {
