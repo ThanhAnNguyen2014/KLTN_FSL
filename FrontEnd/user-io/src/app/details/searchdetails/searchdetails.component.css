@@ -1,0 +1,21 @@
+#menu-provinces{
+    max-height: 150px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-top: 0px;
+}
+#menu-district{
+    max-height: 150px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-top: 0px;
+}
+#menu-ward{
+    max-height: 150px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-top: 0px;
+}
+.search{
+    margin: 0 45% 8px;
+}

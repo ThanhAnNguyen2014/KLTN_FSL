@@ -6686,3 +6686,7 @@ blockquote {
         font-size: 11px;
     }
 }
+.noresults{
+    text-align: center;
+    font-size: 15px;
+}

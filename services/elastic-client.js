@@ -97,7 +97,7 @@ function searchHouseWithPrice(text, pricefrom, priceto, page, size) {
             query: {
                 bool: {
                     must: {
-                        match_phrase: {
+                        match: {
                             address: text
                         }
                     },
@@ -149,3 +149,55 @@ function searchHouseWithoutPrice(text, page, size) {
     })
 }
 exports.searchHouseWithoutPrice = searchHouseWithoutPrice;
+function searchAllHouse(page, size) {
+    return esClient.search({
+        index: indexName,
+        type: config.elasticsearch.house_type,
+        from: page,
+        size: size,
+        body: {
+            query: {
+                match_all: {}
+            },
+            sort: {
+                create_date: {
+                    order: "desc"
+                }
+            }
+        }
+    }).catch(err => {
+        console.log(err);
+    })
+}
+exports.searchAllHouse = searchAllHouse;
+function searchForHousePrice(pricefrom, priceto, page, size) {
+    return esClient.search({
+        index: indexName,
+        type: config.elasticsearch.house_type,
+        from: page,
+        size: size,
+        body: {
+            query: {
+                bool: {
+                    filter: {
+                        range: {
+                            price: {
+                                from: pricefrom,
+                                to: priceto
+                            }
+                        },
+                    },
+
+                }
+            },
+            sort: {
+                create_date: {
+                    order: "desc"
+                }
+            }
+        }
+    }).catch(err => {
+        console.log(err);
+    })
+}
+exports.searchForHousePrice = searchForHousePrice;

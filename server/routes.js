@@ -87,6 +87,8 @@ module.exports = function (app) {
     router.get('/api/v1/house/detail/:id_house/comment', api_houseController.getComment);
     router.delete('/api/v1/house/detail/comment/:id', ensureAuthenticatedUser, api_houseController.deleteComment);
     router.get('/search-house/', api_houseController.searchHouse);
+    router.get('/search-house/all', api_houseController.searchAllHouse);
+    router.get('/search-house/price', api_houseController.searchForHousePrice);
     // section admin
     router.get('/admin/login', adminController.get_login);
     router.post('/admin/login', passport.authenticate('local', {

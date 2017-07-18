@@ -254,9 +254,5 @@ module.exports = {
             return callback('Invalid ObjectId');
         }
     },
-    seachHouseBasic: function (stringSearch, callback) {
-
-    }
-
 
 }

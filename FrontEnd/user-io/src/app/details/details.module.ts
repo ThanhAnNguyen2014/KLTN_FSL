@@ -44,6 +44,6 @@ import {DetailsService} from './details.service';
     CommentsComponent,
     PostcommentsComponent
   ],
-  providers:[SharedserviceService, DetailsService]
+  providers:[DetailsService]
 })
 export class DetailsModule { }

@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     SignupComponent,
     ActionComponent
   ],
-  providers: [SharedserviceService],
+  providers: [],
   exports: [HomesingleComponent]
 })
 export class HomesingleModule { }

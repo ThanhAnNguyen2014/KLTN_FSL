@@ -20,9 +20,8 @@ export class NewhomeComponent implements OnInit, OnDestroy {
   sub: Subscription;
   constructor(private newhomeService: NewhomeService) {
 
-    const listhomehouse$ = newhomeService.getSixHouses();
 
-    this.sub = listhomehouse$.subscribe(
+    newhomeService.getSixHouses().subscribe(
       data => {
         this.listhomehouses = data
       },
@@ -51,8 +50,8 @@ export class NewhomeComponent implements OnInit, OnDestroy {
     //$.getScript('../../../../assets/js/tooltip.js');
   }
   ngOnDestroy(): void {
-    this.sub.unsubscribe(); // 
-    console.log('Unsbscription complete!');
+    //this.sub.unsubscribe(); // 
+    // console.log('Unsbscription complete!');
   }
 
 }

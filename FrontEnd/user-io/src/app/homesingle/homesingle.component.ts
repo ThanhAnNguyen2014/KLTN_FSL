@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { SharedserviceService } from '../shared-service/sharedservice.service';
-import { Subscription } from 'rxjs/Subscription';
+
 declare var $: any;
 
 @Component({
@@ -9,10 +8,7 @@ declare var $: any;
   styleUrls: ['./homesingle.component.css']
 })
 export class HomesingleComponent implements OnInit, AfterViewInit, OnDestroy {
-  message: any;
-  subscription: Subscription;
-
-  constructor(private shareService: SharedserviceService) { }
+  constructor() { }
 
   ngOnInit() {
 

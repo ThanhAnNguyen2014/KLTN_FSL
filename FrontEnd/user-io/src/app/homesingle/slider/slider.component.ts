@@ -30,10 +30,10 @@ export class SliderComponent implements OnInit {
   public isOnWar: boolean;
   public houses: any;
   constructor(
-    private sliderService: SliderService,
+    private router: Router,
     private auth: AuthenticationService,
-    private sharedService: SharedserviceService,
-    private router: Router
+    private sliderService: SliderService,
+    private sharedService: SharedserviceService
   ) {
     console.log(auth.loggedIn());
     auth.loggedIn();
@@ -97,38 +97,15 @@ export class SliderComponent implements OnInit {
     this.wardname = name;
   }
   search(f: NgForm) {
-    var searchString: string;
-    var provice = (<HTMLButtonElement>(document.getElementById("provincename"))).value;
-    var district = (<HTMLButtonElement>(document.getElementById("district"))).value;
-    var ward = (<HTMLButtonElement>(document.getElementById("ward"))).value;
-    f.value.provice = provice;
-    f.value.district = district;
-    f.value.ward = ward;
-
     var page = 0;
     var size = 10;
-    if (provice != "" && district != "" && ward != "") {
-      searchString = ward + ', ' + district + ', ' + provice;
-    }
-    else {
-      if (provice != "" && district != "") {
-        searchString = district + ', ' + provice;
-      }
-      else {
-        if (provice != "") {
-          searchString = provice;
-        }
-        else {
-          searchString = "";
-        }
-      }
-    };
-    console.log(searchString);
-    console.log(page, size);
-    this.sliderService.searchHouse(searchString, page, size).subscribe((res) => {
-      this.houses = res.doc.hits.hits;
-      this.sharedService.setDataSearch(this.houses);
-    });
-    this.router.navigate(['/details/search-details']);
+    var province = (<HTMLButtonElement>(document.getElementById("provincename"))).value;
+    var district = (<HTMLButtonElement>(document.getElementById("district"))).value;
+    var ward = (<HTMLButtonElement>(document.getElementById("ward"))).value;
+    f.value.province = province;
+    f.value.district = district;
+    f.value.ward = ward;
+    this.sharedService.setDataSearch(f.value);
+    this.router.navigateByUrl('/details/search-details');
   }
 }

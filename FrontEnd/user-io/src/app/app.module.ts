@@ -46,7 +46,6 @@ export const firebaseConfig = {
     ReactiveFormsModule,
     CustomFormsModule,
     HttpModule,
-    //AuthModule,
     HomesingleModule,
     DetailsModule,
     routing,

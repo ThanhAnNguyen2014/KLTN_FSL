@@ -11,11 +11,25 @@ export class SearchdetailsService {
     let options = new RequestOptions({ headers: headers });
     return this.http.get(this.url + '?q=' + searchString + '&pricefrom=' + '&priceto=' + '&page=' + page + '&size=' + size, options).map((res) => res.json().results);
   }
-   searchHouseWithPrice(searchString, pricefrom, priceto, page, size) {
+  searchHouseWithPrice(searchString, pricefrom, priceto, page, size) {
     let headers = new Headers({
       'Accept': 'application/json'
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url + '?q=' + searchString + '&pricefrom='+pricefrom + '&priceto='+ priceto + '&page=' + page + '&size=' + size, options).map((res) => res.json().results);
+    return this.http.get(this.url + '?q=' + searchString + '&pricefrom=' + pricefrom + '&priceto=' + priceto + '&page=' + page + '&size=' + size, options).map((res) => res.json().results);
+  }
+  searchAllHouse(page, size) {
+    let headers = new Headers({
+      'Accept': 'application/json'
+    });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(this.url + 'all?' + '&page=' + page + '&size=' + size, options).map((res) => res.json().results);
+  }
+  searchForHousePice(pricefrom, priceto, page, size) {
+    let headers = new Headers({
+      'Accept': 'application/json'
+    });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(this.url + 'price?' + '&pricefrom=' + pricefrom + '&priceto=' + priceto + '&page=' + page + '&size=' + size, options).map(res => res.json().results);
   }
 }

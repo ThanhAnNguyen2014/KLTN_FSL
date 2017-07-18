@@ -31,7 +31,7 @@
     <div class="home-title">Now it's easy to find your dream house</div>
     <div class="home-subtitle">With FSL - you can find one as fast as possible</div>
   </div>
-  <div class="search-panel">
+  <div class="search-panel" *ngIf="router.url!='/details/search-details'">
     <form class="form-inline" role="form"  #f="ngForm" (ngSubmit)=search(f)>
 
       <div class="form-group hidden-xs adv">

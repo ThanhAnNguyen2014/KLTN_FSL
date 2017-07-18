@@ -5,76 +5,66 @@
   <div id="content">
     <div class="filter">
       <h1 class="osLight">LỌC</h1>
-      <a href="#" class="handleFilter"><span class="icon-equalizer"></span></a>
+      <a href="javascript:void(0)" class="handleFilter"><span class="icon-equalizer"></span></a>
       <div class="clearfix"></div>
-      <form class="filterForm">
+      <form class="filterForm" #f='ngForm' (ngSubmit)='submit(f)'>
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6 formItem">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 formItem">
             <div class="formField">
               <label>Thành phố/ Tỉnh</label>
-              <a href="#" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
-                <span class="dropdown-label">All</span>
-                <span class="fa fa-angle-down dsArrow"></span>
-              </a>
-              <ul class="dropdown-menu dropdown-select full" role="menu">
-                <li class="active"><input type="radio" name="pType" checked="checked"><a href="#">TP HCM</a></li>
-                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-                <li><input type="radio" name="pType"><a href="#">Hà Nội</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quảng Ngãi</a></li>
-                <li><input type="radio" name="pType"><a href="#">Quy Nhơn</a></li>
-
+              <a href="javascript:void(0)" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect" *ngIf="flag_pro">
+                                        <span class="dropdown-label" id="province">-- Chọn Tỉnh/TP --</span>
+                                        <span class="fa fa-angle-down dsArrow"></span>
+                                        
+                                    </a>
+              <a href="javascript:void(0)" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect" *ngIf="!flag_pro">
+                                        <span class="dropdown-label" id="province">{{provincename}}</span>
+                                        <span class="fa fa-angle-down dsArrow"></span>
+                                    </a>
+              <ul class="dropdown-menu dropdown-select full" role="menu" id="menu-provinces">
+                <li *ngFor='let province of provinces' (click)="selectProvince(province.id, province.name, province.rank)"><a>{{province?.rank}} {{province?.name}}</a></li>
               </ul>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 formItem">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 formItem">
             <div class="formField">
               <label>Quận/ Huyện</label>
-              <a href="#" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
-                <span class="dropdown-label">All</span>
+              <a href="javascript:void(0)" [ngClass]='{disabled: isOnDist}' *ngIf="flag_district" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
+                <span class="dropdown-label" id="district">-- Chọn Quận --</span>
                 <span class="fa fa-angle-down dsArrow"></span>
               </a>
-              <ul class="dropdown-menu dropdown-select full" role="menu">
-                <li class="active"><input type="radio" name="pType" checked="checked"><a href="#">Thủ Đức</a></li>
-                <li><input type="radio" name="pType"><a href="#">Tân Phú</a></li>
-                <li><input type="radio" name="pType"><a href="#">Tân Bình</a></li>
-                <li><input type="radio" name="pType"><a href="#">Bình Tân</a></li>
+              <a href="javascript:void(0)" [ngClass]='{disabled: isOnDist}' *ngIf="!flag_district" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
+                <span class="dropdown-label" id="district">{{districtname}}</span>
+                <span class="fa fa-angle-down dsArrow"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-select full" role="menu" id="menu-district">
+                <li *ngFor='let district of districts' (click)="selectDistrict(district.id, district.name, district.rank)"><a>{{district.rank}} {{district.name}}</a></li>
               </ul>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 formItem">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 formItem">
             <div class="formField">
               <label>Phường/ Xã</label>
-              <a href="#" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
-                <span class="dropdown-label">All</span>
+              <a href="javascript:void(0)" [ngClass]='{disabled: isOnWar}' *ngIf="flag_ward" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
+                <span class="dropdown-label" id="ward">-- Chọn Phường/Xã --</span>
                 <span class="fa fa-angle-down dsArrow"></span>
               </a>
-              <ul class="dropdown-menu dropdown-select full" role="menu">
-                <li class="active"><input type="radio" name="pType" checked="checked"><a href="#">Bình Thọ</a></li>
-                <li><input type="radio" name="pType"><a href="#">Linh Chiểu</a></li>
-                <li><input type="radio" name="pType"><a href="#">Linh Trung</a></li>
-                <li><input type="radio" name="pType"><a href="#">Trường Thọ</a></li>
+              <a href="javascript:void(0)" [ngClass]='{disabled: isOnWar}' *ngIf="!flag_ward" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
+                <span class="dropdown-label" id="ward">{{wardname}}</span>
+                <span class="fa fa-angle-down dsArrow"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-select full" role="menu" id="menu-ward">
+                <li *ngFor='let ward of wards' (click)="selectWard(ward.id, ward.name, ward.rank)"><a>{{ward.name}}</a></li>
               </ul>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 formItem">
-
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 formItem">
             <div class="formField">
-              <label>Giá</label>
+              <label>Giá:</label>
               <div class="slider priceSlider">
                 <div class="sliderTooltip">
                   <div class="stArrow"></div>
@@ -84,9 +74,24 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5 formItem"></div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 formItem">
+            <button type="submit" class="btn btn-green">Search</button>
+          </div>
+        </div>
       </form>
     </div>
-    <div class="resultsList">
+    <div class="resultsList" *ngIf='houses'>
+      <ul class="pagination" *ngIf='houses.length>0'>
+        <li class="disabled"><a href="#"><span class="fa fa-angle-left"></span></a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
+      </ul>
       <!--<div class="row" *ngIf='houses'>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor='let house of houses'>
           <a [routerLink]="['/details/detail-house/'+ house._id]" class="card">
@@ -112,12 +117,12 @@
           </a>
         </div>
       </div>-->
-      <div class="row" *ngIf='houses'>
+      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor='let house of houses'>
           <a [routerLink]="['/details/detail-house/'+ house._id]" class="propWidget-1">
             <div class="fig">
               <img src="{{house._source.image}}" alt="image">
-              <div class="priceCap"><span class="price text-red"><strong>{{house._source.price|currency:'VND':true}}</strong></span></div>
+              <div class="priceCap"><span class="price text-red"><strong> {{house._source.price|currency:'VND':true}}</strong></span></div>
               <div class="figType">{{house._source.status}}</div>
               <div class="figCap">
                 <h3>{{house._source.title}}</h3>
@@ -130,7 +135,7 @@
           </a>
         </div>
       </div>
-      <ul class="pagination">
+      <ul class="pagination" *ngIf='houses.length>0'>
         <li class="disabled"><a href="#"><span class="fa fa-angle-left"></span></a></li>
         <li class="active"><a href="#">1</a></li>
         <li><a href="#">2</a></li>
@@ -139,6 +144,10 @@
         <li><a href="#">5</a></li>
         <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
       </ul>
+      <div class="noresults" *ngIf='houses.length==0'>Không có kết quả tìm kiếm nào!</div>
+    </div>
+    <div class="resultsList">
+      <div class="noresults" *ngIf='message'>Bạn vui lòng chọn điều kiện tìm kiếm!</div>
     </div>
   </div>
   <div class="clearfix"></div>

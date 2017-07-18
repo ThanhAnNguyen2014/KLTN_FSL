@@ -497,14 +497,14 @@
     $('.priceSlider').slider({
         range: true,
         min: 0,
-        max: 2000000,
-        values: [500000, 1500000],
-        step: 10000,
+        max: 6000000,
+        values: [0, 6000000],
+        step: 100000,
         slide: function (event, ui) {
             $('.priceSlider .sliderTooltip .stLabel').html(
-                '$' + ui.values[0].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") +
+                'VNĐ ' + ui.values[0].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") +
                 ' <span class="fa fa-arrows-h"></span> ' +
-                '$' + ui.values[1].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
+                'VNĐ ' + ui.values[1].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
             );
             var priceSliderRangeLeft = parseInt($('.priceSlider .ui-slider-range').css('left'));
             var priceSliderRangeWidth = $('.priceSlider .ui-slider-range').width();
@@ -513,9 +513,9 @@
         }
     });
     $('.priceSlider .sliderTooltip .stLabel').html(
-        '$' + $('.priceSlider').slider('values', 0).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") +
+        'VNĐ ' + $('.priceSlider').slider('values', 0).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") +
         ' <span class="fa fa-arrows-h"></span> ' +
-        '$' + $('.priceSlider').slider('values', 1).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
+        'VNĐ ' + $('.priceSlider').slider('values', 1).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
     );
     var priceSliderRangeLeft = parseInt($('.priceSlider .ui-slider-range').css('left'));
     var priceSliderRangeWidth = $('.priceSlider .ui-slider-range').width();

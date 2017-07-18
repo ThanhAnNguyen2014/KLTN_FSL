@@ -313,7 +313,7 @@ module.exports = {
         })
     },
     searchHouse: function (req, res) {
-        console.log(req.query.q, req.query.pricefrom, req.query.priceto,req.query.page, req.query.size);
+        console.log(req.query.q, req.query.pricefrom, req.query.priceto, req.query.page, req.query.size);
         var textSearch = req.query.q;
         var pricefrom = req.query.pricefrom;
         var priceto = req.query.priceto;
@@ -339,9 +339,9 @@ module.exports = {
         }
         else {
             elastic.searchHouseWithoutPrice(
-               textSearch,
-               page,
-               size
+                textSearch,
+                page,
+                size
             ).then((results) => {
                 return res.status(200).json({
                     code: res.statusCode,
@@ -352,5 +352,33 @@ module.exports = {
                 });
             });
         }
+    },
+    searchAllHouse: function (req, res) {
+        var page = req.query.page;
+        var size = req.query.size;
+        elastic.searchAllHouse(page, size).then((results) => {
+            return res.status(200).json({
+                code: res.statusCode,
+                results: {
+                    message: null,
+                    doc: results
+                }
+            });
+        });
+    },
+    searchForHousePrice: function (req, res) {
+        var page = req.query.page;
+        var size = req.query.size;
+        var pricefrom = req.query.pricefrom;
+        var priceto = req.query.priceto;
+        elastic.searchForHousePrice(pricefrom, priceto, page, size).then((results) => {
+            return res.status(200).json({
+                code: res.statusCode,
+                results: {
+                    message: null,
+                    doc: results
+                }
+            });
+        });
     }
 }
