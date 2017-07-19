@@ -313,12 +313,10 @@ module.exports = {
         })
     },
     searchHouse: function (req, res) {
-        console.log(req.query.q, req.query.pricefrom, req.query.priceto, req.query.page, req.query.size);
+        console.log(req.query.q, req.query.pricefrom, req.query.priceto);
         var textSearch = req.query.q;
         var pricefrom = req.query.pricefrom;
         var priceto = req.query.priceto;
-        var page = req.query.page;
-        var size = req.query.size;
         if (pricefrom != "" && priceto != "") {
             elastic.searchHouseWithPrice(
                 textSearch,
@@ -339,9 +337,7 @@ module.exports = {
         }
         else {
             elastic.searchHouseWithoutPrice(
-                textSearch,
-                page,
-                size
+                textSearch
             ).then((results) => {
                 return res.status(200).json({
                     code: res.statusCode,
@@ -354,9 +350,7 @@ module.exports = {
         }
     },
     searchAllHouse: function (req, res) {
-        var page = req.query.page;
-        var size = req.query.size;
-        elastic.searchAllHouse(page, size).then((results) => {
+        elastic.searchAllHouse().then((results) => {
             return res.status(200).json({
                 code: res.statusCode,
                 results: {
@@ -367,11 +361,9 @@ module.exports = {
         });
     },
     searchForHousePrice: function (req, res) {
-        var page = req.query.page;
-        var size = req.query.size;
         var pricefrom = req.query.pricefrom;
         var priceto = req.query.priceto;
-        elastic.searchForHousePrice(pricefrom, priceto, page, size).then((results) => {
+        elastic.searchForHousePrice(pricefrom, priceto).then((results) => {
             return res.status(200).json({
                 code: res.statusCode,
                 results: {

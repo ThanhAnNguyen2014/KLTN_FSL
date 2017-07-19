@@ -2,34 +2,34 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class SearchdetailsService {
-  private url = 'http://localhost:3300/search-house/'
+  private url = 'https://hcmutefslio.herokuapp.com/search-house/'
   constructor(private http: Http) { }
-  searchHouse(searchString, page, size) {
+  searchHouse(searchString) {
     let headers = new Headers({
       'Accept': 'application/json'
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url + '?q=' + searchString + '&pricefrom=' + '&priceto=' + '&page=' + page + '&size=' + size, options).map((res) => res.json().results);
+    return this.http.get(this.url + '?q=' + searchString + '&pricefrom=' + '&priceto=', options).map((res) => res.json().results);
   }
-  searchHouseWithPrice(searchString, pricefrom, priceto, page, size) {
+  searchHouseWithPrice(searchString, pricefrom, priceto) {
     let headers = new Headers({
       'Accept': 'application/json'
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url + '?q=' + searchString + '&pricefrom=' + pricefrom + '&priceto=' + priceto + '&page=' + page + '&size=' + size, options).map((res) => res.json().results);
+    return this.http.get(this.url + '?q=' + searchString + '&pricefrom=' + pricefrom + '&priceto=' + priceto, options).map((res) => res.json().results);
   }
-  searchAllHouse(page, size) {
+  searchAllHouse() {
     let headers = new Headers({
       'Accept': 'application/json'
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url + 'all?' + '&page=' + page + '&size=' + size, options).map((res) => res.json().results);
+    return this.http.get(this.url + 'all?', options).map((res) => res.json().results);
   }
-  searchForHousePice(pricefrom, priceto, page, size) {
+  searchForHousePice(pricefrom, priceto) {
     let headers = new Headers({
       'Accept': 'application/json'
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url + 'price?' + '&pricefrom=' + pricefrom + '&priceto=' + priceto + '&page=' + page + '&size=' + size, options).map(res => res.json().results);
+    return this.http.get(this.url + 'price?' + '&pricefrom=' + pricefrom + '&priceto=' + priceto, options).map(res => res.json().results);
   }
 }

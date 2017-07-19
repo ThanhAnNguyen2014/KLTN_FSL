@@ -15,7 +15,7 @@ declare var $: any;
 export class NewhomeComponent implements OnInit, OnDestroy {
 
 
-
+  status: boolean= false;
   listhomehouses: NewHouse[];
   sub: Subscription;
   constructor(private newhomeService: NewhomeService) {
@@ -23,28 +23,14 @@ export class NewhomeComponent implements OnInit, OnDestroy {
 
     newhomeService.getSixHouses().subscribe(
       data => {
-        this.listhomehouses = data
+        this.status = true;
+        this.listhomehouses = data;
       },
       (error) => { console.log('Error server! ... ' + error) },
       () => console.log('completed!')
     );
 
   }
-
-  ratings(value) {
-    //var temp = parseInt(value);
-    //console.log(temp);
-
-    var a = [];
-    if (value == 0) {
-      return a;
-    };
-    for (var i = 0; i < parseInt(value); ++i) {
-      a.push(i + 1)
-    }
-    return a;
-  }
-
   ngOnInit() {
     //$('[data-toggle="tooltip"]').tooltip();
     //$.getScript('../../../../assets/js/tooltip.js');

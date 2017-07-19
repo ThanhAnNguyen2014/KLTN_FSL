@@ -87,12 +87,12 @@ function addHouse(house) {
 }
 exports.addHouse = addHouse;
 
-function searchHouseWithPrice(text, pricefrom, priceto, page, size) {
+function searchHouseWithPrice(text, pricefrom, priceto) {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
-        // from: page,
-        // size: size,
+        from: 0,
+        size: 10000,
         body: {
             query: {
                 bool: {
@@ -124,12 +124,12 @@ function searchHouseWithPrice(text, pricefrom, priceto, page, size) {
 }
 exports.searchHouseWithPrice = searchHouseWithPrice;
 
-function searchHouseWithoutPrice(text, page, size) {
+function searchHouseWithoutPrice(text) {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
-        // from: page,
-        // size: size,
+        from: 0,
+        size: 10000,
         body: {
             query: {
                 match_phrase: {
@@ -147,7 +147,7 @@ function searchHouseWithoutPrice(text, page, size) {
     })
 }
 exports.searchHouseWithoutPrice = searchHouseWithoutPrice;
-function searchAllHouse(page, size) {
+function searchAllHouse() {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
@@ -168,12 +168,12 @@ function searchAllHouse(page, size) {
     })
 }
 exports.searchAllHouse = searchAllHouse;
-function searchForHousePrice(pricefrom, priceto, page, size) {
+function searchForHousePrice(pricefrom, priceto) {
     return esClient.search({
         index: indexName,
         type: config.elasticsearch.house_type,
-        // from: page,
-        // size: size,
+        from: 0,
+        size: 10000,
         body: {
             query: {
                 bool: {

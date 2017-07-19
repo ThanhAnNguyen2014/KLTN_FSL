@@ -62,7 +62,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
         // Search with no data transmission
         if (this.objectSearch == null) {
           console.log('-- constructor');
-          this.searchService.searchAllHouse(0, 10).subscribe(results => this.zone.run(() => {
+          this.searchService.searchAllHouse().subscribe(results => this.zone.run(() => {
             this.houses = results.doc.hits.hits;
             this.total = results.doc.hits.total;
             this.initMap(this.houses)
@@ -83,7 +83,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
                   if (this.objectSearch.priceto != "" && this.objectSearch.pricefrom != "") {
                     console.log('--- search with TP + QH + PX + price');
                     textSearch = this.objectSearch.ward + ', ' + this.objectSearch.district + ', ' + this.objectSearch.province;
-                    this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10)
+                    this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto)
                       .subscribe(res => {
                         this.houses = res.doc.hits.hits;
                         this.initMap(this.houses);
@@ -92,7 +92,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
                   else {
                     console.log('--- search TP + QH + PX');
                     textSearch = this.objectSearch.ward + ', ' + this.objectSearch.district + ', ' + this.objectSearch.province;
-                    this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+                    this.searchService.searchHouse(textSearch).subscribe(res => {
                       this.houses = res.doc.hits.hits;
                       this.initMap(this.houses);
                     })
@@ -102,7 +102,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
                   if (this.objectSearch.priceto != "" && this.objectSearch.pricefrom != "") {
                     console.log('-- search TP + QH + price');
                     textSearch = this.objectSearch.district + ', ' + this.objectSearch.province;
-                    this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10)
+                    this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto)
                       .subscribe(res => {
                         this.houses = res.doc.hits.hits;
                         this.initMap(this.houses);
@@ -111,7 +111,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
                   else {
                     console.log('--search TP + QH');
                     textSearch = this.objectSearch.district + ', ' + this.objectSearch.province;
-                    this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+                    this.searchService.searchHouse(textSearch).subscribe(res => {
                       this.houses = res.doc.hits.hits;
                       this.initMap(this.houses);
                     })
@@ -122,7 +122,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
                 if (this.objectSearch.priceto != "" && this.objectSearch.pricefrom != "") {
                   console.log('-- search TP + Price');
                   textSearch = this.objectSearch.province;
-                  this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10)
+                  this.searchService.searchHouseWithPrice(textSearch, this.objectSearch.pricefrom, this.objectSearch.priceto)
                     .subscribe(res => {
                       this.houses = res.doc.hits.hits;
                       this.initMap(this.houses);
@@ -131,7 +131,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
                 else {
                   console.log('---search TP');
                   textSearch = this.objectSearch.province;
-                  this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+                  this.searchService.searchHouse(textSearch).subscribe(res => {
                     this.houses = res.doc.hits.hits;
                     this.initMap(this.houses);
                   })
@@ -141,14 +141,14 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
             else {
               if (this.objectSearch.pricefrom == "" && this.objectSearch.priceto == "") {
                 console.log('-- search default');
-                this.searchService.searchAllHouse(0, 10).subscribe(results => this.zone.run(() => {
+                this.searchService.searchAllHouse().subscribe(results => this.zone.run(() => {
                   this.houses = results.doc.hits.hits;
                   this.initMap(this.houses)
                 }));
               }
               else {
                 console.log('--search chi can gia');
-                this.searchService.searchForHousePice(this.objectSearch.pricefrom, this.objectSearch.priceto, 0, 10).subscribe(results => {
+                this.searchService.searchForHousePice(this.objectSearch.pricefrom, this.objectSearch.priceto).subscribe(results => {
                   this.houses = results.doc.hits.hits;
                   console.log(this.houses);
                   this.initMap(this.houses);
@@ -216,7 +216,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
           if (f.value.priceto - f.value.pricefrom != 6000000) {
             console.log('--- search with TP + QH + PX + price');
             textSearch = f.value.ward + ', ' + f.value.district + ', ' + f.value.province;
-            this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto, 0, 10)
+            this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto)
               .subscribe(res => {
                 this.houses = res.doc.hits.hits;
                 this.initMap(this.houses);
@@ -225,7 +225,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
           else {
             console.log('--- search TP + QH + PX');
             textSearch = f.value.ward + ', ' + f.value.district + ', ' + f.value.province;
-            this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+            this.searchService.searchHouse(textSearch).subscribe(res => {
               this.houses = res.doc.hits.hits;
               this.initMap(this.houses);
             })
@@ -235,7 +235,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
           if (f.value.priceto - f.value.pricefrom != 6000000) {
             console.log('-- search TP + QH + price');
             textSearch = f.value.district + ', ' + f.value.province;
-            this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto, 0, 10)
+            this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto)
               .subscribe(res => {
                 this.houses = res.doc.hits.hits;
                 this.initMap(this.houses);
@@ -244,7 +244,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
           else {
             console.log('--search TP + QH');
             textSearch = f.value.district + ', ' + f.value.province;
-            this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+            this.searchService.searchHouse(textSearch).subscribe(res => {
               this.houses = res.doc.hits.hits;
               this.initMap(this.houses);
             })
@@ -255,7 +255,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
         if (f.value.priceto - f.value.pricefrom != 6000000) {
           console.log('-- search TP + Price');
           textSearch = f.value.province;
-          this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto, 0, 10)
+          this.searchService.searchHouseWithPrice(textSearch, f.value.pricefrom, f.value.priceto)
             .subscribe(res => {
               this.houses = res.doc.hits.hits;
               this.initMap(this.houses);
@@ -264,7 +264,7 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
         else {
           console.log('---search TP');
           textSearch = f.value.province;
-          this.searchService.searchHouse(textSearch, 0, 10).subscribe(res => {
+          this.searchService.searchHouse(textSearch).subscribe(res => {
             this.houses = res.doc.hits.hits;
             this.initMap(this.houses);
           })
@@ -273,13 +273,13 @@ export class SearchdetailsComponent implements OnInit, AfterViewInit, OnDestroy 
     }
     else {
       if (f.value.priceto - f.value.pricefrom != 6000000) {
-        this.searchService.searchForHousePice(f.value.pricefrom, f.value.priceto, 0, 10).subscribe(res => {
+        this.searchService.searchForHousePice(f.value.pricefrom, f.value.priceto).subscribe(res => {
           this.houses = res.doc.hits.hits;
           this.initMap(this.houses);
         })
       }
       else {
-        this.searchService.searchAllHouse(0, 10).subscribe(res => {
+        this.searchService.searchAllHouse().subscribe(res => {
           this.houses = res.doc.hits.hits;
           this.initMap(this.houses);
         })
