@@ -1,6 +1,6 @@
 import { Directive, Component, OnInit } from '@angular/core';
 import initMaps = require('../../../../assets/js/init/initMaps.js');
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import initNotifySuccess = require('../../../../assets/js/init/notify-success.js');
 import { CreateroomtypeService } from './createroomtype.service';
 import { NgForm } from "@angular/forms";
@@ -27,7 +27,7 @@ export class CreateroomtypeComponent implements OnInit {
     constructor(
         private createroomtypeservice: CreateroomtypeService,
         private router: Router,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
     ) {
         this.LoadDevice();
     }
@@ -35,8 +35,16 @@ export class CreateroomtypeComponent implements OnInit {
     ngOnInit() {
         this.roomtype = {};
         this.LoadData();
-        console.log(this.showEdit);
+        // this.router.events.subscribe((evt) => {
+        //     if (!(evt instanceof NavigationEnd)) {
+        //         return;
+        //     }
+        //     console.log(document.body.scrollTop);
+        //     document.body.scrollTop = 0;
+        //     //window.scrollTo(10, 0)
+        // })
     }
+
 
     SaveAdd(f: NgForm) {
 
@@ -132,20 +140,13 @@ export class CreateroomtypeComponent implements OnInit {
     EditFunction(id: object) {
         this.showEdit = true;
         this.createroomtypeservice.GetSingle(id).subscribe((response) => {
-            console.log(Response);
             this.roomtype = response;
-            /*
-            this.roomtype.device.map((device)=>{
-                this.temp_arr.push({'id': device.id_device});
+            this.roomtype.device.map((device) => {
+                this.temp_arr.push({ 'id': device.id_device });
             });
-            */
-
             this.roomtype.device.forEach(device => {
                 this.temp_arr.push({ 'id': device.id_device });
             });
-            console.log('Array before modification');
-            console.log(this.temp_arr);
-
         })
     }
 

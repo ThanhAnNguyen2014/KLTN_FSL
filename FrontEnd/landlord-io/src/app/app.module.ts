@@ -21,6 +21,9 @@ import { CreateroomtypeComponent } from "app/dashboard/managerooms/createroomtyp
 import { RoomsComponent } from "app/dashboard/managerooms/rooms/rooms.component";
 import { DetailroomComponent } from "app/dashboard/managerooms/detailroom/detailroom.component";
 
+import { AuthGuard } from './Auth/guards/auth.guard';
+import { AuthenticationService } from './Auth/services/authentication.service';
+
 /**Import component and module of firebase */
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
@@ -41,7 +44,8 @@ export const firebaseConfig = {
 const appRoutes: Routes = [
   {
     path: 'dashboard',
-    loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+    loadChildren: 'app/dashboard/dashboard.module#DashboardModule', 
+    canActivate: [AuthGuard]
   },
   { path: '', component: LoginComponent , pathMatch:'full'},
   { path: 'register', component: SignupComponent},
@@ -62,7 +66,7 @@ const appRoutes: Routes = [
     Ng2ImgMaxModule
   ],
 
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AuthGuard, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

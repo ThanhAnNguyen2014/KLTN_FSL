@@ -101,7 +101,7 @@ export class NewpostComponent implements OnInit, AfterViewInit {
 
   }
 
-   fileChangeEvent(fileInput: any) {
+  fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
     /**
      * Call Thang's promise service to uploadImages
@@ -177,6 +177,33 @@ export class NewpostComponent implements OnInit, AfterViewInit {
 
     });
 
-  }
+    var input = document.getElementById('address');
+    var autocomplete = new google.maps.places.Autocomplete(input);
 
+    autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace();
+      console.log(place);
+      if (!place.geometry) {
+        // User entered the name of a Place that was not suggested and
+        // pressed the Enter key, or the Place Details request failed.
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+
+      // If the place has a geometry, then present it on a map.
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        console.log(place.geometry.location);
+        //map.setZoom(17);  // Why 17? Because it looks good.
+      }
+      marker.setPosition(place.geometry.location);
+      that.lat = place.geometry.location.lat();
+      (<HTMLInputElement>document.getElementById("lat")).value = place.geometry.location.lat();
+      that.lng = place.geometry.location.lng();
+      (<HTMLInputElement>document.getElementById("lng")).value = place.geometry.location.lng();
+      that.ad = place.formatted_address;
+    });
+  }
 }
