@@ -1,0 +1,134 @@
+<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="./../assets/img/logo-while.png" style="width: 50px; height: 40px">FSL- Find Somewhere Live
+            <button *ngIf='toggle' type="button" class="navbar-toggle toggled" data-toggle="collapse" data-target="#navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <button *ngIf='!toggle' type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a routerLink="/">
+                        <i class="material-icons">fingerprint</i> Login
+                    </a>
+                </li>
+                <li class="active">
+                    <a routerLink="/register">
+                        <i class="material-icons">person_add</i> Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper wrapper-full-page">
+    <div class="full-page register-page" filter-color="black" data-image="./assets/img/register.jpeg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                    <div class="card card-signup">
+                        <h2 class="card-title text-center">Register</h2>
+                        <div class="row">
+                            <!--<div class="social text-center">
+                                <button class="btn btn-just-icon btn-round btn-dribbble">
+                                            <i class="fa fa-google-plus"></i>
+                                        </button>
+                                <button class="btn btn-just-icon btn-round btn-facebook">
+                                            <i class="fa fa-facebook"> </i>
+                                        </button>
+                                <h4> or be classical </h4>
+                            </div>-->
+                            <form #f="ngForm" (ngSubmit)="f.form.valid && register()">
+                                <div class="card-content">
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && username.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">face</i>
+                                                </span>
+                                        <input type="text" class="form-control" placeholder="User Name" name="username" required [(ngModel)]="landlord.username" #username="ngModel">
+                                        <div *ngIf="f.submitted && username.errors?.required" class="help-block">Username is required</div>
+                                    </div>
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && firstname.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">create</i>
+                                                </span>
+                                        <input type="text" class="form-control" required placeholder="First Name" name="firstname" [(ngModel)]="landlord.firstname" #firstname="ngModel">
+                                        <div *ngIf="f.submitted && firstname.errors?.required" class="help-block">Firstname is required</div>
+                                    </div>
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && lastname.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">description</i>
+                                                </span>
+                                        <input type="text" class="form-control" required placeholder="Last Name" name="lastname" [(ngModel)]="landlord.lastname" #lastname="ngModel">
+                                        <div *ngIf="f.submitted && lastname.errors?.required" class="help-block">Lastname is required</div>
+                                    </div>
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && phone.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">phone</i>
+                                                </span>
+                                        <input type="number" class="form-control" required placeholder="Phone number" name="phone" [(ngModel)]="landlord.phone" #phone="ngModel" onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null">
+                                        <div *ngIf="f.submitted && phone.errors?.required" class="help-block">IdentityCard is required</div>
+                                    </div>
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && email.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">email</i>
+                                                </span>
+                                        <input type="email" class="form-control" required placeholder="Email address" name="email" [(ngModel)]="landlord.email" #email="ngModel" email>
+                                        <div *ngIf="f.submitted && email.errors?.required" class="help-block">Email Address is required</div>
+                                        <p *ngIf="f.submitted && email.errors?.email" class="help-block">Please use a valid email</p>
+                                    </div>
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && identitycard.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">fingerprint</i>
+                                                </span>
+                                        <input type="number" class="form-control" required placeholder="Identity card" name="identitycard" [(ngModel)]="landlord.identitycard" #identitycard="ngModel" onkeypress="return String.fromCharCode(event.charCode).match(/[0-9]/g) != null">
+                                        <div *ngIf="f.submitted && identitycard.errors?.required" class="help-block">IdentityCard is required</div>
+                                    </div>
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && password.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">lock_outline</i>
+                                                </span>
+                                        <input type="password" required placeholder="Password" class="form-control" name="password" [(ngModel)]="landlord.password" #password="ngModel" minlength="8" />
+                                        <div *ngIf="f.submitted && password.errors?.required" class="help-block">Password is required</div>
+                                        <div *ngIf="password.errors?.minlength" class="help-block">Password have to 8 character</div>
+                                    </div>
+                                    <div class="input-group" [ngClass]="{ 'has-error': f.submitted && passwordconfirm.errors }">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">lock</i>
+                                                </span>
+                                        <input type="password" required placeholder="Confirm Password" class="form-control" name="passwordconfirm" [(ngModel)]="landlord.passwordconfirm" #passwordconfirm="ngModel" minlength="8" />
+                                        <div *ngIf="f.submitted && passwordconfirm.errors?.required" class="help-block">Confirm Password is required</div>
+                                        <div *ngIf="passwordconfirm.errors?.minlength" class="help-block">Confirm Password have to 8 character</div>
+                                    </div>
+                                    <!-- If you want to add a checkbox to this form, uncomment this code -->
+                                    <!--<div class="checkbox">
+                                        <label>
+                                                    <input type="checkbox" name="optionsCheckboxes" required> I agree to the
+                                                    <a href="#">policy & conditions</a> by FSL.
+                                                </label>
+                                    </div>-->
+                                    <div class="input-group error" *ngIf="error">{{error}}</div>
+                                </div>
+                                <div class="footer text-center form-group">
+                                    <!--<a href="#pablo" class="btn btn-primary btn-round">Sign Up</a>-->
+                                    <button class="btn btn-primary btn-round" type="submit" [disabled]="!f.form.valid">Sign Up</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="full-page-background" style="background-image: url(./assets/img/register.jpeg) "></div>
+    </div>
+</div>

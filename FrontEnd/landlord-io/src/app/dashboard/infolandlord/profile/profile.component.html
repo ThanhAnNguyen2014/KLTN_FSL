@@ -10,8 +10,7 @@
                         <h4 class="card-title">Landlord Profile -
                             <small class="category">Complete your profile</small>
                         </h4>
-                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="SaveForm(f)" *ngIf="info">
-
+                        <form class="form-horizontal" *ngIf='info' #f="ngForm" (ngSubmit)="SaveForm(f)">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -35,7 +34,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">First name</label>
-                                                <input type="text" class="form-control" required name="firstname" [(ngModel)]="info.firstname">
+                                                <input type="text" class="form-control" required name="firstname" [(ngModel)]="info.firstname" #firstname="ngModel">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -77,7 +76,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Birth day:</label>
-                                                <input type="text" class="form-control datepicker" name="birthday" [ngModel]="info?.birthday | date: 'dd/MM/yyyy'" (ngModelChange)="info.birthday=$event" />
+                                                <input type="text" class="form-control datepicker" name="birthday" [(ngModel)]="info.birthday " />
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +266,6 @@
                                     </div>
                                 </div>
                             </div>
-                            -->
                         </form>
                     </div>
                 </div>

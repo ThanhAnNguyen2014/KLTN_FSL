@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import initNotifySuccess = require('../../../../assets/js/init/notify-success.js');
 import { Ng2ImgMaxService } from 'ng2-img-max';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,25 +21,26 @@ export class ProfileComponent implements OnInit {
 
   private _id: object;
   private subscription: Subscription;
-  private info: any;
+  public info: any;
 
   url: any;
   image: any;
   folder = 'avatar-landlord';
   files: File;
   filesToUpload: Array<File>;
-
   constructor(
     @Inject(FirebaseApp) firebaseApp: any,
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private profileservice: ProfileService,
-    private ng2ImgMaxService: Ng2ImgMaxService
-  ) { }
-
-  ngOnInit(): void {
-    this.LoadData();
+    private ng2ImgMaxService: Ng2ImgMaxService,
+  ) {
     initDatetimepickers();
+  }
+
+  ngOnInit() {
+    this.LoadData();
+
   }
 
   LoadData() {
@@ -61,8 +63,8 @@ export class ProfileComponent implements OnInit {
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
     console.log(this.filesToUpload);
-     this.ng2ImgMaxService.resize([this.filesToUpload[0]], 200, 200).subscribe((result) => {
-       var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
+    this.ng2ImgMaxService.resize([this.filesToUpload[0]], 200, 200).subscribe((result) => {
+      var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
         imgUrl = '';
       for (var i = 0; i < 6; i += 1) {
         imgUrl += possible.charAt(Math.floor(Math.random() * possible.length));
@@ -75,7 +77,6 @@ export class ProfileComponent implements OnInit {
         this.url = snapshot.downloadURL;
         console.log(this.url);
       });
-     });
+    });
   }
-
 }

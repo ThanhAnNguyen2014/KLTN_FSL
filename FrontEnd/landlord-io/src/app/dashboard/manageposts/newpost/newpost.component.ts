@@ -42,7 +42,7 @@ export class Service_Price {
   providers: [NewpostService]
 })
 export class NewpostComponent implements OnInit, AfterViewInit {
-    urlarray: string;
+  urlarray: string;
 
   private _id: object;
   //private house: any;
@@ -90,7 +90,7 @@ export class NewpostComponent implements OnInit, AfterViewInit {
     this.house.address = this.ad;
     this.house.rate = 5;
     this.house.id_landord = this.newpostService.id;
-    //console.log(this.house);
+    console.log(this.house);
     this.newpostService.Add(this.house).subscribe((response) => {
       if (response) {
         initNotifySuccess('Add success', 'success');
@@ -101,32 +101,17 @@ export class NewpostComponent implements OnInit, AfterViewInit {
 
   }
 
-  // fileChangeEvent2(fileInput: any) {
-  //   this.filesToUpload = <Array<File>>fileInput.target.files;
-  //   console.log(this.filesToUpload);
-  //   for (var index = 0; index < this.filesToUpload.length; index++) {
-  //     this.files = fileInput.target.files[index];
-  //     console.log(this.files);
-
-  //     var possible = 'abcdefghijklmnopqrstuvwxyz0123456789',
-  //       imgName = '';
-  //     for (var i = 0; i < 6; i += 1) {
-  //       imgName += possible.charAt(Math.floor(Math.random() * possible.length));
-  //     }
-  //     console.log(imgName);
-
-  //     let storageRef = firebase.storage().ref();
-  //     let path = `/${this.folder}/${imgName + ".jpg"}`;
-  //     let iRef = storageRef.child(path);
-  //     iRef.put(this.files).then((snapshot) => {
-  //       this.url = snapshot.downloadURL;
-  //       console.log(this.url);
-  //     });
-  //   }
-  // }
-
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
+    /**
+     * Call Thang's promise service to uploadImages
+     */
+    // this.newpostService.uploadImages(this.filesToUpload).then((concatUrl) => {
+    //   console.log("Link du kien: ");
+    //   console.log(concatUrl);
+    // });
+
+
     console.log(this.filesToUpload);
     let temp_path = '';
     for (var index = 0; index < this.filesToUpload.length; index++) {
@@ -136,23 +121,14 @@ export class NewpostComponent implements OnInit, AfterViewInit {
         for (var i = 0; i < 6; i += 1) {
           imgUrl += possible.charAt(Math.floor(Math.random() * possible.length));
         }
-        //console.log(imgUrl);
         let storageRef = firebase.storage().ref();
         let path = `/${this.folder}/${imgUrl + ".jpg"}`;
         let iRef = storageRef.child(path);
         iRef.put(result).then((snapshot) => {
           temp_path = snapshot.downloadURL;
-          //console.log(temp_path);
-          //this.url = temp_path;
-          //console.log(this.url);
-          this.url = temp_path;
-          
+          this.url += temp_path + ";";
           console.log(this.url);
         });
-        setTimeout(()=>{
-          this.url += + ';';
-          console.log(this.url);
-        }, 1000)
       });
     }
 
@@ -201,6 +177,33 @@ export class NewpostComponent implements OnInit, AfterViewInit {
 
     });
 
-  }
+    var input = document.getElementById('address');
+    var autocomplete = new google.maps.places.Autocomplete(input);
 
+    autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace();
+      console.log(place);
+      if (!place.geometry) {
+        // User entered the name of a Place that was not suggested and
+        // pressed the Enter key, or the Place Details request failed.
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+
+      // If the place has a geometry, then present it on a map.
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        console.log(place.geometry.location);
+        //map.setZoom(17);  // Why 17? Because it looks good.
+      }
+      marker.setPosition(place.geometry.location);
+      that.lat = place.geometry.location.lat();
+      (<HTMLInputElement>document.getElementById("lat")).value = place.geometry.location.lat();
+      that.lng = place.geometry.location.lng();
+      (<HTMLInputElement>document.getElementById("lng")).value = place.geometry.location.lng();
+      that.ad = place.formatted_address;
+    });
+  }
 }

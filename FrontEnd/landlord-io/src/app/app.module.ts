@@ -21,12 +21,16 @@ import { CreateroomtypeComponent } from "app/dashboard/managerooms/createroomtyp
 import { RoomsComponent } from "app/dashboard/managerooms/rooms/rooms.component";
 import { DetailroomComponent } from "app/dashboard/managerooms/detailroom/detailroom.component";
 
+import { AuthGuard } from './Auth/guards/auth.guard';
+import { AuthenticationService } from './Auth/services/authentication.service';
+
 /**Import component and module of firebase */
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 
 /**Import component and module of ng2-img-max fix size image*/
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { SignupComponent } from './signup/signup.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBdgpxShqNc5-cwvu9MPYk0b4ejHpSNnKY",
@@ -40,15 +44,18 @@ export const firebaseConfig = {
 const appRoutes: Routes = [
   {
     path: 'dashboard',
-    loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+    loadChildren: 'app/dashboard/dashboard.module#DashboardModule', 
+    canActivate: [AuthGuard]
   },
   { path: '', component: LoginComponent , pathMatch:'full'},
+  { path: 'register', component: SignupComponent},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,7 @@ const appRoutes: Routes = [
     Ng2ImgMaxModule
   ],
 
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AuthGuard, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

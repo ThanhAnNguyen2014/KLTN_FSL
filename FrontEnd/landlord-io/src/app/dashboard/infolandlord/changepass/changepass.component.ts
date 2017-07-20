@@ -19,9 +19,7 @@ export class ChangepassComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-   
-  }
+  ngOnInit() {}
 
 
   ngSubmit(f) {
@@ -29,10 +27,10 @@ export class ChangepassComponent implements OnInit {
       oldpass: this.landlord.password,
       newpass: this.landlord.newpassword,
     }
-  this.changepassservice.Changepass(landlord).subscribe((res)=>{
-    initNotifySuccess('Change success', 'success');
-    this.router.navigate(['/dashboard/home']);
-  })
+    this.changepassservice.Changepass(landlord).subscribe((res) => {
+      initNotifySuccess('Change success', 'success');
+      this.router.navigate(['/dashboard/home']);
+    })
 
   }
 
