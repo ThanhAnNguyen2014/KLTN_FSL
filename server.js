@@ -15,7 +15,7 @@ app.set('views', __dirname + '/views');
 //configure connect to mongo database
 mongoose.Promise = global.Promise;
 
-mongoose.connect(config.database_mLab);
+mongoose.connect(config.database_mLab, { useMongoClient: true });
 // On Connection
 mongoose.connection.on('connected', () => {
     console.log('Connected to database ' + config.database_mLab);
@@ -35,6 +35,16 @@ app = configure(app);
 app.use(cors());
 
 routes(app);
+// socket io
+// var io = require('socket.io')(server);
+// io.on('connection', function (socket) {
+//     console.log('user connect');
+//     socket.on('distconnect', function () {
+//         console.log('User disconnected');
+//     })
+// })
+
+
 
 var server = app.listen(app.get('port'), function () {
     console.log('Server up: http://localhost:' + app.get('port'));

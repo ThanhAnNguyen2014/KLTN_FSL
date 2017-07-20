@@ -25,6 +25,7 @@ import { AngularFireModule } from 'angularfire2';
 /**Import component and module of ng2-img-max fix size image*/
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { SharedserviceService } from './shared-service/sharedservice.service';
+import {NotifyserviceService} from './shared-service/notifyservice.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBdgpxShqNc5-cwvu9MPYk0b4ejHpSNnKY",
@@ -55,7 +56,8 @@ export const firebaseConfig = {
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthGuard,
     AuthenticationService,
-    SharedserviceService
+    SharedserviceService,
+    NotifyserviceService
   ],
   bootstrap: [AppComponent]
 })

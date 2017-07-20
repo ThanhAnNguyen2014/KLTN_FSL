@@ -38,6 +38,7 @@
     "passport-jwt": "^2.2.1",
     "passport-local": "*",
     "q": "^1.5.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "socketio": "^1.0.0"
   }
 }

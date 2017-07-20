@@ -12,7 +12,7 @@ var LandlordSchema = new Schema({
     gender: { type: Boolean, default: false }, // gender of user (male of female)
     birthday: { type: Date, default: Date.now() }, // brithday of user
     identitycard: { type: String },
-    image: { type: String, default: './assets/images/avatar-user.png' },//image of user
+    image: { type: String, default: './assets/img/avatar-user.png' },//image of user
     id_facebook: { type: String, default: null }, // id account facebook of user if user login with facebook
     id_google: { type: String, default: null },
     create_date: { type: Date, default: Date.now() }, // create day current of user

@@ -254,5 +254,25 @@ module.exports = {
             return callback('Invalid ObjectId');
         }
     },
-
+    //save notify
+    saveNotify: function (content, id_room, callback) {
+        Models.Notifycation.create(content, (err, notify) => {
+            if (err) return callback(err);
+            // save rent Room detail
+            var newRent= new Models.Rent_Room_Detail({
+                id_user: content.id_user,
+                id_room: id_room
+            });
+            newRent.save((err)=>{
+                if(err) return callback(err);
+            })
+            return callback(null, notify);
+        });
+    },
+    findNotify: function (id_landlord, callback) {
+        Models.Notifycation.find({ id_landlord: id_landlord }, (err, notify) => {
+            if (err) return callback(err);
+            return callback(null, notify);
+        });
+    }
 }

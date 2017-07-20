@@ -67,7 +67,7 @@
                 <div class="clearfix"></div>
                 <img class="avatar agentAvatarImg" src="{{infolandlord?.image}}" alt="avatar">
                 <div class="agentName">{{infolandlord?.firstname}} {{infolandlord?.lastname}}</div>
-                <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-red contactBtn icon-home"> Chọn Phòng</a>
+                <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-red contactBtn icon-home" (click)='sendNotify()'> Chọn Phòng</a>
                 <a data-toggle="modal" href="#contactLandlord" class="btn btn-lg btn-round btn-yellow contactBtn icon-call-out" (click)="getContact()"> Hiện Số ĐT</a>
                 <a data-toggle="modal" href="#directionForm" class="btn btn-lg btn-round btn-success contactBtn icon-map" (click)="autocompleteFunction()"> Chỉ đường</a>
               </div>

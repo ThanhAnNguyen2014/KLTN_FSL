@@ -4,9 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { House, ServicePrice } from './detailhouse';
 import { ContactService } from './contact/contact.service';
 import { AuthenticationService } from '../../Auth/services/authentication.service';
+import { NotifyserviceService } from '../../shared-service/notifyservice.service';
 declare var $: any;
 declare var google;
 declare var InfoBox;
+import * as io from 'socket.io-client';
 
 
 @Component({
@@ -16,6 +18,7 @@ declare var InfoBox;
   providers: [DetailhouseService, ContactService]
 })
 export class DetailhouseComponent implements OnInit {
+  socket = io('http://localhost:4000');
 
   @ViewChild('contactChild') contactLandlord;
   @ViewChild('comment') comment;
@@ -37,7 +40,8 @@ export class DetailhouseComponent implements OnInit {
     private contactsevice: ContactService,
     private router: Router,
     private activatedroute: ActivatedRoute,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private notifySevice: NotifyserviceService
   ) { }
 
   ngOnInit() {
@@ -123,6 +127,7 @@ export class DetailhouseComponent implements OnInit {
   getHouse(id: object) {
     this.detailhouseservice.getHouseById(this.id).subscribe((res) => {
       this.house = res;
+      console.log(this.house);
       this.getInfoLandlord(this.house.id_landlord);
       this.initMap();
       this.imageSlide = this.house.image.split(';');
@@ -288,5 +293,24 @@ export class DetailhouseComponent implements OnInit {
   }
   isActive(url: string) {
     return url === this.imageSlide[0];
+  }
+  sendNotify() {
+    // id_user
+    // id_landlord
+    // id_room
+    //description
+    var content = {
+      id_user: '5945aae973fd7b2f94d69b93',
+      id_landlord: '5945910e8421683fdc535a52',
+      id_room: '595a933769b94f00047aee0c',
+      description: 'Thông báo thuê phòng mới'
+    }
+    console.log('-------send notify');
+    this.notifySevice.saveNotify(content)
+      .then(result => {
+        this.socket.emit('new-notify', result);
+      }, err => {
+        console.log(err);
+      });
   }
 }

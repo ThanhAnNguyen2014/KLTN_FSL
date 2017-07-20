@@ -1,5 +1,24 @@
 var Models = require('../models');
 var houseService = require('../services/house-service');
+var express = require('express');
+var http = require('http');
+var app = express();
+var server = http.createServer(app);
+var io = require('socket.io')(server);
+io.on('connection', function (socket) {
+    console.log('User connected');
+    socket.on('distconnect', function () {
+        console.log('User disconnected');
+    });
+    socket.on('new-notify', function (data) {
+        console.log(data);
+        io.emit('new-notify', { notify: data });
+    });
+})
+
+server.listen(4000);
+
+
 
 var elastic = require('../services/elastic-client');
 module.exports = {
@@ -371,6 +390,55 @@ module.exports = {
                     doc: results
                 }
             });
+        });
+    },
+    // send notify
+    sendNotify: function (req, res) {
+        var id_room = req.body.id_room;
+        var content = {
+            id_user: req.body.id_user,
+            id_landlord: req.body.id_landlord,
+            id_room: req.body.id_room,
+            description: req.body.description
+        };
+        houseService.saveNotify(content, id_room, (err, notify) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: notify
+                    }
+                });
+            }
+        });
+    },
+    getNotify: function (req, res) {
+        var id_landlord = req.params.id_landlord;
+        houseService.findNotify(id_landlord, (err, notifys) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: notifys
+                    }
+                });
+            }
         });
     }
 }
