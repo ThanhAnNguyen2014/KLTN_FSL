@@ -28,7 +28,8 @@ module.exports = {
                         firstname: doc.firstname,
                         lastname: doc.lastname,
                         username: doc.username,
-                        email: doc.email
+                        email: doc.email,
+                        image:doc.image
                     }
                     return callback(null, user);
                 }
