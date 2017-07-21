@@ -1,8 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven } from "angular-star-rating/src/star-rating-struct";
 import { RateHouseService } from './rate-house.service';
+import { Subscription } from "rxjs/Subscription";
+import { SharedserviceService } from '../../../shared-service/sharedservice.service';
 
 declare var $: any;
 @Component({
@@ -11,7 +13,9 @@ declare var $: any;
   styleUrls: ['./rate-house.component.css'],
   providers: [RateHouseService]
 })
-export class RateHouseComponent implements OnInit {
+export class RateHouseComponent implements OnInit, OnDestroy {
+
+  public sub: Subscription;
   public id;
   private rate: number;
   private labeltext: string;
@@ -20,9 +24,16 @@ export class RateHouseComponent implements OnInit {
   constructor(
     private rateSevice: RateHouseService,
     private router: Router,
-    private activatedroute: ActivatedRoute
+    private activatedroute: ActivatedRoute,
+    private shareService: SharedserviceService
   ) {
-
+    this.sub = shareService.getInfoUser().subscribe(res => {
+      if (res !== null) {
+        this.rateSevice.jwt = res;
+      }
+    }, err => {
+      console.log(err);
+    });
   }
 
   ngOnInit() {
@@ -64,5 +75,8 @@ export class RateHouseComponent implements OnInit {
       }
       //$('#ratingForm').modal('hide');
     })
+  }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

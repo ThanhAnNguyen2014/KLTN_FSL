@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommentsService } from './comments.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -8,7 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./comments.component.css'],
   providers: [CommentsService]
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent implements OnInit, OnChanges {
+
   public id;
   public comments;
   public totalComments;
@@ -40,5 +41,10 @@ export class CommentsComponent implements OnInit {
       this.getAllCommentByIdHouse();
     });
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('--- load lai');
+    this.getAllCommentByIdHouse();
+  }
+
 
 }

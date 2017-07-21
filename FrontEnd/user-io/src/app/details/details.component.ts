@@ -10,7 +10,16 @@ declare var $: any;
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit, OnDestroy {
-  constructor() {
+  sub:Subscription;
+
+  constructor(private shareService: SharedserviceService) {
+    this.sub= shareService.getInfoUser().subscribe(res=>{
+      if(res!==null){
+        this.ngOnInit();
+      }
+    }, err=>{
+      console.log(err);
+    });
   }
 
   ngOnInit() {
@@ -22,7 +31,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
     }, 0)
   }
   ngOnDestroy(): void {
-    //this.sub.unsubscribe();
+    this.sub.unsubscribe();
   }
 
 }

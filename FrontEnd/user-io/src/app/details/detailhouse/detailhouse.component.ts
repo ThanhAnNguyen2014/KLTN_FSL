@@ -1,14 +1,16 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, OnDestroy } from '@angular/core';
 import { DetailhouseService } from './detailhouse.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { House, ServicePrice } from './detailhouse';
 import { ContactService } from './contact/contact.service';
 import { AuthenticationService } from '../../Auth/services/authentication.service';
 import { NotifyserviceService } from '../../shared-service/notifyservice.service';
+import {SharedserviceService} from '../../shared-service/sharedservice.service';
 declare var $: any;
 declare var google;
 declare var InfoBox;
 import * as io from 'socket.io-client';
+import { Subscription } from "rxjs/Subscription";
 
 
 @Component({
@@ -17,10 +19,12 @@ import * as io from 'socket.io-client';
   styleUrls: ['./detailhouse.component.css'],
   providers: [DetailhouseService, ContactService]
 })
-export class DetailhouseComponent implements OnInit {
+export class DetailhouseComponent implements OnInit, OnDestroy {
+ 
   socket = io('http://localhost:4000');
 
   @ViewChild('contactChild') contactLandlord;
+  @ViewChild('postComment') postComment;
   @ViewChild('comment') comment;
   public myLatLng: { lat: number; lng: number; };
   public originLatLng: { lat: number; lng: number; };
@@ -34,6 +38,7 @@ export class DetailhouseComponent implements OnInit {
   public rooms: any;
   public numberRoom = 0;
   public infolandlord: any;
+  public sub:Subscription;
 
   constructor(
     private detailhouseservice: DetailhouseService,
@@ -41,7 +46,8 @@ export class DetailhouseComponent implements OnInit {
     private router: Router,
     private activatedroute: ActivatedRoute,
     private auth: AuthenticationService,
-    private notifySevice: NotifyserviceService
+    private notifySevice: NotifyserviceService,
+    private shareService: SharedserviceService
   ) { }
 
   ngOnInit() {
@@ -52,7 +58,14 @@ export class DetailhouseComponent implements OnInit {
     });
     this.getHouse(this.id);
     this.getAllRoom(this.id);
-
+    this.sub= this.shareService.getInfoUser().subscribe(res=>{
+      if(res!==null){
+        this.postComment.getInfoFromDetail();
+      }
+    }, err=>{
+      console.log(err);
+    })
+    
   }
   initMap() {
     this.myLatLng = { lat: parseFloat(this.house.latitude), lng: parseFloat(this.house.longitude) }
@@ -313,4 +326,8 @@ export class DetailhouseComponent implements OnInit {
         console.log(err);
       });
   }
+   ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, Output, EventEmitter, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../../Auth/services/authentication.service';
@@ -14,6 +14,7 @@ import { PostcommentsService } from './postcomments.service';
 
 })
 export class PostcommentsComponent implements OnInit {
+
   @Output() myCommentPost = new EventEmitter();
   public image;
   public id_house;
@@ -35,17 +36,20 @@ export class PostcommentsComponent implements OnInit {
     }
   }
   OnSubmit(f: NgForm) {
-    console.log(f.value.comment);
     if (f.value.comment != undefined) {
       f.value.id_house = this.id_house;
       this.postCommnetService.postComment(f.value).subscribe((res) => {
-        console.log(res.results.doc);
         this.myCommentPost.emit(null);
         this.comment = '';
       });
     }
-
   }
+  getInfoFromDetail() {
+    this.postCommnetService.getInfoUser().subscribe(res => {
+      this.image = res.doc.image;
+    })
+  }
+
 
 
 }

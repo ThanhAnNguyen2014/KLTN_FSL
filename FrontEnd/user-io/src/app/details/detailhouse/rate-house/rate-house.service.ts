@@ -19,15 +19,19 @@ export class RateHouseService {
     if (this.jwt) {
       this.token = this.jwt.token;
     }
-
+    
   }
   postRating(body: object): Observable<any> {
+    var token= JSON.parse(localStorage.getItem('currentUser')).token;
     let headers = new Headers({
-      'Authorization': this.token,
+      'Authorization': token,
       'Accept': 'application/json'
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.url, body, options).map((res) => res.json().results);
   }
 
+  getToken(jwt) {
+    this.token = jwt;
+  }
 }

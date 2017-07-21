@@ -55,7 +55,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.headersevice.getInfoUserWithToken(this.token)
       .subscribe(response => {
         this.user = response.doc;
-        console.log(this.user);
       }, err => {
         console.log(err);
       });

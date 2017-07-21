@@ -12,6 +12,9 @@ export class SharedserviceService {
   public infoUser = new BehaviorSubject<object>(null);
   public infoUser$ = this.infoUser.asObservable();
 
+  public infoUserEdit = new BehaviorSubject<object>(null);
+  public infoUserEdit$ = this.infoUserEdit.asObservable();
+
   public token;
   constructor() {
 
@@ -29,6 +32,12 @@ export class SharedserviceService {
   }
   getInfoUser(): Observable<any> {
     return this.infoUser.asObservable();
+  }
+  setInfoUserEdit(info) {
+    this.infoUserEdit.next(info);
+  }
+  getInfoUserEdit() {
+    return this.infoUserEdit.asObservable();
   }
 
 }

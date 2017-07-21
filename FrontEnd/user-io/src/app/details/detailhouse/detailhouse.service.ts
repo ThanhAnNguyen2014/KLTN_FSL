@@ -17,7 +17,6 @@ export class DetailhouseService {
   }
   /**get all room by id house */
   getAllRoomByIdHouse(id): Observable<any> {
-    console.log(id);
     return this.http.get('https://hcmutefslio.herokuapp.com/api/v1/detail/house/rooms/' + id).map((res) =>
       res.json().results
     );
