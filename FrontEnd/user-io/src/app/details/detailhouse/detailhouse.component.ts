@@ -5,7 +5,7 @@ import { House, ServicePrice } from './detailhouse';
 import { ContactService } from './contact/contact.service';
 import { AuthenticationService } from '../../Auth/services/authentication.service';
 import { NotifyserviceService } from '../../shared-service/notifyservice.service';
-import {SharedserviceService} from '../../shared-service/sharedservice.service';
+import { SharedserviceService } from '../../shared-service/sharedservice.service';
 declare var $: any;
 declare var google;
 declare var InfoBox;
@@ -20,9 +20,9 @@ import { Subscription } from "rxjs/Subscription";
   providers: [DetailhouseService, ContactService]
 })
 export class DetailhouseComponent implements OnInit, OnDestroy {
- 
-  socket = io('http://localhost:4000');
 
+
+  public socket;
   @ViewChild('contactChild') contactLandlord;
   @ViewChild('postComment') postComment;
   @ViewChild('comment') comment;
@@ -38,7 +38,9 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
   public rooms: any;
   public numberRoom = 0;
   public infolandlord: any;
-  public sub:Subscription;
+  public sub: Subscription;
+  public message = '';
+  public id_landlord;
 
   constructor(
     private detailhouseservice: DetailhouseService,
@@ -58,14 +60,14 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
     });
     this.getHouse(this.id);
     this.getAllRoom(this.id);
-    this.sub= this.shareService.getInfoUser().subscribe(res=>{
-      if(res!==null){
+    this.sub = this.shareService.getInfoUser().subscribe(res => {
+      if (res !== null) {
         this.postComment.getInfoFromDetail();
       }
-    }, err=>{
+    }, err => {
       console.log(err);
     })
-    
+
   }
   initMap() {
     this.myLatLng = { lat: parseFloat(this.house.latitude), lng: parseFloat(this.house.longitude) }
@@ -141,6 +143,7 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
     this.detailhouseservice.getHouseById(this.id).subscribe((res) => {
       this.house = res;
       console.log(this.house);
+      this.id_landlord = this.house.id_landlord;
       this.getInfoLandlord(this.house.id_landlord);
       this.initMap();
       this.imageSlide = this.house.image.split(';');
@@ -300,6 +303,7 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
         this.rooms = null;
       } else {
         this.rooms = res;
+        console.log(this.rooms);
         this.numberRoom = this.rooms.length;
       }
     })
@@ -307,26 +311,36 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
   isActive(url: string) {
     return url === this.imageSlide[0];
   }
-  sendNotify() {
-    // id_user
-    // id_landlord
-    // id_room
-    //description
-    var content = {
-      id_user: '5945aae973fd7b2f94d69b93',
-      id_landlord: '5945910e8421683fdc535a52',
-      id_room: '595a933769b94f00047aee0c',
-      description: 'Thông báo thuê phòng mới'
-    }
-    console.log('-------send notify');
-    this.notifySevice.saveNotify(content)
-      .then(result => {
-        this.socket.emit('new-notify', result);
-      }, err => {
-        console.log(err);
-      });
+  sendNotify(id_room, title_room) {
+    /**Check user rentroom */
+    this.detailhouseservice.checkUserRentRoom().subscribe(res => {
+      if (res.doc.status === false) {
+        this.message = 'Tài khoản này đã được dùng để thuê phòng!';
+      }
+      else {
+        console.log('----- qua kiểm phần check');
+        var object_user = this.detailhouseservice.getIdUser();
+        var id_user = object_user.id_user;
+        var username = object_user.username;
+        var content = {
+          id_user: id_user,
+          id_landlord: this.id_landlord,
+          id_room: id_room,
+          description: 'Tài khoản ' + username + ' tham gia đặt phòng ' + title_room + '.'
+        }
+        console.log('--- proccesing notify');
+        this.socket = io('http://localhost:4000');
+        this.notifySevice.saveNotify(content).then(result => {
+          this.socket.emit('new-notify', result);
+        }, err => {
+          console.log(err);
+        });
+      }
+    }, err => {
+      console.log(err);
+    })
   }
-   ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 

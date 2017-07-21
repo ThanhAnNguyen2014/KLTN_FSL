@@ -23,10 +23,12 @@ import { DetailroomComponent } from "app/dashboard/managerooms/detailroom/detail
 
 import { AuthGuard } from './Auth/guards/auth.guard';
 import { AuthenticationService } from './Auth/services/authentication.service';
+import {NotifyserviceService} from './shared-services/notifyservice.service';
 
 /**Import component and module of firebase */
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
+
 
 /**Import component and module of ng2-img-max fix size image*/
 import { Ng2ImgMaxModule } from 'ng2-img-max';
@@ -66,7 +68,7 @@ const appRoutes: Routes = [
     Ng2ImgMaxModule
   ],
 
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AuthGuard, AuthenticationService],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AuthGuard, AuthenticationService, NotifyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

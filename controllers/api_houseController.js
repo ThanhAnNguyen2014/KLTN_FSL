@@ -420,9 +420,9 @@ module.exports = {
             }
         });
     },
-    getNotify: function (req, res) {
+    getTenNotifyNew: function (req, res) {
         var id_landlord = req.params.id_landlord;
-        houseService.findNotify(id_landlord, (err, notifys) => {
+        houseService.findTenNotifyNew(id_landlord, (err, notifys) => {
             if (err) return res.status(500).json({
                 code: res.statusCode,
                 results: {
@@ -438,6 +438,103 @@ module.exports = {
                         doc: notifys
                     }
                 });
+            }
+        });
+    },
+    getAllNotifyNew: function (req, res) {
+        var id_landlord = req.params.id_landlord;
+        houseService.findAllNotifyNew(id_landlord, (err, notifys) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: notifys
+                    }
+                });
+            }
+        });
+    },
+    getAllNotifyOld: function (req, res) {
+        var id_landlord = req.params.id_landlord;
+        houseService.findAllNotifyOld(id_landlord, (err, notifys) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: notifys
+                    }
+                });
+            }
+        });
+    },
+    getTenNotifyOld: function (req, res) {
+        var id_landlord = req.params.id_landlord;
+        houseService.findTenNotifyOld(id_landlord, (err, notifys) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: notifys
+                    }
+                });
+            }
+        });
+    },
+    checkUserByIdRentRoom(req, res) {
+        var id_user = req.userId.id;
+        houseService.findUserByIdRentRoom(id_user, (err, user) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            });
+            if (user) {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: {
+                            status: false
+                        }
+                    }
+                });
+            }
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: {
+                            status: true
+                        }
+                    }
+                })
             }
         });
     }

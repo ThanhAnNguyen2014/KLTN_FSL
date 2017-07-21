@@ -6,3 +6,8 @@
 .singleTop ul.stats{
     margin-top: 5px
 }
+
+.message-error{
+    text-align: center;
+    color: red;
+}

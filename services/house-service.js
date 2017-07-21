@@ -259,20 +259,49 @@ module.exports = {
         Models.Notifycation.create(content, (err, notify) => {
             if (err) return callback(err);
             // save rent Room detail
-            var newRent= new Models.Rent_Room_Detail({
+            var newRent = new Models.Rent_Room_Detail({
                 id_user: content.id_user,
                 id_room: id_room
             });
-            newRent.save((err)=>{
-                if(err) return callback(err);
+            newRent.save((err) => {
+                if (err) return callback(err);
             })
             return callback(null, notify);
         });
     },
-    findNotify: function (id_landlord, callback) {
-        Models.Notifycation.find({ id_landlord: id_landlord }, (err, notify) => {
+    findTenNotifyNew: function (id_landlord, callback) {
+        Models.Notifycation.find({ id_landlord: id_landlord, status: false }, {}, { sort: { 'date': -1 } }, (err, notify) => {
             if (err) return callback(err);
             return callback(null, notify);
+        }).limit(10);
+    },
+    findAllNotifyNew: function (id_landlord, callback) {
+        Models.Notifycation.find({ id_landlord: id_landlord, status: false }, {}, { sort: { 'date': -1 } }, (err, notifys) => {
+            if (err) return callback(err);
+            return callback(null, notifys);
+        });
+    },
+    findTenNotifyOld: function (id_landlord, callback) {
+        Models.Notifycation.find({ id_landlord: id_landlord, status: true }, {}, { sort: { 'date': -1 } }, (err, notify) => {
+            if (err) return callback(err);
+            return callback(null, notify);
+        }).limit(10);
+    },
+    findAllNotifyOld: function (id_landlord, callback) {
+        Models.Notifycation.find({ id_landlord: id_landlord, status: true }, {}, { sort: { 'date': -1 } }, (err, notifys) => {
+            if (err) return callback(err);
+            return callback(null, notifys);
+        });
+    },
+    findUserByIdRentRoom: function (id_user, callback) {
+        Models.Rent_Room_Detail.findOne({ id_user: id_user }, (err, user) => {
+            if (err) return callback(err);
+            if (user) {
+                return callback(null, user);
+            }
+            else {
+                return callback(null, null);
+            }
         });
     }
 }

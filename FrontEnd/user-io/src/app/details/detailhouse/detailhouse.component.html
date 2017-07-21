@@ -67,7 +67,8 @@
                 <div class="clearfix"></div>
                 <img class="avatar agentAvatarImg" src="{{infolandlord?.image}}" alt="avatar">
                 <div class="agentName">{{infolandlord?.firstname}} {{infolandlord?.lastname}}</div>
-                <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-red contactBtn icon-home" (click)='sendNotify()'> Chọn Phòng</a>
+                <a *ngIf='!auth.loggedIn()' data-toggle="modal" href="#ratingFormWanring" class="btn btn-lg btn-round btn-red contactBtn icon-home"> Chọn Phòng</a>
+                <a *ngIf='auth.loggedIn()' data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-red contactBtn icon-home"> Chọn Phòng</a>
                 <a data-toggle="modal" href="#contactLandlord" class="btn btn-lg btn-round btn-yellow contactBtn icon-call-out" (click)="getContact()"> Hiện Số ĐT</a>
                 <a data-toggle="modal" href="#directionForm" class="btn btn-lg btn-round btn-success contactBtn icon-map" (click)="autocompleteFunction()"> Chỉ đường</a>
               </div>
@@ -270,7 +271,6 @@
           <a class="left carousel-control" href="#carouselSimilar-1" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
           <a class="right carousel-control" href="#carouselSimilar-1" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></a>
         </div>
-
         <!-- carousel for small devices -->
         <div id="carouselSimilar-2" class="carousel slide visible-md carousel-col">
           <ol class="carousel-indicators">
@@ -434,7 +434,6 @@
           <a class="left carousel-control" href="#carouselSimilar-2" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
           <a class="right carousel-control" href="#carouselSimilar-2" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></a>
         </div>
-
         <!-- carousel for extra-small devices -->
         <div id="carouselSimilar-3" class="carousel slide visible-xs visible-sm carousel-col">
           <ol class="carousel-indicators">
@@ -615,7 +614,6 @@
       </div>
       <!--Comments-->
       <app-comments #comment></app-comments>
-
     </div>
   </div>
   <app-postcomments (myCommentPost)="comment.getAllCommentByIdHouse()" #postComment></app-postcomments>
@@ -651,8 +649,7 @@
                         <td *ngIf='!item.status'><span class="label label-success">Trống</span></td>
                         <td>
                           <div class="btn-group">
-                            <a class="btn btn-xs btn-round btn-o btn-green dropdown-toggle"><span class="fa fa-pencil"></span> Thuê</a>
-
+                            <a class="btn btn-xs btn-round btn-o btn-green dropdown-toggle" (click)='sendNotify(item._id, item.title)'><span class="fa fa-pencil"></span>Thuê</a>
                           </div>
                         </td>
                       </tr>
@@ -666,6 +663,7 @@
                 </div>
               </div>
             </div>
+            <div class="message-error" *ngIf='message'>{{message}}</div>
           </form>
         </div>
         <div class="modal-footer">

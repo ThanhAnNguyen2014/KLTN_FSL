@@ -22,6 +22,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { AuthGuard } from '../Auth/guards/auth.guard';
 import { AuthenticationService } from '../Auth/services/authentication.service';
 
+import { MomentModule } from 'angular2-moment';
 
 
 const appRoutes: Routes = [
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     FooterModule,
     SidebarModule,
     CKEditorModule,
+    MomentModule,
     // DataTablesModule,
     RouterModule.forChild(appRoutes)
   ],
