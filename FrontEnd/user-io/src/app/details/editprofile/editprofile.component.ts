@@ -12,7 +12,7 @@ declare var $: any;
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
   styleUrls: ['./editprofile.component.css'],
-  providers: [ProfileService, AuthenticationService, SharedserviceService]
+  providers: [ProfileService, AuthenticationService]
 })
 export class EditprofileComponent implements OnInit {
   url: string;
@@ -73,6 +73,7 @@ export class EditprofileComponent implements OnInit {
     f.value.image = this.url;
     console.log(f.value);
     this.profileSevice.updateUsers(f.value).subscribe((res) => {
+      console.log(res);
       this.router.navigate(['/details/profile']);
     })
   }

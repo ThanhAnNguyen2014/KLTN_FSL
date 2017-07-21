@@ -23,7 +23,7 @@ import { PostcommentsComponent } from './detailhouse/postcomments/postcomments.c
 import {SharedserviceService} from '../shared-service/sharedservice.service';
 import {DetailsService} from './details.service';
 import { PaginationControlsComponent } from './searchdetails/pagination-controls/pagination-controls.component';
-
+import { SigninComponent } from './signin/signin.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -46,7 +46,8 @@ import { PaginationControlsComponent } from './searchdetails/pagination-controls
     RateHouseComponent,
     CommentsComponent,
     PostcommentsComponent,
-    PaginationControlsComponent
+    PaginationControlsComponent,
+    SigninComponent
   ],
   providers:[DetailsService]
 })

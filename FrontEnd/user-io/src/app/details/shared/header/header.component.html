@@ -9,12 +9,18 @@
   </div>
   <a href="javascript:void(0)" class="navHandler"><span class="fa fa-bars"></span></a>
   <div class="search">
-    <span class="searchIcon icon-magnifier"></span>
-    <input type="text" placeholder="Search for houses, apartments...">
+    <div class="col-md-12">
+      <!--<div class="animationtext">
+        <marquee behavior="alternate">
+          <h3 class="marquee"><strong>FSL</strong> - YOU CAN FIND ONE AS FAST AS POSSIBLE</h3>
+        </marquee>
+      </div>-->
+      <h3 class="textanimation">FSL- YOU CAN FIND ONE AS FAST AS POSSIBLE</h3>
+    </div>
   </div>
   <div class="headerUserWraper" *ngIf='!auth.loggedIn()'>
     <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span><span class="counter">5</span></a>
-    <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
+    <a href="javascript:void(0)" class="headerUser dropdown-toggle" data-toggle="dropdown">
       <img class="avatar headerAvatar pull-left" src="./assets/images/avatar-user.png" alt="avatar">
       <div class="userTop pull-left">
         <span class="headerUserName">User</span> <span class="fa fa-angle-down"></span>
@@ -27,8 +33,8 @@
         <div class="mobAvatarName">User</div>
       </div>
       <ul>
-        <li><a href="#"><span class="icon-login"></span>Đăng nhập</a></li>
-        <li><a href="#"><span class="icon-pencil"></span>Đăng ký</a></li>
+        <li><a href="javascript:void(0)" data-toggle="modal" href="#signin"><span class="icon-login" ></span>Đăng nhập</a></li>
+        <li><a href="#" data-toggle="modal" ><span class="icon-pencil" ></span>Đăng ký</a></li>
       </ul>
     </div>
   </div>
@@ -55,6 +61,8 @@
       </ul>
     </div>
   </div>
+
+
   <div class="headerNotifyWraper">
     <a href="#" class="headerNotify dropdown-toggle" data-toggle="dropdown">
       <span class="notifyIcon icon-bell"></span>
@@ -115,6 +123,9 @@
       <a href="#" class="notifyAll">See All</a>
     </div>
   </div>
+
   <a href="#" class="mapHandler"><span class="icon-map"></span></a>
   <div class="clearfix"></div>
+
 </div>
+

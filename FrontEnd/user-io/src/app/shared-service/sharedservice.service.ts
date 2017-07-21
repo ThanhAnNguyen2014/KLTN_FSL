@@ -9,7 +9,11 @@ export class SharedserviceService {
   public dataSearch = new BehaviorSubject<object>(null);
   public textSearch$ = this.dataSearch.asObservable();
 
-  constructor(){
+  public infoUser = new BehaviorSubject<object>(null);
+  public infoUser$ = this.infoUser.asObservable();
+
+  public token;
+  constructor() {
 
   }
   setDataSearch(value: object) {
@@ -18,6 +22,13 @@ export class SharedserviceService {
   getDataSearch(): Observable<any> {
     return this.dataSearch.asObservable();
   }
-  
+
+  setInfoUser() {
+    this.token = localStorage.getItem('currentUser');
+    this.infoUser.next(this.token);
+  }
+  getInfoUser(): Observable<any> {
+    return this.infoUser.asObservable();
+  }
 
 }

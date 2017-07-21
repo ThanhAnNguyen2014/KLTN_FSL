@@ -1,0 +1,13 @@
+
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+.textanimation { 
+    font: bold 150% Consolas, Monaco, monospace;
+    border-right: .1em solid black;
+    width: 67%; 
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: typing 3s steps(21, end),
+               blink-caret .5s step-end infinite alternate;
+}

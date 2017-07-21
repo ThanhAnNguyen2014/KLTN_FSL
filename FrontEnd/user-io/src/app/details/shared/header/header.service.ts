@@ -33,4 +33,16 @@ export class HeaderService {
       return this.http.get(this.url + 'api/v1/user/' + this.id, options).map((res) => res.json().results);
     }
   }
+  getInfoUserWithToken(token): Observable<any> {
+    this.jwt = JSON.parse(token);
+    this.id= this.jwtHelper.decodeToken(this.jwt.token).id;
+    this.token = this.jwt.token;
+    let headers = new Headers({
+      'Authorization': this.token,
+      'Accept': 'application/json'
+    });
+    let options = new RequestOptions({ headers: headers });
+    // get users from api
+    return this.http.get(this.url + 'api/v1/user/' + this.id, options).map((res) => res.json().results);
+  }
 }
