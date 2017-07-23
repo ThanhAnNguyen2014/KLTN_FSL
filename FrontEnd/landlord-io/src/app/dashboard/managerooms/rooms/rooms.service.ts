@@ -57,8 +57,7 @@ export class RoomsService {
   }
 
   GetSingleRoomType(id: object): Observable<any> {
-    console.log(id);
-    return this._http.get(this.apiUrlRoomType + id, this.options).map((response) => response.json().result)
+    return this._http.get(this.apiUrlRoomType + id, this.options).map((response) => response.json().results)
   }
 
   GetListHouse(): Observable<any[]> {
@@ -66,7 +65,6 @@ export class RoomsService {
   }
 
   Delete(id: object): Observable<any> {
-    console.log(id);
     return this._http.delete(this.apiUrlRoom + id, this.options).map((response) => response.json().results)
   }
 

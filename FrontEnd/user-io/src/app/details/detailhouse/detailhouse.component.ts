@@ -318,7 +318,6 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
         this.message = 'Tài khoản này đã được dùng để thuê phòng!';
       }
       else {
-        console.log('----- qua kiểm phần check');
         var object_user = this.detailhouseservice.getIdUser();
         var id_user = object_user.id_user;
         var username = object_user.username;
@@ -328,10 +327,10 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
           id_room: id_room,
           description: 'Tài khoản ' + username + ' tham gia đặt phòng ' + title_room + '.'
         }
-        console.log('--- proccesing notify');
         this.socket = io('http://localhost:4000');
         this.notifySevice.saveNotify(content).then(result => {
           this.socket.emit('new-notify', result);
+           this.message = 'Bạn đã gửi thông báo đặt phòng đến chủ trọ, vui lòng theo dõi email để biết thêm thông tin chi tiết.';
         }, err => {
           console.log(err);
         });

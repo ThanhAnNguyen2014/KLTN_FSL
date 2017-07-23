@@ -1,17 +1,13 @@
 <div class="logo">
     <div class="logo-normal">
-        <a href="https://www.creative-tim.com" class="simple-text">
+        <a href="#/dashboard/home" class="simple-text">
                     Landlord FSL-IO
                 </a>
     </div>
-
     <div class="logo-img">
-        <!--<img src="/assets/img/angular2-logo-white.png" />-->
         <img style="width: 40px; height: 30px" src="/assets/img/logo-while.png" />
     </div>
 </div>
-
-
 <div class="sidebar-wrapper">
 
     <div class="user">
@@ -22,7 +18,6 @@
             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                 <span>{{landlord?.lastname}}{{landlord?.firstname}}</span>
             </a>
-
         </div>
     </div>
     <div class="nav-container">
@@ -33,7 +28,12 @@
                     <p>{{menuItems[0].title}}</p>
                 </a>
             </li>
-
+            <li routerLinkActive="active">
+                <a [routerLink]="[menuItems[7].path]">
+                    <i class="{{menuItems[7].icon}}">notifications</i>
+                    <p>{{menuItems[7].title}}</p>
+                </a>
+            </li>
             <li routerLinkActive="active">
                 <a data-toggle="collapse" href="#componentsExamples">
                     <i class="material-icons">assignment</i>
@@ -55,12 +55,6 @@
                                 <span class="sidebar-normal">{{menuItems[6].title}}</span>
                             </a>
                         </li>
-                        <!--<li routerLinkActive="active">
-                            <a [routerLink]="[menuItems[2].path]">
-                                <span class="sidebar-mini">DH</span>
-                                <span class="sidebar-normal">{{menuItems[2].title}}</span>
-                            </a>
-                        </li>-->
                     </ul>
                 </div>
             </li>
@@ -114,8 +108,6 @@
                     </ul>
                 </div>
             </li>
-
         </ul>
     </div>
-
 </div>

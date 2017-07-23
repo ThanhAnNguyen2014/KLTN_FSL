@@ -1,12 +1,11 @@
 var Models = require('../models'),
     ObjectId = require('mongoose').Types.ObjectId;
 var esClient = require('../services/elastic-client');
+var async = require('async');
 
 var Q = require('q');
 module.exports = {
-    /**
-     * Create House
-     */
+    /**Create House*/
     CreateHouse: function (house, callback) {
         //console.log(house);
         var newhouse = new Models.House(house);
@@ -18,9 +17,7 @@ module.exports = {
             }
         });
     },
-    /**
-     * Find house
-     */
+    /** Find house */
     findById: function (id, callback) {
         console.log(id);
         if (ObjectId.isValid(id)) {
@@ -303,5 +300,85 @@ module.exports = {
                 return callback(null, null);
             }
         });
+    },
+    findDetailNotifyById: function (id, callback) {
+        Models.Notifycation.findById(id, (err, notify) => {
+            if (err) return callback(err);
+            return callback(null, notify);
+        }).populate('id_user', 'username email address gender identitycard phone')
+            .populate('id_room', 'title');
+    },
+    acceptRentRoom: function (id, callback) {
+        // update status of notify
+        Models.Notifycation.findOne({ _id: id }, (err, notify) => {
+            if (err) return callback(err);
+            if (notify) {
+                var id_room = notify.id_room;
+                var email_user = notify.id_user.email;
+                var info_landlord = {
+                    email: notify.id_landlord.email,
+                    phone: notify.id_landlord.phone
+                };
+                notify.status = true;
+                notify.save((err) => {
+                    if (err) return callback(err);
+                    Models.Room.findByIdAndUpdate(id_room, { status: true }, { new: true }, (err, room) => {
+                        if (err) return callback(err);
+                        return callback(null, {
+                            status: true,
+                            email_user: email_user,
+                            info_landlord: info_landlord
+                        });
+                    })
+                })
+            }
+            else {
+                return callback(null, {
+                    status: false
+                });
+            }
+        }).populate('id_user', 'username email')
+            .populate('id_landlord', 'email phone');
+    },
+    notAcceptRentRoom: function (id, callback) {
+        // find and deleted rent Room 
+        Models.Notifycation.findOneAndRemove({ _id: id }, (err, notify) => {
+            if (err) return callback(err);
+            if (notify) {
+                var id_user = notify.id_user;
+                var email_user = notify.id_user.email;
+                var info_landlord = {
+                    email: notify.id_landlord.email,
+                    phone: notify.id_landlord.phone
+                };
+                // find and deleted renRoom detail
+                Models.Rent_Room_Detail.findOneAndRemove({ id_user: id_user }, (err, rentroom) => {
+                    if (err) return callback(err);
+                    return callback(null, {
+                        status: true,
+                        email_user: email_user,
+                        info_landlord: info_landlord
+                    });
+                });
+            }
+            else {
+                return callback(null, null);
+            }
+        }).populate('id_user', 'email username')
+            .populate('id_landlord', 'email phone');
+    },
+    getInfoHomeLandlord: function (id_landlord) {
+        var info = {};
+        async.parallel([
+            // get total room of landlord
+            function (callback) {
+                //step 1: Get all house of landlord
+                Models.House.find({ id_landlord: id_landlord }, (err, house) => {
+                    if (err) return callback(err);
+                    
+                })
+            }
+        ])
     }
-}
+
+} 

@@ -3,8 +3,8 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var Rent_Room_DetailSchema = new Schema({
-    id_user: { type: ObjectId },
-    id_room: { type: ObjectId },
+    id_user: { type: ObjectId , ref: 'User'},
+    id_room: { type: ObjectId, ref:'Room' },
     rent_day: { type: Date, 'default': Date.now }
 });
 

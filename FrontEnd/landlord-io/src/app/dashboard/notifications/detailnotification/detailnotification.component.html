@@ -1,0 +1,101 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h3 class="title text-center">Detail Notification</h3>
+        <br />
+        <div class="nav-center">
+          <ul class="nav nav-pills nav-pills-warning nav-pills-icons" role="tablist">
+            <!--
+            color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+        -->
+            <li class="active">
+              <a href="#description-1" role="tab" data-toggle="tab">
+                                <i class="material-icons">info</i> Notify
+                            </a>
+            </li>
+            <li>
+              <a href="#schedule-1" role="tab" data-toggle="tab">
+                                <i class="material-icons">view_comfy</i> Room
+                            </a>
+            </li>
+            <li>
+              <a href="#tasks-1" role="tab" data-toggle="tab">
+                                <i class="material-icons">person</i> User Info
+                            </a>
+            </li>
+            <li>
+              <a href="#tasks-2" role="tab" data-toggle="tab">
+                                <i class="material-icons">help_outline</i> Action
+                            </a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content" *ngIf='detailNoti'>
+          <div class="tab-pane active" id="description-1">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Notification Title</h4>
+              </div>
+              <div class="card-content" style="text-align: center; font-size: 16px">
+                {{detailNoti.description}}
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane " id="schedule-1">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Room information</h4>
+              </div>
+              <div class="card-content" style="text-align: center; font-size: 16px">
+                <strong>{{detailNoti.id_room.title}}</strong> đã được tài khoản <strong>{{detailNoti.id_user.email}}</strong> đăng ký đặt phòng.
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tasks-1">
+            <div class="card">; 
+              <div class="card-header">
+                <h4 class="card-title">User information</h4>
+              </div>
+              <div class="card-content" style="text-align: center; font-size: 16px">
+                Tài khoản: {{detailNoti.id_user.username}} <br/> Email: {{detailNoti.id_user.email}} <br/> Địa chỉ: {{detailNoti.id_user.address}}
+                <br/> Số điện thoại: {{detailNoti.id_user.phone}} <br/> Giới tính: {{detailNoti.id_user.gender ? 'Nam':'Nữ'
+                }} <br/> Số chứng minh nhân dân: {{detailNoti.id_user.identitycard}}
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tasks-2" *ngIf='!detailNoti.status'>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Action center</h4>
+              </div>
+              <div class="card-content">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-content text-center">
+                      <h5>Bạn có thể cho User này đặt phòng dữ chỗ và liên hệ thông qua Email hoặc có thể không đồng ý thuê bằng
+                        cách Cancel</h5>
+                      <!--<button class="btn btn-rose btn-fill" onclick="demo.showSwal('warning-message-and-cancel')">Lựa chọn</button>-->
+                      <button class="btn btn-rose btn-fill" (click)="showAlert()">Lựa chọn</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tasks-2">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Action center</h4>
+              </div>
+              <div class="card-content" style="text-align: center">
+                <h5>User này đã thực hiện đặt phòng thành công!</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

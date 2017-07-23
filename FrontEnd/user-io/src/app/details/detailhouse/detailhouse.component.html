@@ -649,7 +649,7 @@
                         <td *ngIf='!item.status'><span class="label label-success">Trống</span></td>
                         <td>
                           <div class="btn-group">
-                            <a class="btn btn-xs btn-round btn-o btn-green dropdown-toggle" (click)='sendNotify(item._id, item.title)'><span class="fa fa-pencil"></span>Thuê</a>
+                            <button class="btn btn-xs btn-round btn-o btn-green dropdown-toggle" (click)='sendNotify(item._id, item.title)' *ngIf='!item.status ? "disable": ""'><span class="fa fa-pencil"></span>Thuê</button>
                           </div>
                         </td>
                       </tr>

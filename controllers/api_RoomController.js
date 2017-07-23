@@ -110,6 +110,55 @@ module.exports = {
                 results: results
             });
         });
+    },
+    getInfoRentRoomByIdRoom: function (req, res) {
+        var id = req.params.id_room;
+        roomService.findRentRoombyId(id, (err, info) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            if (info) {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: info
+                    }
+                });
+            }
+            else {
+                return res.status(404).json({
+                    code: res.statusCode,
+                    results: {
+                        message: 'Not found',
+                        doc: null
+                    }
+                });
+            }
+        });
+    },
+    deletedUserRentRoom: function(req, res){
+        var id_room= req.params.id;
+        roomService.removeRentRoom(id_room, (err, result)=>{
+            if(err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            return res.status(200).json({
+                code: res.statusCode,
+                results: {
+                    message: null,
+                    doc: result
+                }
+            });
+        });
     }
 
 }

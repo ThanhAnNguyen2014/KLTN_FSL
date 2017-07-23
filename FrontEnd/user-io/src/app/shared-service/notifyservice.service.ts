@@ -9,7 +9,7 @@ export class NotifyserviceService {
   saveNotify(data){
     console.log(data);
     return new Promise((resolve, reject)=>{
-      this.http.post('http://localhost:3300/api/v1/notify', data)
+      this.http.post('https://hcmutefslio.herokuapp.com/api/v1/notify', data)
       .map(res=>res.json())
       .subscribe(res=>{
         resolve(res);

@@ -7,6 +7,7 @@ import { FirebaseApp } from 'angularfire2';
 import { Observable } from 'rxjs';
 import { Ng2ImgMaxService } from 'ng2-img-max';
 
+declare var swal: any;
 declare var $: any;
 @Component({
   selector: 'app-rooms',
@@ -77,9 +78,9 @@ export class RoomsComponent implements OnInit {
 
   LoadTablebyId() {
     this.loadhousebyid = this.loadhousebyid;
-    console.log('bbbbbb' + this.loadhousebyid);
     this.roomsservice.GetListRoom(this.loadhousebyid).subscribe((response: any) => {
       this.rooms = response;
+      console.log(response);
       $.getScript('../../../../assets/js/init/initDataTable.js');
     }, error => {
       console.log(error);
@@ -88,7 +89,6 @@ export class RoomsComponent implements OnInit {
 
   LoadTablebyId2() {
     this.loadhousebyid = this.loadhousebyid;
-    console.log('bbbbbb' + this.loadhousebyid);
     this.roomsservice.GetListRoom(this.loadhousebyid).subscribe((response: any) => {
       this.rooms = response;
     }, error => {
@@ -96,18 +96,10 @@ export class RoomsComponent implements OnInit {
     });
   }
 
-  // LoadTable() {
-  //   this.roomsservice.GetListRoom().subscribe((response: any) => {
-  //     this.rooms = response;
-  //     $.getScript('../../../../assets/js/init/initDataTable.js');
-  //   }, error => {
-  //     console.log(error);
-  //   });
-  // }
-
   LoadRoomType() {
     this.roomsservice.GetListRoomType().subscribe((response: any) => {
       this.roomtypes = response;
+      console.log(response);
       $.getScript('../../../../assets/js/plugins/jquery.select-bootstrap.js');
       if ($(".selectpicker").length != 0) {
         $(".selectpicker").selectpicker();
@@ -121,8 +113,7 @@ export class RoomsComponent implements OnInit {
     this.roomsservice.GetListHouse().subscribe((response: any) => {
       this.houses = response;
       this.loadhousebyid = this.houses[0]._id;
-      console.log('aaaaa' + this.loadhousebyid);
-       this.LoadTablebyId();
+      this.LoadTablebyId();
       $.getScript('../../../../assets/js/plugins/jquery.select-bootstrap.js');
       setTimeout(() => {
         $('.select2-dropdown').selectpicker('refresh');
@@ -133,8 +124,9 @@ export class RoomsComponent implements OnInit {
   }
 
   LoadSingleRoomType(id: object) {
-    this.roomsservice.GetSingleRoomType(id).subscribe((response: any) => {
-      this.roomtype = response;
+    this.roomsservice.GetSingleRoomType(id).subscribe((response) => {
+      this.roomtype = response.doc;
+      console.log(response);
       this.roomtype.no_room = this.roomtype.no_room + this.temp;
       this.temp = 0;
       this.roomsservice.UpdateValueRoomType(id, this.roomtype).subscribe(res => { });
@@ -163,23 +155,49 @@ export class RoomsComponent implements OnInit {
     });
   }
 
-  Delete(id: object) {
-    let confirmResult = confirm("Are you sure to delete Room?");
-    if (confirmResult) {
+  DeletedRoom(id: object, roomtitle) {
+    var that = this;
+    swal({
+      title: 'Are you sure?',
+      text: "Are you sure you want to delete " + roomtitle + "?",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      confirmButtonText: 'Yes!',
+      buttonsStyling: false
+    }).then(function () {
       let temp_id: any;
-      this.roomsservice.GetSingleRoom(id).subscribe((res: any) => {
+      that.roomsservice.GetSingleRoom(id).subscribe((res: any) => {
         temp_id = res.room.id_roomtype;
       });
-      this.roomsservice.Delete(id).subscribe((response: any) => {
-        if (response) {
-          alert('Delete ok');
-          this.temp = -1;
-          this.LoadSingleRoomType(temp_id);
-          //this.LoadTable();
+      that.roomsservice.Delete(id).subscribe((response: any) => {
+        if (response === 'Delete room success!') {
+          console.log(response);
+
+          that.temp = -1;
+          that.LoadSingleRoomType(temp_id);
+          swal({
+            title: 'Deleted success!',
+            text: 'Your request has been fulfilled',
+            type: 'success',
+            confirmButtonClass: "btn btn-success",
+            buttonsStyling: false
+          })
+        }
+        else{
+          swal({
+            title: 'Delete failed!',
+            text: response,
+            type: 'warning',
+            confirmButtonClass: "btn btn-warning",
+            buttonsStyling: false
+          })
         }
       }, error => {
         console.log(error);
       });
-    }
+
+    });
   }
 }

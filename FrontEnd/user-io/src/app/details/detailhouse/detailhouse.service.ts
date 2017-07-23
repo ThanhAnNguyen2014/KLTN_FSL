@@ -30,7 +30,7 @@ export class DetailhouseService {
       'Accept': 'application/json'
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.get('http://localhost:3300/api/v1/check/rentroom', options).map((res) => res.json().results);
+    return this.http.get('https://hcmutefslio.herokuapp.com/api/v1/check/rentroom', options).map((res) => res.json().results);
   }
   getIdUser() {
     var jwt = JSON.parse(localStorage.getItem('currentUser'));

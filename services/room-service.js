@@ -114,6 +114,30 @@ module.exports = {
             return callback('Invalid ObjectId');
         }
     },
+    findRentRoombyId: function (id, callback) {
+        Models.Rent_Room_Detail.findOne({ id_room: id }, (err, rentroom) => {
+            if (err) return callback(err);
+            if (rentroom) {
+                return callback(null, rentroom);
+            }
+            else return callback(null, null);
 
+        }).populate('id_user', 'username email phone address gender identitycard');
+    },
+    removeRentRoom: function (id_room, callback) {
+        // Find and remove rentroom
+        Models.Rent_Room_Detail.findOneAndRemove({ id_room: id_room }, (err, rentroom) => {
+            // remove notify
+            if (err) return callback(err);
+            Models.Notifycation.findOneAndRemove({ id_room: id_room }, (err, noti) => {
+                if (err) return callback(err);
+                // update status room
+                Models.Room.findByIdAndUpdate(id_room, { status: false }, (err, room) => {
+                    if (err) return callback(err);
+                    return callback(null, room);
+                });
+            });
+        });
+    }
 
 }

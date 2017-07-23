@@ -20,7 +20,7 @@ export class DetailroomService {
   private apiUrlHouse_all = "https://hcmutefslio.herokuapp.com/api/v1/houses/all";
 
 
-  private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/landlord/5919ac4cdfc17f0004e2006c";
+  private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/landlord/";
 
   constructor(
     private _http: Http,
@@ -52,7 +52,16 @@ export class DetailroomService {
 
 
   GetSingle(): Observable<any> {
-    return this._http.get(this.apiUrl, this.options).map((response) => response.json().results.doc)
+    return this._http.get(this.apiUrl + this.id, this.options).map((response) => response.json().results.doc)
+  }
+  EditRoom(id, content): Observable<any> {
+    return this._http.put(this.apiUrlRoom + id, content, this.options).map(res => res.json().results);
+  }
+  getDetailRentRoom(id): Observable<any> {
+    return this._http.get('https://hcmutefslio.herokuapp.com/api/v1/room/rentroom/' + id, this.options).map(res => res.json().results);
+  }
+  deletedRentRoomUser(id): Observable<any> {
+    return this._http.delete('https://hcmutefslio.herokuapp.com/api/v1/room/rentroom/deleted/' + id, this.options).map(res => res.json().results);
   }
 
 }

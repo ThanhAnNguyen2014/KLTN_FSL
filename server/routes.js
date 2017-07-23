@@ -66,6 +66,8 @@ module.exports = function (app) {
     router.delete('/api/v1/room/:id', ensureAuthenticatedLandlord, api_roomController.RemoveRoomById);
     router.get('/api/v1/rooms', ensureAuthenticatedLandlord, api_roomController.GetAllRoom);
     router.get('/api/v1/rooms/:id', ensureAuthenticatedLandlord, api_roomController.GetRoomByIdHouse);
+    router.get('/api/v1/room/rentroom/:id_room', ensureAuthenticatedLandlord, api_roomController.getInfoRentRoomByIdRoom);
+    router.delete('/api/v1/room/rentroom/deleted/:id', ensureAuthenticatedLandlord, api_roomController.deletedUserRentRoom);
     /**section HomePage*/
     router.get('/api/v1/home/houses', api_homeuserController.getHousesOnHomePage);
     router.get('/api/v1/home/house/:id', api_homeuserController.getHouseById);
@@ -94,6 +96,9 @@ module.exports = function (app) {
     router.get('/api/v1/notify/old/:id_landlord', api_houseController.getTenNotifyOld);
     router.get('/api/v1/notify/allnew/:id_landlord', api_houseController.getAllNotifyNew);
     router.get('/api/v1/notify/allold/:id_landlord', api_houseController.getAllNotifyOld);
+    router.get('/api/v1/notify/detail/:id', api_houseController.getNotifyById);
+    router.get('/api/v1/notify/detail/accept/:id', api_houseController.acceptRentRoom);
+    router.get('/api/v1/notify/detail/notaccept/:id', api_houseController.cancelRentRoom);
     router.get('/api/v1/check/rentroom', ensureAuthenticatedUser, api_houseController.checkUserByIdRentRoom);
     // section admin
     router.get('/admin/login', adminController.get_login);

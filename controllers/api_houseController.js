@@ -2,6 +2,8 @@ var Models = require('../models');
 var houseService = require('../services/house-service');
 var express = require('express');
 var http = require('http');
+var nodemailer = require('nodemailer');
+var config = require('../server/config');
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io')(server);
@@ -504,7 +506,28 @@ module.exports = {
             }
         });
     },
-    checkUserByIdRentRoom(req, res) {
+    getNotifyById: function (req, res) {
+        var id = req.params.id;
+        houseService.findDetailNotifyById(id, (err, notify) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                return res.status(200).json({
+                    code: res.statusCode,
+                    results: {
+                        message: null,
+                        doc: notify
+                    }
+                });
+            }
+        });
+    },
+    checkUserByIdRentRoom:function(req, res) {
         var id_user = req.userId.id;
         houseService.findUserByIdRentRoom(id_user, (err, user) => {
             if (err) return res.status(500).json({
@@ -537,5 +560,117 @@ module.exports = {
                 })
             }
         });
+    },
+    acceptRentRoom:function(req, res) {
+        var id = req.params.id;
+        houseService.acceptRentRoom(id, (err, result) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                if (result.status == true) {
+                    // send mail
+                    // create reusable transporter object using the default SMTP transport
+                    var transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        secure: true, // secure:true for port 465, secure:false for port 587
+                        auth: {
+                            user: config.email,
+                            pass: config.password
+                        }
+                    });
+                    // setup email data with unicode symbols
+                    var mailOptions = {
+                        from: '"FSL-IO 👻" <' + config.email + '>', // sender address
+                        to: result.email_user, // list of receivers
+                        subject: '[FSL-IO] Thông Báo Đặt Phòng Thành Công ✔.', // Subject line
+                        text: 'Bạn đã được đặt phòng thành công. Hãy liên hệ với chủ trọ để được biết thêm thông tin chi tiết thông qua ' + result.info_landlord.email + ' hoặc ' + result.info_landlord.phone + '. Cảm ơn bạn đã lựa chọn hệ thống của chúng tôi!.', // plain text body
+                    };
+                    // send mail with defined transport object
+                    transporter.sendMail(mailOptions, (error, info) => {
+                        if (error) {
+                            return console.log(error);
+                        }
+                        console.log('Message %s sent: %s', info.messageId, info.response);
+                    });
+                    // response
+                    return res.status(200).json({
+                        code: res.statusCode,
+                        results: {
+                            message: null,
+                            doc: result
+                        }
+                    });
+                }
+                else {
+                    return res.status(500).json({
+                        code: res.statusCode,
+                        results: {
+                            message: 'Error procces server!',
+                            doc: null
+                        }
+                    });
+                }
+            }
+        });
+    },
+    cancelRentRoom:function(req, res) {
+        var id = req.params.id;
+        houseService.notAcceptRentRoom(id, (err, result) => {
+            if (err) return res.status(500).json({
+                code: res.statusCode,
+                results: {
+                    message: err,
+                    doc: null
+                }
+            })
+            else {
+                if (result.status == true) {
+                    // send email 
+                    var transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        secure: true, // secure:true for port 465, secure:false for port 587
+                        auth: {
+                            user: config.email,
+                            pass: config.password
+                        }
+                    });
+                    // setup email data with unicode symbols
+                    var mailOptions = {
+                        from: '"FSL-IO 👻" <' + config.email + '>', // sender address
+                        to: result.email_user, // list of receivers
+                        subject: '[FSL-IO] Thông Báo Đặt Phòng ✔.', // Subject line
+                        text: 'Yêu cầu đặt phòng của bạn không được Chủ trọ chấp nhận. Hãy liên hệ với chủ trọ để được biết thêm thông tin chi tiết thông qua ' + result.info_landlord.email + ' hoặc ' + result.info_landlord.phone + '. Cảm ơn bạn đã lựa chọn hệ thống của chúng tôi!.', // plain text body
+                    };
+                    // send mail with defined transport object
+                    transporter.sendMail(mailOptions, (error, info) => {
+                        if (error) {
+                            return console.log(error);
+                        }
+                        console.log('Message %s sent: %s', info.messageId, info.response);
+                    });
+                    return res.status(200).json({
+                        code: res.statusCode,
+                        results: {
+                            message: null,
+                            doc: result
+                        }
+                    });
+                }
+                else {
+                    return res.status(500).json({
+                        code: res.statusCode,
+                        results: {
+                            message: 'Invalid ObjectId',
+                            doc: null
+                        }
+                    });
+                }
+            }
+        })
     }
 }

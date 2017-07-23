@@ -2,20 +2,19 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
-
-                <div class="card">
+                <div class="card" >
                     <div class="card-header card-header-icon" data-background-color="rose">
                         <i class="material-icons">person</i>
                     </div>
                     <div class="card-content form-horizontal">
-                        <form #formRenter="ngForm" (ngSubmit)="SaveFormRenter(formRenter)">
+                        <form *ngIf='rentroom'>
                             <h4 class="card-title">Renter's Information</h4>
                             <div class="row">
                                 <label class="col-md-3 label-on-left">Renter's name</label>
                                 <div class="col-md-9">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" [disabled]="!flagRenter" name="name" class="form-control">
+                                        <input type="text" [disabled]="!flagRenter" name="name" class="form-control" value="{{rentroom.id_user.email}}">
                                     </div>
                                 </div>
                             </div>
@@ -25,7 +24,7 @@
                                     <div class="form-group label-floating">
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="optionsRadios" [disabled]="!flagRenter" [checked]="true"> Male                                             
+                                            <input *ngIf='rentroom.id_user.gender==true' type="radio" name="optionsRadios" [disabled]="!flagRenter" [checked]="true"> Male                                             
                                         </label>
                                         </div>
                                     </div>
@@ -34,19 +33,18 @@
                                     <div class="form-group label-floating">
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="optionsRadios" [disabled]="!flagRenter" [checked]="false"> Female                                            
+                                            <input *ngIf='rentroom.id_user.gender==false' type="radio" name="optionsRadios" [disabled]="!flagRenter" [checked]="true"> Female                                            
                                         </label>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <label class="col-md-3 label-on-left">Identity Card</label>
                                 <div class="col-md-9">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" [disabled]="!flagRenter" name="identitycard" class="form-control">
+                                        <input type="text" [disabled]="!flagRenter" name="identitycard" class="form-control" value="{{rentroom.id_user.identitycard}}">
                                     </div>
                                 </div>
                             </div>
@@ -54,41 +52,35 @@
                                 <label class="col-md-3 label-on-left">Day's rental</label>
                                 <div class="col-md-9">
                                     <div class="form-group label-floating is-empty">
-                                        <input type="text" class="form-control datepicker" name="birthday" [ngModel]="landlord?.birthday | date: 'dd/MM/yyyy'" (ngModelChange)="landlord.birthday=$event" />
+                                        <input type="text" [disabled]="!flagRenter" class="form-control" name="birthday" value="{{rentroom.rent_day|date:'dd/MM/yyyy  HH:mm a'}}"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-button">
-                                        <button type="button" class="btn btn-fill btn-success" (click)="flagRenter=true"><i class="material-icons">mode_edit</i>Edit</button>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group form-button">
-                                        <button type="submit" class="btn btn-fill btn-behance"><i class="material-icons">done</i></button>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group form-button">
-                                        <button type="button" class="btn btn-fill btn-rose" (click)="flagRenter=false"><i class="material-icons">clear</i></button>
+                                        <button type="button" class="btn btn-fill btn-danger" (click)='deleteRentRoomUser()'><i class="material-icons">delete_forever</i>Delete</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                        <div *ngIf='!rentroom'>
+                            <h4 class="card-title">Renter's Information</h4>
+                            <div class="card-content">
+                                <label>Hiện tại phòng chưa có người đặt!</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-7">
                 <div class="card">
-
                     <div class="card-header card-header-icon" data-background-color="rose">
                         <i class="material-icons">home</i>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Room's Information</h4>
-                        <form class="form-horizontal" #formRoom="ngForm" (ngSubmit)="SaveFormRoom(formRoom)">
+                        <form class="form-horizontal" #formRoom="ngForm" (ngSubmit)="SaveFormRoom(formRoom.value)">
                             <div class="row">
                                 <label class="col-md-3 label-on-left">Room code</label>
                                 <div class="col-md-9">
@@ -106,8 +98,6 @@
                                         <input type="number" [disabled]="!flagRoom" class="form-control" required name="no_people" [(ngModel)]="room?.roomtype.no_people">
                                     </div>
                                 </div>
-
-
                                 <label class="col-md-2 label-on-left">Price of room</label>
                                 <div class="col-md-4">
                                     <div class="form-group label-floating is-empty">
@@ -118,29 +108,20 @@
                             </div>
                             <div class="row">
                                 <label class="col-md-2 label-on-left">Room type</label>
-                                <div class="col-md-4">
-                                    <div>
-                                        <select [disabled]="!flagRoom" class="select2-dropdown" data-style="select-with-transition" data-size="3" name="id_roomtype" [(ngModel)]="room?.room.id_roomtype">
-                                                <option class="text-right" *ngFor="let roomtype of roomtypes" [ngValue]="roomtype._id" >{{roomtype.title}}</option>
+                                <div class="col-sm-4">
+                                    <div>                    
+                                        <select class="select2-dropdown"  data-style="select-with-transition"  name="id_roomtype" data-size="3"
+                                            [(ngModel)]="room?.room.id_roomtype">
+                                            <option class="text-right" *ngFor="let roomtype of roomtypes" [value]="roomtype._id" >{{roomtype.title}}</option>
                                             </select>
                                     </div>
                                 </div>
-
                                 <label class="col-md-1 label-on-left">House</label>
                                 <div class="col-md-4">
-                                    <select class="select2-dropdown" data-style="select-with-transition" [disabled]="!flagRoom" data-size="3" name="id_house" [(ngModel)]="room?.room.id_house">
-                                            <option class="text-right" *ngFor="let house of houses" [ngValue]="house._id" >{{house.title}}</option>
+                                    <select class="select2-dropdown" data-style="select-with-transition" [disabled]="!flagRoom" data-size="3" name="id_house"
+                                        [(ngModel)]="room?.room.id_house">
+                                            <option class="text-right" *ngFor="let house of houses" [value]="house._id" >{{house.title}}</option>
                                         </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="col-sm-2 label-on-left">Room type</label>
-                                <div class="col-sm-4">
-                                    <div>
-                                        <select class="select2-dropdown" data-style="select-with-transition" [disabled]="!flagRoom" name="id_roomtype" data-size="3" [(ngModel)]="room?.room.id_roomtype">
-                                            <option class="text-right" *ngFor="let roomtype of roomtypes" [ngValue]="roomtype._id" >{{roomtype.title}}</option>
-                                            </select>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -159,7 +140,7 @@
                                         <span class="fileinput-exists">Change</span>
                                         <input type="file" name="image" (change)="fileChangeEvent($event)" />
                                         </span>
-                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        <a href="#pablo" (click)="deleteFiles()" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +163,6 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>

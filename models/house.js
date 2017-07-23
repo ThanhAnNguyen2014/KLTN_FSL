@@ -3,14 +3,14 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var HouseSchema = new Schema({
-    id_landlord: { type: ObjectId },
+    id_landlord: { type: ObjectId , ref:'Landlord' },
     status: { type: String },
     check_status: { type: Boolean, default: true }, // Admin check new post
     longitude: { type: String },
     latitude: { type: String },
     id_ward: { type: ObjectId },
     price: { type: Number },
-    image: { type: String },
+    image: { type: String, default:'./assets/img/image-house-template.jpg' },
     title: { type: String },
     description: { type: String },
     address: { type: String },

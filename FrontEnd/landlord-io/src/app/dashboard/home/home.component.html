@@ -49,43 +49,31 @@
                                 <a href="#pill1" data-toggle="tab">New</a>
                             </li>
                             <li>
-                                <a href="#pill2" data-toggle="tab">Old</a>
+                                <a href="#pill2" data-toggle="tab" (click)='loadNotifyOld()'>Old</a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="pill1" >
+                            <div class="tab-pane active" id="pill1">
                                 <div class="alert alert-danger alert-with-icon" data-notify="container" *ngFor='let item of notifynew'>
                                     <i class="material-icons" data-notify="icon">notifications</i>
                                     <span class="text-right" data-notify="message">{{item.date |amTimeAgo}}</span>
                                     <button type="button" aria-hidden="true" class="close">
-                                        <a href="#" class="btn btn-simple btn-icon"><i class="material-icons">dvr</i></a>
-                                        <i class="material-icons">done</i>
+                                        <a href="#" [routerLink]="['/dashboard/notifications/detail/'+ item._id]" class="btn btn-simple btn-icon"><i class="material-icons">dvr</i></a>
                                     </button>
                                     <span data-notify="message">{{item.description}}</span>
-                                    <!--<span class="text-right" data-notify="message">3 phút</span>-->
                                 </div>
+                                <div *ngIf='notifynew?.length==0' style="color: red">Không có thông báo nào</div>
                             </div>
                             <div class="tab-pane" id="pill2">
-                                <div class="alert alert-danger alert-with-icon" data-notify="container">
+                                <div class="alert alert-primary alert-with-icon" data-notify="container" *ngFor='let itemold of notifyold'>
                                     <i class="material-icons" data-notify="icon">notifications</i>
-                                    <span class="text-right" data-notify="message">3 phút</span>
+                                    <span class="text-right" data-notify="message">{{itemold.date |amTimeAgo}}</span>
                                     <button type="button" aria-hidden="true" class="close">
-                                        <a href="#" class="btn btn-simple btn-icon"><i class="material-icons">dvr</i></a>
-                                        <i class="material-icons">close</i>
+                                        <a href="#" [routerLink]="['/dashboard/notifications/detail/'+ itemold._id]" class="btn btn-simple btn-icon"><i class="material-icons">dvr</i></a>
                                     </button>
-                                    <span data-notify="message">Thu tiền nhà tháng 5</span>
-                                    <!--<span class="text-right" data-notify="message">3 phút</span>-->
+                                    <span data-notify="message">{{itemold.description}}</span>
                                 </div>
-                                <div class="alert alert-primary alert-with-icon" data-notify="container">
-                                    <i class="material-icons" data-notify="icon">notifications</i>
-                                    <span class="text-right" data-notify="message">3 ngày</span>
-                                    <button type="button" aria-hidden="true" class="close">
-                                        <a href="#" class="btn btn-simple btn-icon"><i class="material-icons">dvr</i></a>
-                                        <i class="material-icons">close</i>
-                                    </button>
-                                    <span data-notify="message">Nguyễn Trọng Nghĩa đã đặt phòng P03 của bạn</span>
-                                    <!--<span class="text-right" data-notify="message">3 ngày</span>-->
-                                </div>
+                                <div *ngIf='notifyold?.length==0' style="color: red">Không có thông báo nào</div>
                             </div>
                         </div>
                     </div>

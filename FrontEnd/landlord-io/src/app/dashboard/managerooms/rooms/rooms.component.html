@@ -64,7 +64,7 @@
                                                             <div class="col-lg-10 col-md-8 col-sm-6">
                                                                 <select class="select2-dropdown" data-style="select-with-transition" required name="id_roomtype" data-size="3" [(ngModel)]="newroom.id_roomtype">
                                                                     <option class="text-right" disabled selected="true" value="undefined">Choose Room Type</option>
-                                                                    <option class="text-right" *ngFor="let roomtype of roomtypes" [ngValue]="roomtype._id" >{{roomtype.title}}</option>
+                                                                    <option class="text-right" *ngFor="let roomtype of roomtypes" [value]="roomtype._id" >{{roomtype.title}}</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -75,7 +75,7 @@
                                                             <div class="col-lg-10 col-md-8 col-sm-6">
                                                                 <select class="select2-dropdown" data-style="select-with-transition" required name="id_house" data-size="3" [(ngModel)]="newroom.id_house">
                                                                     <option class="text-right" disabled selected="true" value="undefined">Choose House</option>
-                                                                    <option class="text-right" *ngFor="let house of houses" [ngValue]="house._id" >{{house.title}}</option>
+                                                                    <option class="text-right" *ngFor="let house of houses" [value]="house._id" >{{house.title}}</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -140,25 +140,21 @@
                                             <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>Room</th>
-                                                        <th>Customer</th>
-                                                        <th>Identity Card</th>
-                                                        <th>Date</th>
+                                                        <th class="text-center">#</th>
+                                                        <th class="text-center">Room Code</th>
+                                                        <th class="text-center">Price</th>
+                                                        <th class="text-center">Date</th>
                                                         <th class="text-center">Status</th>
                                                         <th class="disabled-sorting text-center">Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let rm of rooms">
-                                                        <td>{{rm.title}}</td>
-                                                        <td>{{rm._id}}</td>
-                                                        <td class="text-center"></td>
-                                                        <td class="text-center"></td>
-                                                        <td class="text-center">
-                                                            <button type="button" rel="tooltip" class="btn btn-simple btn-warning btn-icon">
-                                                                <i class="material-icons">home</i>
-                                                            </button>
-                                                        </td>
+                                                    <tr *ngFor="let rm of rooms; let i=index">
+                                                        <td class="text-center">{{i+1}}</td>
+                                                        <td class="text-center">{{rm.title}}</td>
+                                                        <td class="text-center">{{rm.room_price.price|currency:'VND':true}}</td>
+                                                        <td class="text-center">{{rm.room_price.create_date|date:'dd/MM/yyyy  HH:mm a'}}</td>
+                                                        <td class="text-center">{{rm.status ? 'Đã thuê': 'Trống'}}</td>
                                                         <td class="text-center">
                                                             <button type="button" rel="tooltip" [routerLink]="['/dashboard/managerooms/roomdetail/' + rm._id]" class="btn btn-simple btn-success btn-icon">
                                                                 <i class="material-icons">dvr</i>
@@ -166,9 +162,10 @@
                                                             <button type="button" rel="tooltip" [routerLink]="['/dashboard/managerooms/roomdetail/' + rm._id]" class="btn btn-simple btn-behance btn-icon">
                                                                 <i class="material-icons">border_color</i>
                                                             </button>
-                                                            <button type="button" rel="tooltip" class="btn btn-simple btn-danger btn-icon" (click)="Delete(rm._id)">
+                                                            <button class="btn btn-simple btn-danger btn-icon" (click)="DeletedRoom(rm._id, rm.title)"><i class="material-icons">delete_forever</i></button>
+                                                            <!--<button type="button" rel="tooltip" class="btn btn-simple btn-danger btn-icon" (click)="Delete(rm._id)">
                                                                 <i class="material-icons">delete_forever</i>
-                                                            </button>
+                                                            </button>-->
                                                         </td>
                                                     </tr>
                                                 </tbody>

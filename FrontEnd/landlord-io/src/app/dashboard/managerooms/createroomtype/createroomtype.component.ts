@@ -35,14 +35,6 @@ export class CreateroomtypeComponent implements OnInit {
     ngOnInit() {
         this.roomtype = {};
         this.LoadData();
-        // this.router.events.subscribe((evt) => {
-        //     if (!(evt instanceof NavigationEnd)) {
-        //         return;
-        //     }
-        //     console.log(document.body.scrollTop);
-        //     document.body.scrollTop = 0;
-        //     //window.scrollTo(10, 0)
-        // })
     }
 
 

@@ -18,14 +18,16 @@ declare var $: any;
 export class HomeComponent implements OnInit {
     public socket;
     public notifynew;
-    constructor(private notifyService: NotifyserviceService, private homeService: HomeService) { }
+    public notifyold;
+    constructor(private notifyService: NotifyserviceService, private homeService: HomeService) {
+        initNotify()
+    }
 
     ngOnInit() {
         $.getScript('../assets/js/init/initMenu.js');
         //initVectorMap(),
         initAniCharts(),
-            initTooltips(),
-            initNotify()
+        initTooltips(),
         this.getTenNotifyNew();
         this.socket = io('http://localhost:4000');
         this.socket.on('new-notify', (data) => {
@@ -44,6 +46,16 @@ export class HomeComponent implements OnInit {
         }, err => {
             console.log(err);
         })
+    }
+    getTenNotifyOld() {
+        this.homeService.getTenNotifyOldConstructor().subscribe(res => {
+            this.notifyold = res;
+        }, err => {
+            console.log(err);
+        });
+    }
+    loadNotifyOld() {
+        this.getTenNotifyOld();
     }
 
 }

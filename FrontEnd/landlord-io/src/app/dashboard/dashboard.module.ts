@@ -23,6 +23,8 @@ import { AuthGuard } from '../Auth/guards/auth.guard';
 import { AuthenticationService } from '../Auth/services/authentication.service';
 
 import { MomentModule } from 'angular2-moment';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { DetailnotificationComponent } from './notifications/detailnotification/detailnotification.component';
 
 
 const appRoutes: Routes = [
@@ -39,6 +41,8 @@ const appRoutes: Routes = [
       { path: 'managerooms/createroomtype', component: CreateroomtypeComponent, canActivate: [AuthGuard] },
       { path: 'managerooms/rooms', component: RoomsComponent, canActivate: [AuthGuard] },
       { path: 'managerooms/roomdetail/:id', component: DetailroomComponent, canActivate: [AuthGuard] },
+      { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
+      { path: 'notifications/detail/:id', component: DetailnotificationComponent, canActivate: [AuthGuard] }
     ]
   },
 ]
@@ -67,8 +71,10 @@ const appRoutes: Routes = [
     ListhouseComponent,
     EdithouseComponent,
     DetailroomComponent,
+    NotificationsComponent,
+    DetailnotificationComponent,
   ],
-  providers:[
+  providers: [
     AuthGuard,
     AuthenticationService
   ]
