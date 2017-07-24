@@ -31,7 +31,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>Accept Posts Management <small>Posts</small></h2>
+						<h2>Accept Landlord's Post Manager <small>Posts</small></h2>
 						<ul class="nav navbar-right panel_toolbox">
 							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 							</li>
@@ -45,27 +45,30 @@
 							<thead>
 								<tr>
 									<th class="text-center">#</th>
-									<th class="text-center">UserName</th>
-									<th class="text-center">Email</th>
-									<th class="text-center">Phone</th>
-									<th class="text-center">Action</th>
+									<th class="text-center">Title</th>
+									<th class="text-center">Address</th>
+									<th class="text-center">Create date</th>
+									<th class="text-center">Price</th>
+									<th class="text-center">Rate</th>
+									<th class="text-center">Status</th>
+									
 								</tr>
 							</thead>
 							<tbody>
-								{{#each landlords}}
+								{{#each houses}}
 								<tr>
 									<td>{{@index}}</td>
-									<td>{{username}}</td>
-									<td>{{email}}</td>
-									<td class="text-center">{{phone}}</td>
-									<td class="text-center">
-										<a href="/admin/detail/approvice/house/{{_id}}" type="button" class="btn btn-success">Xem houses</a>
+									<td>{{title}}</td>
+									<td>{{address}}
 									</td>
+									<td>{{dateTime create_date}}</td>
+									<td>{{number price }} VNĐ</td>
+									<td class="text-center">{{rate}}</td>
+									<td class="text-center">Đã duyệt</td>									
 								</tr>
 								{{/each}}
 							</tbody>
 						</table>
-
 					</div>
 				</div>
 			</div>

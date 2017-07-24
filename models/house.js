@@ -7,10 +7,10 @@ var HouseSchema = new Schema({
     status: { type: String },
     check_status: { type: Boolean, default: true }, // Admin check new post
     longitude: { type: String },
-    latitude: { type: String },
+    latitude: { type: String }, 
     id_ward: { type: ObjectId },
     price: { type: Number },
-    image: { type: String, default:'./assets/img/image-house-template.jpg' },
+    image: { type: String, default:'https://firebasestorage.googleapis.com/v0/b/fsl-io.appspot.com/o/images-house%2Fimage-house-template.jpg?alt=media&token=dc26be9e-f11e-4581-8733-b064bac66a36' },
     title: { type: String },
     description: { type: String },
     address: { type: String },

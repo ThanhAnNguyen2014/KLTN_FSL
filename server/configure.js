@@ -17,7 +17,8 @@ var path = require('path'),
 var elastic = require('../services/elastic-client');
 var houseservice = require('../services/house-service');
 var Models = require('../models');
-
+var formatCurrency = require('format-currency');
+var date = require('date-and-time');
 
 module.exports = function (app) {
     app.engine('handlebars', exphbs.create({
@@ -36,6 +37,15 @@ module.exports = function (app) {
             },
             timeago: function (timestamp) {
                 return moment(timestamp).startOf('minute').fromNow();
+            },
+            number: function (numberinput) {
+                return formatCurrency(numberinput);
+            },
+            dateTime: function (date) {
+                var dateObj = new Date(date);
+                var momentObj = moment(dateObj);
+                var momentString = momentObj.format('DD/MM/YYYY HH:mm');
+                return momentString;
             }
         }
     }).engine);
@@ -66,7 +76,7 @@ module.exports = function (app) {
 
 
     //Set static Folder
-    app.use(['/public/', '/admin/public/', 'test/'], express.static(path.join(__dirname, '../public')));
+    app.use(['/admin/public', '/public', '/admin/*/public'], express.static(path.join(__dirname, '../public')));
 
     // Passpor init 
     app.use(passport.initialize());
@@ -122,7 +132,7 @@ module.exports = function (app) {
 
     }).then(() => {
         console.log('Extract data search successfully');
-    }).catch(err=>{
+    }).catch(err => {
         console.log('Unpacked data search failed');
     });
 

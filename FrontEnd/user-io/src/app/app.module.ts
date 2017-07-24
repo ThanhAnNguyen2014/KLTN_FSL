@@ -53,7 +53,7 @@ export const firebaseConfig = {
     Ng2ImgMaxModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthGuard,
     AuthenticationService,
     SharedserviceService,

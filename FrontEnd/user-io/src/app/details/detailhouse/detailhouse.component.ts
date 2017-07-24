@@ -11,13 +11,14 @@ declare var google;
 declare var InfoBox;
 import * as io from 'socket.io-client';
 import { Subscription } from "rxjs/Subscription";
+import { FacebookService, InitParams, UIParams, UIResponse } from 'ngx-facebook';
 
 
 @Component({
   selector: 'app-detailhouse',
   templateUrl: './detailhouse.component.html',
   styleUrls: ['./detailhouse.component.css'],
-  providers: [DetailhouseService, ContactService]
+  providers: [DetailhouseService, ContactService, FacebookService]
 })
 export class DetailhouseComponent implements OnInit, OnDestroy {
 
@@ -49,7 +50,8 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
     private activatedroute: ActivatedRoute,
     private auth: AuthenticationService,
     private notifySevice: NotifyserviceService,
-    private shareService: SharedserviceService
+    private shareService: SharedserviceService,
+    private fb: FacebookService
   ) { }
 
   ngOnInit() {
@@ -60,6 +62,7 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
     });
     this.getHouse(this.id);
     this.getAllRoom(this.id);
+    this.initFB();
     this.sub = this.shareService.getInfoUser().subscribe(res => {
       if (res !== null) {
         this.postComment.getInfoFromDetail();
@@ -330,7 +333,7 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
         this.socket = io('http://localhost:4000');
         this.notifySevice.saveNotify(content).then(result => {
           this.socket.emit('new-notify', result);
-           this.message = 'Bạn đã gửi thông báo đặt phòng đến chủ trọ, vui lòng theo dõi email để biết thêm thông tin chi tiết.';
+          this.message = 'Bạn đã gửi thông báo đặt phòng đến chủ trọ, vui lòng theo dõi email để biết thêm thông tin chi tiết.';
         }, err => {
           console.log(err);
         });
@@ -338,6 +341,28 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
     }, err => {
       console.log(err);
     })
+  }
+  initFB() {
+    var fbParams: InitParams = {
+      appId: '118343442136601',
+      xfbml: true,
+      version: 'v2.10'
+    };
+    this.fb.init(fbParams);
+  }
+  share(houseinput) {
+    var house = houseinput;
+    var price = (house.price).toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    let fbUiParams: UIParams = {
+      method: 'share',
+      href: 'http://localhost:4200/details/detail-house/' + house._id,
+      // href:'https://github.com/ThanhAnNguyen2014/KLTN_FSL',
+      mobile_iframe: 'true',
+      caption: 'Hãy chia sẽ thông tin cho những người cần thiết!',
+      description: house.title + 'Giá: ' + price + ' VNĐ',
+      picture: house.image,
+    };
+    this.fb.ui(fbUiParams);
   }
   ngOnDestroy(): void {
     this.sub.unsubscribe();

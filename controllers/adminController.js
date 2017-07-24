@@ -4,6 +4,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var request = require('request');
+var async = require('async');
 
 module.exports = {
     get_login: function (req, res, callback) {
@@ -19,8 +20,36 @@ module.exports = {
         res.redirect('/admin/login');
     },
     index: function (req, res, callback) {
-        res.render('admins/index', { layout: 'adminlayout.handlebars' });
-        console.log('Admin Index create success!');
+
+        async.parallel([
+            function (callback) {
+                // get Total User
+                Models.User.count({}, callback);
+            }, function (callback) {
+                // get Total Landlord
+                Models.Landlord.count({}, callback);
+
+            },
+            function (callback) {
+                // get total house
+                Models.House.count({}, callback);
+            },
+            function (callback) {
+                // get Total RentRoom
+                Models.Rent_Room_Detail.count({}, callback);
+            }
+
+        ], function (err, result) {
+            if (err) throw err;
+            var index = {};
+            index.totalUser = result[0];
+            index.totalLandlord = result[1];
+            index.totalHouse = result[2];
+            index.totalRentRoom = result[3]
+            console.log(index);
+            res.render('admins/index', { index, layout: 'adminlayout.handlebars' });
+        });
+
 
     },
     // user page management
@@ -79,10 +108,65 @@ module.exports = {
     },
     // accept page management
     accept_post: function (req, res, callback) {
-        res.render('admins/accept_post', { layout: 'adminlayout.handlebars' });
+        var landlords = [];
+        async.parallel([
+            function (callback) {
+                // get all Landlord 
+                Models.Landlord.find({}, callback).select('username email phone');
+            },
+        ],
+            (err, result) => {
+                if (err) throw err;
+                landlords = result[0];
+                res.render('admins/accept_post', { landlords, layout: 'adminlayout.handlebars' });
+            })
+    },
+    postDetail: function (req, res, callback) {
+        var id = req.params.id;
+        var houses = [];
+        // Get All House of landlord Id
+        return Models.House.find({ id_landlord: id, check_status: true }, {}, (err, house) => {
+            if (err) throw err;
+            houses = house;
+            res.render('admins/postdetail', { houses, layout: 'adminlayout.handlebars' });
+        })
+
+    },
+    approvice: function (req, res, callback) {
+        var id = req.params.id;
+        var houses = [];
+        // Get All House of landlord Id
+        return Models.House.find({ id_landlord: id, check_status: false }, {}, (err, house) => {
+            if (err) throw err;
+            houses = house;
+            res.render('admins/approvice_detail_post', { houses, layout: 'adminlayout.handlebars' });
+        })
+
+    },
+    detailHouse: function (req, res, callback) {
+        var id = req.params.id;
+        var house = {};
+        return Models.House.findById(id, (err, doc) => {
+            if (err) throw err;
+            house = doc;
+            console.log(house);
+            res.render('admins/info_detail', { house, layout: 'adminlayout.handlebars' });
+        })
     },
     not_accept_post: function (req, res, callback) {
-        res.render('admins/not_accept_post', { layout: 'adminlayout.handlebars' });
+        var landlords = [];
+        async.parallel([
+            function (callback) {
+                // get all Landlord 
+                Models.Landlord.find({}, callback).select('username email phone');
+            },
+        ],
+            (err, result) => {
+                if (err) throw err;
+                landlords = result[0];
+                res.render('admins/not_accept_post', { landlords, layout: 'adminlayout.handlebars' });
+            })
+        //res.render('admins/not_accept_post', { layout: 'adminlayout.handlebars' });
     },
     deleteUser: function (req, res, callback) {
         var _id = req.params.id;
@@ -95,9 +179,11 @@ module.exports = {
         } else {
             return res.json(false);
         }
-    }
+    },
 
 };
+
+
 
 
 /**Config passport local of Admin */

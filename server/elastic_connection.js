@@ -20,7 +20,8 @@ var config= require('../server/config');
 
 var client = new elasticsearch.Client( {  
   hosts: 
-    'https://elastic:tvheBwfuQnPekFClugkw50D4@5f40ab42130d8ebe15f6f2d120897b9b.ap-northeast-1.aws.found.io:9243/'
+    // 'https://elastic:tvheBwfuQnPekFClugkw50D4@5f40ab42130d8ebe15f6f2d120897b9b.ap-northeast-1.aws.found.io:9243/'
+    'https://elastic:1UKvOzRPAq9erhT4egck4rka@0d59ffeb5141ece59056ed6a6daa4ddf.ap-northeast-1.aws.found.io:9243/'
 });
 client.ping({
     requestTimeout: 2000,

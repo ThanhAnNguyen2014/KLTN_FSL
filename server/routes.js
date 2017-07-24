@@ -114,6 +114,9 @@ module.exports = function (app) {
     router.get('/admin/accept_post', ensureAuthenticated, adminController.accept_post);
     router.get('/admin/not_accept_post', ensureAuthenticated, adminController.not_accept_post);
     router.post('/admin/check_lock_user/:id', ensureAuthenticated, adminController.check_lock_user);
+    router.get('/admin/post-detail/:id', ensureAuthenticated, adminController.postDetail);
+    router.get('/admin/detail/house/:id', ensureAuthenticated, adminController.detailHouse);
+    router.get('/admin/detail/approvice/house/:id', ensureAuthenticated,adminController.approvice);
     // router.post('/admin/remove/:id', adminController.deleteUser);
 
 

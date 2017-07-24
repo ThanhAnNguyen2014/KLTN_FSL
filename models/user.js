@@ -14,7 +14,7 @@ var UserSchema = new Schema({
     gender: { type: Boolean, default: false }, // gender of user (male of female)
     identitycard: { type: String },
     birthday: { type: Date, default: Date.now() }, // brithday of user
-    image: { type: String, default: './assets/images/avatar-user.png' },//image of user
+    image: { type: String, default: 'https://firebasestorage.googleapis.com/v0/b/fsl-io.appspot.com/o/avatar-user%2Favatar-user.png?alt=media&token=c7c53a26-ca51-4d3c-8719-300619f3c47c' },//image of user
     id_facebook: { type: String }, // id account facebook of user if user login with facebook
     id_google: { type: String },
     create_date: { type: Date, 'default': Date.now() }, // create day current of user

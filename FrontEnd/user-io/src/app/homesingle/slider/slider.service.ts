@@ -7,7 +7,7 @@ import { JwtHelper } from 'angular2-jwt';
 export class SliderService {
 
   private apiUrl = "https://hcmutefslio.herokuapp.com/api/v1/area/";
-  private url = 'http://localhost:3300/search-house/'
+  private url = 'https://hcmutefslio.herokuapp.com/search-house/'
   constructor(private http: Http) {
 
   }
