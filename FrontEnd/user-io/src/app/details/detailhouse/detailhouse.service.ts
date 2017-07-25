@@ -42,4 +42,7 @@ export class DetailhouseService {
       username: username
     };
   }
+  getSixHouse():Observable<any>{
+    return this.http.get('https://hcmutefslio.herokuapp.com/api/v1/home/houses').map(res=>res.json().results);
+  }
 }

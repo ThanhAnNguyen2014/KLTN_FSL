@@ -6,8 +6,8 @@ module.exports = {
     getHousesOnHomePage: function (req, res) {
         // get the house in databse
         homeUserSerice.findSixHouse(function (err, results) {
-            if (err) return res.status(401).json({
-                code: 401,
+            if (err) return res.status(500).json({
+                code: 500,
                 results: err
             })
             else {

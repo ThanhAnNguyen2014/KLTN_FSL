@@ -42,6 +42,9 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
   public sub: Subscription;
   public message = '';
   public id_landlord;
+  public houseSlider: any;
+  public houseSlider1: any;
+  public houseSlider2: any;
 
   constructor(
     private detailhouseservice: DetailhouseService,
@@ -69,7 +72,8 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
       }
     }, err => {
       console.log(err);
-    })
+    });
+    this.getHousesSlider();
 
   }
   initMap() {
@@ -363,6 +367,18 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
       picture: house.image,
     };
     this.fb.ui(fbUiParams);
+  }
+  getHousesSlider() {
+    this.detailhouseservice.getSixHouse().subscribe(res => {
+      this.houseSlider = res;
+      this.houseSlider1 = this.houseSlider.slice(0, 3);
+      this.houseSlider2 = this.houseSlider.slice(3, 6);
+    }, err => {
+      console.log(err);
+    })
+  }
+  clickHouseSlider(id){
+    this.getHouse(id);
   }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
