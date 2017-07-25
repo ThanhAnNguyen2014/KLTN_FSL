@@ -41,8 +41,6 @@ export class CreateroomtypeComponent implements OnInit {
     SaveAdd(f: NgForm) {
 
         var item = [];
-        console.log('Before saving new item');
-        console.log(this.temp_arr);
         this.temp_arr.forEach(id => {
             item.push({ 'id_device': id.id });
         });
@@ -57,14 +55,10 @@ export class CreateroomtypeComponent implements OnInit {
 
         };
         this.createroomtypeservice.Add(viewModel).subscribe(res => {
-            console.log(this.roomtype);
             if (res) {
                 initNotifySuccess('Add success', 'success');
-                //alert('add success');
                 console.log(res);
-                //this.router.navigate(['/managerooms/createroomtype']);
                 this.LoadData();
-                //this.room = {};
 
             }
             this.roomtype = {};
@@ -105,12 +99,9 @@ export class CreateroomtypeComponent implements OnInit {
 
     SaveUpdate(id: object) {
         var item = [];
-        console.log(this.temp_arr);
         this.temp_arr.forEach(id => {
             item.push({ 'id_device': id.id });
         });
-        console.log('item ne');
-        console.log(item);
         this.roomtype.device = item;
         this.createroomtypeservice.Update(id, this.roomtype).subscribe(response => {
             if (response) {
@@ -133,9 +124,6 @@ export class CreateroomtypeComponent implements OnInit {
         this.showEdit = true;
         this.createroomtypeservice.GetSingle(id).subscribe((response) => {
             this.roomtype = response;
-            this.roomtype.device.map((device) => {
-                this.temp_arr.push({ 'id': device.id_device });
-            });
             this.roomtype.device.forEach(device => {
                 this.temp_arr.push({ 'id': device.id_device });
             });
@@ -145,7 +133,6 @@ export class CreateroomtypeComponent implements OnInit {
     LoadDevice() {
         this.createroomtypeservice.GetListDevice().subscribe((response: any) => {
             this.devices = response;
-            //console.log(response);
         }, error => {
             console.log(error);
         });
