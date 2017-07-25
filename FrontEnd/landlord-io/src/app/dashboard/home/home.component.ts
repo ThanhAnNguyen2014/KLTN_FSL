@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
     getTenNotifyNew() {
         this.homeService.getTenNotifyNewConstructor().subscribe(res => {
             this.notifynew = res;
+            console.log(res);
         }, err => {
             console.log(err);
         })

@@ -15,7 +15,7 @@
               <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                 <thead>
                   <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>Description</th>
                     <th>Date/Time</th>
                     <th>Status</th>
@@ -24,7 +24,7 @@
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>Description</th>
                     <th>Date/Time</th>
                     <th>Status</th>
@@ -32,8 +32,8 @@
                   </tr>
                 </tfoot>
                 <tbody>
-                  <tr *ngFor='let item of newNotify'>
-                    <td>{{item._id}}</td>
+                  <tr *ngFor='let item of newNotify; let i=index'>
+                    <td>{{i}}</td>
                     <td>{{item.description}}</td>
                     <td>{{item.date|amTimeAgo}}</td>
                     <td *ngIf='item.status===false'>Chua duyet</td>
@@ -87,7 +87,7 @@
                 </tfoot>
                 <tbody>
                   <tr *ngFor='let item of oldNotify; let i=index'>
-                    <td>{{i+1}}</td>
+                    <td>{{i}}</td>
                     <td>{{item.description}}</td>
                     <td>{{item.date|amTimeAgo}}</td>
                     <td *ngIf='item.status===true'>Đã duyệt</td>

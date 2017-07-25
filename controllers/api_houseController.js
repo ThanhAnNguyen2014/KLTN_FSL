@@ -6,8 +6,10 @@ var nodemailer = require('nodemailer');
 var config = require('../server/config');
 var app = express();
 var server = http.createServer(app);
+
 var io = require('socket.io')(server);
 io.on('connection', function (socket) {
+    console.log(server);
     console.log('User connected');
     socket.on('distconnect', function () {
         console.log('User disconnected');
@@ -18,7 +20,7 @@ io.on('connection', function (socket) {
     });
 })
 
-server.listen(4000);
+server.listen(process.env.PORT || 4000);
 
 
 
@@ -527,7 +529,7 @@ module.exports = {
             }
         });
     },
-    checkUserByIdRentRoom:function(req, res) {
+    checkUserByIdRentRoom: function (req, res) {
         var id_user = req.userId.id;
         houseService.findUserByIdRentRoom(id_user, (err, user) => {
             if (err) return res.status(500).json({
@@ -561,7 +563,7 @@ module.exports = {
             }
         });
     },
-    acceptRentRoom:function(req, res) {
+    acceptRentRoom: function (req, res) {
         var id = req.params.id;
         houseService.acceptRentRoom(id, (err, result) => {
             if (err) return res.status(500).json({
@@ -618,7 +620,7 @@ module.exports = {
             }
         });
     },
-    cancelRentRoom:function(req, res) {
+    cancelRentRoom: function (req, res) {
         var id = req.params.id;
         houseService.notAcceptRentRoom(id, (err, result) => {
             if (err) return res.status(500).json({

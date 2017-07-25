@@ -38,10 +38,14 @@ routes(app);
 // socket io
 // var io = require('socket.io')(server);
 // io.on('connection', function (socket) {
-//     console.log('user connect');
+//     console.log('User connected');
 //     socket.on('distconnect', function () {
 //         console.log('User disconnected');
-//     })
+//     });
+//     socket.on('new-notify', function (data) {
+//         console.log(data);
+//         io.emit('new-notify', { notify: data });
+//     });
 // })
 
 

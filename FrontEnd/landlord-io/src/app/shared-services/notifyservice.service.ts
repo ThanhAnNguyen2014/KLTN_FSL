@@ -12,9 +12,10 @@ export class NotifyserviceService {
     var jwt = JSON.parse(localStorage.getItem('currentUser'));
     var id = this.jwtHelper.decodeToken(jwt.token).id;
     return new Promise((resovle, reject) => {
-      this.http.get('http://localhost:3300/api/v1/notify/new/' + id)
+      this.http.get('https://hcmutefslio.herokuapp.com/api/v1/notify/new/' + id)
         .map(res => res.json().results.doc)
         .subscribe(res => {
+          console.log(res);
           resovle(res);
         }, err => {
           reject(err);
