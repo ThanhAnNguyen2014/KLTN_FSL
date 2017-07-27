@@ -29,7 +29,8 @@ export class HomeComponent implements OnInit {
         initAniCharts(),
         initTooltips(),
         this.getTenNotifyNew();
-        this.socket = io('http://localhost:4000');
+         this.socket = io('http://localhost:4000');
+         //this.socket = io('http://hcmutefslio.herokuapp.com:32066');
         this.socket.on('new-notify', (data) => {
             console.log(data);
             this.notifyService.getTenNotifyNew().then(res => {
@@ -43,7 +44,6 @@ export class HomeComponent implements OnInit {
     getTenNotifyNew() {
         this.homeService.getTenNotifyNewConstructor().subscribe(res => {
             this.notifynew = res;
-            console.log(res);
         }, err => {
             console.log(err);
         })

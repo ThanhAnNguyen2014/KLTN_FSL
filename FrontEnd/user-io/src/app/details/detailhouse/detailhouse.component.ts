@@ -334,7 +334,8 @@ export class DetailhouseComponent implements OnInit, OnDestroy {
           id_room: id_room,
           description: 'Tài khoản ' + username + ' tham gia đặt phòng ' + title_room + '.'
         }
-        this.socket = io('http://localhost:4000');
+         this.socket = io('http://localhost:4000');
+         //this.socket = io('http://hcmutefslio.herokuapp.com:32066');
         this.notifySevice.saveNotify(content).then(result => {
           this.socket.emit('new-notify', result);
           this.message = 'Bạn đã gửi thông báo đặt phòng đến chủ trọ, vui lòng theo dõi email để biết thêm thông tin chi tiết.';
